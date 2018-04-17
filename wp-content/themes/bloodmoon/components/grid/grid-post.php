@@ -109,8 +109,11 @@ if($postGrid){ ?>
 
                         <div class="blurb">
                             <?php echo the_field('grid_description', $newsEventsPost->ID); ?>
-                        </div> <?php
-                        // blurb
+                        </div>
+
+                        <a class="view-more" href="<?php echo get_permalink($newsEventsPost->ID); ?>">
+                            View More
+                        </a><?php
                         //view more button?>
                     </div><!--.post-container--><?php
                 } ?>
