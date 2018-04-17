@@ -23,7 +23,7 @@ if($graphicGrid){ ?>
             <div class="text-container"> <?php
 
                 if($gridTitle){ ?>
-                    <p class="title">
+                    <p class="header">
                         <?php echo $gridTitle; ?>
                     </p><?php
                 }
