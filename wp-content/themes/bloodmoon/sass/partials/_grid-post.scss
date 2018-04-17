@@ -1,22 +1,44 @@
 .post-grid-wrapper {
   display: flex;
 
+  .header {
+    &:after {
+      content: '';
+      display: block;
+      width: 5rem;
+      height: .2rem;
+      background-color: $lightBlue;
+      margin: 2rem 0;
+    }
+  }
+
+  // news and events grid
+  &.newsevents {
+    display: block;
+
+    .posts-container {
+      display: flex;
+      flex: 0 0 100%;
+      max-width: 100%;
+      padding: 0;
+      margin: 4rem 0;
+
+      .post-container {
+        margin: 0 0;
+        flex: 0 0 50%;
+        max-width: 50%;
+        box-sizing: border-box;
+      }
+    }
+
+
+  }
+
   .text-container {
     flex: 0 0 50%;
     max-width: 50%;
     box-sizing: border-box;
     padding: 0 2rem;
-
-    .header {
-      &:after {
-        content: '';
-        display: block;
-        width: 5rem;
-        height: .2rem;
-        background-color: $lightBlue;
-        margin: 2rem 0;
-      }
-    }
 
     .content {
       line-height: 1.5em;
@@ -60,101 +82,3 @@
     }
   }
 }
-
-//.post_grid {
-//  .inner {
-//    .text-wrapper {
-//
-//    }
-//
-//    .post-grid-wrapper {
-//      display: flex;
-//      box-sizing: border-box;
-//      justify-content: space-between;
-//      flex-wrap: wrap;
-//
-//      &.col-2 {
-//        .post-block {
-//          max-width: 100%;
-//          flex: 0 0 100%;
-//
-//          @media screen and (min-width: 768px){
-//            max-width: 50%;
-//            flex: 0 0 50%;
-//          }
-//        }
-//      }
-//
-//      &.col-3 {
-//        .post-block {
-//          max-width: 100%;
-//          flex: 0 0 100%;
-//
-//          @media screen and (min-width: 768px){
-//            max-width: 33.3%;
-//            flex: 0 0 33%;
-//          }
-//        }
-//      }
-//
-//      &.col-4 {
-//        .post-block {
-//          max-width: 100%;
-//          flex: 0 0 100%;
-//
-//          @media screen and (min-width: 768px){
-//            max-width: 25%;
-//            flex: 0 0 25%;
-//          }
-//        }
-//      }
-//
-//      &.col-5 {
-//        .post-block {
-//          max-width: 100%;
-//          flex: 0 0 100%;
-//
-//          @media screen and (min-width: 768px){
-//            max-width: 20%;
-//            flex: 0 0 20%;
-//          }
-//        }
-//      }
-//
-//      &.col-6 {
-//        .post-block {
-//          max-width: 16.66%;
-//          flex: 0 0 16.66%;
-//
-//          @media screen and (min-width: 768px){
-//
-//          }
-//        }
-//      }
-//
-//      &.col-7 {
-//        .post-block {
-//          max-width: 14.28%;
-//          flex: 0 0 14.28%;
-//
-//          @media screen and (min-width: 768px){
-//
-//          }
-//        }
-//      }
-//
-//      .post-block {
-//        text-align: center;
-//        margin: 2rem 0;
-//        box-sizing: border-box;
-//        padding: 20px;
-//
-//        .post-inner{
-//          border: 1px solid #000;
-//          min-height: 100px;
-//          padding: 20px;
-//        }
-//      }
-//    }
-//  }
-//}

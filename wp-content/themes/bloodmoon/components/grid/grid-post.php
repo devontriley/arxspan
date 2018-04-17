@@ -93,16 +93,23 @@ if($postGrid){ ?>
         //NEWS + EVENTS GRID
         if($newsEventsLayout){
             if($gridTitle){ ?>
-                <p class="title">
+                <p class="header">
                     <?php echo $gridTitle; ?>
                 </p><?php
             } ?>
 
             <div class="posts-container"><?php
                 foreach($newsEvents as $newsEventsPost){ ?>
-                    <div class="post-container"><?php
-                        echo $newsEventsPost->post_title;
-                        // date
+                    <div class="post-container">
+                        <p class="title">
+                            <?php echo $newsEventsPost->post_title; ?>
+                        </p>
+
+                        <?php echo get_the_date('d/m/y', $newsEventsPost->ID); ?>
+
+                        <div class="blurb">
+                            <?php echo the_field('grid_description', $newsEventsPost->ID); ?>
+                        </div> <?php
                         // blurb
                         //view more button?>
                     </div><!--.post-container--><?php
