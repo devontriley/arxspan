@@ -1,0 +1,116 @@
+.tab-module {
+  position: relative;
+  width: 100%;
+
+  .inner {
+    padding: 4rem 3rem;
+    margin: 0 auto;
+    max-width: 140rem;
+    display: block;
+
+    .wrapper {
+
+      .title {
+        font-size: 4.6rem;
+        margin-bottom: 5rem;
+      }
+
+      #iteration-0 {
+        margin-left: 0;
+      }
+
+      .tabs {
+        height: 6rem;
+        display: inline-flex;
+        flex: 0 0 100%;
+        max-width: 100%;
+        border-bottom: 1px solid $lightGrey;
+
+        .tablinks {
+          border: none;
+          background-color: #fff;
+          margin: 0 3rem;
+          text-transform: uppercase;
+          font-size: 1.8rem;
+          color: $blue;
+
+          &:focus, :active {
+            outline: none;
+          }
+        }
+      }
+
+      .tabcontent {
+        margin: 4rem 0;
+        position: relative;
+        display: none;
+
+        &.active {
+          display: flex;
+        }
+
+        .img-block {
+          width: 40%;
+          max-width: 40rem;
+          margin-right: 5rem;
+          position: relative;
+
+          img {
+            max-width: 40rem;
+            max-height: 36rem;
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .text-block {
+          width: 60%;
+          position: relative;
+
+          .inner {
+            position: absolute;
+            padding: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+
+            .title {
+              font-size: 2.8rem;
+              margin-bottom: 3rem;
+              color: $blue;
+            }
+
+            .learn-more {
+              display: block;
+              margin-top: 3rem;
+              text-decoration: none;
+              font-weight: bold;
+              color: $blue;
+
+              &:after {
+                content: ">";
+                display: inline-block;
+                color: $pink;
+                margin-left: .5rem;
+              }
+            }
+          }
+        }
+      }
+      .overview {
+        text-decoration: none;
+        font-weight: bold;
+        color: $blue;
+        text-align: right;
+        width: 100%;
+        display: inline-block;
+
+        &:after {
+          content: ">";
+          display: inline-block;
+          color: $pink;
+          margin-left: .5rem;
+        }
+      }
+    }
+  }
+}

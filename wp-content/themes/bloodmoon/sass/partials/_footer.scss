@@ -1,0 +1,40 @@
+#footer {
+  padding: 15px 20px;
+  border-top: 1px solid $lightBlue;
+  margin: 20px;
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    max-width: 80%;
+    margin: 0 auto;
+
+    .logo {
+
+    }
+
+    .title {
+      text-transform: uppercase;
+      font-weight: bold;
+      line-height: 34px;
+      color: $blue;
+      letter-spacing: .5px;
+    }
+
+    .trademark {
+      font-weight: bold;
+      margin: .5rem 0;
+    }
+
+    ul {
+      li, a {
+        line-height: 24px;
+        color: $lightBlue;
+        text-decoration: none;
+      }
+    }
+
+    .contact {
+    }
+  }
+}
