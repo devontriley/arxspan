@@ -50,7 +50,8 @@ if($graphicGrid){ ?>
 
             <div class="icons-container"> <?php
                 foreach($industryIcons as $icon){ ?>
-                    <div class="icon-container"> <?php
+                    <div class="icon-container">
+                        <img src="<?php echo the_field('grid_photo', $icon->ID); ?>"/> <?php
                         echo $icon->post_title;
                         //echo icon
                         //echo content
