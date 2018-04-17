@@ -28,6 +28,29 @@
         flex: 0 0 50%;
         max-width: 50%;
         box-sizing: border-box;
+
+        &:nth-child(2){
+          margin-left: 1rem;
+        }
+
+        .date {
+          margin: .5rem 0;
+        }
+
+        .view-more {
+          text-decoration: none;
+          color: #fff;
+          background-color: $blue;
+          padding: 2rem;
+          display: inline-block;
+
+          &:after {
+            content: ">";
+            display: inline-block;
+            color: #fff;
+            margin: 0 .5rem;
+          }
+        }
       }
     }
 

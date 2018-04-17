@@ -105,7 +105,9 @@ if($postGrid){ ?>
                             <?php echo $newsEventsPost->post_title; ?>
                         </p>
 
-                        <?php echo get_the_date('d/m/y', $newsEventsPost->ID); ?>
+                        <p class="date">
+                            <?php echo get_the_date('d/m/y', $newsEventsPost->ID); ?>
+                        </p>
 
                         <div class="blurb">
                             <?php echo the_field('grid_description', $newsEventsPost->ID); ?>
@@ -113,8 +115,7 @@ if($postGrid){ ?>
 
                         <a class="view-more" href="<?php echo get_permalink($newsEventsPost->ID); ?>">
                             View More
-                        </a><?php
-                        //view more button?>
+                        </a>
                     </div><!--.post-container--><?php
                 } ?>
             </div><!-- .posts-container --><?php
