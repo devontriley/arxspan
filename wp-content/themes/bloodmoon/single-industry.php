@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 
-<div class="product-single">
+<div class="industry-single">
 
     <?php include('components/components.php'); ?>
 
-</div><!-- .product-single -->
+</div><!-- .industry-single -->
 
 <?php get_footer(); ?>
