@@ -42,9 +42,9 @@ if($postGrid){ ?>
                         <div class="content">
                             <?php echo $gridContent; ?>
                         </div><?php
-                    } ?>
+                    }
 
-                    <!-- ADD BUTTON -->
+                    include('../button.php'); ?>
                 </div><!-- .text-container --><?php
             }
 
@@ -73,17 +73,34 @@ if($postGrid){ ?>
         //WHITEPAPERS GRID
         if($whitepapersLayout){
             if($gridTitle){ ?>
-                <p class="title">
+                <p class="header">
                     <?php echo $gridTitle; ?>
                 </p><?php
             } ?>
 
             <div class="posts-container"> <?php
                 foreach($whitepapers as $whitepaperPost){ ?>
-                    <div class="post-container"> <?php
-                        echo $whitepaperPost->post_title;
-                        // echo blurb
-                        //learn more link ?>
+                    <div class="post-container">
+                        <div class="inner">
+                            <div class="top">
+                                <!-- svg will go in here -->
+                            </div>
+
+                            <p class="title">
+                                <?php echo $whitepaperPost->post_title; ?>
+                            </p>
+
+                            <div class="blurb">
+                                <?php echo the_field('grid_description', $whitepaperPost->ID); ?>
+                            </div>
+
+                            <a class="learn-more" href="<?php echo get_permalink($whitepaperPost->ID); ?>">
+                                Learn More
+                            </a>
+
+                            <?php
+                            //learn more link ?>
+                        </div><!-- .inner -->
                     </div><!-- .post-container --><?php
                 } ?>
                 <!-- add learn more link here -->
