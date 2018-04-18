@@ -16,6 +16,10 @@ if(have_rows('components')) :
             case 'grid':
             include('grid/grid.php');
             break;
+
+            case 'cta_banner':
+            include('cta-banner.php');
+            break;
         }
     endwhile;
 endif;
