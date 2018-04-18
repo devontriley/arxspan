@@ -28,6 +28,8 @@
 </footer>
 </div>
 
+<script type="text/javascript" src="<?php echo bloginfo('template_directory'); ?>/js/dist/bundle.js"></script>
+
 <?php wp_footer(); ?>
 </body>
 </html>

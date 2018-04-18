@@ -1,8 +1,6 @@
 <?php
-
 $postSelection = get_sub_field('tab_module');
-$activeTab = $_GET['activeTab'];
-
+$activeTab = $_GET['activeTab'] ? $_GET['activeTab'] : 1;
 ?>
 
 <div class="tab-module">
@@ -17,7 +15,8 @@ $activeTab = $_GET['activeTab'];
                     //vars
                     $abbreviation = get_field('tab_abbreviation', $tabPost->ID);
                     ?>
-                    <button class="tablinks <?php if($activeTab == $iteration){echo 'active';} ?>" id="iteration-<?php echo $iteration?>"><?php echo $abbreviation ?></button> <?php
+                    <button class="tablinks <?php if(($activeTab - 1) == $iteration){echo 'active';} ?>" id="iteration-<?php echo $iteration?>"><?php echo $abbreviation ?></button> <?php
+                    $iteration++;
                 } ?>
             </div>
 
@@ -33,7 +32,7 @@ $activeTab = $_GET['activeTab'];
                     $tabBlurb = get_field('tab_blurb', $tabPost->ID);
                     $link = get_permalink($tabPost->ID);
                     ?>
-                    <div class="tabcontent <?php if($activeTab == $iteration){echo 'active'; }?>" id="<?php echo $name ?>">
+                    <div class="tabcontent <?php if(($activeTab - 1) == $iteration){echo 'active'; }?>" id="<?php echo $name ?>">
                         <div class="img-block">
                             <?php echo $iconFull ?>
                         </div> <!-- .img-block -->
@@ -55,35 +54,5 @@ $activeTab = $_GET['activeTab'];
 
 <script>
     // Load Module JS
-    require(['page/tab-module']);
-</script>
-
-<script>
-    // // change into class - in constructor make 2 vars, 1 will be getTabModule 1 will be getActiveTab (can rework names) -
-    // // try adding tab js here
-    // function openProduct(evt, tabName){
-    //     //vars
-    //     var i, tabcontent, tablinks;
-    //
-    //     //get tabcontent and hide
-    //     tabcontent = document.getElementsByClassName('tabcontent');
-    //     for (i = 0; i < tabcontent.length; i++ ){
-    //         tabcontent[i].style.display = 'none';
-    //     }
-    //
-    //     // get tablinks and remove class active
-    //     tablinks = document.getElementsByClassName('tablinks');
-    //     for (i = 0; i < tablinks.length; i++ ){
-    //         tablinks[i].className = tablinks[i].className.replace('active', '');
-    //     }
-    //
-    //     // show current tab and add active class to button that opened it
-    //     document.getElementById(tabName).style.display = 'flex';
-    //     evt.currentTarget.className += ' active';
-    // }
-    //
-    // // activate first tab on load
-    // var firstTab = document.getElementById('iteration-0');
-    // firstTab.click();
-
+    //require(['page/tab-module']);
 </script>

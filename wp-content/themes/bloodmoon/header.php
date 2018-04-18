@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width" />
 <title><?php wp_title( ' | ', true, 'right' ); ?></title>
 
-<script data-main="<?php echo get_bloginfo('template_directory')?>/scripts/main.js" src="<?php echo get_bloginfo('template_directory')?>/scripts/plugins/node_modules/requirejs/require.js"></script>
+<!--<script data-main="--><?php //echo get_bloginfo('template_directory')?><!--/scripts/main.js" src="--><?php //echo get_bloginfo('template_directory')?><!--/build/node_modules/requirejs/require.js"></script>-->
 
 <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>" />
 
@@ -36,4 +36,4 @@
 
     <div id="body-content">
         <div id="barba-wrapper">
-            <div class="barba-container">
+            <div class="barba-container" data-namespace="<?php if(is_front_page()){ echo 'homepage'; }?>">

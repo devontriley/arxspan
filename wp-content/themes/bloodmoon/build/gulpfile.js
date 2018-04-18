@@ -1,17 +1,15 @@
 'use strict';
 
-//VARS
-
 var gulp = require('gulp');
+var rollup = require('rollup-stream');
+var source = require('vinyl-source-stream');
+
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var cleanCSS = require('gulp-clean-css');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 
-//SCSS
-
-//look for every scss file in whatever directory we tell the function to look
 gulp.task('sass', function () {
     return gulp.src('./../sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
@@ -20,10 +18,9 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('./../'));
 });
 
-//auto watch
 gulp.task('default', function() {
     gulp.watch('./../sass/**/*.scss', ['sass']);
-    gulp.watch('', ['scripts']);
+    gulp.watch('./../js/modules/*.js', ['bundle']);
 });
 
 
@@ -31,7 +28,11 @@ gulp.task('default', function() {
  * Scripts
  */
 
-gulp.task('scripts', function(){
-    return gulp.src('./../scripts/**/');
+gulp.task('bundle', function(){
+    return rollup({
+            input: './../js/main.js'
+        })
+        .pipe(source('app.js'))
+        .pipe(gulp.dest('./../js/dist'));
 });
 
