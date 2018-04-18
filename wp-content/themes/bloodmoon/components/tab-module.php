@@ -54,6 +54,11 @@ $activeTab = $_GET['activeTab'];
 </div> <!-- .tab-module -->
 
 <script>
+    // Load Module JS
+    require(['page/tab-module']);
+</script>
+
+<script>
     // // change into class - in constructor make 2 vars, 1 will be getTabModule 1 will be getActiveTab (can rework names) -
     // // try adding tab js here
     // function openProduct(evt, tabName){

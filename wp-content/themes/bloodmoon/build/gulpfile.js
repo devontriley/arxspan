@@ -23,5 +23,15 @@ gulp.task('sass', function () {
 //auto watch
 gulp.task('default', function() {
     gulp.watch('./../sass/**/*.scss', ['sass']);
+    gulp.watch('', ['scripts']);
+});
+
+
+/*
+ * Scripts
+ */
+
+gulp.task('scripts', function(){
+    return gulp.src('./../scripts/**/');
 });
 

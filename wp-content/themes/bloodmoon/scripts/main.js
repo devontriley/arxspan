@@ -1,10 +1,11 @@
 require.config({
-    baseUrl: 'wp-content/themes/bloodmoon/scripts/',
+    baseUrl: 'wp-content/themes/bloodmoon/scripts',
     paths: {
-        jquery:     'modules/jquery/dist/jquery',
-        domReady:   'modules/domReady/domReady',
-        lazySizes: 'modules/lazysizes/lazysizes', //will this work?
-        Barba: 'modules/barba.js/dist/barba'
+        jquery:     'plugins/node_modules/jquery/dist/jquery',
+        domReady:   'plugins/node_modules/domready/ready',
+        lazySizes:  'plugins/node_modules/lazysizes/lazysizes',
+        Barba:      'plugins/node_modules/barba.js/dist/barba',
+        Utilities:  'modules/Utilities'
 
     },
     shim: {
@@ -13,12 +14,22 @@ require.config({
 });
 
 define(function(require) {
-    var $        = require('jquery');
+
+    var $ = require('jquery');
     var domReady = require('domReady');
-    var Barba  = require('Barba');
+    var Barba = require('Barba');
+    var Utils = require('Utilities');
+
+    console.log(Utils.getElIndex);
+
+    var test = Utils.getElIndex(document.querySelector('.tab-module'));
 
     domReady(function() {
-        // Init common module code here
+
+        /*
+         * Barba.js
+         *
+         */
 
         // basetransition.extend extends object
         var FadeTransition = Barba.BaseTransition.extend({
@@ -61,84 +72,6 @@ define(function(require) {
         Barba.Pjax.init();
         Barba.Prefetch.init();
 
-        console.log('barba working!');
-
-        // utility functions
-        function getElIndex(el) {
-            for (var i = 0; el = el.previousElementSibling; i++);
-            return i;
-        }
-
-        // get param by name
-        function getParameterByName(name, url) {
-            if (!url) url = window.location.href;
-            name = name.replace(/[\[\]]/g, "\\$&");
-            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-                results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, " "));
-        }
-
-        // TAB MODULE
-        class tabModule {
-            constructor(ele) { // ele good for two or more iterations of same module as opposed to document
-                this.tabContent = ele.getElementsByClassName('tabcontent'); // local scoping, this instead of var
-                this.tabLinks = ele.getElementsByClassName('tablinks');
-                this.currentTab = getParameterByName('activeTab');
-
-                for(i = 0; i < this.tabLinks.length; i++){
-                    this.tabLinks[i].addEventListener('click', function(e){
-                        e.preventDefault();
-                        var index = getElIndex(e.target);
-                        this.changeTab(index, this.currentTab);
-                    }.bind(this));
-                }
-            }
-
-            // M E T H O D S
-
-            // add logic if the current tab is 0 remove current strong from url
-
-            changeTab(index, currentTab){
-                this.replaceState(index);
-                this.tabOut(currentTab);
-                this.tabIn(index);
-            }
-
-            replaceState(index){
-                var newUrl;
-                this.currentTab = index;
-
-                if(index == 0 ){
-                    newUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
-                } else {
-                    newUrl = window.location.protocol + '//' + window.location.host + window.location.pathname + '?activeTab=' + index;
-                }
-
-                window.history.replaceState({}, '', newUrl);
-
-            }
-
-            tabOut(currentTab){
-                this.tabContent[currentTab].classList.remove('active');
-            }
-
-            tabIn(index){
-                this.tabContent[index].classList.add('active');
-            }
-        }
-
-        if(document.getElementsByClassName('tab-module')){
-            var tabModules = document.getElementsByClassName('tab-module'); // will return an array
-            var tabModulesArr = []; // to add custom data
-
-            for(i = 0; i < tabModules.length; i++){
-
-                tabModulesArr.push( //for each instance of tab module we will add object to array
-                    new tabModule(tabModules[i]) // will ref element we are passing to class
-                ) // after this will have array of all classes
-            }
-        }
     });
+
 });
