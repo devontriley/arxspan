@@ -1,1 +1,15 @@
 // COOL
+
+.btn-wrapper {
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 2.2rem;
+
+    &:after {
+      content: ">";
+      display: inline-block;
+      margin: 0 .5rem;
+    }
+  }
+}

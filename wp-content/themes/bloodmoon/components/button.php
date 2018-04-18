@@ -8,9 +8,7 @@ $buttonUrl = get_sub_field('button_url');
 ?>
 
 <div class="btn-wrapper">
-    <button>
-        <a href="<?php echo ($internalType ? $internalPath : $buttonUrl); ?>">
-            <?php echo $buttonLabel; ?>
-        </a>
-    </button>
+    <a class="btn" href="<?php echo ($internalType ? $internalPath : $buttonUrl); ?>">
+        <?php echo $buttonLabel; ?>
+    </a>
 </div><!-- .btn-wrapper -->
