@@ -66,16 +66,10 @@ return $count;
 }
 
 // BUTTON FUNCTION
-function button($buttonLabel, $internalType, $buttonPath, $internalPath, $buttonUrl){
-    $buttonLabel = get_sub_field('button_label');
-    $pathType = get_sub_field('path_type');
-    $internalType = get_sub_field('path_type') == 'internal';
-    $buttonPath = get_sub_field('button_path');
-    $internalPath = get_permalink($buttonPath[0]);
-    $buttonUrl = get_sub_field('button_url');
+function button($buttonLabel, $buttonUrl){ // placeholders, can change name if want, sequence matters more
 
     $html =     '<div class="btn-wrapper">';
-    $html .=    '<a class="btn" href="'. ($internalType ? $internalPath : $buttonUrl) .'">';
+    $html .=    '<a class="btn" href="'. $buttonUrl .'">';
     $html .=    $buttonLabel;
     $html .=    '</a><!-- .btn -->';
     $html .=    '</div><!-- .btn-wrapper -->';
@@ -83,6 +77,37 @@ function button($buttonLabel, $internalType, $buttonPath, $internalPath, $button
     echo $html;
 }
 
+// SHORTCODE
+
+    // wysiwyg cols shortcode
+    function colOne( $atts, $content = null ){
+        return '<div class="cols-wrapper"><div class="col-half">'. do_shortcode($content) .'</div>';
+    }
+    add_shortcode( 'col_one', 'colOne' );
+
+    function colTwo( $atts, $content = null ){
+        return '<div class="col-half last">'. do_shortcode($content) .'</div></div>';
+    }
+    add_shortcode( 'col_two', 'colTwo' );
+
+// ADD BUTTONS FOR SHORTCODE
+    function add_plugin($plugin_array){
+        $plugin_array['cols'] = get_bloginfo('template_url').'/scripts/main.js';
+        return $plugin_array;
+    }
+
+    function register_button($buttons){
+        array_push($buttons, 'cols');
+        return $buttons;
+    }
+
+    function add_button(){
+        if( current_user_can('edit_posts') && current_user_can('edit_pages')){
+            add_filter('mce_external_plugins', 'add_plugin');
+            add_filter('mce_buttons', 'register_button');
+        }
+    }
+    add_action('init', 'add_button');
 
 // CUSTOM POST TYPES  //
 

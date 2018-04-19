@@ -7,8 +7,9 @@ $textAlignment = get_sub_field('text_alignment');
 $heroGraphic = get_sub_field('hero_graphic');
 $heroGraphicFull = wp_get_attachment_image($heroGraphic, 'full');
 $ctaOption = get_sub_field('cta_option');
-$ctaText = get_sub_field('cta_text');
-$ctaPath = get_sub_field('cta_path');
+$button = get_sub_field('button');
+$buttonLabel = $button['button_label'];
+$buttonUrl = $button['button_url'];
 $introCopy = get_sub_field('intro_copy');
 $secondaryIntroCopy = get_sub_field('secondary_intro_copy');
 
@@ -31,12 +32,8 @@ $secondaryIntroCopy = get_sub_field('secondary_intro_copy');
                 <p class="subheader"><?php echo $heroSubheader ?></p> <?php
             }
 
-            if($ctaOption){ ?>
-                <div class="button-container">
-                    <a class="btn" href="<?php echo get_permalink($ctaPath) ?>">
-                        <?php echo $ctaText ?>
-                    </a>
-                </div><!-- button-container --> <?php
+            if($ctaOption){
+                button($buttonLabel, $buttonUrl);
             }
 
             if($introCopy || $secondaryIntroCopy){ ?>

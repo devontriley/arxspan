@@ -17,6 +17,10 @@ if(have_rows('components')) :
             include('grid/grid.php');
             break;
 
+            case 'text_module';
+            include('text-module.php');
+            break;
+
             case 'cta_banner':
             include('cta-banner.php');
             break;

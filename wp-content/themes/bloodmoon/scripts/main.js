@@ -140,5 +140,24 @@ define(function(require) {
                 ) // after this will have array of all classes
             }
         }
+
+        //TinyMCE buttons
+        (function(){
+            tinymce.create('tinymce.plugins.cols', {
+                init: function(ed, url){
+                    ed.addButton('cols', {
+                        title: 'Add Columns',
+                        image: // add image here,
+                        onclick: function(){
+                            return('[col_one]' + 'add col 1 content here' + '[/col_one][col_two]' + 'add col 2 content here' + '[/col_two]');
+                    }
+                    });
+                },
+                createControl : function(n, cm){
+                    return null;
+                },
+            });
+            tinymce.PluginManager.add('cols', tinymce.plugins.cols);
+        })();
     });
 });

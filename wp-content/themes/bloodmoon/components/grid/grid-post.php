@@ -42,9 +42,7 @@ if($postGrid){ ?>
                         <div class="content">
                             <?php echo $gridContent; ?>
                         </div><?php
-                    }
-
-                    include('../button.php'); ?>
+                    }?>
                 </div><!-- .text-container --><?php
             }
 

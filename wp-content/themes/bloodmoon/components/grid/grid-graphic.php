@@ -10,6 +10,10 @@ $gridSubtitle = get_sub_field('grid_subtitle');
 $gridContent = get_sub_field('grid_content');
 $gridSecondaryContent = get_sub_field('grid_secondary_content');
 
+$button = get_sub_field('button');
+$buttonLabel = $button['button_label'];
+$buttonUrl = $button['button_url'];
+
 //ICON GRID
 $industryIcons = get_sub_field('industry_icons');
 
@@ -66,8 +70,7 @@ if($graphicGrid){ ?>
                     </div><!-- .icon-container --><?php
                 } ?>
             </div><!-- .icons-container -->
-
-            <?php get_template_part("./../button.php");
+            <?php button($buttonLabel, $buttonUrl);
         }
 
         //PHOTO GRID
