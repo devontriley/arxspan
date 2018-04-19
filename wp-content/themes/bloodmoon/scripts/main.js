@@ -147,7 +147,7 @@ define(function(require) {
                 init: function(ed, url){
                     ed.addButton('cols', {
                         title: 'Add Columns',
-                        image: // add image here,
+                        image: './../cols-btn.png',
                         onclick: function(){
                             return('[col_one]' + 'add col 1 content here' + '[/col_one][col_two]' + 'add col 2 content here' + '[/col_two]');
                     }
