@@ -67,7 +67,7 @@ if($graphicGrid){ ?>
                 } ?>
             </div><!-- .icons-container -->
 
-            <?php include('../button.php');
+            <?php get_template_part("./../button.php");
         }
 
         //PHOTO GRID

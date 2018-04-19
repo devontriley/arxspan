@@ -2,7 +2,10 @@
 
 .cta-banner {
   background-color: $pink;
-  padding: 8rem 0;
+  padding: 5rem 0;
+  @media screen and (min-width: 768px){
+    padding: 8rem 0;
+  }
 
   .inner {
     display: flex;
@@ -19,6 +22,11 @@
       font-size: 2.9rem;
       letter-spacing: .3rem;
       padding: 0 5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      @media screen and (min-width: 768px){
+        margin: 0;
+      }
     }
 
     .btn-wrapper{

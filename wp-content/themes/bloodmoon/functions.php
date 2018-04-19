@@ -65,10 +65,28 @@ return $count;
 }
 }
 
+// BUTTON FUNCTION
+function button(){
+    $buttonLabel = get_sub_field('button_label');
+    $pathType = get_sub_field('path_type');
+    $internalType = get_sub_field('path_type') == 'internal';
+    $buttonPath = get_sub_field('button_path');
+    $internalPath = get_permalink($buttonPath[0]);
+    $buttonUrl = get_sub_field('button_url');
+
+    $html =     '<div class="btn-wrapper">';
+    $html .=    '<a class="btn" href="'. echo ($internalType ? $internalPath : $buttonUrl) .'">';
+    $html .=    echo $buttonLabel;
+    $html .=    '</a><!-- .btn -->';
+    $html .=    '</div><!-- .btn-wrapper -->';
+
+    echo $html;
+}
+
 
 // CUSTOM POST TYPES  //
 
-//    // Products Custom Post Type
+ // Products Custom Post Type
     function product_init() {
         // set up product labels
         $labels = array(

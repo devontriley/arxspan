@@ -1,5 +1,9 @@
 .post-grid-wrapper {
   display: flex;
+  flex-wrap: wrap;
+  @media screen and (min-width: 768px){
+    flex-wrap: nowrap;
+  }
 
   .header {
     &:after {
@@ -26,16 +30,34 @@
       max-width: 100%;
       padding: 2rem 0;
       align-items: stretch;
+      flex-wrap: wrap;
+      @media screen and (min-width: 768px){
+        flex-wrap: nowrap;
+      }
 
       .post-container {
         box-sizing: border-box;
         border: none;
-        flex: 0 0 33.3%;
-        max-width: 33.3%;
+        flex: 0 0 100%;
+        max-width: 100%;
         margin: 0 0;
+        padding: 2rem 0;
+        @media screen and (min-width: 768px){
+          flex: 0 0 33.3%;
+          max-width: 33.3%;
+          padding: 2rem;
+        }
 
         &:first-child {
-          padding-left: 0;
+          @media screen and (min-width: 768px){
+            padding-left: 0;
+          }
+        }
+
+        &:last-child {
+          @media screen and (min-width: 768px){
+            margin: 0 0;
+          }
         }
 
         .inner {
@@ -55,6 +77,12 @@
           .title {
             margin: 2rem 0;
           }
+
+          .learn-more {
+            position: absolute;
+            bottom: 0;
+            margin: 2rem 0;
+          }
         }
       }
     }
@@ -67,18 +95,29 @@
     .posts-container {
       display: flex;
       flex: 0 0 100%;
+      flex-wrap: wrap;
       max-width: 100%;
       padding: 0;
-      margin: 4rem 0;
+      @media screen and (min-width: 768px){
+        flex-wrap: nowrap;
+        margin: 4rem 0;
+      }
 
       .post-container {
-        margin: 0 0;
-        flex: 0 0 50%;
-        max-width: 50%;
+        margin: 2rem 0;
+        flex: 0 0 100%;
+        max-width: 100%;
         box-sizing: border-box;
+        @media screen and (min-width: 768px){
+          flex: 0 0 50%;
+          max-width: 50%;
+          margin: 0 0;
+        }
 
         &:nth-child(2){
-          margin-left: 1rem;
+          @media screen and (min-width: 768px){
+            margin-left: 1rem;
+          }
         }
 
         .date {
@@ -105,11 +144,16 @@
 
   }
 
+  // solutions grid
   .text-container {
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 100%;
+    max-width: 100%;
     box-sizing: border-box;
     padding: 0 2rem;
+    @media screen and (min-width: 768px){
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
 
     .content {
       line-height: 1.5em;
@@ -117,18 +161,35 @@
   }
 
   .posts-container{
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 100%;
+    max-width: 100%;
     box-sizing: border-box;
     padding: 0 2rem;
+    @media screen and (min-width: 768px){
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
 
     .post-container {
       border: 1px solid #000;
-      margin: 4rem 0;
       padding: 2rem;
+      margin: 2rem 0;
+      display: flex;
+      @media screen and (min-width: 768px){
+        margin: 4rem 0;
+      }
 
       &:first-child {
+        @media screen and (min-width: 768px){
+          margin: 0 0;
+        }
+      }
+
+      &:last-child {
         margin: 0 0;
+        @media screen and (min-width: 768px){
+          margin: 4rem 0;
+        }
       }
 
       .title {
