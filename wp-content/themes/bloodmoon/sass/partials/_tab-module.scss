@@ -37,6 +37,10 @@
           &:focus, :active {
             outline: none;
           }
+
+          &.active {
+            border-bottom: .2rem solid red;
+          }
         }
       }
 
