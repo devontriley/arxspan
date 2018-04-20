@@ -116,21 +116,23 @@ if($postGrid){ ?>
             <div class="posts-container"><?php
                 foreach($newsEvents as $newsEventsPost){ ?>
                     <div class="post-container">
-                        <p class="title">
-                            <?php echo $newsEventsPost->post_title; ?>
-                        </p>
+                        <div class="inner">
+                            <p class="title">
+                                <?php echo $newsEventsPost->post_title; ?>
+                            </p>
 
-                        <p class="date">
-                            <?php echo get_the_date('d/m/y', $newsEventsPost->ID); ?>
-                        </p>
+                            <p class="date">
+                                <?php echo get_the_date('d/m/y', $newsEventsPost->ID); ?>
+                            </p>
 
-                        <div class="blurb">
-                            <?php echo the_field('grid_description', $newsEventsPost->ID); ?>
+                            <div class="blurb">
+                                <?php echo the_field('grid_description', $newsEventsPost->ID); ?>
+                            </div>
+
+                            <a class="view-more" href="<?php echo get_permalink($newsEventsPost->ID); ?>">
+                                View More
+                            </a>
                         </div>
-
-                        <a class="view-more" href="<?php echo get_permalink($newsEventsPost->ID); ?>">
-                            View More
-                        </a>
                     </div><!--.post-container--><?php
                 } ?>
             </div><!-- .posts-container --><?php
