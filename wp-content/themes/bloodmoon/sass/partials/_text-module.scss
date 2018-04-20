@@ -1,0 +1,19 @@
+// nice
+.text-module {
+  position: relative;
+  width: 100%;
+
+  .inner {
+    padding: 4rem 3rem;
+
+    .cols-wrapper {
+      display: flex;
+
+      .col-half {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+    }
+  }
+}
+
