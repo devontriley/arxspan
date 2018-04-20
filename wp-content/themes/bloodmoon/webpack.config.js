@@ -1,25 +1,24 @@
 module.exports = {
-    entry: {
-        filename: './js/main.js'
-    },
     output: {
-        filename: './js/dist/bundle.js'
+        filename: 'bundle.js'
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel',
+                loader: 'babel-loader',
                 query: {
-                    presets: ['es2015']
+                    presets: [
+                        ['latest', {modules: false}],
+                    ]
                 }
             }
         ]
-    },
-    watch: true,
-    watchOptions: {
-        aggregateTimeout: 300,
-        poll: 1000
     }
+    // watch: true,
+    // watchOptions: {
+    //     aggregateTimeout: 300,
+    //     poll: 1000
+    // }
 };
