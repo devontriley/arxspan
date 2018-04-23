@@ -33,15 +33,20 @@
         max-width: 25%;
       }
 
-      img {
-        display: block;
-        margin: 0 auto;
+      a {
+        text-decoration: none;
+
+        img {
+          display: block;
+          margin: 0 auto;
+        }
+
+        .title {
+          text-align: center;
+          margin: 1.5rem 0;
+        }
       }
-      
-      .title {
-        text-align: center;
-        margin: 1.5rem 0;
-      }
+
 
       .content {
         margin: 1.5rem;
@@ -50,7 +55,9 @@
     }
   }
 
-  &.photo {
-
+  .btn-wrapper {
+    display: block;
+    text-align: center;
+    margin: 4rem auto;
   }
 }

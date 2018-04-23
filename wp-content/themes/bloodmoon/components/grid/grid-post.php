@@ -81,7 +81,9 @@ if($postGrid){ ?>
                     <div class="post-container">
                         <div class="inner">
                             <div class="top">
-                                <!-- svg will go in here -->
+                                <svg viewBox="0 0 271 271">
+                                    <use xlink:href="#whitepaper-icon"></use>
+                                </svg>
                             </div>
 
                             <p class="title">
@@ -131,6 +133,7 @@ if($postGrid){ ?>
 
                             <a class="view-more" href="<?php echo get_permalink($newsEventsPost->ID); ?>">
                                 View More
+                                <svg viewbox="0 0 10 16"><use xlink:href="#button-arrow"></use></svg>
                             </a>
                         </div>
                     </div><!--.post-container--><?php

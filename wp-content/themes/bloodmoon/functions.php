@@ -65,12 +65,20 @@ return $count;
 }
 }
 
+//allow svg uploads in back end
+function cc_mime_types($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');
+
 // BUTTON FUNCTION
 function button($buttonLabel, $buttonUrl){ // placeholders, can change name if want, sequence matters more
 
     $html =     '<div class="btn-wrapper">';
     $html .=    '<a class="btn" href="'. $buttonUrl .'">';
     $html .=    $buttonLabel;
+    $html .=    '<svg viewbox="0 0 10 16"><use xlink:href="#button-arrow"></use></svg>';
     $html .=    '</a><!-- .btn -->';
     $html .=    '</div><!-- .btn-wrapper -->';
 
@@ -399,3 +407,18 @@ function button($buttonLabel, $buttonUrl){ // placeholders, can change name if w
         register_taxonomy('whitepaper_category', 'whitepaper', array('hierarchical' => true, 'label' => 'Whitepaper', 'query_var' => true, 'rewrite' => array( 'slug' => 'whitepaper-category' )));
     }
     add_action( 'init', 'whitepaper_init' );
+
+    // Use same template for careers and events post types
+    add_filter( 'template_include', function( $template ) {
+        // your custom post types
+        $my_types = array( 'career', 'event' );
+
+        // is the current request for a single page of one of your post types?
+        if ( is_singular( $my_types ) ){
+            // if it is return the common single template
+            return get_stylesheet_directory() . '/single-careerevent.php';
+        } else {
+            // if not a match, return the $template that was passed in
+            return $template;
+        }
+    });

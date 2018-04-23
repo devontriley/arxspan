@@ -4,14 +4,82 @@
   width: 100%;
 
   .inner {
-    padding: 4rem 3rem;
+    padding: 0 3rem;
+    max-width: 90rem;
+    margin: 4rem auto;
+
+    h2 {
+      font-size: 4.6rem;
+      margin: 2rem 0;
+      color: $blue;
+      position: relative;
+
+      &:after {
+        content: "";
+        width: 5rem;
+        height: .4rem;
+        display: inline-block;
+        margin: 1rem 0;
+        background-color: $lightBlue;
+        position: absolute;
+        bottom: -1.5rem; //
+      }
+    }
+
+    h3 {
+      font-size: 2.5rem;
+      color: $blue;
+      margin: 1rem 0;
+    }
+
+
+    h4 {
+      color: $blue;
+      font-size: 2.2rem;
+      margin: 2rem 0;
+    }
+
+    h3 + ul {
+      margin-top: 1rem;
+    }
+
+    ul {
+      list-style: disc;
+      margin: 3rem 0;
+
+      li {
+        margin: 1rem 0;
+        line-height: 1.2em;
+      }
+    }
+
+    p {
+      margin: 1rem 0;
+      font-size: 1.5rem;
+    }
+
+    img {
+      width: 50%;
+      max-width: 50%;
+      height: auto;
+
+      &.alignleft {
+        float: left;
+      }
+
+      &.alignright {
+        float: right;
+      }
+    }
 
     .cols-wrapper {
       display: flex;
 
       .col-half {
+        box-sizing: border-box;
         flex: 0 0 50%;
         max-width: 50%;
+        padding: 0 2rem;
       }
     }
   }

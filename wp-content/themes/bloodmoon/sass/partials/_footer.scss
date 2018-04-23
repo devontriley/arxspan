@@ -1,7 +1,7 @@
 #footer {
-  padding: 15px 20px;
+  padding: 4rem 2rem 8rem;
   border-top: 1px solid $lightBlue;
-  margin: 20px;
+  margin: 0 2rem;
 
   .footer-inner {
     display: flex;
@@ -10,11 +10,10 @@
     flex-wrap: wrap;
     @media screen and (min-width: 768px){
       flex-wrap: nowrap;
-      max-width: 80%;
     }
 
     .logo {
-
+      width: 25rem;
     }
 
     .title {
@@ -22,7 +21,7 @@
       font-weight: bold;
       line-height: 34px;
       color: $blue;
-      letter-spacing: .5px;
+      letter-spacing: .2rem;
     }
 
     .trademark {
@@ -32,6 +31,7 @@
 
     ul {
       li, a {
+        font-size: 1.8rem;
         line-height: 24px;
         color: $lightBlue;
         text-decoration: none;

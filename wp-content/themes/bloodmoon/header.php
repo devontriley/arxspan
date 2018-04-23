@@ -9,16 +9,25 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>" />
 
+<!-- fonts -->
+<link rel="stylesheet" href="https://use.typekit.net/rva7var.css">
+
+
 <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
+
+<?php include('inc/master-svg.svg'); ?>
+
 <div id="wrapper">
 <header id="primary-header" role="banner">
     <div id="header-inner">
         <div class="logo">
             <a href="<?php echo get_permalink('5')?>">
-                LOGO HERE
+                <svg viewBox="0 0 224 55">
+                    <use xlink:href="#header-logo"></use>
+                </svg>
             </a>
         </div> <!-- .logo -->
 

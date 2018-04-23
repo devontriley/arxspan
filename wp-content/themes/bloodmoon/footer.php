@@ -5,7 +5,11 @@
 
 <footer id="footer" role="contentinfo">
     <div class="footer-inner">
-        <div class="logo">LOGO</div><!-- .logo -->
+        <div class="logo">
+            <svg viewBox="0 0 224 55">
+                <use xlink:href="#header-logo"></use>
+            </svg>
+        </div><!-- .logo -->
 
         <div class="contact">
             <ul>

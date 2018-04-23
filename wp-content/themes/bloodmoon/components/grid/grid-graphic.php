@@ -54,12 +54,15 @@ if($graphicGrid){ ?>
 
             <div class="icons-container"> <?php
                 foreach($industryIcons as $icon){ ?>
-                    <div class="icon-container">
-                        <img src="<?php echo the_field('grid_photo', $icon->ID); ?>"/>
 
-                        <p class="title">
-                            <?php echo $icon->post_title; ?>
-                        </p>
+                    <a href="<?php echo get_permalink($icon->ID); ?>">
+                        <div class="icon-container">
+                            <img src="<?php echo the_field('grid_photo', $icon->ID); ?>"/>
+
+                            <p class="title">
+                                <?php echo $icon->post_title; ?>
+                            </p>
+                    </a>
 
                         <div class="content">
                             <?php echo the_field('grid_description', $icon->ID); ?>

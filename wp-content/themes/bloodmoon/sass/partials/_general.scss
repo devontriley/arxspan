@@ -29,15 +29,14 @@ p, li {
 // body
 
 body {
-  background-color: $headerBackgroundBlue;
   width: 100%;
   font-size: 1.6rem;
   display: block;
   margin: 0 auto;
   color: $textGrey;
+  font-family: "effra", Helvetica, Arial, sans-serif;
 
   #wrapper {
-    max-width: 160rem;
     background-color: #fff;
     display: block;
     margin: 0 auto;

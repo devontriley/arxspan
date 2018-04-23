@@ -4,6 +4,7 @@ import _ from 'lodash';
 import domReady from 'domready';
 import Barba from 'barba.js';
 import tabModule from './Tab-Module.js';
+// import {getElIndex} from "./helpers"; you can import partials like this
 
 domReady(function() {
 

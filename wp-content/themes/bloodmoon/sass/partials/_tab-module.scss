@@ -1,6 +1,8 @@
 .tab-module {
   position: relative;
   width: 100%;
+  max-width: 140rem;
+  margin: 0 auto;
 
   .inner {
     padding: 4rem 3rem;

@@ -11,11 +11,10 @@ $button = get_sub_field('button');
 $buttonLabel = $button['button_label'];
 $buttonUrl = $button['button_url'];
 $introCopy = get_sub_field('intro_copy');
-$secondaryIntroCopy = get_sub_field('secondary_intro_copy');
 
 ?>
 
-<div class="hero <?php echo $textAlignment; if($heroGraphic){ echo ' graphic'; }?>">
+<div class="hero <?php echo $textAlignment; if($heroGraphic){ echo ' graphic';}?>">
     <div class="inner">
 
         <?php if($heroGraphic) echo $heroGraphicFull; ?>
@@ -36,10 +35,9 @@ $secondaryIntroCopy = get_sub_field('secondary_intro_copy');
                 button($buttonLabel, $buttonUrl);
             }
 
-            if($introCopy || $secondaryIntroCopy){ ?>
+            if($introCopy){ ?>
                 <div class="copy-container"> <?php
-                    if($introCopy) echo $introCopy;
-                    if($secondaryIntroCopy) echo $secondaryIntroCopy; ?>
+                    if($introCopy) echo $introCopy;?>
                 </div><!-- .copy-container --> <?php
              } ?>
 

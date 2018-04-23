@@ -1,6 +1,8 @@
 .grid {
   position: relative;
   width: 100%;
+  max-width: 140rem;
+  margin: 0 auto;
   // add border top here if you want
   .inner {
     padding: 4rem 3rem;
