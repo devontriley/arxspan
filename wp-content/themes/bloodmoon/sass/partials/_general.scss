@@ -4,6 +4,21 @@ html {
   font-size: 62.5%;
 }
 
+body {
+  padding-top: 6rem;
+  @media(min-width: 992px) {
+    padding-top: 8.5rem;
+
+    &.header-active {
+      padding-top: 6rem;
+    }
+  }
+
+  &.mobile-nav-active {
+    overflow: hidden;
+  }
+}
+
 // text types
 
 .header {
@@ -47,17 +62,5 @@ body {
     #container {
       //margin-top: 70px;
     }
-  }
-}
-
-.btn {
-  background-color: $pink;
-  padding: 1rem;
-  border-radius: 5px;
-  color: #fff;
-  border: none;
-
-  &:active, :focus {
-    outline: none;
   }
 }

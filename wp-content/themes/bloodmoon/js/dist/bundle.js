@@ -75,6 +75,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getElIndex = getElIndex;
 exports.getParameterByName = getParameterByName;
+exports.getChildren = getChildren;
+exports.getSiblings = getSiblings;
+exports.addListenerMulti = addListenerMulti;
+exports.getScrollOffset = getScrollOffset;
 // Get element index
 function getElIndex(el) {
     for (var i = 0; el = el.previousElementSibling; i++) {}
@@ -90,6 +94,33 @@ function getParameterByName(name, url) {
     if (!results) return null;
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function getChildren(n, skipMe) {
+    var r = [];
+    for (; n; n = n.nextSibling) {
+        if (n.nodeType == 1 && n != skipMe) r.push(n);
+    }return r;
+};
+
+function getSiblings(n) {
+    return getChildren(n.parentNode.firstChild, n);
+}
+
+// Add event listener for multiple events
+function addListenerMulti(element, eventNames, listener) {
+    var events = eventNames.split(' ');
+    for (var i = 0, iLen = events.length; i < iLen; i++) {
+        element.addEventListener(events[i], listener, false);
+    }
+}
+
+function getScrollOffset() {
+    var v = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0);
+    if (isNaN(v)) {
+        v = 0;
+    }
+    return v;
 }
 
 /***/ }),
@@ -119,7 +150,15 @@ var _barba = __webpack_require__(7);
 
 var _barba2 = _interopRequireDefault(_barba);
 
-var _TabModule = __webpack_require__(8);
+var _MainHeader = __webpack_require__(8);
+
+var _MainHeader2 = _interopRequireDefault(_MainHeader);
+
+var _MainNav = __webpack_require__(9);
+
+var _MainNav2 = _interopRequireDefault(_MainNav);
+
+var _TabModule = __webpack_require__(10);
 
 var _TabModule2 = _interopRequireDefault(_TabModule);
 
@@ -128,6 +167,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 // import {getElIndex} from "./helpers"; you can import partials like this
+
+var mainHeader = new _MainHeader2.default();
+var mainNav = new _MainNav2.default();
 
 (0, _domready2.default)(function () {
 
@@ -24744,6 +24786,146 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ }),
 /* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _helpers = __webpack_require__(0);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+// TODO: Clean this up!
+
+var MainHeader = function () {
+    function MainHeader() {
+        _classCallCheck(this, MainHeader);
+
+        this.header = document.getElementById('primary-header');
+        this.scrollOffset = (0, _helpers.getScrollOffset)();
+        // this.active = (this.scrollOffset > 0) ? true : false;
+
+        window.addEventListener('scroll', function (e) {
+            this.scrollOffset = (0, _helpers.getScrollOffset)();
+            this.toggle();
+        }.bind(this));
+
+        window.addEventListener('load', function (e) {
+            this.toggle();
+        }.bind(this));
+    }
+
+    _createClass(MainHeader, [{
+        key: 'toggle',
+        value: function toggle() {
+            console.log('toggle');
+            if (this.scrollOffset > 0) {
+                document.body.classList.add('header-active');
+            } else {
+                document.body.classList.remove('header-active');
+            }
+        }
+    }]);
+
+    return MainHeader;
+}();
+
+exports.default = MainHeader;
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.MainNav = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _helpers = __webpack_require__(0);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+// TODO: Add close when clicking outside dropdown
+// TODO: blur() when clicking away from list item
+
+var MainNav = exports.MainNav = function () {
+    function MainNav() {
+        _classCallCheck(this, MainNav);
+
+        this.nav = document.querySelector('#main-nav ul');
+        this.toggleLinks = document.querySelectorAll('li.dropdown');
+        this.hamburger = document.getElementById('hamburger');
+
+        var someFunction = function (event) {
+            this.clickHandler(event);
+        }.bind(this);
+
+        this.nav.addEventListener('click', someFunction, false);
+        this.nav.addEventListener('focus', someFunction, false);
+        // document.body.addEventListener('click', function(e) {
+        //     this.closeDropdown(e);
+        // }.bind(this))
+
+        this.hamburger.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            this.MobileNavToggle();
+        }.bind(this));
+    }
+
+    _createClass(MainNav, [{
+        key: 'clickHandler',
+        value: function clickHandler(event) {
+            var ele = event.target;
+            var siblings;
+
+            while (!ele.classList.contains('dropdown-toggle')) {
+                ele = ele.parentNode;
+                event.stopPropagation();
+            }
+
+            siblings = (0, _helpers.getSiblings)(ele.parentNode);
+
+            for (var i = 0; i < siblings.length; i++) {
+                siblings[i].classList.remove('active');
+            }
+
+            if (!ele.parentNode.classList.contains('active')) {
+                ele.parentNode.classList.add('active');
+            } else {
+                ele.parentNode.classList.remove('active');
+            }
+        }
+
+        // closeDropdown(event) {
+        //     console.log(this.toggleLinks);
+        // }
+
+    }, {
+        key: 'MobileNavToggle',
+        value: function MobileNavToggle() {
+            document.body.classList.toggle('mobile-nav-active');
+        }
+    }]);
+
+    return MainNav;
+}();
+
+exports.default = MainNav;
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

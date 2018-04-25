@@ -60,7 +60,16 @@
         </g>
     </symbol>
 
-    <!-- nav menu arrow -->
+    <symbol id="close" width="22px" height="22px" viewBox="0 0 22 22">
+        <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+            <g id="Mobile/Nav/Icon/X" transform="translate(2.000000, 1.000000)" stroke="#8793A5" stroke-width="4">
+                <path d="M1,1 L17.9777078,17.9777078" id="Line"></path>
+                <path d="M-3,9 L21.0101046,9" id="Line-Copy-2" transform="translate(9.005052, 9.500000) rotate(-225.000000) translate(-9.005052, -9.500000) "></path>
+            </g>
+        </g>
+    </symbol>
+
+        <!-- nav menu arrow -->
     <symbol id="nav-arrow" viewBox="0 0 16 10">
         <defs></defs>
         <g id="Desktop-UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -208,7 +217,6 @@
                 </g>
             </g>
         </symbol>
-
 
     </svg>
 </div> <!-- #svg-wrapper -->
