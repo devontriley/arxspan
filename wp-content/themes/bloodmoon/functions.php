@@ -411,7 +411,7 @@ function button($buttonLabel, $buttonUrl){ // placeholders, can change name if w
     // Use same template for careers and events post types
     add_filter( 'template_include', function( $template ) {
         // your custom post types
-        $my_types = array( 'career', 'event' );
+        $my_types = array( 'career', 'event', 'news' );
 
         // is the current request for a single page of one of your post types?
         if ( is_singular( $my_types ) ){
