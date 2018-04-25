@@ -31,6 +31,11 @@ $taxonomies = get_object_taxonomies( array( 'post_type' => $post_type ) );
 
             $posts = new WP_Query($args);
 
+//            echo '<pre>';
+//            print_r($posts);
+//            echo '</pre>';
+            // TODO: fix query to go through array print
+
             if( $posts->have_posts() ): ?>
 
             <div class="category-wrapper <?php echo $term->name ?>">
@@ -45,9 +50,11 @@ $taxonomies = get_object_taxonomies( array( 'post_type' => $post_type ) );
                         <?php echo get_the_title(); ?>
                     </a> <?php
 
-                endwhile; ?>
+                endwhile;
 
-            </p><!-- .category-wrapper --> <?php
+                wp_reset_postdata(); ?>
+
+            </div><!-- .category-wrapper --> <?php
 
             endif;
 
@@ -55,4 +62,4 @@ $taxonomies = get_object_taxonomies( array( 'post_type' => $post_type ) );
 
     endforeach; ?>
 
-    </div> <!-- .open-opps -->
+</div> <!-- .open-opps -->
