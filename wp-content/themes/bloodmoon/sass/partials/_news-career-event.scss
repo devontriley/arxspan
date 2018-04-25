@@ -33,6 +33,7 @@
 
       .header {
         font-weight: bold;
+        margin-top: 0;
 
         &:after {
           content: "";
@@ -60,6 +61,20 @@
 
       .title {
         margin-bottom: 2rem;
+      }
+
+      .about-title {
+        color: $blue;
+        font-size: 1.8rem;
+
+        &:before {
+          content: "";
+          display: block;
+          width: 30rem;
+          height: .2rem;
+          background-color: $lightGrey;
+          margin: 5rem 0;
+        }
       }
 
       p {
