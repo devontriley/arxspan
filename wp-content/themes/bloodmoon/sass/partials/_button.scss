@@ -1,15 +1,25 @@
-//NICE
-
 .btn-wrapper {
-  .btn {
-    display: inline-block;
-    text-decoration: none;
-    font-size: 2.2rem;
+  &.center {
+    text-align: center;
+  }
+}
 
-    svg {
-      width: 10px;
-      height: 16px;
-      margin: 0 .5rem;
-    }
+.btn {
+  background-color: $pink;
+  padding: 1rem;
+  border-radius: 5px;
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+
+  &:active, :focus {
+    outline: none;
+  }
+
+  svg {
+    width: 10px;
+    height: 16px;
+    margin: 0 .5rem;
   }
 }

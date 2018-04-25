@@ -14,3 +14,31 @@ export function getParameterByName(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+
+export function getChildren(n, skipMe){
+    var r = [];
+    for ( ; n; n = n.nextSibling )
+        if ( n.nodeType == 1 && n != skipMe)
+            r.push( n );
+    return r;
+};
+
+export function getSiblings(n) {
+    return getChildren(n.parentNode.firstChild, n);
+}
+
+// Add event listener for multiple events
+export function addListenerMulti(element, eventNames, listener) {
+    var events = eventNames.split(' ');
+    for (var i=0, iLen=events.length; i<iLen; i++) {
+        element.addEventListener(events[i], listener, false);
+    }
+}
+
+export function getScrollOffset() {
+    var v = (window.pageYOffset || document.scrollTop)  - (document.clientTop || 0);
+    if(isNaN(v)) {
+        v = 0;
+    }
+    return v;
+}
