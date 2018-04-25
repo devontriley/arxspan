@@ -19,7 +19,7 @@ $introCopy = get_sub_field('intro_copy');
 
         <?php if($heroGraphic) echo $heroGraphicFull; ?>
 
-        <div class="text-wrapper">
+        <div class="text-wrapper <?php echo $textAlignment ?>">
 
             <?php
 

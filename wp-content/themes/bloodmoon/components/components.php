@@ -24,6 +24,10 @@ if(have_rows('components')) :
             case 'cta_banner':
             include('cta-banner.php');
             break;
+
+            case 'open_opportunities_module':
+            include('open-opps.php');
+            break;
         }
     endwhile;
 endif;

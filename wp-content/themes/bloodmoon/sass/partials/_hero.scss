@@ -53,6 +53,13 @@
 
       &.center {
         text-align: center;
+
+        .header {
+          margin: 0 auto;
+          &:after {
+            margin: 1rem auto;
+          }
+        }
       }
 
       .header {
