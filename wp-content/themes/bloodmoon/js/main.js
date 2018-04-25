@@ -6,7 +6,6 @@ import Barba from 'barba.js';
 import MainHeader from './Main-Header.js';
 import MainNav from './Main-Nav.js';
 import tabModule from './Tab-Module.js';
-// import {getElIndex} from "./helpers"; you can import partials like this
 
 var mainHeader = new MainHeader();
 var mainNav = new MainNav();
