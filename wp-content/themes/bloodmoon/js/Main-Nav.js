@@ -1,7 +1,9 @@
-import { getSiblings, addListenerMulti } from "./helpers";
+import Barba from 'barba.js';
+import { getSiblings, isChildOf } from "./helpers";
 
 // TODO: Add close when clicking outside dropdown
 // TODO: blur() when clicking away from list item
+// TODO: On clicking dropdown menu item, Barba.Pjax.goTo(url)
 
 export class MainNav {
     constructor() {
@@ -9,12 +11,12 @@ export class MainNav {
         this.toggleLinks = document.querySelectorAll('li.dropdown');
         this.hamburger = document.getElementById('hamburger');
 
-        var someFunction = function(event) {
+        var clickEvent = function(event) {
             this.clickHandler(event);
         }.bind(this)
 
-        this.nav.addEventListener('click', someFunction, false);
-        this.nav.addEventListener('focus', someFunction, false);
+        this.nav.addEventListener('click', clickEvent, false);
+        this.nav.addEventListener('focus', clickEvent, false);
         // document.body.addEventListener('click', function(e) {
         //     this.closeDropdown(e);
         // }.bind(this))
@@ -30,21 +32,27 @@ export class MainNav {
         var ele = event.target;
         var siblings;
 
-        while(!ele.classList.contains('dropdown-toggle')) {
-            ele = ele.parentNode;
-            event.stopPropagation();
-        }
-
-        siblings = getSiblings(ele.parentNode);
-
-        for(var i = 0; i < siblings.length; i++) {
-            siblings[i].classList.remove('active');
-        }
-
-        if(!ele.parentNode.classList.contains('active')) {
-            ele.parentNode.classList.add('active');
+        if(isChildOf(ele, 'dropdown-menu') && ele.tagName.toLowerCase() == 'a') {
+            // Element is inside dropdown and is <a>
+            event.preventDefault();
+            Barba.Pjax.goTo(ele.href);
         } else {
-            ele.parentNode.classList.remove('active');
+            while(!ele.classList.contains('dropdown-toggle')) {
+                ele = ele.parentNode;
+                event.stopPropagation();
+            }
+
+            siblings = getSiblings(ele.parentNode);
+
+            for(var i = 0; i < siblings.length; i++) {
+                siblings[i].classList.remove('active');
+            }
+
+            if(!ele.parentNode.classList.contains('active')) {
+                ele.parentNode.classList.add('active');
+            } else {
+                ele.parentNode.classList.remove('active');
+            }
         }
     }
 

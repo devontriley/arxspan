@@ -42,3 +42,15 @@ export function getScrollOffset() {
     }
     return v;
 }
+
+export function isChildOf(ele,className) {
+    while(ele != undefined && ele != null && ele.tagName.toLowerCase() != 'body') {
+        if(ele.classList.length) {
+            if(ele.classList.contains(className)) {
+                return true;
+            }
+        }
+        ele = ele.parentNode;
+    }
+    return false;
+}
