@@ -24835,7 +24835,6 @@ var MainHeader = function () {
     _createClass(MainHeader, [{
         key: 'toggle',
         value: function toggle() {
-            console.log('toggle');
             if (this.scrollOffset > 0) {
                 document.body.classList.add('header-active');
             } else {
@@ -24884,6 +24883,7 @@ var MainNav = exports.MainNav = function () {
         this.nav = document.querySelector('#main-nav ul');
         this.toggleLinks = document.querySelectorAll('li.dropdown');
         this.hamburger = document.getElementById('hamburger');
+        this.activeDropdown;
 
         var clickEvent = function (event) {
             this.clickHandler(event);
@@ -24891,13 +24891,18 @@ var MainNav = exports.MainNav = function () {
 
         this.nav.addEventListener('click', clickEvent, false);
         this.nav.addEventListener('focus', clickEvent, false);
-        // document.body.addEventListener('click', function(e) {
-        //     this.closeDropdown(e);
-        // }.bind(this))
+
+        document.body.addEventListener('click', function (e) {
+            var target = e.target;
+
+            if (!target.classList.contains('dropdown-toggle') && !(0, _helpers.isChildOf)(target, 'dropdown-menu') && this.activeDropdown) {
+                this.closeDropdown();
+                this.activeDropdown = undefined;
+            }
+        }.bind(this), false);
 
         this.hamburger.addEventListener('click', function (e) {
             e.preventDefault();
-
             this.MobileNavToggle();
         }.bind(this));
     }
@@ -24905,37 +24910,46 @@ var MainNav = exports.MainNav = function () {
     _createClass(MainNav, [{
         key: 'clickHandler',
         value: function clickHandler(event) {
-            var ele = event.target;
-            var siblings;
+            var target = event.target;
 
-            if ((0, _helpers.isChildOf)(ele, 'dropdown-menu') && ele.tagName.toLowerCase() == 'a') {
+            // Toggle dropdown
+            if (target.classList.contains('dropdown-toggle')) {
+                this.toggleDropdown(target);
+            }
+
+            // Navigate to url
+            if ((0, _helpers.isChildOf)(target, 'dropdown-menu') && target.tagName.toLowerCase() == 'a') {
                 // Element is inside dropdown and is <a>
                 event.preventDefault();
-                _barba2.default.Pjax.goTo(ele.href);
-            } else {
-                while (!ele.classList.contains('dropdown-toggle')) {
-                    ele = ele.parentNode;
-                    event.stopPropagation();
-                }
-
-                siblings = (0, _helpers.getSiblings)(ele.parentNode);
-
-                for (var i = 0; i < siblings.length; i++) {
-                    siblings[i].classList.remove('active');
-                }
-
-                if (!ele.parentNode.classList.contains('active')) {
-                    ele.parentNode.classList.add('active');
-                } else {
-                    ele.parentNode.classList.remove('active');
-                }
+                _barba2.default.Pjax.goTo(target.href);
             }
         }
-
-        // closeDropdown(event) {
-        //     console.log(this.toggleLinks);
-        // }
-
+    }, {
+        key: 'toggleDropdown',
+        value: function toggleDropdown(target) {
+            if (this.activeDropdown) {
+                // Close current active dropdown
+                this.closeDropdown();
+            }
+            // Open when we're not clicking on currently open dropdown
+            if (target != this.activeDropdown) {
+                this.openDropdown(target);
+            } else {
+                // Reset activeDropdown when clicking currently active dropdown
+                this.activeDropdown = undefined;
+            }
+        }
+    }, {
+        key: 'closeDropdown',
+        value: function closeDropdown() {
+            this.activeDropdown.parentNode.classList.remove('active');
+        }
+    }, {
+        key: 'openDropdown',
+        value: function openDropdown(target) {
+            this.activeDropdown = target;
+            this.activeDropdown.parentNode.classList.add('active');
+        }
     }, {
         key: 'MobileNavToggle',
         value: function MobileNavToggle() {

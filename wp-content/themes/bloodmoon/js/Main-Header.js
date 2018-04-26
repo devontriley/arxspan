@@ -19,7 +19,6 @@ class MainHeader {
     }
 
     toggle() {
-        console.log('toggle');
         if(this.scrollOffset > 0) {
             document.body.classList.add('header-active');
         } else {
