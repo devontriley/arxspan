@@ -1,3 +1,4 @@
+import Barba from 'barba.js';
 import { getScrollOffset } from './helpers';
 
 // TODO: Clean this up!
@@ -6,7 +7,17 @@ class MainHeader {
     constructor() {
         this.header = document.getElementById('primary-header');
         this.scrollOffset = getScrollOffset();
-        // this.active = (this.scrollOffset > 0) ? true : false;
+        this.logo = document.querySelector('#primary-header .logo a');
+        this.demoBtn = document.querySelector('#primary-header .demo-btn a');
+
+        var barbaEvent = function(e) {
+            e.preventDefault();
+            console.log(this.href);
+            Barba.Pjax.goTo(this.href);
+        }
+
+        this.logo.addEventListener('click', barbaEvent);
+        this.demoBtn.addEventListener('click', barbaEvent);
 
         window.addEventListener('scroll', function(e) {
             this.scrollOffset = getScrollOffset();
@@ -19,7 +30,6 @@ class MainHeader {
     }
 
     toggle() {
-        console.log('toggle');
         if(this.scrollOffset > 0) {
             document.body.classList.add('header-active');
         } else {

@@ -19,7 +19,7 @@
 <header id="primary-header" role="banner">
     <div id="header-inner">
         <div class="logo">
-            <a href="<?php echo get_permalink('5')?>">
+            <a href="<?php echo get_bloginfo('url') ?>">
                 <svg viewBox="0 0 224 55">
                     <use xlink:href="#header-logo"></use>
                 </svg>
