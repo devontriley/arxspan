@@ -167,6 +167,12 @@
       }
     }
 
+    .posts-container {
+      &.no-copy {
+
+      }
+    }
+
     .post-container {
       display: block;
     }
@@ -182,6 +188,20 @@
       flex: 0 0 50%;
       max-width: 50%;
       margin: -4rem 0;
+    }
+
+    // no copy
+    &.no-copy {
+      flex: 0 0 100%;
+      max-width: 100%;
+
+      .post-container {
+        @media screen and (min-width: 768px){
+          flex: 0 0 40%;
+          max-width: 40%;
+          box-sizing: border-box;
+        }
+      }
     }
 
     .post-container {
