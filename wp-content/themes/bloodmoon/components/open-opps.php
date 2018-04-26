@@ -6,60 +6,65 @@ $taxonomies = get_object_taxonomies( array( 'post_type' => $post_type ) );
 ?>
 
 <div class="open-opps">
-    <p class="header">Open Opportunities</p>
+    <div class="inner">
 
-    <?php
-    foreach( $taxonomies as $taxonomy ) :
+        <p class="header">Open Opportunities</p>
 
-        // Gets every "category" (term) in this taxonomy to get the respective posts
-        $terms = get_terms( $taxonomy );
+        <div class="categories-wrapper"> <?php
 
-        foreach( $terms as $term ) :
+        foreach( $taxonomies as $taxonomy ) :
 
-            $args = array(
-                'post_type' => $post_type,
-                'posts_per_page' => -1,  //show all posts
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => $taxonomy,
-                        'field' => 'slug',
-                        'terms' => $term->slug,
+            // Gets every "category" (term) in this taxonomy to get the respective posts
+            $terms = get_terms( $taxonomy );
+
+            foreach( $terms as $term ) :
+
+                $args = array(
+                    'post_type' => $post_type,
+                    'posts_per_page' => -1,  //show all posts
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => $taxonomy,
+                            'field' => 'slug',
+                            'terms' => $term->slug,
+                        )
                     )
-                )
 
-            );
+                );
 
-            $posts = new WP_Query($args);
+                $posts = new WP_Query($args);
 
-//            echo '<pre>';
-//            print_r($posts);
-//            echo '</pre>';
-            // TODO: fix query to go through array print
+    //            echo '<pre>';
+    //            print_r($posts);
+    //            echo '</pre>';
+                // TODO: fix query to go through array print
 
-            if( $posts->have_posts() ): ?>
+                if( $posts->have_posts() ): ?>
 
-            <div class="category-wrapper <?php echo $term->name ?>">
+                <div class="category-wrapper <?php echo $iteration; ?>">
 
-                <p class="title">
-                    <?php echo $term->name; ?>
-                </p> <?php
+                    <p class="title">
+                        <?php echo $term->name; ?>
+                    </p> <?php
 
-                while( $posts->have_posts() ) : $posts->the_post(); ?>
+                    while( $posts->have_posts() ) : $posts->the_post(); ?>
+                        <div class="posting">
+                        <a href="<?php echo get_the_permalink(); ?>">
+                            <?php echo get_the_title(); ?>
+                        </a>
+                        </div><!-- .posting --><?php
+                    endwhile;
 
-                    <a href="<?php echo get_the_permalink(); ?>">
-                        <?php echo get_the_title(); ?>
-                    </a> <?php
+                    wp_reset_postdata(); ?>
 
-                endwhile;
+                </div><!-- .category-wrapper --> <?php
 
-                wp_reset_postdata(); ?>
+                endif;
 
-            </div><!-- .category-wrapper --> <?php
+             endforeach;
 
-            endif;
+        endforeach; ?>
 
-         endforeach;
-
-    endforeach; ?>
-
+        </div><!-- .categories-wrapper -->
+    </div><!-- inner -->
 </div> <!-- .open-opps -->
