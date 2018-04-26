@@ -15,6 +15,10 @@
 
 <?php include('inc/master-svg.svg'); ?>
 
+<?php //include('components/page-backgrounds.php'); ?>
+
+<?php include('components/product-overview-bg.php'); ?>
+
 <div id="wrapper">
 <header id="primary-header" role="banner">
     <div id="header-inner">

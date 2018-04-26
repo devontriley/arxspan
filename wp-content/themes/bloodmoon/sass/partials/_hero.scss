@@ -49,6 +49,10 @@
       // text orientation options
       &.left {
         text-align: left;
+
+        .header {
+          max-width: 75rem;
+        }
       }
 
       &.center {

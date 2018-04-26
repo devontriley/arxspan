@@ -1,4 +1,5 @@
 <?php
+$tabTitle = get_sub_field('tab_module_title');
 $postSelection = get_sub_field('tab_module');
 $activeTab = $_GET['activeTab'] ? $_GET['activeTab'] : 1;
 ?>
@@ -7,7 +8,7 @@ $activeTab = $_GET['activeTab'] ? $_GET['activeTab'] : 1;
     <div class="inner">
 
         <div class="wrapper">
-            <p class="header">ArxLab® Products</p>
+            <p class="header"><?php echo $tabTitle; ?></p>
             <div class="tabs"> <?php
                 $iteration = 0;
 
