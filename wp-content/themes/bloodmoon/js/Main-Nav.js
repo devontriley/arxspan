@@ -1,9 +1,7 @@
 import Barba from 'barba.js';
 import { getSiblings, isChildOf } from "./helpers";
 
-// TODO: Add close when clicking outside dropdown
-// TODO: blur() when clicking away from list item
-// TODO: On clicking dropdown menu item, Barba.Pjax.goTo(url)
+// TODO: Display dropdown on focus?
 
 export class MainNav {
     constructor() {
@@ -12,13 +10,12 @@ export class MainNav {
         this.hamburger = document.getElementById('hamburger');
         this.activeDropdown;
 
-
         var clickEvent = function(event) {
             this.clickHandler(event);
         }.bind(this)
 
         this.nav.addEventListener('click', clickEvent, false);
-        this.nav.addEventListener('focus', clickEvent, false);
+        // this.nav.addEventListener('focus', clickEvent, false);
 
         document.body.addEventListener('click', function(e) {
             var target = e.target;
@@ -45,8 +42,9 @@ export class MainNav {
 
         // Navigate to url
         if(isChildOf(target, 'dropdown-menu') && target.tagName.toLowerCase() == 'a') {
-            // Element is inside dropdown and is <a>
             event.preventDefault();
+            this.closeDropdown();
+            this.activeDropdown = undefined;
             Barba.Pjax.goTo(target.href);
         }
     }

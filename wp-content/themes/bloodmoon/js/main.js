@@ -72,15 +72,12 @@ domReady(function() {
                     for(var i = 0; i < getTabModules.length; i++) {
                         tabModules.push(new tabModule(getTabModules[i]));
                     }
-                    console.log(tabModules);
                 }
 
             },
             onLeave: function() {
-                console.log('leave homepage');
             },
             onLeaveCompleted: function() {
-                console.log('leave homepage complete');
             }
         })
     }

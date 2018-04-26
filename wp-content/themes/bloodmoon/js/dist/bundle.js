@@ -1956,15 +1956,10 @@ var mainNav = new _MainNav2.default();
                     for (var i = 0; i < getTabModules.length; i++) {
                         tabModules.push(new _TabModule2.default(getTabModules[i]));
                     }
-                    console.log(tabModules);
                 }
             },
-            onLeave: function onLeave() {
-                console.log('leave homepage');
-            },
-            onLeaveCompleted: function onLeaveCompleted() {
-                console.log('leave homepage complete');
-            }
+            onLeave: function onLeave() {},
+            onLeaveCompleted: function onLeaveCompleted() {}
         })
     };
 
@@ -24808,7 +24803,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _barba = __webpack_require__(1);
+
+var _barba2 = _interopRequireDefault(_barba);
+
 var _helpers = __webpack_require__(0);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -24820,7 +24821,17 @@ var MainHeader = function () {
 
         this.header = document.getElementById('primary-header');
         this.scrollOffset = (0, _helpers.getScrollOffset)();
-        // this.active = (this.scrollOffset > 0) ? true : false;
+        this.logo = document.querySelector('#primary-header .logo a');
+        this.demoBtn = document.querySelector('#primary-header .demo-btn a');
+
+        var barbaEvent = function barbaEvent(e) {
+            e.preventDefault();
+            console.log(this.href);
+            _barba2.default.Pjax.goTo(this.href);
+        };
+
+        this.logo.addEventListener('click', barbaEvent);
+        this.demoBtn.addEventListener('click', barbaEvent);
 
         window.addEventListener('scroll', function (e) {
             this.scrollOffset = (0, _helpers.getScrollOffset)();
@@ -24872,9 +24883,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-// TODO: Add close when clicking outside dropdown
-// TODO: blur() when clicking away from list item
-// TODO: On clicking dropdown menu item, Barba.Pjax.goTo(url)
+// TODO: Display dropdown on focus?
 
 var MainNav = exports.MainNav = function () {
     function MainNav() {
@@ -24890,7 +24899,7 @@ var MainNav = exports.MainNav = function () {
         }.bind(this);
 
         this.nav.addEventListener('click', clickEvent, false);
-        this.nav.addEventListener('focus', clickEvent, false);
+        // this.nav.addEventListener('focus', clickEvent, false);
 
         document.body.addEventListener('click', function (e) {
             var target = e.target;
@@ -24919,8 +24928,9 @@ var MainNav = exports.MainNav = function () {
 
             // Navigate to url
             if ((0, _helpers.isChildOf)(target, 'dropdown-menu') && target.tagName.toLowerCase() == 'a') {
-                // Element is inside dropdown and is <a>
                 event.preventDefault();
+                this.closeDropdown();
+                this.activeDropdown = undefined;
                 _barba2.default.Pjax.goTo(target.href);
             }
         }
