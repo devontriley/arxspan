@@ -4,11 +4,11 @@
   z-index: 100;
   top: 0;
   left: 0;
-  border-bottom: 1px solid $lightBlue;
   background-color: rgba(0,0,0,0);
 
   body.header-active & {
     background: #fff;
+    border-bottom: 1px solid $lightBlue;
   }
 
   #header-inner {
@@ -21,11 +21,11 @@
     padding: 0 2rem;
     @media(min-width: 992px) {
       padding: 0 6rem;
-      height: 8.5rem;
+      height: 10.1rem;
     }
 
     body.header-active & {
-      height: 6rem;
+      height: 8rem;
     }
 
     .nav-container {

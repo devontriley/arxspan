@@ -53,18 +53,16 @@ body {
 
   .svg-background {
     width: 100%;
-    height: auto;
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 999;
   }
 
   #wrapper {
-    background-color: #fff;
     display: block;
     margin: 0 auto;
     position: relative;
+    z-index: 1;
     top: 0;
     overflow: hidden;
 
