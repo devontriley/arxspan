@@ -104,4 +104,4 @@ node_modules/
 #track database file
 !wp-content/databases/*
 
-wp-content/uploads
+wp-content/uploads/*
