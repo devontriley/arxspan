@@ -13,7 +13,6 @@ $gridContent = get_sub_field('grid_content');
 $solutionsGridType = get_sub_field('solutions_grid_layout');
 $withCopyType = get_sub_field('solutions_grid_layout') == 'with-copy';
 $postsOnlyType = get_sub_field('solutions_grid_layout') == 'posts-only';
-
 $solutions = get_sub_field('solutions');
 
 //WHITEPAPERS GRID
@@ -53,11 +52,22 @@ if($postGrid){ ?>
                     <div class="post-container">
                         <p class="title">
                             <?php echo $solutionPost->post_title; ?>
-                        </p>
+                        </p> <?php
 
-                        <div class="blurb">
-                            <?php echo the_field('grid_description', $solutionPost->ID); ?>
-                        </div>
+                        if(have_rows('components', $solutionPost->ID)):
+                            while(have_rows('components', $solutionPost->ID)) : the_row();
+
+                                if( get_row_layout() == 'text_module' ):
+                                    $textModule = get_sub_field('wysiwyg');
+                                    $textExcerpt = advanced_custom_field_excerpt($textModule); ?>
+
+                                    <div class="blurb">
+                                       <?php echo $textExcerpt; ?>
+                                    </div> <?php
+                                endif;
+
+                            endwhile;
+                        endif; ?>
 
                         <a class="learn-more" href="<?php echo get_permalink($solutionPost->ID); ?>">
                             Learn More

@@ -72,6 +72,25 @@ function cc_mime_types($mimes) {
 }
 add_filter('upload_mimes', 'cc_mime_types');
 
+// allow excerpt pulling from advanced custom fields
+
+function advanced_custom_field_excerpt($text) {
+	global $post;
+//	$text = get_field('your_field_name');
+	if ( '' != $text ) {
+		$text = strip_shortcodes( $text );
+		$text = apply_filters('the_content', $text);
+		$text = str_replace(']]>', ']]>', $text);
+		$excerpt_length =50; // 30 words
+		$excerpt_more = apply_filters('excerpt_more', ' ' . '...');
+		$text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+	}
+	return apply_filters('the_excerpt', $text);
+}
+
+//Add this line in your template
+//echo advanced_custom_field_excerpt();
+
 // BUTTON FUNCTION
 function button($buttonLabel, $buttonUrl){ // placeholders, can change name if want, sequence matters more
 
@@ -407,6 +426,47 @@ function button($buttonLabel, $buttonUrl){ // placeholders, can change name if w
         register_taxonomy('whitepaper_category', 'whitepaper', array('hierarchical' => true, 'label' => 'Whitepaper', 'query_var' => true, 'rewrite' => array( 'slug' => 'whitepaper-category' )));
     }
     add_action( 'init', 'whitepaper_init' );
+
+    //  Marketing Flyers Custom Post Type
+    function mktflyer_init() {
+        // set up product labels
+        $labels = array(
+            'name' => 'Marketing Flyers',
+            'singular_name' => 'Marketing Flyer',
+            'add_new' => 'Add New Marketing Flyer',
+            'add_new_item' => 'Add New Marketing Flyer',
+            'edit_item' => 'Edit Marketing Flyer',
+            'new_item' => 'New Marketing Flyer',
+            'all_items' => 'All Marketing Flyers',
+            'view_item' => 'View Marketing Flyer',
+            'search_items' => 'Search Marketing Flyer',
+            'not_found' =>  'No Marketing Flyers Found',
+            'not_found_in_trash' => 'No Marketing Flyers found in Trash',
+            'parent_item_colon' => '',
+            'menu_name' => 'Marketing Flyers',
+        );
+
+        // register post type
+        $args = array(
+            'labels' => $labels,
+            'public' => true,
+            'has_archive' => true,
+            'show_ui' => true,
+            'capability_type' => 'post',
+            'hierarchical' => false,
+            'rewrite' => array('slug' => 'mktflyer'),
+            'query_var' => true,
+            'menu_icon' => 'dashicons-admin-page',
+            'supports' => array(
+                'title'
+            )
+        );
+        register_post_type( 'mktflyer', $args );
+
+        // register taxonomy
+        register_taxonomy('mktflyer_category', 'mktflyer', array('hierarchical' => true, 'label' => 'Marketing Flyer', 'query_var' => true, 'rewrite' => array( 'slug' => 'mktflyer-category' )));
+    }
+    add_action( 'init', 'mktflyer_init' );
 
     // Use same template for careers and events post types
     add_filter( 'template_include', function( $template ) {

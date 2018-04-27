@@ -41,7 +41,22 @@ $activeTab = $_GET['activeTab'] ? $_GET['activeTab'] : 1;
                         <div class="text-block">
                             <div class="inner">
                                 <p class="title"><?php echo $title; ?></p>
-                                <?php echo $tabBlurb; ?>
+                                <?php
+                                    if(have_rows('components', $tabPost->ID)):
+                                        while(have_rows('components', $tabPost->ID)) : the_row();
+
+                                            if( get_row_layout() == 'text_module' ):
+                                                $textModule = get_sub_field('wysiwyg');
+                                                $textExcerpt = advanced_custom_field_excerpt($textModule); ?>
+
+                                                <div class="blurb">
+                                                    <?php echo $textExcerpt; ?>
+                                                </div> <?php
+                                            endif;
+
+                                        endwhile;
+                                    endif;
+                                ?>
                                 <a class="learn-more" href="<?php echo $link; ?>">Learn More</a>
                             </div>
                         </div> <!-- .text-block -->
