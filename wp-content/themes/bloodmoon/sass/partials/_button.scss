@@ -12,6 +12,9 @@
   border: none;
   text-decoration: none;
   display: inline-block;
+  @media screen and (min-with: 992px){
+    padding: 1.5rem;
+  }
 
   &:active, :focus {
     outline: none;

@@ -81,7 +81,7 @@
         </g>
     </symbol>
 
-    <!-- button arrow -->
+    <!-- button arrow white-->
         <symbol id="button-arrow" viewBox="0 0 10 16">
             <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g id="Mobile/Button/Red" transform="translate(-133.000000, -12.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -164,88 +164,67 @@
         <!--      B    A     C    K    G     R    O    U   N   D    S    -->
 
         <!-- home hero background -->
-        <!--<symbol id="home-bg" viewBox="0 0 1920 726">-->
-        <!--<defs>-->
-            <!--<rect id="path-1" x="0" y="0" width="1920" height="725.49396"></rect>-->
-            <!--<linearGradient x1="48.945767%" y1="2.91590167%" x2="50%" y2="100%" id="linearGradient-3">-->
-                <!--<stop stop-color="#FFFFFF" offset="0%"></stop>-->
-                <!--<stop stop-color="#E9F6FF" offset="100%"></stop>-->
-            <!--</linearGradient>-->
-        <!--</defs>-->
-        <!--<g id="Desktop-UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">-->
-            <!--<g id="Homepage">-->
-                <!--<g id="Fill-1" transform="translate(960.000000, 363.000000) scale(-1, 1) translate(-960.000000, -363.000000) ">-->
-                    <!--<mask id="mask-2" fill="white">-->
-                        <!--<use xlink:href="#path-1"></use>-->
-                    <!--</mask>-->
-                    <!--<g id="Mask"></g>-->
-                    <!--<path d="M52.4366922,-870.527449 C566.373337,-984.143368 2215.11331,-1077.8976 2215.11331,-58.9702424 C2215.11331,1267.56672 648.662893,315.38159 101.400559,328.708908 C-415.963342,341.308976 -755.059367,975.295842 -791.503406,-41.2769298 C-827.947444,-1057.8497 -461.499952,-756.910932 52.4366922,-870.527449 Z" fill="url(#linearGradient-3)" mask="url(#mask-2)"></path>-->
-                    <!--<path d="M358.007787,-873.370385 C871.944431,-986.986304 2310.57109,-1063.04722 2310.57109,-44.1198649 C2310.57109,1282.4171 890.15543,284.896339 342.893096,298.223657 C-174.470805,310.823725 -449.488272,972.452907 -485.932311,-44.1198649 C-522.37635,-1060.69264 -155.928858,-759.753867 358.007787,-873.370385 Z" id="Fill-1-Copy" fill="url(#linearGradient-3)" style="mix-blend-mode: multiply;" mask="url(#mask-2)" transform="translate(911.071095, -145.679163) rotate(-5.000000) translate(-911.071095, 145.679163) "></path>-->
-                    <!--<g id="Group-7" mask="url(#mask-2)">-->
-                        <!--<g transform="translate(924.000000, 269.000000)">-->
-                            <!--<text id="Cloud-based-Scientif" transform="translate(383.500000, 83.000000) scale(-1, 1) translate(-383.500000, -83.000000) " font-family="Effra-Bold, Effra" font-size="66" font-weight="bold">-->
-                                <!--<tspan x="0.5" y="63.5" fill="#1F6FA4">Cloud-based Scientific </tspan>-->
-                                <!--<tspan x="0.5" y="143.5" fill="#1F6FA4">Collaboration Software</tspan>-->
-                            <!--</text>-->
-                            <!--<g id="Group-Copy" stroke-width="1" fill-rule="evenodd" transform="translate(661.500000, 316.500000) scale(-1, 1) translate(-661.500000, -316.500000) translate(556.500000, 291.500000)">-->
-                                <!--<rect id="Rectangle-2" fill="#FF385E" x="0" y="0" width="209.987604" height="50" rx="5"></rect>-->
-                                <!--<path d="M181.401523,21.6465396 C181.835069,21.1985894 182.537986,21.1985894 182.971532,21.6465396 C183.405078,22.0944898 183.405078,22.8207606 182.971532,23.2687108 L176.791601,29.6539652 L170.59877,23.2605929 C170.165047,22.8128253 170.164761,22.0865545 170.59813,21.6384219 C171.031499,21.1902892 171.734416,21.1899933 172.168139,21.637761 L176.790962,26.4102836 L181.401523,21.6465396 Z" id="Path-2" fill="#FFFFFF" fill-rule="nonzero" transform="translate(176.784991, 25.478047) rotate(-90.000000) translate(-176.784991, -25.478047) "></path>-->
-                                <!--<text id="Get-In-Touch" font-family="Effra-Bold, Effra" font-size="22" font-weight="bold" fill="#FFFFFF">-->
-                                    <!--<tspan x="35.9667031" y="32.0535714">Get In Touch</tspan>-->
-                                <!--</text>-->
-                            <!--</g>-->
-                            <!--<text id="Lorem-ipsum-dolor-si" transform="translate(468.195943, 214.000000) scale(-1, 1) translate(-468.195943, -214.000000) " font-family="Effra-Italic, Effra" font-size="24" font-style="italic" font-weight="normal" line-spacing="32">-->
-                                <!--<tspan x="169.891885" y="189" fill="#1F6FA4">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, </tspan>-->
-                                <!--<tspan x="169.891885" y="221" fill="#1F6FA4">sed diam nonummy nibh euismod tincidunt ut laoreet dolore </tspan>-->
-                                <!--<tspan x="169.891885" y="253" fill="#1F6FA4">magna aliquam erat volutpat. </tspan>-->
-                            <!--</text>-->
-                        <!--</g>-->
-                    <!--</g>-->
-                    <!--<path d="M407.007787,426.928615 C920.944431,313.312696 2359.57109,237.251775 2359.57109,1256.17914 C2359.57109,2582.7161 939.15543,1585.19534 391.893096,1598.52266 C-125.470805,1611.12273 -400.488272,2272.75191 -436.932311,1256.17914 C-473.37635,239.606364 -106.928858,540.545133 407.007787,426.928615 Z" id="Fill-1-Copy" fill="url(#linearGradient-3)" style="mix-blend-mode: multiply;" mask="url(#mask-2)" transform="translate(960.071095, 1154.619837) rotate(-5.000000) translate(-960.071095, -1154.619837) "></path>-->
-                <!--</g>-->
-            <!--</g>-->
-        <!--</g>-->
-    <!--</symbol>-->
-
-        <!-- product overview hero background -->
-        <svg id="product-overview-bg" width="1920px" height="765px" viewBox="0 0 1920 765">
-            <defs>
-                <rect id="path-1" x="0" y="0" width="1920" height="716"></rect>
-                <linearGradient x1="48.945767%" y1="2.91590167%" x2="50%" y2="100%" id="linearGradient-3">
-                    <stop stop-color="#FFFFFF" offset="0%"></stop>
-                    <stop stop-color="#E9F6FF" offset="100%"></stop>
-                </linearGradient>
-                <rect id="path-4" x="0" y="0" width="318" height="488"></rect>
-                <linearGradient x1="48.945767%" y1="2.91590167%" x2="50%" y2="100%" id="linearGradient-6">
-                    <stop stop-color="#FF385E" offset="0%"></stop>
-                    <stop stop-color="#E9F6FF" offset="100%"></stop>
-                </linearGradient>
-            </defs>
-            <g id="Desktop-UI" stroke="none" stroke-width="1" fill="red" fill-rule="evenodd">
-                <g id="Product-Overview">
-                    <g id="Fill-1">
-                        <mask id="mask-2" fill="white">
-                            <use xlink:href="#path-1"></use>
-                        </mask>
-                        <g id="Mask"></g>
-                        <path d="M407.436692,-650.215684 C921.373337,-751.657122 2360,-819.567758 2360,90.1767413 C2360,1274.56903 939.584335,383.937311 392.322001,395.836544 C-125.041899,407.086456 -400.059367,997.818958 -436.503406,90.1767413 C-472.947444,-817.465475 -106.499952,-548.773711 407.436692,-650.215684 Z" fill="url(#linearGradient-3)" mask="url(#mask-2)"></path>
-                        <path d="M407.436692,-787.215684 C921.373337,-888.657122 2360,-956.567758 2360,-46.8232587 C2360,1137.56903 939.584335,246.937311 392.322001,258.836544 C-125.041899,270.086456 -400.059367,860.818958 -436.503406,-46.8232587 C-472.947444,-954.465475 -106.499952,-685.773711 407.436692,-787.215684 Z" id="Fill-1-Copy" fill="red" style="mix-blend-mode: multiply;" mask="url(#mask-2)" transform="translate(960.500000, -137.500000) rotate(-5.000000) translate(-960.500000, 137.500000) "></path>
+        <symbol id="home-bg" viewBox="0 0 1920 726">
+        <defs>
+            <rect id="path-1" x="0" y="0" width="1920" height="725.49396"></rect>
+            <linearGradient x1="48.945767%" y1="2.91590167%" x2="50%" y2="100%" id="linearGradient-3">
+                <stop stop-color="#FFFFFF" offset="0%"></stop>
+                <stop stop-color="#E9F6FF" offset="100%"></stop>
+            </linearGradient>
+        </defs>
+        <g id="Desktop-UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Homepage">
+                <g id="Fill-1" transform="translate(960.000000, 363.000000) scale(-1, 1) translate(-960.000000, -363.000000) ">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <path d="M52.4366922,-870.527449 C566.373337,-984.143368 2215.11331,-1077.8976 2215.11331,-58.9702424 C2215.11331,1267.56672 648.662893,315.38159 101.400559,328.708908 C-415.963342,341.308976 -755.059367,975.295842 -791.503406,-41.2769298 C-827.947444,-1057.8497 -461.499952,-756.910932 52.4366922,-870.527449 Z" fill="url(#linearGradient-3)" mask="url(#mask-2)"></path>
+                    <path d="M358.007787,-873.370385 C871.944431,-986.986304 2310.57109,-1063.04722 2310.57109,-44.1198649 C2310.57109,1282.4171 890.15543,284.896339 342.893096,298.223657 C-174.470805,310.823725 -449.488272,972.452907 -485.932311,-44.1198649 C-522.37635,-1060.69264 -155.928858,-759.753867 358.007787,-873.370385 Z" id="Fill-1-Copy" fill="url(#linearGradient-3)" style="mix-blend-mode: multiply;" mask="url(#mask-2)" transform="translate(911.071095, -145.679163) rotate(-5.000000) translate(-911.071095, 145.679163) "></path>
+                    <g id="Group-7" mask="url(#mask-2)">
+                        <g transform="translate(924.000000, 269.000000)">
+                            <text id="Cloud-based-Scientif" transform="translate(383.500000, 83.000000) scale(-1, 1) translate(-383.500000, -83.000000) " font-family="Effra-Bold, Effra" font-size="66" font-weight="bold">
+                                <tspan x="0.5" y="63.5" fill="#1F6FA4">Cloud-based Scientific </tspan>
+                                <tspan x="0.5" y="143.5" fill="#1F6FA4">Collaboration Software</tspan>
+                            </text>
+                            <g id="Group-Copy" stroke-width="1" fill-rule="evenodd" transform="translate(661.500000, 316.500000) scale(-1, 1) translate(-661.500000, -316.500000) translate(556.500000, 291.500000)">
+                                <rect id="Rectangle-2" fill="#FF385E" x="0" y="0" width="209.987604" height="50" rx="5"></rect>
+                                <path d="M181.401523,21.6465396 C181.835069,21.1985894 182.537986,21.1985894 182.971532,21.6465396 C183.405078,22.0944898 183.405078,22.8207606 182.971532,23.2687108 L176.791601,29.6539652 L170.59877,23.2605929 C170.165047,22.8128253 170.164761,22.0865545 170.59813,21.6384219 C171.031499,21.1902892 171.734416,21.1899933 172.168139,21.637761 L176.790962,26.4102836 L181.401523,21.6465396 Z" id="Path-2" fill="#FFFFFF" fill-rule="nonzero" transform="translate(176.784991, 25.478047) rotate(-90.000000) translate(-176.784991, -25.478047) "></path>
+                                <text id="Get-In-Touch" font-family="Effra-Bold, Effra" font-size="22" font-weight="bold" fill="#FFFFFF">
+                                    <tspan x="35.9667031" y="32.0535714">Get In Touch</tspan>
+                                </text>
+                            </g>
+                            <text id="Lorem-ipsum-dolor-si" transform="translate(468.195943, 214.000000) scale(-1, 1) translate(-468.195943, -214.000000) " font-family="Effra-Italic, Effra" font-size="24" font-style="italic" font-weight="normal" line-spacing="32">
+                                <tspan x="169.891885" y="189" fill="#1F6FA4">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, </tspan>
+                                <tspan x="169.891885" y="221" fill="#1F6FA4">sed diam nonummy nibh euismod tincidunt ut laoreet dolore </tspan>
+                                <tspan x="169.891885" y="253" fill="#1F6FA4">magna aliquam erat volutpat. </tspan>
+                            </text>
+                        </g>
                     </g>
-                    <!--<g id="Group-13" style="mix-blend-mode: multiply;" transform="translate(1703.325786, 285.000000)">-->
-                        <!--<mask id="mask-5" fill="white">-->
-                            <!--<use xlink:href="#path-4"></use>-->
-                        <!--</mask>-->
-                        <!--<g id="Mask"></g>-->
-                        <!--<g mask="url(#mask-5)" fill="url(#linearGradient-6)">-->
-                            <!--<g transform="translate(24.000000, -35.000000)">-->
-                                <!--<circle id="Oval-Copy-3" style="mix-blend-mode: multiply;" transform="translate(212.000000, 212.000000) rotate(-24.000000) translate(-212.000000, -212.000000) " cx="212" cy="212" r="160"></circle>-->
-                                <!--<circle id="Oval-Copy-4" style="mix-blend-mode: multiply;" transform="translate(97.000000, 442.000000) rotate(-24.000000) translate(-97.000000, -442.000000) " cx="97" cy="442" r="73"></circle>-->
-                            <!--</g>-->
-                        <!--</g>-->
-                    <!--</g>-->
+                    <path d="M407.007787,426.928615 C920.944431,313.312696 2359.57109,237.251775 2359.57109,1256.17914 C2359.57109,2582.7161 939.15543,1585.19534 391.893096,1598.52266 C-125.470805,1611.12273 -400.488272,2272.75191 -436.932311,1256.17914 C-473.37635,239.606364 -106.928858,540.545133 407.007787,426.928615 Z" id="Fill-1-Copy" fill="url(#linearGradient-3)" style="mix-blend-mode: multiply;" mask="url(#mask-2)" transform="translate(960.071095, 1154.619837) rotate(-5.000000) translate(-960.071095, -1154.619837) "></path>
                 </g>
             </g>
-        </svg>
+        </g>
+    </symbol>
+
+    <!-- linkedin icon -->
+    <symbol id="linkedin-icon" viewBox="0 0 48 47">
+        <g id="Desktop-UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="News-&amp;-Events-Listing" transform="translate(-359.000000, -616.000000)" fill="#1F6FA4">
+                <path d="M399.533532,655.661713 L392.642597,655.661713 L392.642597,644.872027 C392.642597,642.299226 392.59546,638.989679 389.059272,638.989679 C385.471427,638.989679 384.920642,641.79235 384.920642,644.686065 L384.920642,655.661713 L378.030999,655.661713 L378.030999,633.474735 L384.644605,633.474735 L384.644605,636.506308 L384.73694,636.506308 C385.657712,634.762266 387.907016,632.923306 391.261762,632.923306 C398.244387,632.923306 399.533532,637.518769 399.533532,643.492161 L399.533532,655.661713 Z M370.259325,630.441871 C368.049086,630.441871 366.260491,628.65037 366.260491,626.443037 C366.260491,624.237641 368.049086,622.446139 370.259325,622.446139 C372.464076,622.446139 374.255577,624.237641 374.255577,626.443037 C374.255577,628.65037 372.464076,630.441871 370.259325,630.441871 Z M366.809983,655.661713 L373.706084,655.661713 L373.706084,633.474735 L366.809983,633.474735 L366.809983,655.661713 Z M402.9677,616.045615 L363.348696,616.045615 C361.455497,616.045615 359.917111,617.546227 359.917111,619.395519 L359.917111,659.18176 C359.917111,661.033311 361.455497,662.536183 363.348696,662.536183 L402.9677,662.536183 C404.864128,662.536183 406.408971,661.033311 406.408971,659.18176 L406.408971,619.395519 C406.408971,617.546227 404.864128,616.045615 402.9677,616.045615 Z" id="LinkedIn"></path>
+            </g>
+        </g>
+    </symbol>
+
+    <!-- twitter icon -->
+    <symbol id="twitter-icon" viewBox="0 0 50 41">
+        <g id="Desktop-UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="News-&amp;-Events-Listing" transform="translate(-274.000000, -620.000000)" fill="#1F6FA4" fill-rule="nonzero">
+                <path d="M324,624.852528 C322.160587,625.676687 320.183789,626.231262 318.10777,626.485441 C320.22195,625.199136 321.85529,623.173398 322.618532,620.754838 C320.634102,621.941011 318.435965,622.803682 316.100442,623.265828 C314.230499,621.255495 311.566784,620 308.613036,620 C302.949778,620 298.355061,624.63686 298.355061,630.352057 C298.355061,631.160813 298.44665,631.954161 298.622196,632.709 C290.096778,632.277664 282.540681,628.149165 277.480385,621.887095 C276.595024,623.419876 276.091285,625.199136 276.091285,627.101635 C276.091285,630.690964 277.900168,633.85666 280.655472,635.712944 C278.968708,635.659028 277.388796,635.196883 276.007328,634.418937 C276.007328,634.465152 276.007328,634.503664 276.007328,634.549879 C276.007328,639.564155 279.54114,643.746572 284.235078,644.701672 C283.372615,644.940448 282.47199,645.063687 281.533201,645.063687 C280.86918,645.063687 280.228057,645.002067 279.602199,644.878828 C280.907342,648.98422 284.693023,651.988166 289.180888,652.065189 C285.677607,654.845763 281.250802,656.494083 276.442375,656.494083 C275.610442,656.494083 274.801404,656.447867 274,656.355438 C278.53366,659.290063 283.929781,661 289.72279,661 C308.590139,661 318.909174,645.225437 318.909174,631.553635 C318.909174,631.099194 318.901542,630.652452 318.878644,630.205712 C320.885972,628.757657 322.626164,626.932181 324,624.852528" id="Twitter-Icon"></path>
+            </g>
+        </g>
+    </symbol>
+
 
     </svg>
 </div> <!-- #svg-wrapper -->

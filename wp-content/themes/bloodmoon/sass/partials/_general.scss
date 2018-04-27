@@ -5,14 +5,14 @@ html {
 }
 
 body {
-  padding-top: 6rem;
-  @media(min-width: 992px) {
-    padding-top: 8.5rem;
-
-    &.header-active {
-      padding-top: 6rem;
-    }
-  }
+  //padding-top: 6rem;
+  //@media(min-width: 992px) {
+  //  padding-top: 8.5rem;
+  //
+  //  &.header-active {
+  //    padding-top: 6rem;
+  //  }
+  //}
 
   &.mobile-nav-active {
     overflow: hidden;
@@ -67,7 +67,15 @@ body {
     overflow: hidden;
 
     #container {
-      //margin-top: 70px;
+      padding-top: 6rem;
+
+      @media(min-width: 992px) {
+        padding-top: 8.5rem;
+
+        &.header-active {
+          padding-top: 6rem;
+        }
+      }
     }
   }
 }

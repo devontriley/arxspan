@@ -15,7 +15,9 @@
 
         //event
         $eventDate = get_field('event_date');
-        $smLinks = have_rows('sm_links');
+        $twitter = get_field('twitter_link');
+        $facebook = get_field('facebook_link');
+        $linkedin = get_field('linkedin_link');
         $eventWysiwyg = get_field('event_wysiwyg');
         $aboutModule = get_field('about_content');
 
@@ -39,15 +41,29 @@
             <div class="intro-col">
                 <p class='header'><?php echo $title ?></p>
                 <p class="date"><?php echo $eventDate?></p><?php
-            if($smLinks){
-                while($smLinks) : the_row();
 
-                $smIcon = get_sub_field('sm_icon');
-                $smLink = get_sub_field('sm_link');
+                if($twitter || $linkedin || $facebook ) {?>
+                    <div class="sm-wrapper"><?php
+                        if($twitter){ ?>
+                            <a class="sm-icon" href="<?php echo $twitter ?>">
+                                <svg viewBox="0 0 50 41">
+                                    <use xlink:href="#twitter-icon"></use>
+                                </svg>
+                            </a><?php
+                        }
 
-                endwhile;
-            } ?>
+                        if($linkedin){ ?>
+                            <a class="sm-icon" href="<?php echo $linkedin ?>">
+                                <svg viewBox="0 0 48 47">
+                                    <use xlink:href="#linkedin-icon"></use>
+                                </svg>
+                            </a><?php
+                        } ?>
+
+                    </div><!-- .sm-wrapper --><?php
+                }?>
             </div><!-- .intro-col -->
+
             <div class="details-col">
                 <?php echo $eventWysiwyg ?>
                 <?php echo $aboutModule ?>

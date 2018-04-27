@@ -42,8 +42,14 @@
         padding: 2rem 0;
         display: flex;
         box-shadow: none;
+        transition: all ease 200ms;
         &:after {
           content: none;
+        }
+        &:hover {
+          @media screen and (min-width: 768px){
+            transform: translateY(-.5rem);
+          }
         }
         @media screen and (min-width: 768px){
           flex: 0 0 50%;
@@ -154,7 +160,6 @@
           text-decoration: none;
           color: #fff;
           background-color: $blue;
-          padding: 2rem;
           display: inline-block;
           border-radius: 5px;
 

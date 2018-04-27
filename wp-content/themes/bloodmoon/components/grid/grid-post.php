@@ -28,18 +28,20 @@ if($postGrid){ ?>
         //SOLUTIONS GRID
         if($solutionsLayout){
 
+            include('backgrounds/gradient-bg.php');
+
             //WITH COPY
             if($withCopyType){ ?>
                 <div class="text-container"> <?php
                     if($gridTitle){ ?>
                         <p class="header">
-                            <?php echo $gridTitle; ?>
+                        <?php echo $gridTitle; ?>
                         </p><?php
                     }
 
                     if($gridContent){ ?>
                         <div class="content">
-                            <?php echo $gridContent; ?>
+                        <?php echo $gridContent; ?>
                         </div><?php
                     }?>
                 </div><!-- .text-container --><?php
@@ -62,7 +64,7 @@ if($postGrid){ ?>
                                     $textExcerpt = advanced_custom_field_excerpt($textModule); ?>
 
                                     <div class="blurb">
-                                       <?php echo $textExcerpt; ?>
+                                        <?php echo $textExcerpt; ?>
                                     </div> <?php
                                 endif;
 
@@ -80,9 +82,12 @@ if($postGrid){ ?>
 
         //WHITEPAPERS GRID
         if($whitepapersLayout){
+
+            include('../backgrounds/gradient-bg.php');
+
             if($gridTitle){ ?>
                 <p class="header">
-                    <?php echo $gridTitle; ?>
+                <?php echo $gridTitle; ?>
                 </p><?php
             } ?>
 
@@ -121,7 +126,7 @@ if($postGrid){ ?>
         if($newsEventsLayout){
             if($gridTitle){ ?>
                 <p class="header">
-                    <?php echo $gridTitle; ?>
+                <?php echo $gridTitle; ?>
                 </p><?php
             } ?>
 
@@ -141,7 +146,7 @@ if($postGrid){ ?>
                                 <?php echo the_field('grid_description', $newsEventsPost->ID); ?>
                             </div>
 
-                            <a class="view-more" href="<?php echo get_permalink($newsEventsPost->ID); ?>">
+                            <a class="view-more btn" href="<?php echo get_permalink($newsEventsPost->ID); ?>">
                                 View More
                                 <svg viewbox="0 0 10 16"><use xlink:href="#button-arrow"></use></svg>
                             </a>

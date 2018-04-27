@@ -44,6 +44,20 @@
           margin: 2rem 0;
         }
       }
+
+      .sm-wrapper {
+        display: flex;
+        margin: 0 -2rem;
+
+        .sm-icon {
+          width: 5rem;
+          margin: 0 1rem;
+
+          svg {
+            width: 5rem;
+          }
+        }
+      }
     }
 
     .details-col {
