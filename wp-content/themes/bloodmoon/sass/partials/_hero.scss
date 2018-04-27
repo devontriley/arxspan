@@ -49,10 +49,32 @@
       // text orientation options
       &.left {
         text-align: left;
+
+        .header {
+          max-width: 75rem;
+        }
       }
 
       &.center {
         text-align: center;
+
+        .header {
+          margin: 4rem auto;
+          max-width: 75rem;
+          &:after {
+            margin: 1rem auto;
+          }
+        }
+
+        .subheader {
+          &:after {
+            margin: 1rem auto;
+          }
+        }
+
+        .copy-container {
+          margin: 2rem auto;
+        }
       }
 
       .header {
@@ -70,10 +92,17 @@
           margin: 1rem 0;
           background-color: $lightBlue;
         }
+
+        &.has-subheader {
+          &:after {
+            content: none;
+          }
+        }
       }
 
       .copy-container {
         max-width: 80rem;
+        margin: 2rem 0;
 
         p {
           color: $blue;
@@ -85,12 +114,21 @@
       }
 
       .subheader {
-        font-size: 3rem;
+        font-size: 2.6rem;
         margin: 1rem 0;
         color: $blue;
         font-style: italic;
         @media screen and (min-width: 768px){
           font-size: 3.4rem;
+        }
+
+        &:after {
+          content: "";
+          display: block;
+          height: .4rem;
+          width: 5rem;
+          margin: 1rem 0;
+          background-color: $lightBlue;
         }
       }
 

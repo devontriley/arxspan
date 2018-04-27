@@ -23,8 +23,11 @@ if($graphicGrid){ ?>
     <div class="graphic-grid-wrapper <?php echo $graphicGridLayout ?>"> <?php
 
         //ICON GRID
-        if($iconGrid){ ?>
-            <div class="text-container"> <?php
+        if($iconGrid){
+
+            if($gridTitle || $gridSubtitle || $gridContent || $gridSecondaryContent){ ?>
+                <div class="text-container"> <?php
+            }
 
                 if($gridTitle){ ?>
                     <p class="header">
@@ -48,9 +51,12 @@ if($graphicGrid){ ?>
                     <p class="secondary-content">
                         <?php echo $gridSecondaryContent; ?>
                     </p><?php
-                } ?>
+                }
 
-            </div><!-- .text-container -->
+            if($gridTitle || $gridSubtitle || $gridContent || $gridSecondaryContent){ ?>
+                </div><!-- .text-container --> <?php
+            } ?>
+
 
             <div class="icons-container"> <?php
                 foreach($industryIcons as $icon){ ?>
@@ -73,7 +79,7 @@ if($graphicGrid){ ?>
                     </div><!-- .icon-container --><?php
                 } ?>
             </div><!-- .icons-container -->
-            <?php button($buttonLabel, $buttonUrl);
+            <?php if($buttonLabel){ button($buttonLabel, $buttonUrl); }
         }
 
         //PHOTO GRID

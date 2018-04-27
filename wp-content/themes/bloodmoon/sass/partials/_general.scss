@@ -4,6 +4,21 @@ html {
   font-size: 62.5%;
 }
 
+body {
+  padding-top: 6rem;
+  @media(min-width: 992px) {
+    padding-top: 8.5rem;
+
+    &.header-active {
+      padding-top: 6rem;
+    }
+  }
+
+  &.mobile-nav-active {
+    overflow: hidden;
+  }
+}
+
 // text types
 
 .header {
@@ -36,6 +51,15 @@ body {
   color: $textGrey;
   font-family: "effra", Helvetica, Arial, sans-serif;
 
+  .svg-background {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+  }
+
   #wrapper {
     background-color: #fff;
     display: block;
@@ -47,17 +71,5 @@ body {
     #container {
       //margin-top: 70px;
     }
-  }
-}
-
-.btn {
-  background-color: $pink;
-  padding: 1rem;
-  border-radius: 5px;
-  color: #fff;
-  border: none;
-
-  &:active, :focus {
-    outline: none;
   }
 }

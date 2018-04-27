@@ -17,6 +17,7 @@
         $eventDate = get_field('event_date');
         $smLinks = have_rows('sm_links');
         $eventWysiwyg = get_field('event_wysiwyg');
+        $aboutModule = get_field('about_content');
 
         //career
         $careerWysiwyg = get_field('career_wysiwyg');
@@ -36,8 +37,8 @@
 
         if($eventType){ ?>
             <div class="intro-col">
-                <p class='header'><?php echo $title; ?></p>
-                <p class="date"><?php echo $eventDate;?></p><?php
+                <p class='header'><?php echo $title ?></p>
+                <p class="date"><?php echo $eventDate?></p><?php
             if($smLinks){
                 while($smLinks) : the_row();
 
@@ -49,12 +50,13 @@
             </div><!-- .intro-col -->
             <div class="details-col">
                 <?php echo $eventWysiwyg ?>
+                <?php echo $aboutModule ?>
             </div><!-- details-col --> <?php
         }
 
         if($careerType){ ?>
             <div class="intro-col">
-                <p class='header'><?php echo $title; ?></p>
+                <p class='header'><?php echo $title ?></p>
                 <p>Posted:</p>
                 <p><?php echo $postDate; ?></p>
 

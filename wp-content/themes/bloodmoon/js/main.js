@@ -3,8 +3,12 @@ import $ from 'jquery';
 import _ from 'lodash';
 import domReady from 'domready';
 import Barba from 'barba.js';
+import MainHeader from './Main-Header.js';
+import MainNav from './Main-Nav.js';
 import tabModule from './Tab-Module.js';
-// import {getElIndex} from "./helpers"; you can import partials like this
+
+var mainHeader = new MainHeader();
+var mainNav = new MainNav();
 
 domReady(function() {
 
@@ -68,15 +72,12 @@ domReady(function() {
                     for(var i = 0; i < getTabModules.length; i++) {
                         tabModules.push(new tabModule(getTabModules[i]));
                     }
-                    console.log(tabModules);
                 }
 
             },
             onLeave: function() {
-                console.log('leave homepage');
             },
             onLeaveCompleted: function() {
-                console.log('leave homepage complete');
             }
         })
     }
