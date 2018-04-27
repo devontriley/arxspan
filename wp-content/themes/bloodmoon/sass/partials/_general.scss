@@ -51,6 +51,15 @@ body {
   color: $textGrey;
   font-family: "effra", Helvetica, Arial, sans-serif;
 
+  .svg-background {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+  }
+
   #wrapper {
     background-color: #fff;
     display: block;

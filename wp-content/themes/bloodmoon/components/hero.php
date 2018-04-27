@@ -19,12 +19,12 @@ $introCopy = get_sub_field('intro_copy');
 
         <?php if($heroGraphic) echo $heroGraphicFull; ?>
 
-        <div class="text-wrapper">
+        <div class="text-wrapper <?php echo $textAlignment ?>">
 
             <?php
 
             if($heroHeader){ ?>
-                <p class="header"><?php echo $heroHeader ?></p> <?php
+                <p class="header <?php if($heroSubheader){ echo ' has-subheader';}?>"><?php echo $heroHeader ?></p> <?php
             }
 
             if($heroSubheader){ ?>
