@@ -24,7 +24,7 @@ $introCopy = get_sub_field('intro_copy');
             <?php
 
             if($heroHeader){ ?>
-                <p class="header trigger_fade <?php if($heroSubheader){ echo ' has-subheader';}?>"><?php echo $heroHeader ?></p> <?php
+                <p class="header <?php if($heroSubheader){ echo ' has-subheader';}?>"><?php echo $heroHeader ?></p> <?php
             }
 
             if($heroSubheader){ ?>

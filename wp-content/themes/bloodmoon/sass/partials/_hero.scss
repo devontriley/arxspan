@@ -106,7 +106,10 @@
         margin: 2rem 0;
 
         p {
-          color: $blue;
+
+          @media screen and (min-width: 768px){
+            color: $blue;
+          }
         }
 
         ul {
