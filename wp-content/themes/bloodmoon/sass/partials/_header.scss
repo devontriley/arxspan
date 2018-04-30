@@ -142,6 +142,17 @@
             }
           }
 
+          .nav-arrow {
+            display: inline-block;
+            width: 1.6rem;
+            margin: 0 .5rem;
+            //fill: $blue;
+
+            &:hover {
+              //fill: $pink;
+            }
+          }
+
           ul.dropdown-menu {
             display: none;
             @media(min-width: 992px) {

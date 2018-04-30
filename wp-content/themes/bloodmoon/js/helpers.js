@@ -43,6 +43,10 @@ export function getScrollOffset() {
     return v;
 }
 
+export function getViewportHeight() {
+    return Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+}
+
 export function isChildOf(ele,className) {
     while(ele != undefined && ele != null && ele.tagName.toLowerCase() != 'body') {
         if(ele.classList.length) {

@@ -28,8 +28,8 @@
         // news page
         if($newsType){ ?>
             <div class="intro-col">
-                <p class='header'><?php echo $title; ?></p>
-                <?php echo $postDate; ?>
+                <p class='header trigger_title_line'><?php echo $title; ?></p>
+                <p class="date"><?php echo $postDate; ?></p>
             </div> <!-- .intro-col -->
 
             <div class="details-col">
@@ -39,7 +39,7 @@
 
         if($eventType){ ?>
             <div class="intro-col">
-                <p class='header'><?php echo $title ?></p>
+                <p class='header trigger_title_line'><?php echo $title ?></p>
                 <p class="date"><?php echo $eventDate?></p><?php
 
                 if($twitter || $linkedin || $facebook ) {?>
@@ -72,7 +72,7 @@
 
         if($careerType){ ?>
             <div class="intro-col">
-                <p class='header'><?php echo $title ?></p>
+                <p class='header trigger_title_line'><?php echo $title ?></p>
                 <p>Posted:</p>
                 <p><?php echo $postDate; ?></p>
 
