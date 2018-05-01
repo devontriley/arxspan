@@ -118,23 +118,9 @@ function button($buttonLabel, $buttonUrl){ // placeholders, can change name if w
     add_shortcode( 'col_two', 'colTwo' );
 
 // ADD BUTTONS FOR SHORTCODE
-    function add_plugin($plugin_array){
-        $plugin_array['cols'] = get_bloginfo('template_url').'/scripts/main.js';
-        return $plugin_array;
-    }
 
-    function register_button($buttons){
-        array_push($buttons, 'cols');
-        return $buttons;
-    }
+require('inc/custom-editor-buttons/mce-buttons.php');
 
-    function add_button(){
-        if( current_user_can('edit_posts') && current_user_can('edit_pages')){
-            add_filter('mce_external_plugins', 'add_plugin');
-            add_filter('mce_buttons', 'register_button');
-        }
-    }
-    add_action('init', 'add_button');
 
 // CUSTOM POST TYPES  //
 

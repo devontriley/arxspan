@@ -1,9 +1,4 @@
 .post-grid-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  @media screen and (min-width: 768px){
-    flex-wrap: nowrap;
-  }
 
   .header {
     &:after {
@@ -18,7 +13,6 @@
 
   //whitepapers grid
   &.whitepapers {
-    display: block;
 
     .header {
       max-width: 65rem;
@@ -199,6 +193,13 @@
 
   // solutions grid
   &.solutions {
+    display: flex;
+    flex-wrap: wrap;
+
+    @media screen and (min-width: 768px){
+      flex-wrap: nowrap;
+    }
+
     .text-container {
       flex: 0 0 100%;
       max-width: 100%;
@@ -222,25 +223,25 @@
 
 
   .posts-container{
-    flex: 0 0 100%;
-    max-width: 100%;
-    box-sizing: border-box;
     @media screen and (min-width: 768px){
       flex: 0 0 50%;
       max-width: 50%;
       margin: -4rem 0;
       padding: 0 2rem;
+      box-sizing: border-box;
     }
 
     // no copy
     &.no-copy {
       flex: 0 0 100%;
       max-width: 100%;
+      display: flex;
+      flex-wrap: wrap;
 
       .post-container {
         @media screen and (min-width: 768px){
-          flex: 0 0 40%;
-          max-width: 40%;
+          flex: 0 0 50%;
+          max-width: 50%;
           box-sizing: border-box;
         }
       }

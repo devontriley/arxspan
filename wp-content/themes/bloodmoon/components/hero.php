@@ -6,6 +6,8 @@ $heroSubheader = get_sub_field('hero_subheader');
 $textAlignment = get_sub_field('text_alignment');
 $heroGraphic = get_sub_field('hero_graphic');
 $heroGraphicFull = wp_get_attachment_image($heroGraphic, 'full');
+$mobileGraphic = get_sub_field('mobile_hero_graphic');
+$mobileGraphicFull = wp_get_attachment_image($mobileGraphic, 'full');
 $ctaOption = get_sub_field('cta_option');
 $button = get_sub_field('button');
 $buttonLabel = $button['button_label'];
@@ -17,7 +19,10 @@ $introCopy = get_sub_field('intro_copy');
 <div class="hero <?php echo $textAlignment; if($heroGraphic){ echo ' graphic';}?>">
     <div class="inner">
 
-        <?php if($heroGraphic) echo $heroGraphicFull; ?>
+        <?php if($heroGraphic) { ?>
+            <div class="desktop-graphic"><?php echo $heroGraphicFull; ?></div>
+            <div class="mobile-graphic"><?php echo $mobileGraphicFull; ?></div> <?php
+        } ?>
 
         <div class="text-wrapper <?php echo $textAlignment ?>">
 

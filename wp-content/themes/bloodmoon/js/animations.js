@@ -2,10 +2,12 @@
 
 import { getScrollOffset, getViewportHeight } from './helpers';
 
+// list of general animations
+
 class animations {
     constructor() {
         this.eleArr = [];
-        this.elements = document.querySelectorAll('.trigger_fade, .trigger_tile, .trigger_title_line');
+        this.elements = document.querySelectorAll('.trigger_fade, .trigger_tile, .trigger_rotate_tile');
         this.interval;
         this.currentScroll;
 

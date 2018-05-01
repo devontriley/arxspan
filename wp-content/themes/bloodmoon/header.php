@@ -47,7 +47,7 @@
                             }
                             if( $bool == true && count( $menu_array ) > 0 ) {
                                 $menu_list .= '<li class="dropdown" tabindex="0">' ."\n";
-                                $menu_list .= '<span class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">' . $menu_item->title . '</span>' ."\n";
+                                $menu_list .= '<span class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">' . $menu_item->title . '</span>' ."\n"; // n is new line
                                 $menu_list .= '<svg class="nav-arrow" viewBox="0 0 16 10">';
                                 $menu_list .= '<defs></defs>';
                                 $menu_list .= '<g id="Desktop-UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">';
@@ -88,6 +88,6 @@
 
     <div id="body-content">
         <div id="barba-wrapper">
-            <div class="barba-container" data-namespace="<?php if(is_front_page()){ echo 'homepage'; }?>">
+            <div class="barba-container" data-namespace="<?php if(is_front_page()){ echo 'homepage'; }?>"> <!-- put string for each module, comma separated and convert into arrow -->
                 <?php include('components/page-backgrounds.php') ?>
                 <?php include('inc/master-svg.svg'); ?>

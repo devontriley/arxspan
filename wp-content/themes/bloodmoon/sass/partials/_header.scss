@@ -109,6 +109,17 @@
             border: none;
           }
 
+          &:hover {
+            & > span.dropdown-toggle,
+            & > a {
+              color: $pink;
+            }
+
+            & > .nav-arrow {
+              fill: $pink !important;
+            }
+          }
+
           &:focus,
           &.active {
             outline: none;
@@ -124,11 +135,7 @@
             color: $blue;
             text-decoration: none;
             cursor: pointer;
-            @include text-fade-hover();
-
-            &:hover {
-              color: $pink;
-            }
+            @include text-fade-hover(color);
           }
 
           &.active ul.dropdown-menu {
@@ -145,12 +152,9 @@
           .nav-arrow {
             display: inline-block;
             width: 1.6rem;
-            margin: 0 .5rem;
-            //fill: $blue;
-
-            &:hover {
-              //fill: $pink;
-            }
+            margin: 0 .25rem;
+            fill: $blue;
+            @include text-fade-hover(fill);
           }
 
           ul.dropdown-menu {
@@ -193,7 +197,7 @@
 
                 &:hover {
                   color: $pink;
-                  @include text-fade-hover();
+                  @include text-fade-hover(color);
                 }
               }
             }
