@@ -6,9 +6,27 @@ import Barba from 'barba.js';
 import MainHeader from './Main-Header.js';
 import MainNav from './Main-Nav.js';
 import tabModule from './Tab-Module.js';
+import { styledSelect, defaultForm } from './Forms.js';
 
 var mainHeader = new MainHeader();
 var mainNav = new MainNav();
+
+// Styled Selects
+var styledSelects = document.querySelectorAll('form select');
+if(styledSelects.length){
+    var styledSelectsArr = [];
+    for(var i = 0; i < styledSelects.length; i++) {
+        styledSelectsArr[i] = new styledSelect(styledSelects[i]);
+    }
+}
+
+var forms = document.querySelectorAll('.default-form');
+if(forms.length) {
+    var formsArr = [];
+    for(var i = 0; i < forms.length; i++) {
+        formsArr[i] = new defaultForm(forms[i]);
+    }
+}
 
 domReady(function() {
 

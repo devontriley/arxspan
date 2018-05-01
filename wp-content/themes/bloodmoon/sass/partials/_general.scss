@@ -1,16 +1,24 @@
-// page
+/*
+ * Body
+ */
 
 html {
   font-size: 62.5%;
 }
 
 body {
+  width: 100%;
+  font-size: 1.6rem;
+  display: block;
+  margin: 0 auto;
+  color: $textGrey;
+  font-family: "effra", Helvetica, Arial, sans-serif;
   padding-top: 6rem;
   @media(min-width: 992px) {
-    padding-top: 8.5rem;
+    padding-top: 10.1rem;
 
     &.header-active {
-      padding-top: 6rem;
+      padding-top: 8rem;
     }
   }
 
@@ -19,7 +27,18 @@ body {
   }
 }
 
-// text types
+#wrapper {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  top: 0;
+  overflow: hidden;
+}
+
+/*
+ * Text Styles
+ */
 
 .header {
   font-size: 3.6rem;
@@ -41,33 +60,49 @@ p, li {
   line-height: 1.5em;
 }
 
-// body
+/*
+ * Miscellaneous
+ */
 
-body {
+.svg-background {
   width: 100%;
-  font-size: 1.6rem;
-  display: block;
-  margin: 0 auto;
-  color: $textGrey;
-  font-family: "effra", Helvetica, Arial, sans-serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
-  .svg-background {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+.boxed-content {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 6px 24px 0 rgba(0,0,0,0.09);
+  max-width: 120rem;
+  margin: 5rem auto;
+  box-sizing: border-box;
 
-  #wrapper {
-    display: block;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-    top: 0;
-    overflow: hidden;
+  .inner {
+    display: flex;
+    flex-wrap: nowrap;
 
-    #container {
-      //margin-top: 70px;
+    > section {
+      flex: 0 0 55%;
+      max-width: 55%;
+      border-right: .2rem solid #f4f4f4;
+      padding: 6rem;
+      box-sizing: border-box;
+    }
+
+    > aside {
+      flex: 0 0 45%;
+      max-width: 45%;
+      padding: 6rem;
+      box-sizing: border-box;
+
+      // Contact Us form
+      form {
+        max-width: 28rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
   }
 }
