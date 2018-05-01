@@ -6,6 +6,7 @@ $graphicGridLayout = get_sub_field('graphic_grid_layout');
 $gridTitle = get_sub_field('grid_title');
 $gridSubtitle = get_sub_field('grid_subtitle');
 $gridContent = get_sub_field('grid_content');
+//$gridExcerpt = advanced_custom_field_excerpt(//add field here);
 $gridSecondaryContent = get_sub_field('grid_secondary_content');
 
 $button = get_sub_field('button');
@@ -15,7 +16,6 @@ $buttonUrl = $button['button_url'];
 //ICON GRID
 $industryIcons = get_sub_field('industry_icons');
 
-//PHOTO GRID
 
 if($graphicGrid){ ?>
     <div class="graphic-grid-wrapper <?php echo $graphicGridLayout ?>"> <?php
