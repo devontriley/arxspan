@@ -36,6 +36,8 @@ if($homePage){
     $bgPath = 'backgrounds/solution-single-bg.php';
 } else if($contactWhitepaperThankYou){
     $bgPath = 'backgrounds/contact-whitepaper-thankyou-bg.php';
+} else if(is_404()){
+    $bgPath = 'backgrounds/gradient-bg.php';
 }
 else {
     $bgPath = 'backgrounds/products-bg.php';

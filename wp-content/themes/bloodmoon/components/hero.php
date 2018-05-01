@@ -20,8 +20,11 @@ $introCopy = get_sub_field('intro_copy');
     <div class="inner">
 
         <?php if($heroGraphic) { ?>
-            <div class="desktop-graphic"><?php echo $heroGraphicFull; ?></div>
-            <div class="mobile-graphic"><?php echo $mobileGraphicFull; ?></div> <?php
+            <div class="desktop-graphic <?php if($mobileGraphic){echo " separate-mobile-graphic";} if(is_front_page()){echo " home"; }?>"><?php echo $heroGraphicFull; ?></div> <?php
+
+            if($mobileGraphic) { ?>
+                <div class="mobile-graphic"><?php echo $mobileGraphicFull; ?></div> <?php
+            }
         } ?>
 
         <div class="text-wrapper <?php echo $textAlignment ?>">

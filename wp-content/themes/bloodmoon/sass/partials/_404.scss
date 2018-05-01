@@ -1,0 +1,21 @@
+.redirect-body {
+  position: relative;
+
+  .inner {
+    padding: 4rem;
+    height: calc( 100vh - 120px );
+    @media screen and (min-width: 768px){
+      padding: 4rem 6rem;
+      height: calc( 100vh - ( 60px + 377px ) );
+    }
+
+    .header {
+      text-align: center;
+      margin: 15rem 0 8rem;
+    }
+
+    .btn-wrapper {
+      text-align: center;
+    }
+  }
+}

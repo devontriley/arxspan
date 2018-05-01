@@ -43,11 +43,35 @@
     margin: 0 auto;
 
     .desktop-graphic {
-      margin-right: 9rem;
-      display: none;
+      display: block;
+
+      &.separate-mobile-graphic {
+        display: none;
+      }
+
+      &.home {
+        order: 2;
+        margin-bottom: -5rem;
+        display: none;
+
+        img {
+          max-width: 45rem;
+          height: auto;
+          @media screen and (min-width: 1000px){
+            max-width: 55rem;
+          }
+          @media screen and (min-width: 1200px){
+            max-width: 70rem;
+          }
+        }
+
+        @media screen and (min-width: 992px){
+          display: block;
+        }
+      }
 
       @media screen and (min-width: 768px){
-        display: block;
+        margin-right: 9rem;
       }
     }
 
