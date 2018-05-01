@@ -7,11 +7,13 @@
 .btn {
   background-color: $pink;
   padding: 1rem;
+  padding-right: 2rem;
   border-radius: 5px;
   color: #fff;
   border: none;
   text-decoration: none;
   display: inline-block;
+  transition: all ease 200ms;
   @media screen and (min-with: 992px){
     padding: 1.5rem;
   }
@@ -20,9 +22,20 @@
     outline: none;
   }
 
+  &:hover {
+    svg {
+      opacity: 1;
+    }
+  }
+
   svg {
     width: 10px;
-    height: 16px;
+    height: 13px;
     margin: 0 .5rem;
+    transition: all ease 200ms;
+    position: absolute;
+    @media screen and (min-width: 768px){
+      opacity: 0;
+    }
   }
 }

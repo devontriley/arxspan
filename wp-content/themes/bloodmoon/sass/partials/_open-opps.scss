@@ -2,18 +2,27 @@
 .open-opps {
 
   .inner {
-    padding: 4rem 6rem;
+    padding: 4rem;
+    @media screen and (min-width: 768px){
+      padding: 4rem 6rem;
+    }
 
     .header {
-      text-align: center;
+      text-align: left;
+      @media screen and (min-width: 768px){
+        text-align: center;
+      }
 
       &:after {
         content: "";
         width: 5rem;
         height: .4rem;
         display: block;
-        margin: 2rem auto;
+        margin: 2rem 0;
         background-color: $lightBlue;
+        @media screen and (min-width: 768px){
+          margin: 2rem auto;
+        }
       }
     }
     .categories-wrapper {
@@ -22,22 +31,52 @@
       margin: 4rem 0;
 
       .category-wrapper {
-        flex: 0 0 50%;
-        max-width: 50%;
+        flex: 0 0 100%;
+        max-width: 100%;
         box-sizing: border-box;
-        padding: 2rem;
+        padding: 0;
+        margin: 1rem 0;
+        @media screen and (min-width: 768px){
+          flex: 0 0 50%;
+          max-width: 50%;
+          padding: 2rem;
+          margin: 0 0;
+        }
 
         .posting {
           margin: 2rem 0;
 
           .title {
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
+            @media screen and (min-width: 768px){
+              margin-bottom: 2rem;
+            }
           }
 
           a {
             text-decoration: none;
             color: $textGrey;
-            font-size: 2.2rem;
+            display: inline-block;
+            font-size: 1.6rem;
+            border-bottom: none;
+            @media screen and (min-width: 768px){
+              font-size: 2.2rem;
+            }
+
+            &:after {
+              content: "";
+              height: .1rem;
+              width: 0;
+              background-color: $pink;
+              display: block;
+              transition: width ease 200ms;
+            }
+
+            &:hover {
+              &:after {
+                width: 100%;
+              }
+            }
           }
         }
       }

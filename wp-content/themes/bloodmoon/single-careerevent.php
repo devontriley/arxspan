@@ -23,6 +23,8 @@
 
         //career
         $careerWysiwyg = get_field('career_wysiwyg');
+        $buttonLabel = 'Contact Us';
+        $buttonUrl = get_permalink(84);
 
 
         // news page
@@ -76,11 +78,7 @@
                 <p>Posted:</p>
                 <p><?php echo $postDate; ?></p>
 
-                <div class="btn-wrapper">
-                    <a class="btn" href="<?php echo get_permalink('84'); ?>">
-                        <p>Contact Us</p>
-                    </a><!-- .btn -->
-                </div><!-- .btn-wrapper -->
+                <?php button($buttonLabel, $buttonUrl); ?>
             </div>
             <div class="details-col">
                 <?php echo $careerWysiwyg; ?>

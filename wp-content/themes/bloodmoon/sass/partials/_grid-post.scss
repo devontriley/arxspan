@@ -27,6 +27,24 @@
       align-items: stretch;
       flex-wrap: wrap;
 
+      &.total-1 {
+        .post-container {
+          @media screen and (min-width: 768px){
+            flex: 0 0 50%;
+            max-width: 50%;
+          }
+        }
+      }
+
+      &.total-2 {
+        .post-container {
+          @media screen and (min-width: 768px){
+            flex: 0 0 50%;
+            max-width: 50%;
+          }
+        }
+      }
+
       .post-container {
         box-sizing: border-box;
         border: none;
@@ -171,18 +189,9 @@
             margin: .5rem 0;
           }
 
-          .view-more {
-            text-decoration: none;
-            color: #fff;
+          .btn {
             background-color: $blue;
-            display: inline-block;
-            border-radius: 5px;
-
-            svg {
-              width: 16px;
-              height: 10px;
-              margin: 0 .5rem;
-            }
+            padding-right: 2rem;
           }
         }
       }

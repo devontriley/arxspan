@@ -91,7 +91,8 @@ if($postGrid){ ?>
                 </p><?php
             } ?>
 
-            <div class="posts-container"> <?php
+            <div class="posts-container total-<?php echo count($whitepapers); ?>"> <?php
+                $iteration = 0;
                 foreach($whitepapers as $whitepaperPost){ ?>
                     <div class="post-container">
                         <div class="inner">
@@ -117,6 +118,7 @@ if($postGrid){ ?>
                             //learn more link ?>
                         </div><!-- .inner -->
                     </div><!-- .post-container --><?php
+                    $iteration++;
                 } ?>
                 <!-- add learn more link here -->
             </div><!-- .posts-container --><?php
@@ -131,7 +133,10 @@ if($postGrid){ ?>
             } ?>
 
             <div class="posts-container"><?php
-                foreach($newsEvents as $newsEventsPost){ ?>
+                foreach($newsEvents as $newsEventsPost){
+                    $buttonLabel = 'View More';
+                    $buttonUrl = get_permalink($newsEventsPost->ID);
+                    ?>
                     <div class="post-container">
                         <div class="inner">
                             <p class="title">
@@ -146,10 +151,7 @@ if($postGrid){ ?>
                                 <?php echo the_field('grid_description', $newsEventsPost->ID); ?>
                             </div>
 
-                            <a class="view-more btn" href="<?php echo get_permalink($newsEventsPost->ID); ?>">
-                                View More
-                                <svg viewbox="0 0 10 16"><use xlink:href="#button-arrow"></use></svg>
-                            </a>
+                            <?php button($buttonLabel, $buttonUrl); ?>
                         </div>
                     </div><!--.post-container--><?php
                 } ?>
