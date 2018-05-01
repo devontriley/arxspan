@@ -2,6 +2,14 @@
   position: relative;
   width: 100%;
 
+  //gradient variant
+  &.gradient {
+    .inner {
+      margin: -2rem auto;
+      padding: 4rem 3rem 0;
+    }
+  }
+
   .inner {
     padding: 0 3rem;
     max-width: 90rem;
@@ -110,6 +118,7 @@
     .cols-wrapper {
       display: flex;
       flex-wrap: wrap;
+      position: relative;
 
       @media screen and (min-width: 768px){
         flex-wrap: nowrap;

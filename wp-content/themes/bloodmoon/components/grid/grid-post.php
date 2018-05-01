@@ -83,7 +83,7 @@ if($postGrid){ ?>
         //WHITEPAPERS GRID
         if($whitepapersLayout){
 
-            include('../backgrounds/gradient-bg.php');
+            include('../backgrounds/whitepapers-bg.php');
 
             if($gridTitle){ ?>
                 <p class="header">

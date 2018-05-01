@@ -6,7 +6,7 @@
     height: calc( 100vh - 120px );
     @media screen and (min-width: 768px){
       padding: 4rem 6rem;
-      height: calc( 100vh - ( 60px + 377px ) );
+      min-height: calc( 100vh - ( 60px + 377px ) );
     }
 
     .header {
