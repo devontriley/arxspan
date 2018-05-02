@@ -90,28 +90,32 @@ function button($buttonLabel, $buttonUrl){ // placeholders, can change name if w
 // SHORTCODE
 
     // wysiwyg cols shortcode
-    function colOne( $atts, $content = null ){
-        return '<div class="cols-wrapper"><div class="col-half">'. do_shortcode($content) .'</div>';
-    }
-    add_shortcode( 'col_one', 'colOne' );
-
-    function colTwo( $atts, $content = null ){
-        return '<div class="col-half last">'. do_shortcode($content) .'</div></div>';
-    }
-    add_shortcode( 'col_two', 'colTwo' );
-
-    //nested shortcode for cols we will use moving forward
 
     function row($params, $content = null) {
 
         extract(shortcode_atts(array(
-            'cols' => '1'
+            'cols' => 'two'
         ), $params));
 
         return '<div class="row ' . $cols . '">' . do_shortcode($content) . '</div>';
     }
     add_shortcode('row','row');
 
+
+    function col( $atts, $content = null ){
+        return '<div class="col">'. $content .'</div>';
+    }
+    add_shortcode( 'col', 'col' );
+
+
+    // get shortcode to stop spitting out so many p tags
+
+
+// move wpautop filter to AFTER shortcode is processed
+
+remove_filter( 'the_content', 'wpautop' );
+add_filter( 'the_content', 'wpautop' , 99);
+add_filter( 'the_content', 'shortcode_unautop',100 );
 
 // ADD BUTTONS FOR SHORTCODE
 
