@@ -1,0 +1,153 @@
+form {
+
+  .fields {
+
+    .field {
+      position: relative;
+      margin: 0 0 3rem 0;
+
+      label {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.6rem;
+        opacity: .3;
+        pointer-events: none;
+
+        &.active {
+          top: -.5rem;
+          left: 0;
+          transform: translateY(-100%);
+          font-size: 1.3rem;
+          opacity: 1;
+        }
+      }
+
+      input[type=text],
+      input[type=email] {
+        width: 100%;
+        height: 4.5rem;
+        border-radius: .3rem;
+        border: .1rem solid $borderGrey;
+        padding: 0 1rem;
+        box-sizing: border-box;
+
+        &:focus {
+          border-color: #333;
+          outline: none;
+        }
+      }
+
+      input[type=submit] {
+        display: block;
+        width: 100%;
+        cursor: pointer;
+      }
+
+      .inline-msg {
+        position: absolute;
+        left: 0;
+        top: calc(100% + .3rem);
+        font-size: 1.2rem;
+        font-style: italic;
+      }
+    }
+  }
+
+  select {
+    &.select-hidden {
+      display: none;
+      visibility: hidden;
+      padding-right: 10px;
+    }
+  }
+
+  .select {
+    &:focus {
+      outline: none;
+
+      .select-styled {
+        outline: none;
+        border-color: #333;
+      }
+    }
+  }
+
+  .select-styled {
+    border: .1rem solid $borderGrey;
+    transition: border-color 300ms ease;
+    background: transparent;
+    width: 100%;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    padding: 0 1rem;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 1.4rem;
+    border-radius: .2rem;
+    color: #aaa;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      border-color: #333;
+    }
+
+    &:after {
+      content:"v";
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+    }
+
+    &.active {
+      border-radius: .2rem .2rem 0 0;
+
+      .select-options {
+        display: block;
+      }
+    }
+  }
+
+  .select-options {
+    display: none;
+    position: absolute;
+    top: calc(100%);
+    right: 0;
+    left: auto;
+    z-index: 999;
+    border: .1rem solid #333;
+    border-top: none;
+    transition: border-color 300ms ease;
+    background: #fff;
+    width: 100vw;
+    max-width: 100%;
+    min-width: 20rem;
+    max-height: 30rem;
+    padding: 0 1rem;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 1.4rem;
+    border-radius: 0 0 .2rem .2rem;
+    overflow: hidden;
+    overflow-y: scroll;
+    @media(min-width: 992px) {
+      font-size: 1.6rem;
+    }
+
+    li {
+      margin: 0;
+      padding: 1rem 0;
+
+      &:hover {
+        background: #fafafa;
+      }
+
+      &[rel="hide"] {
+        display: none;
+      }
+    }
+  }
+}

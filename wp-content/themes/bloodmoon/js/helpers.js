@@ -58,3 +58,11 @@ export function isChildOf(ele,className) {
     }
     return false;
 }
+
+export function wrapEle(ele, wrapper, className) {
+    ele.parentNode.insertBefore(wrapper, ele);
+    wrapper.appendChild(ele);
+    wrapper.classList.add(className);
+
+    return wrapper;
+}

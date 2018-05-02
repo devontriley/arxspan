@@ -1895,10 +1895,6 @@ var _TabModule = __webpack_require__(10);
 
 var _TabModule2 = _interopRequireDefault(_TabModule);
 
-var _animations = __webpack_require__(11);
-
-var _animations2 = _interopRequireDefault(_animations);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
@@ -25054,88 +25050,6 @@ var tabModule = function () {
 }();
 
 exports.default = tabModule;
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); // A N I M A T I O N
-
-var _helpers = __webpack_require__(0);
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-// list of general animations
-
-var animations = function () {
-    function animations() {
-        _classCallCheck(this, animations);
-
-        this.eleArr = [];
-        this.elements = document.querySelectorAll('.trigger_fade, .trigger_tile, .trigger_rotate_tile');
-        this.interval;
-        this.currentScroll;
-
-        this.setValues(true);
-
-        this.toBeLoaded = this.eleArr.length;
-
-        if (this.eleArr.length) {
-            this.init();
-        }
-    }
-
-    _createClass(animations, [{
-        key: 'setValues',
-        value: function setValues() {
-            var init = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
-            for (var i = 0; i < this.elements.length; i++) {
-                var rect = this.elements[i].getBoundingClientRect();
-
-                if (init) {
-                    this.eleArr[i] = {
-                        'ele': this.elements[i],
-                        'top': rect.top,
-                        'bottom': rect.bottom,
-                        'height': rect.height,
-                        'loaded': false
-                    };
-                } else {
-                    this.eleArr[i]['top'] = rect.top;
-                }
-            }
-        }
-    }, {
-        key: 'init',
-        value: function init() {
-            this.interval = setInterval(function () {
-                this.currentScroll = (0, _helpers.getScrollOffset)();
-                this.setValues(); // keep ele top updated
-                if (this.toBeLoaded > 0) {
-                    for (var i = 0; i < this.eleArr.length; i++) {
-                        if (!this.eleArr[i]['loaded']) {
-                            if (inWindow(this.currentScroll, this.eleArr[i]['top'], this.eleArr[i]['height'], (0, _helpers.getViewportHeight)())) {
-                                this.eleArr[i]['ele'].classList.add('animate');
-                                this.eleArr[i]['loaded'] = true;
-                                this.toBeLoaded = this.toBeLoaded - 1;
-                            }
-                        }
-                    }
-                } else {
-                    clearInterval(this.interval);
-                }
-            }.bind(this), 30);
-        }
-    }]);
-
-    return animations;
-}();
-
-var animationInstance = new animations();
 
 /***/ })
 /******/ ]);
