@@ -25164,6 +25164,7 @@ var styledSelect = function () {
             var li = document.createElement('li');
             li.innerText = this.select[i].text;
             li.rel = this.select[i].value;
+            li.tabIndex = 0;
 
             this.list.appendChild(li);
         }
