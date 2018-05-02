@@ -70,6 +70,7 @@ class styledSelect {
             var li = document.createElement('li');
                 li.innerText = this.select[i].text;
                 li.rel = this.select[i].value;
+                li.tabIndex = 0;
 
             this.list.appendChild(li);
         }
@@ -96,7 +97,6 @@ class styledSelect {
                 this.selectOption(e);
             }
         }.bind(this));
-
 
         document.addEventListener('click', function (e) {
             this.close();
