@@ -25,7 +25,7 @@
           font-weight: bold;
 
           @media screen and (min-width: 768px){
-            font-size: unset;
+            font-size: 6rem;
           }
           &:after {
             display: none;
@@ -80,6 +80,7 @@
 
     .mobile-graphic {
       display: block;
+      margin: 0 auto;
 
       @media screen and (min-width: 768px){
         display: none;
@@ -89,7 +90,7 @@
     .text-wrapper {
       display: block;
       align-self: center;
-      max-width: 90rem;
+      max-width: 90rem;ƒ
       margin: 0 auto;
 
       // text orientation options

@@ -83,7 +83,7 @@ if($postGrid){ ?>
         //WHITEPAPERS GRID
         if($whitepapersLayout){
 
-            include('../backgrounds/whitepapers-bg.php');
+            echo get_template_part('components/backgrounds/whitepapers-bg');
 
             if($gridTitle){ ?>
                 <p class="header">

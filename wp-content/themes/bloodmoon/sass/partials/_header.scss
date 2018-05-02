@@ -136,6 +136,9 @@
             text-decoration: none;
             cursor: pointer;
             @include text-fade-hover(color);
+            padding-right: 2.5rem;
+            position: relative;
+            z-index: 99;
           }
 
           &.active ul.dropdown-menu {
@@ -150,11 +153,15 @@
           }
 
           .nav-arrow {
-            display: inline-block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
             width: 1.6rem;
             margin: 0 .25rem;
             fill: $blue;
             @include text-fade-hover(fill);
+            cursor: pointer;
           }
 
           ul.dropdown-menu {
