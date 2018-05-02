@@ -81,6 +81,7 @@ exports.addListenerMulti = addListenerMulti;
 exports.getScrollOffset = getScrollOffset;
 exports.getViewportHeight = getViewportHeight;
 exports.isChildOf = isChildOf;
+exports.wrapEle = wrapEle;
 // Get element index
 function getElIndex(el) {
     for (var i = 0; el = el.previousElementSibling; i++) {}
@@ -139,6 +140,14 @@ function isChildOf(ele, className) {
         ele = ele.parentNode;
     }
     return false;
+}
+
+function wrapEle(ele, wrapper, className) {
+    ele.parentNode.insertBefore(wrapper, ele);
+    wrapper.appendChild(ele);
+    wrapper.classList.add(className);
+
+    return wrapper;
 }
 
 /***/ }),
@@ -1895,12 +1904,38 @@ var _TabModule = __webpack_require__(10);
 
 var _TabModule2 = _interopRequireDefault(_TabModule);
 
+var _animations = __webpack_require__(11);
+
+var _animations2 = _interopRequireDefault(_animations);
+
+var _Forms = __webpack_require__(12);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 var mainHeader = new _MainHeader2.default();
+// import mceButtons from './Mce-Buttons.js'; // how input? include in functions file w hook
+
 var mainNav = new _MainNav2.default();
+console.log(mainNav);
+
+// Styled Selects
+var styledSelects = document.querySelectorAll('form select');
+if (styledSelects.length) {
+    var styledSelectsArr = [];
+    for (var i = 0; i < styledSelects.length; i++) {
+        styledSelectsArr[i] = new _Forms.styledSelect(styledSelects[i]);
+    }
+}
+
+var forms = document.querySelectorAll('.default-form');
+if (forms.length) {
+    var formsArr = [];
+    for (var i = 0; i < forms.length; i++) {
+        formsArr[i] = new _Forms.defaultForm(forms[i]);
+    }
+}
 
 (0, _domready2.default)(function () {
 
@@ -24936,6 +24971,7 @@ var MainNav = exports.MainNav = function () {
                 event.preventDefault();
                 this.closeDropdown();
                 this.activeDropdown = undefined;
+                this.MobileNavToggle('close');
                 _barba2.default.Pjax.goTo(target.href);
             }
         }
@@ -24967,8 +25003,12 @@ var MainNav = exports.MainNav = function () {
         }
     }, {
         key: 'MobileNavToggle',
-        value: function MobileNavToggle() {
-            document.body.classList.toggle('mobile-nav-active');
+        value: function MobileNavToggle(close) {
+            if (close == 'close') {
+                document.body.classList.remove('mobile-nav-active');
+            } else {
+                document.body.classList.toggle('mobile-nav-active');
+            }
         }
     }]);
 
@@ -25050,6 +25090,241 @@ var tabModule = function () {
 }();
 
 exports.default = tabModule;
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); // A N I M A T I O N
+
+var _helpers = __webpack_require__(0);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+// list of general animations
+
+var animations = function () {
+    function animations() {
+        _classCallCheck(this, animations);
+
+        this.eleArr = [];
+        this.elements = document.querySelectorAll('.trigger_fade, .trigger_tile, .trigger_rotate_tile');
+        this.interval;
+        this.currentScroll;
+
+        this.setValues(true);
+
+        this.toBeLoaded = this.eleArr.length;
+
+        if (this.eleArr.length) {
+            this.init();
+        }
+    }
+
+    _createClass(animations, [{
+        key: 'setValues',
+        value: function setValues() {
+            var init = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+            for (var i = 0; i < this.elements.length; i++) {
+                var rect = this.elements[i].getBoundingClientRect();
+
+                if (init) {
+                    this.eleArr[i] = {
+                        'ele': this.elements[i],
+                        'top': rect.top,
+                        'bottom': rect.bottom,
+                        'height': rect.height,
+                        'loaded': false
+                    };
+                } else {
+                    this.eleArr[i]['top'] = rect.top;
+                }
+            }
+        }
+    }, {
+        key: 'init',
+        value: function init() {
+            this.interval = setInterval(function () {
+                this.currentScroll = (0, _helpers.getScrollOffset)();
+                this.setValues(); // keep ele top updated
+                if (this.toBeLoaded > 0) {
+                    for (var i = 0; i < this.eleArr.length; i++) {
+                        if (!this.eleArr[i]['loaded']) {
+                            if (inWindow(this.currentScroll, this.eleArr[i]['top'], this.eleArr[i]['height'], (0, _helpers.getViewportHeight)())) {
+                                this.eleArr[i]['ele'].classList.add('animate');
+                                this.eleArr[i]['loaded'] = true;
+                                this.toBeLoaded = this.toBeLoaded - 1;
+                            }
+                        }
+                    }
+                } else {
+                    clearInterval(this.interval);
+                }
+            }.bind(this), 30);
+        }
+    }]);
+
+    return animations;
+}();
+
+var animationInstance = new animations();
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.defaultForm = exports.styledSelect = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _helpers = __webpack_require__(0);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var defaultForm = function defaultForm(ele) {
+    _classCallCheck(this, defaultForm);
+
+    this.form = ele;
+    this.fields = this.form.querySelectorAll('.field');
+
+    if (this.fields.length) {
+        for (var i = 0; i < this.fields.length; i++) {
+            var input = this.fields[i].querySelector('input:not([type=submit])');
+
+            if (input != null) {
+                var value = null;
+                if (input.value != '') {
+                    value = input.value;
+
+                    if (value) {
+                        this.fields[i].querySelector('label').classList.add('active');
+                    }
+                }
+            }
+        }
+    }
+    // Add active class to label on focus
+    this.form.addEventListener('focusin', function (e) {
+        var label = e.target.previousElementSibling;
+        if (label) label.classList.add('active');
+    });
+
+    // Remove active class from label on focusout if empty
+    this.form.addEventListener('focusout', function (e) {
+        var label = e.target.previousElementSibling;
+        if (e.target.value == '') {
+            if (label) label.classList.remove('active');
+        }
+    });
+};
+
+var styledSelect = function () {
+    function styledSelect(select) {
+        _classCallCheck(this, styledSelect);
+
+        this.select = select;
+        this.options = this.select.querySelectorAll('option');
+        this.numberOfOptions = this.options.length;
+        this.selected = this.select.options[this.select.selectedIndex].value;
+
+        if (this.selected == this.options[0].text) {
+            this.selected = '';
+        }
+
+        this.select.classList.add('select-hidden');
+
+        // Wrap select in a div
+        this.selectWrapper = (0, _helpers.wrapEle)(this.select, document.createElement('div'), 'select');
+        this.selectWrapper.tabIndex = 0;
+
+        // Create new div for styled select and append to wrapper
+        this.styledSelect = document.createElement('div');
+        this.styledSelect.classList.add('select-styled');
+        this.styledSelect.innerText = this.options[0].text;
+        this.selectWrapper.appendChild(this.styledSelect);
+
+        // Create list element and append to styled select
+        this.list = document.createElement('ul');
+        this.list.classList.add('select-options');
+        this.styledSelect.appendChild(this.list);
+
+        // Create li for each select option and append to ul
+        for (var i = 0; i < this.numberOfOptions; i++) {
+            var li = document.createElement('li');
+            li.innerText = this.select[i].text;
+            li.rel = this.select[i].value;
+
+            this.list.appendChild(li);
+        }
+
+        if (this.selected.length) {
+            this.styledSelect.text = this.selected.text;
+            this.select.value = this.selected.text;
+        }
+
+        this.styledSelect.addEventListener('click', function (e) {
+            this.open(e);
+        }.bind(this));
+
+        this.selectWrapper.addEventListener('focus', function (e) {
+            this.open(e);
+        }.bind(this));
+
+        this.selectWrapper.addEventListener('blur', function (e) {
+            this.close(e);
+        }.bind(this));
+
+        this.list.addEventListener('click', function (e) {
+            if (e.target.tagName.toLowerCase() == 'li') {
+                this.selectOption(e);
+            }
+        }.bind(this));
+
+        document.addEventListener('click', function (e) {
+            this.close();
+        }.bind(this));
+    }
+
+    _createClass(styledSelect, [{
+        key: 'open',
+        value: function open(e) {
+            e.stopPropagation();
+            // Close other currently active selects
+            var activeSelect = document.querySelector('.select-styled.active');
+            if (activeSelect) activeSelect.classList.remove('active');
+
+            this.styledSelect.classList.toggle('active');
+        }
+    }, {
+        key: 'close',
+        value: function close() {
+            this.styledSelect.classList.remove('active');
+        }
+    }, {
+        key: 'selectOption',
+        value: function selectOption(e) {
+            e.stopPropagation();
+            this.styledSelect.innerText = e.target.innerText;
+            this.styledSelect.classList.remove('active');
+            this.select.value = e.target.rel;
+        }
+    }]);
+
+    return styledSelect;
+}();
+
+exports.styledSelect = styledSelect;
+exports.defaultForm = defaultForm;
 
 /***/ })
 /******/ ]);

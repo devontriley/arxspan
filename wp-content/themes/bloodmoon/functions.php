@@ -100,6 +100,19 @@ function button($buttonLabel, $buttonUrl){ // placeholders, can change name if w
     }
     add_shortcode( 'col_two', 'colTwo' );
 
+    //nested shortcode for cols we will use moving forward
+
+    function row($params, $content = null) {
+
+        extract(shortcode_atts(array(
+            'cols' => '1'
+        ), $params));
+
+        return '<div class="row ' . $cols . '">' . do_shortcode($content) . '</div>';
+    }
+    add_shortcode('row','row');
+
+
 // ADD BUTTONS FOR SHORTCODE
 
 require('inc/custom-editor-buttons/mce-buttons.php');

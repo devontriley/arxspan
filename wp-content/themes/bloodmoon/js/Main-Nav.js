@@ -45,6 +45,7 @@ export class MainNav {
             event.preventDefault();
             this.closeDropdown();
             this.activeDropdown = undefined;
+            this.MobileNavToggle('close');
             Barba.Pjax.goTo(target.href);
         }
     }
@@ -72,8 +73,12 @@ export class MainNav {
         this.activeDropdown.parentNode.classList.add('active');
     }
 
-     MobileNavToggle() {
-        document.body.classList.toggle('mobile-nav-active');
+     MobileNavToggle(close) {
+        if(close == 'close'){
+            document.body.classList.remove('mobile-nav-active');
+        } else {
+            document.body.classList.toggle('mobile-nav-active');
+        }
     }
 }
 

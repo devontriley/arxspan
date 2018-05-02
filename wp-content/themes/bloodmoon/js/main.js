@@ -7,11 +7,12 @@ import MainHeader from './Main-Header.js';
 import MainNav from './Main-Nav.js';
 import tabModule from './Tab-Module.js';
 import animations from './animations.js';
-// import mceButtons from './Mce-Buttons.js'; // how input?
+// import mceButtons from './Mce-Buttons.js'; // how input? include in functions file w hook
 import { styledSelect, defaultForm } from './Forms.js';
 
 var mainHeader = new MainHeader();
 var mainNav = new MainNav();
+console.log(mainNav);
 
 // Styled Selects
 var styledSelects = document.querySelectorAll('form select');
@@ -96,6 +97,7 @@ domReady(function() {
 
             },
             onLeave: function() {
+
             },
             onLeaveCompleted: function() {
             }
