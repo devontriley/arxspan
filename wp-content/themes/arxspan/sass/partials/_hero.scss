@@ -5,10 +5,11 @@
   // options with graphic
   &.graphic {
     .inner {
-      padding: 8rem 6rem;
+      padding: 6rem;
       flex-wrap: wrap;
       @media screen and (min-width: 768px){
         flex-wrap: nowrap;
+        padding: 8rem 6rem;
       }
 
       .text-wrapper {
@@ -95,7 +96,10 @@
       align-self: center;
       max-width: 90rem;
       margin: 0 auto;
-      padding-right: 4rem;
+
+      @media screen and (min-width: 768px){
+        padding-right: 4rem;
+      }
 
       // text orientation options
       &.left {

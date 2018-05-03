@@ -33,6 +33,10 @@
       .btn {
         background-color: #fff;
         color: $pink;
+
+        svg {
+          fill: $pink;
+        }
       }
     }
   }

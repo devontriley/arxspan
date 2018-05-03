@@ -93,8 +93,8 @@
 
     <!-- button arrow white-->
         <symbol id="button-arrow" viewBox="0 0 10 16">
-            <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                <g id="Mobile/Button/Red" transform="translate(-133.000000, -12.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="Symbols" stroke="none" stroke-width="1" fill-rule="evenodd">
+                <g id="Mobile/Button/Red" transform="translate(-133.000000, -12.000000)" fill-rule="nonzero">
                     <path d="M143.019331,15.7432606 C143.521035,15.2415564 144.334459,15.2415564 144.836163,15.7432606 C145.337867,16.2449648 145.337867,17.0583881 144.836163,17.5600923 L137.684678,24.7115773 L130.518264,17.5510004 C130.016356,17.0495006 130.016024,16.2360774 130.517524,15.7341688 C131.019024,15.2322602 131.832447,15.2319288 132.334356,15.7334286 L137.683938,21.0786539 L143.019331,15.7432606 Z" id="Path-2" transform="translate(137.677028, 20.034549) rotate(-90.000000) translate(-137.677028, -20.034549) "></path>
                 </g>
             </g>

@@ -195,6 +195,11 @@
             background-color: $blue;
             padding-right: 2rem;
             font-size: 1.5rem;
+            transition: all ease 200ms;
+
+            &:hover {
+              background-color: $pink;
+            }
           }
         }
       }
