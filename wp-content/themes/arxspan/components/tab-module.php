@@ -7,67 +7,105 @@ $activeTab = $_GET['activeTab'] ? $_GET['activeTab'] : 1;
 <div class="tab-module">
     <div class="inner">
 
-        <div class="wrapper">
-            <p class="header"><?php echo $tabTitle; ?></p>
-            <div class="tabs"> <?php
-                $iteration = 0;
+        <p class="header"><?php echo $tabTitle; ?></p>
 
-                foreach($postSelection as $tabPost){
-                    //vars
-                    $abbreviation = get_field('tab_abbreviation', $tabPost->ID);
-                    ?>
-                    <button class="tablinks <?php if(($activeTab - 1) == $iteration){echo 'active';} ?>" id="iteration-<?php echo $iteration?>"><?php echo $abbreviation ?></button> <?php
-                    $iteration++;
+        <?php
+        $mobileIcons = array();
+        $tabLinks = array();
+
+        foreach($postSelection as $tabPost){
+            $icon = get_field('product_icon', $tabPost->ID);
+            $mobileIcons[] = $icon;
+
+            $abbreviation = get_field('tab_abbreviation', $tabPost->ID);
+            $tabLinks[] = $abbreviation;
+        }
+
+        if($mobileIcons) {
+            $iteration = 0; ?>
+
+            <div class="mobileIcons">
+                <?php foreach($mobileIcons as $icon) { ?>
+                    <div class="icon <?php if($iteration == $activeTab - 1) { echo 'active'; } ?>">
+                        <?php
+                        $img = wp_get_attachment_image($icon, 'full');
+                        if($img) {
+                            echo $img;
+                        }
+                        ?>
+                    </div>
+                <?php $iteration++;
                 } ?>
             </div>
 
-                <?php
-                $iteration = 0;
+        <?php }
 
-                foreach($postSelection as $tabPost){
-                    //vars
-                    $name = $tabPost->post_name;
-                    $title = $tabPost->post_title;
-                    $icon = get_field('product_icon', $tabPost->ID);
-                    $iconFull = wp_get_attachment_image($icon, 'full');
-                    $tabBlurb = get_field('tab_blurb', $tabPost->ID);
-                    $link = get_permalink($tabPost->ID);
-                    ?>
-                    <div class="tabcontent <?php if(($activeTab - 1) == $iteration){echo 'active'; }?>" id="<?php echo $name ?>">
-                        <div class="img-block">
-                            <?php echo $iconFull ?>
-                        </div> <!-- .img-block -->
+        if($tabLinks) {
+        $iteration = 0; ?>
 
-                        <div class="text-block">
-                            <div class="inner">
-                                <p class="title"><?php echo $title; ?></p>
-                                <?php
-                                    if(have_rows('components', $tabPost->ID)):
-
-                                        $found = false;
-
-                                        while(have_rows('components', $tabPost->ID)) : the_row();
-
-                                            if( get_row_layout() == 'text_module' && !$found ):
-                                                $found = true;
-                                                $textModule = get_sub_field('wysiwyg');
-                                                $textExcerpt = advanced_custom_field_excerpt($textModule); ?>
-
-                                                <div class="blurb">
-                                                    <?php echo $textExcerpt; ?>
-                                                </div> <?php
-                                            endif;
-                                        endwhile;
-                                    endif;
-                                ?>
-                                <a class="learn-more" href="<?php echo $link; ?>">Learn More</a>
-                            </div>
-                        </div> <!-- .text-block -->
-                    </div><!-- .tabcontent -->
-                    <?php $iteration++;
-                } ?>
-            <a class="overview" href="<?php echo get_permalink('7') ?>">See Overview</a>
+        <div class="tabs">
+            <?php foreach($tabLinks as $tab) { ?>
+                <button class="tablinks <?php if(($activeTab - 1) == $iteration){echo 'active';} ?>" id="iteration-<?php echo $iteration?>">
+                    <?php echo $tab ?>
+                </button>
+                <?php $iteration++;
+            } ?>
         </div>
+
+        <?php } ?>
+
+        <div class="tab-content-container">
+
+            <?php
+            $iteration = 0;
+
+            foreach($postSelection as $tabPost){
+                //vars
+                $name = $tabPost->post_name;
+                $title = $tabPost->post_title;
+                $icon = get_field('product_icon', $tabPost->ID);
+                $iconFull = wp_get_attachment_image($icon, 'full');
+                $tabBlurb = get_field('tab_blurb', $tabPost->ID);
+                $link = get_permalink($tabPost->ID);
+                ?>
+                <div class="tabcontent <?php if(($activeTab - 1) == $iteration){echo 'active'; }?>" id="<?php echo $name ?>">
+                    <div class="img-block">
+                        <?php echo $iconFull ?>
+                    </div> <!-- .img-block -->
+
+                    <div class="text-block">
+                        <div class="inner">
+                            <p class="title"><?php echo $title; ?></p>
+                            <?php
+                            if(have_rows('components', $tabPost->ID)):
+
+                                $found = false;
+
+                                while(have_rows('components', $tabPost->ID)) : the_row();
+
+                                    if( get_row_layout() == 'text_module' && !$found ):
+                                        $found = true;
+                                        $textModule = get_sub_field('wysiwyg');
+                                        $textExcerpt = advanced_custom_field_excerpt($textModule); ?>
+
+                                        <div class="blurb">
+                                            <?php echo $textExcerpt; ?>
+                                        </div> <?php
+                                    endif;
+                                endwhile;
+                            endif;
+                            ?>
+                            <a class="learn-more" href="<?php echo $link; ?>">Learn More</a>
+                        </div>
+                    </div> <!-- .text-block -->
+                </div><!-- .tabcontent -->
+                <?php $iteration++;
+            } ?>
+
+        </div>
+
+        <a class="overview" href="<?php echo get_permalink('7') ?>">See Overview</a>
+
     </div> <!-- .inner -->
 </div> <!-- .tab-module -->
 
