@@ -1,7 +1,7 @@
 .hero + .text-module {
   .inner {
-    margin: -2rem auto;
-    padding: 0 6rem 8rem;
+    margin: -4rem auto;
+    padding: 0 6rem 4rem;
   }
 }
 
@@ -18,9 +18,14 @@
   }
 
   .inner {
-    padding: 8rem 6rem;
+    //padding: 8rem 6rem;
     max-width: 90rem;
     margin: 4rem auto;
+    padding: 0 6rem 4rem;
+
+    @media screen and (min-width: 768px){
+      padding: 0;
+    }
 
     &:after {
       content: "";
@@ -42,10 +47,9 @@
         content: "";
         width: 5rem;
         height: .4rem;
-        display: inline-block;
+        display: block;
         margin: 1rem 0;
         background-color: $lightBlue;
-        position: absolute;
         bottom: -1.5rem;
         left: 0;
       }

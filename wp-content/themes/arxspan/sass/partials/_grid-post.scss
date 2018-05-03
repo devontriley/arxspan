@@ -194,6 +194,7 @@
           .btn {
             background-color: $blue;
             padding-right: 2rem;
+            font-size: 1.5rem;
           }
         }
       }
@@ -215,8 +216,9 @@
       flex: 0 0 100%;
       max-width: 100%;
       box-sizing: border-box;
-      padding: 0 2rem;
+      padding: 0 4rem;
       position: relative;
+      align-self: center;
       @media screen and (min-width: 768px){
         flex: 0 0 50%;
         max-width: 50%;
@@ -244,7 +246,7 @@
       flex: 0 0 50%;
       max-width: 50%;
       margin: -4rem 0;
-      padding: 0 2rem;
+      padding: 0 4rem;
       box-sizing: border-box;
     }
 
