@@ -6,14 +6,15 @@
 
 .btn {
   background-color: $pink;
-  padding: 1rem;
-  padding-right: 2rem;
+  padding: 1rem 2rem;
   border-radius: 5px;
+  font-size: 2.2rem;
   color: #fff;
   border: none;
   text-decoration: none;
   display: inline-block;
   transition: all ease 200ms;
+  position: relative;
   @media screen and (min-with: 992px){
     padding: 1.5rem;
   }
@@ -28,12 +29,17 @@
     }
   }
 
+  span {
+    padding-right: 1rem;
+  }
+
   svg {
     width: 10px;
     height: 13px;
-    margin: 0 .5rem;
     transition: all ease 200ms;
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     @media screen and (min-width: 768px){
       opacity: 0;
     }

@@ -5,7 +5,7 @@
       content: '';
       display: block;
       width: 5rem;
-      height: .2rem;
+      height: .4rem;
       background-color: $lightBlue;
       margin: 2rem 0;
     }
@@ -205,6 +205,7 @@
   &.solutions {
     display: flex;
     flex-wrap: wrap;
+    padding: 5rem 0;
 
     @media screen and (min-width: 768px){
       flex-wrap: nowrap;
@@ -215,19 +216,25 @@
       max-width: 100%;
       box-sizing: border-box;
       padding: 0 2rem;
+      position: relative;
       @media screen and (min-width: 768px){
         flex: 0 0 50%;
         max-width: 50%;
       }
 
       .content {
-        font-size: 1.5rem;
+        font-size: 2.2rem;
         line-height: 1.5em;
+      }
+
+      .btn-wrapper {
+        margin: 4rem 0;
       }
     }
 
     .post-container {
       display: block;
+      background-color: #fff;
     }
   }
 

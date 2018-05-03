@@ -43,9 +43,13 @@ $activeTab = $_GET['activeTab'] ? $_GET['activeTab'] : 1;
                                 <p class="title"><?php echo $title; ?></p>
                                 <?php
                                     if(have_rows('components', $tabPost->ID)):
+
+                                        $found = false;
+
                                         while(have_rows('components', $tabPost->ID)) : the_row();
 
-                                            if( get_row_layout() == 'text_module' ):
+                                            if( get_row_layout() == 'text_module' && !$found ):
+                                                $found = true;
                                                 $textModule = get_sub_field('wysiwyg');
                                                 $textExcerpt = advanced_custom_field_excerpt($textModule); ?>
 
@@ -53,7 +57,6 @@ $activeTab = $_GET['activeTab'] ? $_GET['activeTab'] : 1;
                                                     <?php echo $textExcerpt; ?>
                                                 </div> <?php
                                             endif;
-
                                         endwhile;
                                     endif;
                                 ?>

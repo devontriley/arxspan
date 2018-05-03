@@ -12,9 +12,17 @@
 
     .wrapper {
 
-      .title {
-        font-size: 4.6rem;
-        margin-bottom: 5rem;
+      .header {
+        font-weight: bold;
+
+        &:after {
+          content: "";
+          background-color: $lightBlue;
+          width: 5rem;
+          height: .4rem;
+          display: block;
+          margin: 2rem 0;
+        }
       }
 
       .tabs {
@@ -26,7 +34,7 @@
         border-bottom: 1px solid $lightGrey;
         margin: 0 -1.5rem;
         @media screen and (min-width: 992px){
-          margin: 0 -3rem;
+          margin: 8rem -3rem 0;
         }
 
         .tablinks {
@@ -36,6 +44,7 @@
           text-transform: uppercase;
           font-size: 1.8rem;
           color: $blue;
+          letter-spacing: .2rem;
           @media screen and (min-width: 992px){
             margin: 0 3rem;
           }
@@ -46,6 +55,7 @@
 
           &.active {
             border-bottom: .2rem solid red;
+            font-weight: bold;
           }
         }
       }
@@ -93,12 +103,17 @@
               color: $blue;
             }
 
+            .blurb {
+              font-size: 2.2rem;
+            }
+
             .learn-more {
               display: block;
               margin-top: 3rem;
               text-decoration: none;
               font-weight: bold;
               color: $blue;
+              font-size: 2.2rem;
 
               &:after {
                 content: ">";
@@ -124,6 +139,7 @@
         text-align: right;
         width: 100%;
         display: inline-block;
+        font-size: 2.2rem;
 
         &:after {
           content: ">";

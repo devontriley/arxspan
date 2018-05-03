@@ -14,6 +14,8 @@ $solutionsGridType = get_sub_field('solutions_grid_layout');
 $withCopyType = get_sub_field('solutions_grid_layout') == 'with-copy';
 $postsOnlyType = get_sub_field('solutions_grid_layout') == 'posts-only';
 $solutions = get_sub_field('solutions');
+$buttonUrl = get_permalink(20);
+$buttonLabel = 'View All Solutions';
 
 //WHITEPAPERS GRID
 $whitepapers = get_sub_field('whitepapers');
@@ -28,7 +30,7 @@ if($postGrid){ ?>
         //SOLUTIONS GRID
         if($solutionsLayout){
 
-            include('backgrounds/gradient-bg.php');
+            echo get_template_part('components/backgrounds/gradient-bg');
 
             //WITH COPY
             if($withCopyType){ ?>
@@ -43,7 +45,9 @@ if($postGrid){ ?>
                         <div class="content">
                         <?php echo $gridContent; ?>
                         </div><?php
-                    }?>
+                    }
+
+                    button($buttonLabel, $buttonUrl); ?>
                 </div><!-- .text-container --><?php
             }
 

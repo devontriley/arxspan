@@ -20,8 +20,8 @@ function button($id = null, $text = null, $class = null) {
         <a class="btn" href="<?php echo $url ?>">
             <span>
                 <?php echo $btnText ?>
-                <use xlink:href="#button-arrow"></use>
             </span>
+            <use xlink:href="#button-arrow"></use>
         </a>
     </div><!-- .btn-wrap --> <?php
 }

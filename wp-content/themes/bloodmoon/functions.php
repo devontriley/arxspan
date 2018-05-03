@@ -64,7 +64,7 @@ function advanced_custom_field_excerpt($text) {
 		$text = strip_shortcodes( $text );
 		$text = apply_filters('the_content', $text);
 		$text = str_replace(']]>', ']]>', $text);
-		$excerpt_length =50; // 30 words
+		$excerpt_length =25; // 25 words
 		$excerpt_more = apply_filters('excerpt_more', ' ' . '...');
 		$text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
 	}
@@ -79,7 +79,9 @@ function button($buttonLabel, $buttonUrl){ // placeholders, can change name if w
 
     $html =     '<div class="btn-wrapper">';
     $html .=    '<a class="btn" href="'. $buttonUrl .'">';
+    $html .=    '<span>';
     $html .=    $buttonLabel;
+    $html .=    '</span>';
     $html .=    '<svg viewbox="0 0 10 16"><use xlink:href="#button-arrow"></use></svg>';
     $html .=    '</a><!-- .btn -->';
     $html .=    '</div><!-- .btn-wrapper -->';
@@ -108,14 +110,59 @@ function button($buttonLabel, $buttonUrl){ // placeholders, can change name if w
     add_shortcode( 'col', 'col' );
 
 
-    // get shortcode to stop spitting out so many p tags
+    // slider shortcode
+    function shortcodeSlider( $atts ){
+
+        extract(shortcode_atts(array(
+            'ids' => ''
+        ), $atts));
+
+        if( !empty($atts['ids'] )){
+
+            $imagesArr = explode(', ', $atts['ids']);
+            $imagesArr = array_slice($imagesArr, 0, 10);
+
+            $args = array(
+                'post__in'       => $imagesArr,
+                'post_type'      => 'attachment',
+                'posts_per_page' => 10,
+                'post_status'	   => 'inherit'
+            );
+
+            $images = new WP_Query( $args );
+
+            if( $images->have_posts()):
+                $html = '<div class="slider-wrapper">';
+                $html .= '<ul class="slider">';
+
+                while($images->have_posts()) : $images->the_post();
+
+                    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $images->post->ID ), 'full');
+                    $caption = get_the_excerpt($images->post->ID);
+
+                    $html .= '<li><div><img src="'. $image[0] .'" /></div>';
+                    if($caption){
+                        $html .= '<span class="wp-caption-text">'. $caption .'</span>';
+                    }
+                    $html .= '</li>';
+                endwhile;
+
+                $html .= '</ul><!-- .slider-->';
+                $html .= '</div><!-- .slider-wrapper-->';
+
+            endif;
+            wp_reset_query();
+            return $html;
+        }
+    }
+
+    // in wysiwyg the text should look like [slider ids="269, 268, 267"][/slider]
+
+    add_shortcode('slider', 'shortcodeSlider');
 
 
-// move wpautop filter to AFTER shortcode is processed
+// get shortcode to stop spitting out so many p tags
 
-remove_filter( 'the_content', 'wpautop' );
-add_filter( 'the_content', 'wpautop' , 99);
-add_filter( 'the_content', 'shortcode_unautop',100 );
 
 // ADD BUTTONS FOR SHORTCODE
 
