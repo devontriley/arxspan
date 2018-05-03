@@ -14,6 +14,7 @@
 
       .header {
         font-weight: bold;
+        margin: 0 0 12rem 0;
 
         &:after {
           content: "";
@@ -26,27 +27,30 @@
       }
 
       .tabs {
-        height: 6rem;
         display: flex;
         justify-content: space-between;
         flex: 0 0 100%;
         max-width: 100%;
-        border-bottom: 1px solid $lightGrey;
-        margin: 0 -1.5rem;
-        @media screen and (min-width: 992px){
-          margin: 8rem -3rem 0;
-        }
+        border-bottom: 2px solid $lightGrey;
+        margin: 0;
 
         .tablinks {
           border: none;
           background-color: #fff;
-          margin: 0 1.5rem;
+          margin: 0;
+          padding: 0 3rem 1rem 3rem;
           text-transform: uppercase;
           font-size: 1.8rem;
           color: $blue;
           letter-spacing: .2rem;
-          @media screen and (min-width: 992px){
-            margin: 0 3rem;
+          position: relative;
+
+          &:not(.active) {
+            cursor: pointer;
+
+            &:hover {
+              color: $pink;
+            }
           }
 
           &:focus, :active {
@@ -54,14 +58,24 @@
           }
 
           &.active {
-            border-bottom: .2rem solid red;
-            font-weight: bold;
+            font-weight: 700;
+
+            &:after {
+              content: '';
+              display: block;
+              position: absolute;
+              left: 0;
+              bottom: -.2rem;
+              width: 100%;
+              height: .2rem;
+              background: $pink;
+            }
           }
         }
       }
 
       .tabcontent {
-        margin: 4rem 0;
+        margin: 3.5rem 0 4.5rem 0;
         position: relative;
         display: none;
 
@@ -90,10 +104,10 @@
           width: 60%;
           position: relative;
           box-shadow: 5px 10px 20px 0 rgba(40,40,40,0.06);
+          padding: 5rem 5.5rem;
 
           .inner {
             position: absolute;
-            padding: 2rem;
             top: 50%;
             transform: translateY(-50%);
 
