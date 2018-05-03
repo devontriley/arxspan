@@ -106,9 +106,11 @@ if($postGrid){ ?>
                                 </svg>
                             </div>
 
-                            <p class="title">
-                                <?php echo $whitepaperPost->post_title; ?>
-                            </p>
+                            <?php if($whitepaperPost->post_title) { ?>
+                                <p class="title">
+                                    <?php echo $whitepaperPost->post_title; ?>
+                                </p> <?php
+                            } ?>
 
                             <div class="blurb">
                                 <?php echo the_field('grid_description', $whitepaperPost->ID); ?>
