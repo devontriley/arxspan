@@ -16,11 +16,11 @@ $introCopy = get_sub_field('intro_copy');
 
 ?>
 
-<div class="hero <?php echo $textAlignment; if($heroGraphic){ echo ' graphic';}?>">
+<div class="hero <?php echo $textAlignment; if($heroGraphic){ echo ' graphic';} if(is_front_page()){echo " home"; }?>">
     <div class="inner">
 
         <?php if($heroGraphic) { ?>
-            <div class="desktop-graphic <?php if($mobileGraphic){echo " separate-mobile-graphic";} if(is_front_page()){echo " home"; }?>"><?php echo $heroGraphicFull; ?></div> <?php
+            <div class="desktop-graphic <?php if($mobileGraphic){echo " separate-mobile-graphic";}?>"><?php echo $heroGraphicFull; ?></div> <?php
 
             if($mobileGraphic) { ?>
                 <div class="mobile-graphic"><?php echo $mobileGraphicFull; ?></div> <?php

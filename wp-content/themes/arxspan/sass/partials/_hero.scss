@@ -2,11 +2,40 @@
   position: relative;
   width: 100%;
 
+  &.home {
+
+    .desktop-graphic {
+      order: 2;
+      margin-bottom: -5rem;
+      display: none;
+      width: 50%;
+
+      img {
+        max-width: 45rem;
+        height: auto;
+        @media screen and (min-width: 1000px){
+          max-width: 55rem;
+        }
+        @media screen and (min-width: 1200px){
+          max-width: 60rem;
+        }
+      }
+
+      @media screen and (min-width: 992px){
+        display: block;
+      }
+    }
+  }
+
   // options with graphic
   &.graphic {
     max-width: 100rem;
     display: block;
     margin: 0 auto;
+
+    &.home {
+      max-width: 140rem;
+    }
 
     .inner {
       padding: 6rem;
@@ -46,7 +75,6 @@
     padding: 15rem 4rem 0;
     margin: 0 auto;
     display: flex;
-    max-width: 140rem;
     margin: 0 auto;
 
     .desktop-graphic {
@@ -59,27 +87,27 @@
         }
       }
 
-      &.home {
-        order: 2;
-        margin-bottom: -5rem;
-        display: none;
-        width: 50%;
+      //&.home {
+        //order: 2;
+        //margin-bottom: -5rem;
+        //display: none;
+        //width: 50%;
 
-        img {
-          max-width: 45rem;
-          height: auto;
-          @media screen and (min-width: 1000px){
-            max-width: 55rem;
-          }
-          @media screen and (min-width: 1200px){
-            max-width: 60rem;
-          }
-        }
+        //img {
+        //  max-width: 45rem;
+        //  height: auto;
+        //  @media screen and (min-width: 1000px){
+        //    max-width: 55rem;
+        //  }
+        //  @media screen and (min-width: 1200px){
+        //    max-width: 60rem;
+        //  }
+        //}
 
-        @media screen and (min-width: 992px){
-          display: block;
-        }
-      }
+        //@media screen and (min-width: 992px){
+        //  display: block;
+        //}
+      //}
 
       @media screen and (min-width: 768px){
         margin-right: 6rem;
@@ -113,10 +141,6 @@
           text-align: left;
         }
 
-        .header {
-          width: 50%;
-        }
-
         .subheader {
           &:after {
             margin: 1rem auto;
@@ -132,7 +156,7 @@
         text-align: center;
 
         .header {
-          margin: 4rem auto;
+          margin: 2rem auto;
           max-width: 75rem;
           &:after {
             margin: 1rem auto;
@@ -140,6 +164,9 @@
         }
 
         .subheader {
+          width: 50%;
+          display: block;
+          margin: 0 auto;
           &:after {
             margin: 1rem auto;
           }
