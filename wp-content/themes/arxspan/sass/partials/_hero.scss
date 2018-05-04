@@ -61,7 +61,7 @@
           line-height: 1.2em;
 
           @media screen and (min-width: 768px){
-            font-size: 5rem;
+            font-size: 5.4rem;
           }
           &:after {
             display: none;
@@ -100,7 +100,7 @@
     .text-wrapper {
       display: block;
       align-self: center;
-      max-width: 90rem;
+      max-width: 110rem;
       margin: 0 auto;
 
       @media screen and (min-width: 768px){
@@ -152,10 +152,10 @@
       }
 
       .header {
-        font-size: 5rem;
+        font-size: 4rem;
         max-width: 45rem;
         @media screen and (min-width: 768px){
-          font-size: 5rem;
+          font-size: 6rem;
         }
 
         &:after {
@@ -175,14 +175,15 @@
       }
 
       .copy-container {
-        max-width: 80rem;
         margin: 2rem 0;
 
         p {
+          font-size: 2rem;
 
           @media screen and (min-width: 768px){
             color: $blue;
             font-weight: lighter;
+            font-size: 2.4rem;
           }
         }
 
@@ -193,12 +194,14 @@
 
 
       .subheader {
-        font-size: 1.8rem;
+        font-size: 2rem;
         margin: 1rem 0;
         color: $blue;
         font-style: italic;
+        font-weight: normal;
+        line-height: 1.3em;
         @media screen and (min-width: 768px){
-          font-size: 2rem;
+          font-size: 2.4rem;
         }
 
         //&:after {
