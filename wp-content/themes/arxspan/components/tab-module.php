@@ -103,9 +103,6 @@ $activeTab = $_GET['activeTab'] ? $_GET['activeTab'] : 1;
             } ?>
 
         </div>
-
-        <a class="overview" href="<?php echo get_permalink('7') ?>">See Overview</a>
-
     </div> <!-- .inner -->
 </div> <!-- .tab-module -->
 
