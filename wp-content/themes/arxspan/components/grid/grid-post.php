@@ -52,7 +52,8 @@ if($postGrid){ ?>
             }
 
             //POST QUERY ?>
-            <div class="posts-container <? if(!$withCopyType){ echo ' no-copy';}?>"> <?php
+            <div class="posts-container <?php if(!$withCopyType){ echo ' no-copy';}?>">
+                <?php
                 foreach($solutions as $solutionPost){ ?>
 
                     <div class="post-container">

@@ -11,7 +11,10 @@
     }
   }
 
-  //whitepapers grid
+  /*
+   * Whitepapers Grid
+   */
+
   &.whitepapers {
 
     .header {
@@ -121,7 +124,10 @@
     }
   }
 
-  // news and events grid
+  /*
+   * News & Events Grid
+   */
+
   &.newsevents {
     display: block;
 
@@ -208,7 +214,10 @@
 
   }
 
-  // solutions grid
+  /*
+   * Solutions Grid
+   */
+
   &.solutions {
     display: flex;
     flex-wrap: wrap;
@@ -247,7 +256,7 @@
   }
 
 
-  .posts-container{
+  .posts-container {
     @media screen and (min-width: 768px){
       flex: 0 0 50%;
       max-width: 50%;
@@ -256,7 +265,9 @@
       box-sizing: border-box;
     }
 
-    // no copy
+    /*
+     * No copy
+     */
     &.no-copy {
       flex: 0 0 100%;
       max-width: 100%;
@@ -291,7 +302,7 @@
         bottom: -.4rem;
         left: 0;
         background-color: $pink;
-        transition: width ease 200ms;
+        transition: width ease 500ms;
       }
 
       &:hover {

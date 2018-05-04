@@ -13,6 +13,9 @@
 
 <body <?php body_class(); ?>>
 
+<?php include('inc/master-svg.svg'); ?>
+<?php include('components/page-backgrounds.php') ?>
+
 <div id="wrapper">
     <header id="primary-header" role="banner">
         <div id="header-inner">
@@ -92,5 +95,3 @@
     <div id="container">
         <div id="barba-wrapper">
             <div class="barba-container" data-namespace="<?php if(is_front_page()){ echo 'homepage'; }?>"> <!-- put string for each module, comma separated and convert into arrow -->
-                <?php include('components/page-backgrounds.php') ?>
-                <?php include('inc/master-svg.svg'); ?>
