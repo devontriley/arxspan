@@ -17,13 +17,13 @@
     .header {
       font-weight: 700;
       @media(min-width: 768px) {
-        margin: 0 0 8rem 0;
+        margin: 0 0 10rem 0;
       }
 
       &:after {
         content: "";
         background-color: $lightBlue;
-        width: 5rem;
+        width: 3.5rem;
         height: .4rem;
         display: block;
         margin: 2rem 0 0 0;
@@ -208,7 +208,7 @@
       text-align: right;
       width: 100%;
       display: inline-block;
-      font-size: 2.2rem;
+      font-size: 1.5rem;
 
       &:after {
         content: ">";
