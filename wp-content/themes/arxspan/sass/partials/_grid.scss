@@ -3,12 +3,16 @@
   width: 100%;
   max-width: 140rem;
   margin: 0 auto;
-  // add border top here if you want
-  .inner {
+
+  & > .inner {
     padding: 4rem;
 
     @media screen and (min-width: 768px){
       padding: 8rem 6rem;
     }
+  }
+
+  .svg-background {
+    top: 0;
   }
 }

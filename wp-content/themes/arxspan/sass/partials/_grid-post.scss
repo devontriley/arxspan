@@ -59,14 +59,6 @@
         display: flex;
         box-shadow: none;
         transition: all ease 200ms;
-        &:after {
-          content: none;
-        }
-        &:hover {
-          @media screen and (min-width: 768px){
-            transform: translateY(-.5rem);
-          }
-        }
         @media screen and (min-width: 768px){
           flex: 0 0 50%;
           max-width: 50%;
@@ -76,6 +68,12 @@
           flex: 0 0 33.3%;
           max-width: 33.3%;
           padding: 2rem;
+        }
+
+        &:hover {
+          @media screen and (min-width: 768px){
+            transform: translateY(-.5rem);
+          }
         }
 
         &:first-child {
@@ -165,21 +163,8 @@
         display: flex;
         border-bottom: .4rem solid $blue;
         box-shadow: 5px 10px 20px 0 rgba(230,230,230,0.5);
-        &:after {
-          content: "";
-          width: 0;
-          height: .4rem;
-          position: absolute;
-          bottom: -.4rem;
-          left: 0;
-          background-color: $pink;
-          transition: width ease 200ms;
-        }
 
         &:hover {
-          &:after {
-            width: 100%;
-          }
         }
         @media screen and (min-width: 768px){
           flex: 0 0 calc( 50% - 4rem );
