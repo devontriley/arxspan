@@ -19,7 +19,7 @@
 
   .inner {
     //padding: 8rem 6rem;
-    max-width: 90rem;
+    max-width: 110rem;
     margin: 4rem auto;
     padding: 0 6rem 4rem;
     position: relative;
@@ -56,8 +56,9 @@
     }
 
     h3 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       color: $blue;
+      font-weight: bold;
       margin: 1rem 0;
     }
 
