@@ -19,13 +19,14 @@
     justify-content: space-between;
     box-sizing: border-box;
     padding: 0 2rem;
+    transition: height 200ms ease;
     @media(min-width: 992px) {
       padding: 0 6rem;
-      height: 10.1rem;
+      height: 10rem;
     }
 
     body.header-active & {
-      height: 8rem;
+      height: 7rem;
     }
 
     .nav-container {
@@ -58,6 +59,7 @@
     .logo {
       display: inline-block;
       width: 13rem;
+      transition: width 200ms ease;
       @media(min-width: 992px) {
         width: 22rem;
 

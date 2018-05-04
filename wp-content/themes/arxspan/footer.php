@@ -1,6 +1,5 @@
-            </div> <!-- .barba-container -->
-        </div> <!-- .barba-wrapper -->
-    </div> <!-- body-content -->
+</div> <!-- .barba-container -->
+</div> <!-- .barba-wrapper -->
 </div> <!-- container -->
 
 <footer id="footer" role="contentinfo">

@@ -13,14 +13,6 @@ body {
   margin: 0 auto;
   color: $textGrey;
   font-family: "effra", Helvetica, Arial, sans-serif;
-  padding-top: 6rem;
-  @media(min-width: 992px) {
-    padding-top: 10.1rem;
-
-    &.header-active {
-      padding-top: 8rem;
-    }
-  }
 
   &.mobile-nav-active {
     overflow: hidden;
@@ -66,10 +58,17 @@ p, li {
  * Miscellaneous
  */
 
+#container {
+  margin-top: 6rem;
+  @media(min-width: 768px) {
+    margin-top: 10rem;
+  }
+}
+
 .svg-background {
   width: 100%;
   position: absolute;
-  top: 0;
+  top: -10rem;
   left: 0;
 }
 

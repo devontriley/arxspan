@@ -24886,7 +24886,7 @@ var MainHeader = function () {
     _createClass(MainHeader, [{
         key: 'toggle',
         value: function toggle() {
-            if (this.scrollOffset > 0) {
+            if (this.scrollOffset > 100) {
                 document.body.classList.add('header-active');
             } else {
                 document.body.classList.remove('header-active');
