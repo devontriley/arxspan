@@ -19,7 +19,7 @@
   display: inline-block;
   transition: all ease 200ms;
   position: relative;
-  @media screen and (min-with: 992px){
+  @media screen and (min-width: 768px){
     padding: 1.5rem;
     font-size: 2rem;
   }
@@ -35,7 +35,7 @@
   }
 
   span {
-    padding-right: 1rem;
+    padding-right: 2rem;
   }
 
   svg {
