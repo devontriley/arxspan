@@ -4,6 +4,10 @@
 
   // options with graphic
   &.graphic {
+    max-width: 100rem;
+    display: block;
+    margin: 0 auto;
+
     .inner {
       padding: 6rem;
       flex-wrap: wrap;
