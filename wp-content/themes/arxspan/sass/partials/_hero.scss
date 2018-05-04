@@ -6,9 +6,10 @@
 
     .desktop-graphic {
       order: 2;
-      margin-bottom: -5rem;
+      margin-top: 10rem;
       display: none;
       width: 50%;
+      margin-right: 0;
 
       img {
         max-width: 45rem;
@@ -79,6 +80,7 @@
 
     .desktop-graphic {
       display: block;
+      margin-right: 6rem;
 
       &.separate-mobile-graphic {
         display: none;
