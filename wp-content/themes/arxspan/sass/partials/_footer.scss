@@ -13,6 +13,7 @@
     margin: 0 auto;
     flex-wrap: wrap;
     text-align: center;
+    max-width: 140rem;
     @media screen and (min-width: 768px){
       flex-wrap: nowrap;
       text-align: left;
@@ -55,7 +56,7 @@
 
     ul {
       li, a {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         line-height: 24px;
         color: $lightBlue;
         text-decoration: none;

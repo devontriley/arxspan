@@ -90,10 +90,10 @@
 
         .inner {
           position: relative;
-          padding-top: 8rem;
           box-shadow: 5px 10px 20px 0 rgba(230,230,230,0.5);
           border-bottom: .4rem solid $blue;
           background-color: #fff;
+          padding: 10rem 3rem 3rem 3rem;
 
           .top {
             position: absolute;
@@ -180,12 +180,12 @@
 
           .date {
             margin: .5rem 0;
+            font-size: 2rem;
           }
 
           .btn {
             background-color: $blue;
             padding-right: 2rem;
-            font-size: 1.5rem;
             transition: all ease 200ms;
 
             &:hover {
@@ -224,7 +224,7 @@
       }
 
       .content {
-        font-size: 1.8rem;
+        font-size: 2rem;
         line-height: 1.5em;
         font-weight: lighter;
       }
@@ -302,9 +302,14 @@
 
       .blurb {
         margin: 2.5rem 0;
+
+        p {
+          font-size: 2rem;
+        }
       }
 
       .learn-more {
+        font-size: 2rem;
         text-decoration: none;
         color: $blue;
         font-weight: bold;

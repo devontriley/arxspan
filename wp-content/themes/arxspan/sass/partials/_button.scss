@@ -12,15 +12,16 @@
   background-color: $pink;
   padding: 1rem 2rem;
   border-radius: 5px;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: #fff;
   border: none;
   text-decoration: none;
   display: inline-block;
   transition: all ease 200ms;
   position: relative;
-  @media screen and (min-with: 992px){
+  @media screen and (min-width: 768px){
     padding: 1.5rem;
+    font-size: 2rem;
   }
 
   &:active, :focus {
@@ -34,7 +35,7 @@
   }
 
   span {
-    padding-right: 1rem;
+    padding-right: 2rem;
   }
 
   svg {
