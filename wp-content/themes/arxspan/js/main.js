@@ -20,7 +20,6 @@ var mainNav = new MainNav();
 
 window.addEventListener('resize', function(e) {
     window.mobileDetected = window.mobilecheck();
-    console.log(window.mobileDetected);
     (window.mobileDetected) ? document.body.classList.add('is-mobile') : document.body.classList.remove('is-mobile');
 });
 
@@ -34,25 +33,44 @@ if(imageSliders != null) {
     for(var i = 0; i < imageSliders.length; i++) {
         imageSlidersArr.push(new imageSlider(imageSliders[i]));
     }
-    console.log(imageSlidersArr);
 }
 
 /*
  * Styled selects
  */
-var styledSelects = document.querySelectorAll('form select');
-if(styledSelects.length){
-    var styledSelectsArr = [];
-    for(var i = 0; i < styledSelects.length; i++) {
-        styledSelectsArr[i] = new styledSelect(styledSelects[i]);
+function setupStyledSelects() {
+    var styledSelects = document.querySelectorAll('form select');
+    if(styledSelects.length){
+        var styledSelectsArr = [];
+        for(var i = 0; i < styledSelects.length; i++) {
+            styledSelectsArr[i] = new styledSelect(styledSelects[i]);
+        }
     }
 }
 
-var forms = document.querySelectorAll('.default-form');
-if(forms.length) {
-    var formsArr = [];
-    for(var i = 0; i < forms.length; i++) {
-        formsArr[i] = new defaultForm(forms[i]);
+/*
+ * Forms
+ */
+function setupForms() {
+    var forms = document.querySelectorAll('.default-form');
+    if(forms.length) {
+        var formsArr = [];
+        for(var i = 0; i < forms.length; i++) {
+            formsArr[i] = new defaultForm(forms[i]);
+        }
+    }
+}
+
+/*
+ * Tab Modules
+ */
+function setupTabModules() {
+    const getTabModules = document.querySelectorAll('.tab-module');
+    if(getTabModules) {
+        const tabModules = [];
+        for(var i = 0; i < getTabModules.length; i++) {
+            tabModules.push(new tabModule(getTabModules[i]));
+        }
     }
 }
 
@@ -84,6 +102,8 @@ domReady(function() {
 
             $(this.oldContainer).hide();
 
+            window.scrollTo(0,0);
+
             $el.css({
                 visibility: 'visible',
                 opacity: 0
@@ -102,34 +122,41 @@ domReady(function() {
     };
 
     // We can create multiple views for loading page specific javascript
-    var Views = {
-        Homepage: Barba.BaseView.extend({
-            namespace: 'homepage',
-            onEnter: function() {
-            },
-            onEnterCompleted: function() {
+    // var Views = {
+    //     Homepage: Barba.BaseView.extend({
+    //         namespace: 'homepage',
+    //         onEnter: function() {},
+    //         onEnterCompleted: function() {
+    //
+    //             /*
+    //              * Tab Modules
+    //              */
+    //             const getTabModules = document.querySelectorAll('.tab-module');
+    //             if(getTabModules) {
+    //                 const tabModules = [];
+    //                 for(var i = 0; i < getTabModules.length; i++) {
+    //                     tabModules.push(new tabModule(getTabModules[i]));
+    //                 }
+    //             }
+    //
+    //         },
+    //         onLeave: function() {},
+    //         onLeaveCompleted: function() {}
+    //     })
+    // }
+    //
+    // Views.Homepage.init();
 
-                /*
-                 * Tab Modules
-                 */
-                const getTabModules = document.querySelectorAll('.tab-module');
-                if(getTabModules) {
-                    const tabModules = [];
-                    for(var i = 0; i < getTabModules.length; i++) {
-                        tabModules.push(new tabModule(getTabModules[i]));
-                    }
-                }
+    Barba.Dispatcher.on('initStateChange', function(currentStatus) {
+        // We can remove anything from the old page here
+    });
 
-            },
-            onLeave: function() {
-
-            },
-            onLeaveCompleted: function() {
-            }
-        })
-    }
-
-    Views.Homepage.init();
+    Barba.Dispatcher.on('newPageReady', function() {
+        // We can add anything for the new page here
+        setupTabModules();
+        setupForms();
+        setupStyledSelects();
+    });
 
     Barba.Pjax.init();
     Barba.Prefetch.init();

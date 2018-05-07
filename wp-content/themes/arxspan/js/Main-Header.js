@@ -12,7 +12,6 @@ class MainHeader {
 
         var barbaEvent = function(e) {
             e.preventDefault();
-            console.log(this.href);
             Barba.Pjax.goTo(this.href);
         }
 

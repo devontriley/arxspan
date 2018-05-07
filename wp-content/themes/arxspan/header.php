@@ -96,7 +96,7 @@
 
                     <div class="demo-btn">
                         <div class="btn-wrapper center">
-                            <a href="#" class="btn">Request A Demo</a>
+                            <a href="<?php bloginfo('url'); ?>/contact" class="btn">Request A Demo</a>
                         </div>
                     </div>
                 </div>

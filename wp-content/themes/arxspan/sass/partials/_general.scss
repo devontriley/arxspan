@@ -82,8 +82,11 @@ p, li {
 }
 
 .boxed-content {
-  margin: 5rem auto;
+  margin: 0 auto;
   padding: 0 2rem;
+  @media(min-width: 768px) {
+    padding: 5rem 2rem;
+  }
 
   & > .inner {
     max-width: 120rem;
