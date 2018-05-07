@@ -72,7 +72,7 @@ p, li {
 .svg-background {
   width: 100%;
   position: absolute;
-  top: -10rem;
+  top: 0;
   left: 0;
 
   &.non-hero {
@@ -85,7 +85,7 @@ p, li {
   margin: 5rem auto;
   padding: 0 2rem;
 
-  .inner {
+  & > .inner {
     max-width: 120rem;
     margin: 0 auto;
     @media(min-width: 768px) {
@@ -96,7 +96,7 @@ p, li {
       background: #fff;
     }
 
-    > section {
+    & > section {
       padding: 4rem 0;
       box-sizing: border-box;
       @media(min-width: 768px) {
@@ -110,16 +110,20 @@ p, li {
         margin-top: 0;
       }
 
-      h1 {
+      & > *:last-child {
+        margin-bottom: 0;
+      }
+
+      & > h1 {
         margin: 1em 0;
       }
 
-      p {
+      & > p {
         margin: 1em 0;
       }
     }
 
-    > aside {
+    & > aside {
       @media(min-width: 768px) {
         flex: 0 0 45%;
         max-width: 45%;
@@ -128,7 +132,7 @@ p, li {
       }
 
       // Contact Us form
-      form {
+      & > form {
         margin-left: auto;
         margin-right: auto;
         @media(min-width: 768px) {
