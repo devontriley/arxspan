@@ -167,7 +167,7 @@ if($postGrid){ ?>
                     </div><!--.post-container--><?php
                 } ?>
             </div><!-- .posts-container --><?php
-        }?>
+        } //if news event layout ?>
 
     </div><!-- .post-grid-wrapper --> <?php
 } // if post grid
