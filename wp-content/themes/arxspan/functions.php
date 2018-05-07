@@ -132,22 +132,37 @@ function button($buttonLabel, $buttonUrl){ // placeholders, can change name if w
             $images = new WP_Query( $args );
 
             if( $images->have_posts()):
-                $html = '<div class="slider-wrapper">';
-                $html .= '<ul class="slider">';
+
+                $iteration = 0;
+                $slides;
+                $navItems;
 
                 while($images->have_posts()) : $images->the_post();
+
+                    $active = ($iteration == 0) ? 'active' : '';
 
                     $image = wp_get_attachment_image_src( get_post_thumbnail_id( $images->post->ID ), 'full');
                     $caption = get_the_excerpt($images->post->ID);
 
-                    $html .= '<li><div><img src="'. $image[0] .'" /></div>';
+                    $slides .= '<li class="'. $active .'"><img src="'. $image[0] .'" />';
                     if($caption){
-                        $html .= '<span class="wp-caption-text">'. $caption .'</span>';
+                        $slides .= '<span class="wp-caption-text">'. $caption .'</span>';
                     }
-                    $html .= '</li>';
+                    $slides .= '</li>';
+
+                    $navItems .= '<button></button>';
+
+                    $iteration++;
+
                 endwhile;
 
+                $html = '<div class="slider-wrapper">';
+                $html .= '<ul class="slider">';
+                $html .= $slides;
                 $html .= '</ul><!-- .slider-->';
+                $html .= '<nav class="slider-nav">';
+                $html .= $navItems;
+                $html .= '</nav>';
                 $html .= '</div><!-- .slider-wrapper-->';
 
             endif;

@@ -105,37 +105,32 @@
       font-size: 2rem;
       font-weight: lighter;
 
-      //&:after {
-      //  content: "";
-      //  clear: both;
-      //}
-    }
-
-    img {
-      float: none;
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-
-      @media screen and (min-width: 768px){
-        width: 50%;
-        max-width: 50%;
-        float: left;
-      }
-
-      &.alignleft {
+      img {
         float: none;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
 
         @media screen and (min-width: 768px){
+          width: 50%;
+          max-width: 50%;
           float: left;
         }
-      }
 
-      &.alignright {
-        float: none;
+        &.alignleft {
+          float: none;
 
-        @media screen and (min-width: 768px){
-          float: left;
+          @media screen and (min-width: 768px){
+            float: left;
+          }
+        }
+
+        &.alignright {
+          float: none;
+
+          @media screen and (min-width: 768px){
+            float: left;
+          }
         }
       }
     }
