@@ -11,10 +11,11 @@
   margin: 0 auto;
 
   & > .inner {
-    padding: 4rem;
+    margin: 6rem 2rem;
 
     @media screen and (min-width: 768px){
       padding: 8rem 6rem;
+      margin: 0;
     }
   }
 
@@ -29,10 +30,10 @@
     .inner {
       max-width: 140rem;
       margin: 0 auto;
+      padding: 6rem 2rem;
+      @media screen and (min-width: 768px){
+        padding: 8rem 6rem;
+      }
     }
-  }
-
-  .svg-background {
-    top: 0;
   }
 }
