@@ -1,4 +1,4 @@
-<svg class="svg-background" viewBox="0 0 1920 1060">
+<svg class="svg-background non-hero" viewBox="0 0 1920 1060">
     <defs>
         <rect id="path-1" x="0" y="0" width="1920" height="1073"></rect>
         <linearGradient x1="48.945767%" y1="2.91590167%" x2="50%" y2="100%" id="linearGradient3">
