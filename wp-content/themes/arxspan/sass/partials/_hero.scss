@@ -87,10 +87,6 @@
       max-width: 110rem;
       margin: 0 auto;
 
-      @media screen and (min-width: 768px){
-        padding-right: 4rem;
-      }
-
       // text orientation options
       &.left {
         text-align: center;
@@ -147,8 +143,11 @@
           display: block;
           height: .4rem;
           width: 5rem;
-          margin: 1rem 0;
+          margin: 2rem auto;
           background-color: $lightBlue;
+          @media screen and (min-width: 768px){
+            margin: 2rem 0;
+          }
         }
 
         &.has-subheader {
@@ -214,6 +213,12 @@
     .inner {
       padding: 10rem 4rem;
       margin: unset;
+
+      .text-wrapper {
+        @media screen and (min-width: 768px){
+          padding-right: 4rem;
+        }
+      }
 
       .desktop-graphic {
         order: 2;
