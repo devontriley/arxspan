@@ -6,15 +6,40 @@ import Barba from 'barba.js';
 import MainHeader from './Main-Header.js';
 import MainNav from './Main-Nav.js';
 import tabModule from './Tab-Module.js';
+import imageSlider from './Image-Slider.js';
 import animations from './animations.js';
 // import mceButtons from './Mce-Buttons.js'; // how input? include in functions file w hook
 import { styledSelect, defaultForm } from './Forms.js';
 
 var mainHeader = new MainHeader();
 var mainNav = new MainNav();
-console.log(mainNav);
 
-// Styled Selects
+/*
+ * body .is-mobile on resize
+ */
+
+window.addEventListener('resize', function(e) {
+    window.mobileDetected = window.mobilecheck();
+    console.log(window.mobileDetected);
+    (window.mobileDetected) ? document.body.classList.add('is-mobile') : document.body.classList.remove('is-mobile');
+});
+
+/*
+ * Image Sliders
+ */
+
+var imageSliders = document.querySelectorAll('.slider-wrapper');
+if(imageSliders != null) {
+    var imageSlidersArr = [];
+    for(var i = 0; i < imageSliders.length; i++) {
+        imageSlidersArr.push(new imageSlider(imageSliders[i]));
+    }
+    console.log(imageSlidersArr);
+}
+
+/*
+ * Styled selects
+ */
 var styledSelects = document.querySelectorAll('form select');
 if(styledSelects.length){
     var styledSelectsArr = [];

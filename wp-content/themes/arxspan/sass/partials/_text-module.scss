@@ -5,6 +5,9 @@
   padding: 0 4rem;
   box-sizing: border-box;
 
+  .text-module + & {
+    margin-top: 0;
+  }
 
   //gradient variant
   &.gradient {
@@ -110,7 +113,6 @@
       margin: 1.5rem 0;
       font-size: 2rem;
       font-weight: lighter;
-    }
 
     img {
       float: none;
@@ -118,25 +120,26 @@
       max-width: 100%;
       height: auto;
 
-      @media screen and (min-width: 768px){
-        width: 50%;
-        max-width: 50%;
-        float: left;
-      }
-
-      &.alignleft {
-        float: none;
-
         @media screen and (min-width: 768px){
+          width: 50%;
+          max-width: 50%;
           float: left;
         }
-      }
 
-      &.alignright {
-        float: none;
+        &.alignleft {
+          float: none;
 
-        @media screen and (min-width: 768px){
-          float: left;
+          @media screen and (min-width: 768px){
+            float: left;
+          }
+        }
+
+        &.alignright {
+          float: none;
+
+          @media screen and (min-width: 768px){
+            float: left;
+          }
         }
       }
     }
@@ -155,11 +158,7 @@
         flex: 0 0 100%;
         max-width: 100%;
         box-sizing: border-box;
-        margin: 0;
-        padding-left: 4rem;
-        @media screen and (min-width: 768px){
-          padding: 0 4rem;
-        }
+        margin: 0 4rem;
       }
 
       &.two {

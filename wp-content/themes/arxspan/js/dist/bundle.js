@@ -74,6 +74,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.getElIndex = getElIndex;
+exports.getElementContentWidth = getElementContentWidth;
 exports.getParameterByName = getParameterByName;
 exports.getChildren = getChildren;
 exports.getSiblings = getSiblings;
@@ -86,6 +87,14 @@ exports.wrapEle = wrapEle;
 function getElIndex(el) {
     for (var i = 0; el = el.previousElementSibling; i++) {}
     return i;
+}
+
+// Get element inner width without padding
+function getElementContentWidth(element) {
+    var styles = window.getComputedStyle(element);
+    var padding = parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
+
+    return element.clientWidth - padding;
 }
 
 // Get parameter by name
@@ -1904,11 +1913,15 @@ var _TabModule = __webpack_require__(10);
 
 var _TabModule2 = _interopRequireDefault(_TabModule);
 
-var _animations = __webpack_require__(11);
+var _ImageSlider = __webpack_require__(11);
+
+var _ImageSlider2 = _interopRequireDefault(_ImageSlider);
+
+var _animations = __webpack_require__(12);
 
 var _animations2 = _interopRequireDefault(_animations);
 
-var _Forms = __webpack_require__(12);
+var _Forms = __webpack_require__(13);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1918,9 +1931,33 @@ var mainHeader = new _MainHeader2.default();
 // import mceButtons from './Mce-Buttons.js'; // how input? include in functions file w hook
 
 var mainNav = new _MainNav2.default();
-console.log(mainNav);
 
-// Styled Selects
+/*
+ * body .is-mobile on resize
+ */
+
+window.addEventListener('resize', function (e) {
+    window.mobileDetected = window.mobilecheck();
+    console.log(window.mobileDetected);
+    window.mobileDetected ? document.body.classList.add('is-mobile') : document.body.classList.remove('is-mobile');
+});
+
+/*
+ * Image Sliders
+ */
+
+var imageSliders = document.querySelectorAll('.slider-wrapper');
+if (imageSliders != null) {
+    var imageSlidersArr = [];
+    for (var i = 0; i < imageSliders.length; i++) {
+        imageSlidersArr.push(new _ImageSlider2.default(imageSliders[i]));
+    }
+    console.log(imageSlidersArr);
+}
+
+/*
+ * Styled selects
+ */
 var styledSelects = document.querySelectorAll('form select');
 if (styledSelects.length) {
     var styledSelectsArr = [];
@@ -25098,6 +25135,121 @@ exports.default = tabModule;
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _helpers = __webpack_require__(0);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var imageSlider = function () {
+    function imageSlider(ele) {
+        _classCallCheck(this, imageSlider);
+
+        this.sliderWrapper = ele;
+        this.ul = this.sliderWrapper.querySelector('ul.slider');
+        this.lis = this.ul.querySelectorAll('li');
+        this.nav = this.sliderWrapper.querySelector('.slider-nav');
+        this.height;
+        this.width = window.mobileDetected ? (0, _helpers.getElementContentWidth)(this.sliderWrapper) : (0, _helpers.getElementContentWidth)(this.sliderWrapper) / 3;
+        this.ulWidth;
+        this.horizontalCenter = (0, _helpers.getElementContentWidth)(this.sliderWrapper) / 2 - this.width / 2;
+        this.currentSlide = 0;
+
+        console.log((0, _helpers.getElementContentWidth)(this.sliderWrapper));
+
+        if (this.lis.length) {
+            this.positioning();
+            this.setUlPosition(this.currentSlide);
+        }
+
+        // Nav click event listener
+        this.nav.addEventListener('click', function (e) {
+            if (e.target.tagName.toLowerCase() == 'button') {
+                this.navClickHandler(e);
+            }
+        }.bind(this));
+    }
+
+    _createClass(imageSlider, [{
+        key: 'positioning',
+        value: function positioning() {
+            this.ulWidth = this.width * this.lis.length;
+
+            this.ul.style.width = this.ulWidth + 'px';
+
+            // Set li widths
+            for (var i = 0; i < this.lis.length; i++) {
+                // Set li width
+                this.lis[i].style.width = this.width + 'px';
+
+                // We can set the ul height after setting the first li width and getting it's updated height
+                if (i == 0) {
+                    // Set public height
+                    this.height = this.lis[i].offsetHeight;
+                    // Set ul height
+                    this.ul.style.height = this.height + 'px';
+                }
+
+                // Set li height
+                this.lis[i].style.height = this.height + 'px';
+            }
+
+            // Set ul width
+            for (var i = 0; i < this.lis.length; i++) {
+                this.lis[i].style.width = this.width + 'px';
+            }
+        }
+    }, {
+        key: 'navClickHandler',
+        value: function navClickHandler(e) {
+            var nextSlide = (0, _helpers.getElIndex)(e.target);
+            // Set the ul position by passing the position of the next slide
+            this.setUlPosition(nextSlide);
+        }
+    }, {
+        key: 'getUlPosition',
+        value: function getUlPosition(index) {
+            var slideCenterOffset = index * this.width + this.width / 2;
+            // - 20 to account for slider wrapper padding ><
+            return this.sliderWrapper.offsetWidth / 2 - slideCenterOffset - 20;
+        }
+    }, {
+        key: 'setUlPosition',
+        value: function setUlPosition(index) {
+            var position = this.getUlPosition(index);
+
+            // Set ul position
+            this.ul.style.left = position + 'px';
+
+            // Remove active from current slide and current nav item
+            this.lis[this.currentSlide].classList.remove('active');
+            this.nav.querySelectorAll('button')[this.currentSlide].classList.remove('active');
+
+            // Add active to new slide
+            this.lis[index].classList.add('active');
+            this.nav.querySelectorAll('button')[index].classList.add('active');
+
+            // Update current active slide
+            this.currentSlide = index;
+        }
+    }]);
+
+    return imageSlider;
+}();
+
+exports.default = imageSlider;
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); // A N I M A T I O N
 
 var _helpers = __webpack_require__(0);
@@ -25174,7 +25326,7 @@ var animations = function () {
 var animationInstance = new animations();
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
