@@ -11,14 +11,29 @@
   margin: 0 auto;
 
   & > .inner {
-    padding: 4rem;
+    margin: 6rem 2rem;
 
     @media screen and (min-width: 768px){
       padding: 8rem 6rem;
+      margin: 0;
     }
   }
 
-  .svg-background {
-    top: 0;
+  &.gradient {
+    background: #eaf6ff;
+    background: -moz-linear-gradient(top, #eaf6ff 0%, #ffffff 33%);
+    background: -webkit-linear-gradient(top, #eaf6ff 0%,#ffffff 33%);
+    background: linear-gradient(to bottom, #eaf6ff 0%,#ffffff 33%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaf6ff', endColorstr='#ffffff',GradientType=0 );
+    max-width: unset;
+
+    .inner {
+      max-width: 140rem;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+      @media screen and (min-width: 768px){
+        padding: 8rem 6rem;
+      }
+    }
   }
 }

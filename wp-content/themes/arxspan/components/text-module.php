@@ -5,11 +5,7 @@ $wysiwygContent = get_sub_field('wysiwyg');
 
 ?>
 
-<div class="text-module <?php if($gradientBackground){echo ' gradient'; }?>"> <?php
-
-    if($gradientBackground){
-        include('backgrounds/gradient-bg.php');
-    } ?>
+<div class="text-module <?php if($gradientBackground){echo ' gradient'; }?>">
 
     <div class="inner">
         <?php echo $wysiwygContent; ?>

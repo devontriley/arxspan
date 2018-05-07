@@ -116,12 +116,6 @@
             <g id="Desktop-UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g id="Artboard" transform="translate(-78.000000, -634.000000)">
                     <g id="Icon/Product/Notebook" transform="translate(111.148072, 664.744774)">
-                        <g id="Group-3-Copy">
-                            <g id="Oval">
-                                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
-                                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
-                            </g>
-                        </g>
                         <g id="Icon/Free/Notebook" transform="translate(47.000000, 36.000000)">
                             <g id="Page-1" transform="translate(55.925706, 66.531063) rotate(-3.000000) translate(-55.925706, -66.531063) translate(3.925706, 3.531063)">
                                 <path d="M100.309315,123.66107 L11.4360708,123.66107 C10.6584132,123.66107 10.0285457,123.030499 10.0285457,122.253545 L10.0285457,6.23829184 C10.0285457,5.461338 10.6584132,4.83076677 11.4360708,4.83076677 L100.309315,4.83076677 C101.086268,4.83076677 101.71684,5.461338 101.71684,6.23829184 L101.71684,122.253545 C101.71684,123.030499 101.086268,123.66107 100.309315,123.66107" id="Fill-1" fill="#96D1F2"></path>
