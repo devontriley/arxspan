@@ -165,11 +165,23 @@
         box-shadow: 5px 10px 20px 0 rgba(230,230,230,0.5);
 
         &:hover {
+          .btn {
+            background-color: $pink;
+          }
         }
         @media screen and (min-width: 768px){
           flex: 0 0 calc( 50% - 4rem );
           max-width: 50%;
           margin: 2rem;
+        }
+
+        .post-link {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          z-index: 99;
         }
 
         .inner {
@@ -294,6 +306,15 @@
         &:after {
           width: 100%;
         }
+      }
+
+      .post-link {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 99;
       }
 
 

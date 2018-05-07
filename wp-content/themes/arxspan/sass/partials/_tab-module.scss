@@ -149,19 +149,30 @@
           height: 100%;
           padding: 2rem;
           box-sizing: border-box;
+          display: block;
+          margin: 0 auto;
         }
       }
 
       .text-block {
         box-shadow: 0 1rem 1.5rem rgba(0,0,0,0.1);
         padding: 3rem;
+        position: relative;
         @media(min-width: 768px) {
           width: 60%;
-          position: relative;
           padding: 5rem 5.5rem;
           box-sizing: border-box;
           display: flex;
           align-items: center;
+        }
+
+        .text-block-link {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 99;
         }
 
         .inner {
@@ -196,15 +207,9 @@
             &:after {
               content: ">";
               display: inline-block;
-              color: $blue;
+              color: $pink;
               margin-left: .5rem;
               transition: all ease 200ms;
-            }
-
-            &:hover {
-              &:after {
-                color: $pink;
-              }
             }
           }
         }

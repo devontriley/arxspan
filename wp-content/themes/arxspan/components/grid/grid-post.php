@@ -57,6 +57,7 @@ if($postGrid){ ?>
                 foreach($solutions as $solutionPost){ ?>
 
                     <div class="post-container">
+                        <a class="post-link" href="<?php echo get_permalink($solutionPost->ID); ?>"></a>
                         <p class="title">
                             <?php echo $solutionPost->post_title; ?>
                         </p> <?php
@@ -76,9 +77,9 @@ if($postGrid){ ?>
                             endwhile;
                         endif; ?>
 
-                        <a class="learn-more" href="<?php echo get_permalink($solutionPost->ID); ?>">
+                        <p class="learn-more">
                             Learn More
-                        </a>
+                        </p>
                     </div><!-- .post-container --><?php
                 } //endforeach ?>
             </div> <!-- .posts-container --> <?php
@@ -145,6 +146,7 @@ if($postGrid){ ?>
                     $buttonUrl = get_permalink($newsEventsPost->ID);
                     ?>
                     <div class="post-container">
+                        <a class="post-link" href="<?php echo $buttonUrl ?>"></a>
                         <div class="inner">
                             <p class="title">
                                 <?php echo $newsEventsPost->post_title; ?>

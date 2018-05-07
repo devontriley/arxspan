@@ -74,6 +74,7 @@ $activeTab = $_GET['activeTab'] ? $_GET['activeTab'] : 1;
                     </div> <!-- .img-block -->
 
                     <div class="text-block">
+                        <a class="text-block-link" href="<?php echo $link; ?>"></a>
                         <div class="inner">
                             <p class="title"><?php echo $title; ?></p>
                             <?php
@@ -95,7 +96,7 @@ $activeTab = $_GET['activeTab'] ? $_GET['activeTab'] : 1;
                                 endwhile;
                             endif;
                             ?>
-                            <a class="learn-more" href="<?php echo $link; ?>">Learn More</a>
+                            <p class="learn-more">Learn More</p>
                         </div>
                     </div> <!-- .text-block -->
                 </div><!-- .tabcontent -->
