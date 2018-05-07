@@ -70,6 +70,10 @@
           padding: 2rem;
         }
 
+        &:after {
+          content: none;
+        }
+
         &:hover {
           @media screen and (min-width: 768px){
             transform: translateY(-.5rem);
@@ -94,6 +98,22 @@
           border-bottom: .4rem solid $blue;
           background-color: #fff;
           padding: 10rem 3rem 3rem 3rem;
+          &:after {
+            content: "";
+            width: 0;
+            height: .4rem;
+            position: absolute;
+            bottom: -.4rem;
+            left: 0;
+            background-color: $pink;
+            transition: width ease 500ms;
+          }
+
+          &:hover {
+            &:after {
+              width: 100%;
+            }
+          }
 
           .top {
             position: absolute;

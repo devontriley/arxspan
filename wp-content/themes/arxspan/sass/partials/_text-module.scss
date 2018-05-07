@@ -155,6 +155,7 @@
       display: flex;
       flex-wrap: wrap;
       position: relative;
+      margin-left: -4rem;
 
       @media screen and (min-width: 768px){
         flex-wrap: nowrap;
@@ -164,7 +165,7 @@
         flex: 0 0 100%;
         max-width: 100%;
         box-sizing: border-box;
-        margin: 0 2rem;
+        margin: 0 4rem;
       }
 
       &.two {
