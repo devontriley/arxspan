@@ -2,37 +2,6 @@
   position: relative;
   width: 100%;
 
-  &.home {
-
-    .desktop-graphic {
-      order: 2;
-      margin-top: 10rem;
-      display: none !important;
-      width: 50%;
-      margin-right: 0;
-      @media screen and (min-width: 1000px){
-        display: block;
-      }
-
-      img {
-        max-width: 45rem;
-        height: auto;
-        display: none;
-        @media screen and (min-width: 1000px){
-          max-width: 55rem;
-          display: block;
-        }
-        @media screen and (min-width: 1200px){
-          max-width: 60rem;
-        }
-      }
-
-      @media screen and (min-width: 992px){
-        display: block;
-      }
-    }
-  }
-
   // options with graphic
   &.graphic {
     max-width: 110rem;
@@ -43,8 +12,6 @@
       max-width: 140rem;
 
       .inner {
-        margin: 8rem 4rem;
-        padding: unset;
         @media screen and (min-width: 768px){
           padding: 6rem;
           margin: unset;
@@ -236,6 +203,43 @@
         margin: 4rem 0;
         @media screen and (min-width: 768px){
           margin: 2rem 0;
+        }
+      }
+    }
+  }
+
+  //home option
+  &.home {
+
+    .inner {
+      padding: 10rem 4rem;
+      margin: unset;
+
+      .desktop-graphic {
+        order: 2;
+        margin-top: 10rem;
+        display: none;
+        width: 50%;
+        margin-right: 0;
+        @media screen and (min-width: 1000px){
+          display: block;
+        }
+
+        img {
+          max-width: 45rem;
+          height: auto;
+          display: none;
+          @media screen and (min-width: 1000px){
+            max-width: 55rem;
+            display: block;
+          }
+          @media screen and (min-width: 1200px){
+            max-width: 60rem;
+          }
+        }
+
+        @media screen and (min-width: 992px){
+          display: block;
         }
       }
     }
