@@ -70,12 +70,12 @@
     opacity: 0;
     transform: translate3d(0, 50px, 0);
   };
-20% {
+  20% {
     opacity: 0;
     transform: translate3d(0, 50px, 0);
   };
-100% {
-     opacity: 1;
-     transform: translate3d(0, 0, 0);
-   }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
