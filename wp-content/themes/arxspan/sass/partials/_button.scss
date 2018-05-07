@@ -29,6 +29,8 @@
   }
 
   &:hover {
+    background: $blue;
+
     svg {
       opacity: 1;
     }

@@ -6,6 +6,10 @@ form {
       position: relative;
       margin: 0 0 3rem 0;
 
+      &:last-child {
+        margin-bottom: 0;
+      }
+
       label {
         position: absolute;
         left: 1rem;
@@ -43,6 +47,7 @@ form {
         display: block;
         width: 100%;
         cursor: pointer;
+        font-family: "effra", Helvetica, Arial, sans-serif;
       }
 
       .inline-msg {

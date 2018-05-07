@@ -5,7 +5,7 @@
 <div class="boxed-content">
     <div class="inner">
         <section>
-            <h1>Get in Touch with Us!</h1>
+            <h1 class="title">Get in Touch with Us!</h1>
             <p>Please take a moment to complete the form below and we'll contact you promptly.</p>
             <ul>
                 <li>Something will go here yadda yadda</li>

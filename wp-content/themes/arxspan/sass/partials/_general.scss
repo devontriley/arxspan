@@ -82,36 +82,58 @@ p, li {
 }
 
 .boxed-content {
-  background: #fff;
-  border-radius: 1rem;
-  box-shadow: 0 6px 24px 0 rgba(0,0,0,0.09);
-  max-width: 120rem;
   margin: 5rem auto;
-  box-sizing: border-box;
+  padding: 0 2rem;
 
   .inner {
-    display: flex;
-    flex-wrap: nowrap;
+    max-width: 120rem;
+    margin: 0 auto;
+    @media(min-width: 768px) {
+      display: flex;
+      flex-wrap: nowrap;
+      border-radius: 1rem;
+      box-shadow: 0 6px 24px 0 rgba(0,0,0,0.09);
+      background: #fff;
+    }
 
     > section {
-      flex: 0 0 55%;
-      max-width: 55%;
-      border-right: .2rem solid #f4f4f4;
-      padding: 6rem;
+      padding: 4rem 0;
       box-sizing: border-box;
+      @media(min-width: 768px) {
+        flex: 0 0 55%;
+        max-width: 55%;
+        border-right: .2rem solid #f4f4f4;
+        padding: 6rem;
+      }
+
+      & > *:first-child {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin: 1em 0;
+      }
+
+      p {
+        margin: 1em 0;
+      }
     }
 
     > aside {
-      flex: 0 0 45%;
-      max-width: 45%;
-      padding: 6rem;
-      box-sizing: border-box;
+      @media(min-width: 768px) {
+        flex: 0 0 45%;
+        max-width: 45%;
+        padding: 6rem;
+        box-sizing: border-box;
+      }
 
       // Contact Us form
       form {
-        max-width: 28rem;
         margin-left: auto;
         margin-right: auto;
+        @media(min-width: 768px) {
+          max-width: 28rem;
+        }
       }
     }
   }
