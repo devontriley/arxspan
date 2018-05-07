@@ -101,7 +101,11 @@ if($postGrid){ ?>
                     <div class="post-container">
                         <div class="inner">
                             <div class="top">
-                                <svg viewBox="0 0 271 271">
+                                <svg class="circle" viewBox="0 0 200 200">
+                                      <circle cx="100" cy="100" r="100"/>
+                                </svg>
+
+                                <svg class="whitepaper" viewBox="0 0 271 271">
                                     <use xlink:href="#whitepaper-icon"></use>
                                 </svg>
                             </div>

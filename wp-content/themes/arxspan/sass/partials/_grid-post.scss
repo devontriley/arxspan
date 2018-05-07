@@ -123,8 +123,20 @@
             height: 8rem;
             background-color: #E9F6FF;
 
-            svg {
+            .circle {
+              width: 100px;
+              height: 100px;
+              fill: #fff;
+              position: absolute;
+              right: 2rem;
+              top: 1rem;
+            }
+
+            .whitepaper {
               width: 11.8rem;
+              position: absolute;
+              right: 1.2rem;
+              z-index: 99;
             }
           }
 
