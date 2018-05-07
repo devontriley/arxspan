@@ -4,6 +4,15 @@ export function getElIndex(el) {
     return i;
 }
 
+// Get element inner width without padding
+export function getElementContentWidth(element) {
+    var styles = window.getComputedStyle(element);
+    var padding = parseFloat(styles.paddingLeft) +
+        parseFloat(styles.paddingRight);
+
+    return element.clientWidth - padding;
+}
+
 // Get parameter by name
 export function getParameterByName(name, url) {
     if (!url) url = window.location.href;

@@ -1,4 +1,4 @@
-import { getElIndex } from './helpers.js';
+import { getElIndex, getElementContentWidth } from './helpers.js';
 
 class imageSlider {
     constructor(ele) {
@@ -7,10 +7,12 @@ class imageSlider {
         this.lis = this.ul.querySelectorAll('li');
         this.nav = this.sliderWrapper.querySelector('.slider-nav');
         this.height;
-        this.width = this.sliderWrapper.offsetWidth / 3;
+        this.width = (window.mobileDetected) ? getElementContentWidth(this.sliderWrapper) : getElementContentWidth(this.sliderWrapper) / 3;
         this.ulWidth;
-        this.horizontalCenter = (this.sliderWrapper.offsetWidth / 2) - (this.width / 2);
+        this.horizontalCenter = (getElementContentWidth(this.sliderWrapper) / 2) - (this.width / 2);
         this.currentSlide = 0;
+
+        console.log(getElementContentWidth(this.sliderWrapper));
 
         if(this.lis.length) {
             this.positioning();
@@ -24,6 +26,8 @@ class imageSlider {
             }
         }.bind(this));
     }
+
+
 
     positioning() {
         this.ulWidth = this.width * this.lis.length;
@@ -61,7 +65,8 @@ class imageSlider {
 
     getUlPosition(index) {
         var slideCenterOffset = (index * this.width) + (this.width / 2);
-        return (this.sliderWrapper.offsetWidth / 2) - slideCenterOffset;
+        // - 20 to account for slider wrapper padding ><
+        return (this.sliderWrapper.offsetWidth / 2) - slideCenterOffset - 20;
     }
 
     setUlPosition(index) {

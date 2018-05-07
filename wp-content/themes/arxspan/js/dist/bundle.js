@@ -74,6 +74,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.getElIndex = getElIndex;
+exports.getElementContentWidth = getElementContentWidth;
 exports.getParameterByName = getParameterByName;
 exports.getChildren = getChildren;
 exports.getSiblings = getSiblings;
@@ -86,6 +87,14 @@ exports.wrapEle = wrapEle;
 function getElIndex(el) {
     for (var i = 0; el = el.previousElementSibling; i++) {}
     return i;
+}
+
+// Get element inner width without padding
+function getElementContentWidth(element) {
+    var styles = window.getComputedStyle(element);
+    var padding = parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
+
+    return element.clientWidth - padding;
 }
 
 // Get parameter by name
@@ -1922,6 +1931,16 @@ var mainHeader = new _MainHeader2.default();
 // import mceButtons from './Mce-Buttons.js'; // how input? include in functions file w hook
 
 var mainNav = new _MainNav2.default();
+
+/*
+ * body .is-mobile on resize
+ */
+
+window.addEventListener('resize', function (e) {
+    window.mobileDetected = window.mobilecheck();
+    console.log(window.mobileDetected);
+    window.mobileDetected ? document.body.classList.add('is-mobile') : document.body.classList.remove('is-mobile');
+});
 
 /*
  * Image Sliders
@@ -25135,10 +25154,12 @@ var imageSlider = function () {
         this.lis = this.ul.querySelectorAll('li');
         this.nav = this.sliderWrapper.querySelector('.slider-nav');
         this.height;
-        this.width = this.sliderWrapper.offsetWidth / 3;
+        this.width = window.mobileDetected ? (0, _helpers.getElementContentWidth)(this.sliderWrapper) : (0, _helpers.getElementContentWidth)(this.sliderWrapper) / 3;
         this.ulWidth;
-        this.horizontalCenter = this.sliderWrapper.offsetWidth / 2 - this.width / 2;
+        this.horizontalCenter = (0, _helpers.getElementContentWidth)(this.sliderWrapper) / 2 - this.width / 2;
         this.currentSlide = 0;
+
+        console.log((0, _helpers.getElementContentWidth)(this.sliderWrapper));
 
         if (this.lis.length) {
             this.positioning();
@@ -25193,7 +25214,8 @@ var imageSlider = function () {
         key: 'getUlPosition',
         value: function getUlPosition(index) {
             var slideCenterOffset = index * this.width + this.width / 2;
-            return this.sliderWrapper.offsetWidth / 2 - slideCenterOffset;
+            // - 20 to account for slider wrapper padding ><
+            return this.sliderWrapper.offsetWidth / 2 - slideCenterOffset - 20;
         }
     }, {
         key: 'setUlPosition',

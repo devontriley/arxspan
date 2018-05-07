@@ -15,6 +15,16 @@ var mainHeader = new MainHeader();
 var mainNav = new MainNav();
 
 /*
+ * body .is-mobile on resize
+ */
+
+window.addEventListener('resize', function(e) {
+    window.mobileDetected = window.mobilecheck();
+    console.log(window.mobileDetected);
+    (window.mobileDetected) ? document.body.classList.add('is-mobile') : document.body.classList.remove('is-mobile');
+});
+
+/*
  * Image Sliders
  */
 

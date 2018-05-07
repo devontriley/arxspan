@@ -1,18 +1,21 @@
 .slider-wrapper {
-  width: 110rem;
+  max-width: 110rem;
+  padding: 0 2rem;
   margin: 8rem auto;
   overflow: hidden;
   position: relative;
 
   &:before,
   &:after {
-    content: '';
-    position: absolute;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    width: 10rem;
-    height: 100%;
+    @media(min-width: 768px) {
+      content: '';
+      position: absolute;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 10rem;
+      height: 100%;
+    }
   }
 
   &:before {
@@ -56,13 +59,15 @@
       img {
         display: block;
         margin: 0 auto;
-        width: 90%;
+        width: calc(100% - 4rem);
         max-width: 100%;
         transition: width 500ms ease;
+        @media(min-width: 768px) {
+          width: 90%;
+        }
       }
 
       &.active {
-
         img {
           width: 100%;
         }
