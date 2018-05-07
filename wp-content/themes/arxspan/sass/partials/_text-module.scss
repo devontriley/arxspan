@@ -5,23 +5,34 @@
   }
 }
 
+.text-module + .text-module {
+  margin-top: 0;
+}
+
 .text-module {
   position: relative;
   width: 100%;
+  margin: 4rem 0;
+
 
   //gradient variant
   &.gradient {
+    background: #eaf6ff;
+    background: -moz-linear-gradient(top, #eaf6ff 0%, #ffffff 33%);
+    background: -webkit-linear-gradient(top, #eaf6ff 0%,#ffffff 33%);
+    background: linear-gradient(to bottom, #eaf6ff 0%,#ffffff 33%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaf6ff', endColorstr='#ffffff',GradientType=0 );
+
     .inner {
-      margin: -2rem auto;
+      //margin: -2rem auto;
       padding: 8rem 6rem;
     }
   }
 
   .inner {
-    //padding: 8rem 6rem;
     max-width: 110rem;
-    margin: 4rem auto;
-    padding: 0 6rem 4rem;
+    margin: 0 auto;
+    //padding: 0 6rem 4rem;
     position: relative;
 
     @media screen and (min-width: 768px){

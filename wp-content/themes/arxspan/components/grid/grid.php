@@ -4,6 +4,7 @@
 $gridType = get_sub_field('grid_type');
 $postGrid = get_sub_field('grid_type') == 'post';
 $graphicGrid = get_sub_field('grid_type') == 'graphic';
+$solutionsGridType = get_sub_field('solutions_grid_layout');
 
 //post grid variables
 $postOrigin = get_sub_field('post_origin');
@@ -17,7 +18,7 @@ $postSelection = get_sub_field('post_selection');
 
 ?>
 
-<div class="grid <?php if($gridLayout){echo $gridLayout; } ?>">
+<div class="grid <?php if($gridLayout){echo $gridLayout; } if($solutionsGridType){echo 'gradient'; } ?>">
     <div class="inner">
 
         <?php

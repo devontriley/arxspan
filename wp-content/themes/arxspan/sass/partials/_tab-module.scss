@@ -166,6 +166,12 @@
           align-items: center;
         }
 
+        &:hover {
+          .inner .learn-more {
+            color: $pink;
+          }
+        }
+
         .text-block-link {
           position: absolute;
           top: 0;
@@ -200,6 +206,7 @@
             font-weight: 700;
             color: $blue;
             font-size: 1.6rem;
+            transition: all ease 200ms;
             @media(min-width: 768px) {
               font-size: 2rem;
             }
@@ -223,12 +230,17 @@
       width: 100%;
       display: inline-block;
       font-size: 2.2rem;
+      transition: all ease 200ms;
 
       &:after {
         content: ">";
         display: inline-block;
         color: $pink;
         margin-left: .5rem;
+      }
+
+      &:hover {
+        color: $pink;
       }
     }
   }

@@ -30,8 +30,6 @@ if($postGrid){ ?>
         //SOLUTIONS GRID
         if($solutionsLayout){
 
-            echo get_template_part('components/backgrounds/gradient-bg');
-
             //WITH COPY
             if($withCopyType){ ?>
                 <div class="text-container"> <?php

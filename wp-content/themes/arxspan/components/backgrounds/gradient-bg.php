@@ -1,4 +1,4 @@
-<svg class="svg-background" viewBox="0 0 1920 1204">
+<svg class="svg-background non-hero" viewBox="0 0 1920 1204">
     <defs>
         <linearGradient x1="48.945767%" y1="2.91590167%" x2="50%" y2="100%" id="linearGradient1">
             <stop stop-color="#FFFFFF" offset="0%"></stop>

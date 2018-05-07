@@ -165,7 +165,7 @@
         box-shadow: 5px 10px 20px 0 rgba(230,230,230,0.5);
 
         &:hover {
-          .btn {
+          .inner .btn-wrapper .btn {
             background-color: $pink;
           }
         }
@@ -197,12 +197,8 @@
 
           .btn {
             background-color: $blue;
-            padding-right: 2rem;
+            padding-right: 0;
             transition: all ease 200ms;
-
-            &:hover {
-              background-color: $pink;
-            }
           }
         }
       }
@@ -306,6 +302,10 @@
         &:after {
           width: 100%;
         }
+
+        .learn-more {
+          color: $pink;
+        }
       }
 
       .post-link {
@@ -334,6 +334,7 @@
         text-decoration: none;
         color: $blue;
         font-weight: bold;
+        transition: all ease 200ms;
 
         &:after {
           content: ">";
