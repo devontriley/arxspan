@@ -243,6 +243,23 @@
           }
         }
       }
+
+      #load-more {
+        margin: 2rem auto;
+        background-color: $blue;
+
+        &:hover {
+          background-color: $pink;
+        }
+
+        &:focus {
+          outline: none;
+        }
+
+        span {
+          padding: 2rem;
+        }
+      }
     }
 
 

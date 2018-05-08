@@ -170,7 +170,7 @@ if($postGrid){ ?>
                     </div><!--.post-container--><?php
                 } ?>
                 </div><!-- #grid-inner -->
-                <button id="load-more">
+                <button class="btn" id="load-more">
                     <span id="load-text">Load More Articles</span>
                 </button> <!-- #load-more -->
             </div><!-- .posts-container --><?php

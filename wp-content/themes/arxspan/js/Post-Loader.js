@@ -65,9 +65,4 @@ class newsEventQuery {
     }
 }
 
-var postGrid = document.getElementById('load-more');
-if(postGrid) {
-    var postLoader = new newsEventQuery();
-}
-
 export default newsEventQuery;
