@@ -5,6 +5,17 @@ class newsEventQuery {
         this.wrapper = document.querySelector('.posts-container .grid-inner');
         this.currentPage = 0;
         this.loadBtn = document.getElementById('load-more');
+        this.stopLoading = false;
+
+        this.createXhrRequest = function( httpMethod, url, data, callback ) {
+            var xhr = new XMLHttpRequest();
+            xhr.open( httpMethod, url );
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function() {
+                callback( xhr );
+            };
+            xhr.send(JSON.stringify(data));
+        }
 
         this.loadBtn.addEventListener('click', function(){
             this.loadMore();
@@ -23,40 +34,21 @@ class newsEventQuery {
             'currentPage' : this.currentPage
         }
 
-        //AJAX call
-        var createXhrRequest = function( httpMethod, url, data, callback ) {
+        this.createXhrRequest( "GET", ajaxurl+'?action='+data.action, data, function( xhr ) {
 
-            var xhr = new XMLHttpRequest();
-            xhr.open( httpMethod, url );
+            if (xhr.readyState == 4 && xhr.status == 200) {
 
-            xhr.setRequestHeader('Content-Type', 'application/json');
+                if (xhr.response && !this.stopLoading) {
 
-            xhr.onload = function() {
-                callback( null, xhr.response, wrapper );
-            };
+                    this.wrapper.innerHTML += response.html;
 
-            xhr.onerror = function() {
-                callback( xhr.response, null, wrapper );
-            };
+                    this.stopLoading = true;
 
-            xhr.send(JSON.stringify(data));
-        }
+                }
 
-        var wrapper = this.wrapper;
-
-        createXhrRequest( "GET", ajaxurl+'?action='+data.action, data, function( err, response, wrapper ) {
-
-            if( err ) {
-                console.log( "Error!" );
-
-                wrapper.innerHtml += 'Error';
             }
 
-            var response = JSON.parse(response);
-
-            wrapper.innerHTML += response.html;
-
-        });
+        }.bind(this));
 
     }
 }
