@@ -27,9 +27,11 @@
       display: flex;
       flex: 0 0 100%;
       max-width: 100%;
-      padding: 4rem 0;
       align-items: stretch;
       flex-wrap: wrap;
+      @media screen and (min-width: 768px){
+        padding: 4rem 0;
+      }
 
       &.total-1 {
         .post-container {
