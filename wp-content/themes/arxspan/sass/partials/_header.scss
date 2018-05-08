@@ -81,9 +81,25 @@
         display: none;
       }
 
+      .burger {
+        display: block;
+        transition: all ease 200ms;
+      }
+
+      .close {
+        display: none;
+        transition: all ease 200ms;
+      }
+
       //hamburger animation
       &.transform {
+        .burger {
+          display: none;
+        }
 
+        .close {
+          display: block;
+        }
       }
     }
 
