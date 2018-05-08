@@ -2,16 +2,9 @@
 
 class newsEventQuery {
     constructor() {
-        this.wrapper = document.querySelector('#posts-container .grid-inner');
+        this.wrapper = document.querySelector('.posts-container .grid-inner');
         this.currentPage = 0;
-        // this.totalPosts = this.wrapper.dataset.total;
-        // this.pageOffset = this.wrapper.dataset.offset;
-        // this.totalPages = Math.ceil(this.total / 8);
         this.loadBtn = document.getElementById('load-more');
-        this.ajaxData = '';
-
-        console.log('GOODBYE');
-
 
         this.loadBtn.addEventListener('click', function(){
             this.loadMore();
@@ -30,12 +23,8 @@ class newsEventQuery {
             'currentPage' : this.currentPage
         }
 
-        var wrapper = this.wrapper;
-
         //AJAX call
-        var createXhrRequest = function( httpMethod, url, data, wrapper, callback ) {
-
-            console.log(wrapper);
+        var createXhrRequest = function( httpMethod, url, data, callback ) {
 
             var xhr = new XMLHttpRequest();
             xhr.open( httpMethod, url );
@@ -47,45 +36,27 @@ class newsEventQuery {
             };
 
             xhr.onerror = function() {
-                callback( xhr.response, wrapper );
+                callback( xhr.response, null, wrapper );
             };
 
             xhr.send(JSON.stringify(data));
         }
 
-        createXhrRequest( "GET", ajaxurl+'?action='+data.action, data, this.wrapper, function( err, response, wrapper ) {
+        var wrapper = this.wrapper;
 
-            // Do your post processing here.
-            if( err ) { console.log( "Error!" ); }
+        createXhrRequest( "GET", ajaxurl+'?action='+data.action, data, function( err, response, wrapper ) {
 
-            // console.log(response);
+            if( err ) {
+                console.log( "Error!" );
 
-            this.wrapper.innerHTML += response.html;
+                wrapper.innerHtml += 'Error';
+            }
+
+            var response = JSON.parse(response);
+
+            wrapper.innerHTML += response.html;
 
         });
-
-        // var xhr = new XMLHttpRequest();
-        // xhr.open('GET', ajaxurl+'?action='+data.action, true);
-        // xhr.setRequestHeader('Content-Type', 'application/json');
-        // xhr.onreadystatechange = function() {
-        //
-        //     // check for success
-        //     if (xhr.status === 200 && xhr.readyState == 4) {
-        //         //alert('Something went wrong.  Name is now ' + xhr.responseText);
-        //         // console.log(xhr.responseText.html);
-        //         var html = xhr.responseText.html;
-        //
-        //         console.log(wrapper);
-        //
-        //         wrapper.innerHTML += html;
-        //         this.currentPage++;
-        //     }
-        //     else if (xhr.status !== 200) {
-        //         console.log('Request failed.  Returned status of ' + xhr.status);
-        //     }
-        // };
-        // //actually send it
-        // xhr.send(JSON.stringify(data));
 
     }
 }

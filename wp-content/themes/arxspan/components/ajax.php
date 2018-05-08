@@ -24,7 +24,7 @@ if($newsEventsLayout) {
         if ($newsEventQuery->have_posts()) :
 
             echo '<div id="posts-container" data-total="' . $newsEventQuery->found_posts . '">';
-            echo '<div class="grid-inner" data-page="0">';
+            echo '<div class="grid-inner">';
 
             while ($newsEventQuery->have_posts()): $newsEventQuery->the_post();
 

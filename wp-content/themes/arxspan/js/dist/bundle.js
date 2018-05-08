@@ -1942,7 +1942,6 @@ var mainNav = new _MainNav2.default();
 
 window.addEventListener('resize', function (e) {
     window.mobileDetected = window.mobilecheck();
-    console.log(window.mobileDetected);
     window.mobileDetected ? document.body.classList.add('is-mobile') : document.body.classList.remove('is-mobile');
 });
 
@@ -1964,25 +1963,44 @@ if (imageSliders != null) {
     for (var i = 0; i < imageSliders.length; i++) {
         imageSlidersArr.push(new _ImageSlider2.default(imageSliders[i]));
     }
-    console.log(imageSlidersArr);
 }
 
 /*
  * Styled selects
  */
-var styledSelects = document.querySelectorAll('form select');
-if (styledSelects.length) {
-    var styledSelectsArr = [];
-    for (var i = 0; i < styledSelects.length; i++) {
-        styledSelectsArr[i] = new _Forms.styledSelect(styledSelects[i]);
+function setupStyledSelects() {
+    var styledSelects = document.querySelectorAll('form select');
+    if (styledSelects.length) {
+        var styledSelectsArr = [];
+        for (var i = 0; i < styledSelects.length; i++) {
+            styledSelectsArr[i] = new _Forms.styledSelect(styledSelects[i]);
+        }
     }
 }
 
-var forms = document.querySelectorAll('.default-form');
-if (forms.length) {
-    var formsArr = [];
-    for (var i = 0; i < forms.length; i++) {
-        formsArr[i] = new _Forms.defaultForm(forms[i]);
+/*
+ * Forms
+ */
+function setupForms() {
+    var forms = document.querySelectorAll('.default-form');
+    if (forms.length) {
+        var formsArr = [];
+        for (var i = 0; i < forms.length; i++) {
+            formsArr[i] = new _Forms.defaultForm(forms[i]);
+        }
+    }
+}
+
+/*
+ * Tab Modules
+ */
+function setupTabModules() {
+    var getTabModules = document.querySelectorAll('.tab-module');
+    if (getTabModules) {
+        var tabModules = [];
+        for (var i = 0; i < getTabModules.length; i++) {
+            tabModules.push(new _TabModule2.default(getTabModules[i]));
+        }
     }
 }
 
@@ -2012,6 +2030,8 @@ if (forms.length) {
 
             (0, _jquery2.default)(this.oldContainer).hide();
 
+            window.scrollTo(0, 0);
+
             $el.css({
                 visibility: 'visible',
                 opacity: 0
@@ -2030,29 +2050,41 @@ if (forms.length) {
     };
 
     // We can create multiple views for loading page specific javascript
-    var Views = {
-        Homepage: _barba2.default.BaseView.extend({
-            namespace: 'homepage',
-            onEnter: function onEnter() {},
-            onEnterCompleted: function onEnterCompleted() {
+    // var Views = {
+    //     Homepage: Barba.BaseView.extend({
+    //         namespace: 'homepage',
+    //         onEnter: function() {},
+    //         onEnterCompleted: function() {
+    //
+    //             /*
+    //              * Tab Modules
+    //              */
+    //             const getTabModules = document.querySelectorAll('.tab-module');
+    //             if(getTabModules) {
+    //                 const tabModules = [];
+    //                 for(var i = 0; i < getTabModules.length; i++) {
+    //                     tabModules.push(new tabModule(getTabModules[i]));
+    //                 }
+    //             }
+    //
+    //         },
+    //         onLeave: function() {},
+    //         onLeaveCompleted: function() {}
+    //     })
+    // }
+    //
+    // Views.Homepage.init();
 
-                /*
-                 * Tab Modules
-                 */
-                var getTabModules = document.querySelectorAll('.tab-module');
-                if (getTabModules) {
-                    var tabModules = [];
-                    for (var i = 0; i < getTabModules.length; i++) {
-                        tabModules.push(new _TabModule2.default(getTabModules[i]));
-                    }
-                }
-            },
-            onLeave: function onLeave() {},
-            onLeaveCompleted: function onLeaveCompleted() {}
-        })
-    };
+    _barba2.default.Dispatcher.on('initStateChange', function (currentStatus) {
+        // We can remove anything from the old page here
+    });
 
-    Views.Homepage.init();
+    _barba2.default.Dispatcher.on('newPageReady', function () {
+        // We can add anything for the new page here
+        setupTabModules();
+        setupForms();
+        setupStyledSelects();
+    });
 
     _barba2.default.Pjax.init();
     _barba2.default.Prefetch.init();
@@ -24915,7 +24947,6 @@ var MainHeader = function () {
 
         var barbaEvent = function barbaEvent(e) {
             e.preventDefault();
-            console.log(this.href);
             _barba2.default.Pjax.goTo(this.href);
         };
 
@@ -25277,15 +25308,9 @@ var newsEventQuery = function () {
     function newsEventQuery() {
         _classCallCheck(this, newsEventQuery);
 
-        this.wrapper = document.querySelector('#posts-container .grid-inner');
+        this.wrapper = document.querySelector('.posts-container .grid-inner');
         this.currentPage = 0;
-        // this.totalPosts = this.wrapper.dataset.total;
-        // this.pageOffset = this.wrapper.dataset.offset;
-        // this.totalPages = Math.ceil(this.total / 8);
         this.loadBtn = document.getElementById('load-more');
-        this.ajaxData = '';
-
-        console.log('GOODBYE');
 
         this.loadBtn.addEventListener('click', function () {
             this.loadMore();
@@ -25305,14 +25330,9 @@ var newsEventQuery = function () {
             var data = {
                 'action': 'load_more_news_posts',
                 'currentPage': this.currentPage
-            };
 
-            var wrapper = this.wrapper;
-
-            //AJAX call
-            var createXhrRequest = function createXhrRequest(httpMethod, url, data, wrapper, callback) {
-
-                console.log(wrapper);
+                //AJAX call
+            };var createXhrRequest = function createXhrRequest(httpMethod, url, data, callback) {
 
                 var xhr = new XMLHttpRequest();
                 xhr.open(httpMethod, url);
@@ -25324,46 +25344,26 @@ var newsEventQuery = function () {
                 };
 
                 xhr.onerror = function () {
-                    callback(xhr.response, wrapper);
+                    callback(xhr.response, null, wrapper);
                 };
 
                 xhr.send(JSON.stringify(data));
             };
 
-            createXhrRequest("GET", ajaxurl + '?action=' + data.action, data, this.wrapper, function (err, response, wrapper) {
+            var wrapper = this.wrapper;
 
-                // Do your post processing here.
+            createXhrRequest("GET", ajaxurl + '?action=' + data.action, data, function (err, response, wrapper) {
+
                 if (err) {
                     console.log("Error!");
+
+                    wrapper.innerHtml += 'Error';
                 }
 
-                // console.log(response);
+                var response = JSON.parse(response);
 
-                this.wrapper.innerHTML += response.html;
+                wrapper.innerHTML += response.html;
             });
-
-            // var xhr = new XMLHttpRequest();
-            // xhr.open('GET', ajaxurl+'?action='+data.action, true);
-            // xhr.setRequestHeader('Content-Type', 'application/json');
-            // xhr.onreadystatechange = function() {
-            //
-            //     // check for success
-            //     if (xhr.status === 200 && xhr.readyState == 4) {
-            //         //alert('Something went wrong.  Name is now ' + xhr.responseText);
-            //         // console.log(xhr.responseText.html);
-            //         var html = xhr.responseText.html;
-            //
-            //         console.log(wrapper);
-            //
-            //         wrapper.innerHTML += html;
-            //         this.currentPage++;
-            //     }
-            //     else if (xhr.status !== 200) {
-            //         console.log('Request failed.  Returned status of ' + xhr.status);
-            //     }
-            // };
-            // //actually send it
-            // xhr.send(JSON.stringify(data));
         }
     }]);
 
