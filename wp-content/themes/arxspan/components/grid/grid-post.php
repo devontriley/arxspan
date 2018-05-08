@@ -21,8 +21,21 @@ $buttonLabel = 'View All Solutions';
 $whitepapers = get_sub_field('whitepapers');
 
 //NEWS AND EVENTS
-$newsEvents = get_sub_field('news_events');
+if(is_page(78)) {
+    $args = array(
+        'post_type' => array('event', 'news'),
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'posts_per_page' => 8,
+        'post_status' => 'publish'
+    );
+    $newsEvents = new WP_Query($args);
+    $newsEvents = $newsEvents->posts;
+} else {
+    $newsEvents = get_sub_field('news_events');
+}
 
+print_r($newsEvents);
 
 if($postGrid){ ?>
     <div class="post-grid-wrapper <?php echo $postGridLayout?>"><?php
@@ -137,6 +150,7 @@ if($postGrid){ ?>
 
         //NEWS + EVENTS GRID
         if($newsEventsLayout){
+
             if($gridTitle){ ?>
                 <p class="header">
                 <?php echo $gridTitle; ?>
@@ -146,32 +160,35 @@ if($postGrid){ ?>
             <div class="posts-container">
                 <div class="grid-inner"><?php
 
-                foreach($newsEvents as $newsEventsPost){
-                    $buttonLabel = 'View More';
-                    $buttonUrl = get_permalink($newsEventsPost->ID);
-                    ?>
-                    <div class="post-container">
-                        <a class="post-link" href="<?php echo $buttonUrl ?>"></a>
-                        <div class="inner">
-                            <p class="title">
-                                <?php echo $newsEventsPost->post_title; ?>
-                            </p>
+                    foreach($newsEvents as $newsEventsPost){
+                        $buttonLabel = 'View More';
+                        $buttonUrl = get_permalink($newsEventsPost->ID);
+                        ?>
+                        <div class="post-container">
+                            <a class="post-link" href="<?php echo $buttonUrl ?>"></a>
+                            <div class="inner">
+                                <p class="title">
+                                    <?php echo $newsEventsPost->post_title; ?>
+                                </p>
 
-                            <p class="date">
-                                <?php echo get_the_date('d/m/y', $newsEventsPost->ID); ?>
-                            </p>
+                                <p class="date">
+                                    <?php echo get_the_date('d/m/y', $newsEventsPost->ID); ?>
+                                </p>
 
-                            <div class="blurb">
-                                <?php echo the_field('grid_description', $newsEventsPost->ID); ?>
+                                <div class="blurb">
+                                    <?php echo the_field('grid_description', $newsEventsPost->ID); ?>
+                                </div>
+
+                                <?php button($buttonLabel, $buttonUrl); ?>
                             </div>
+                        </div><!--.post-container--><?php
+                    } ?>
 
-                            <?php button($buttonLabel, $buttonUrl); ?>
-                        </div>
-                    </div><!--.post-container--><?php
-                } ?>
                 </div><!-- #grid-inner -->
+
                 <button class="btn" id="load-more">
                     <span id="load-text">Load More Articles</span>
+                    <img id="loader-gif" alt="loading" src="<?php bloginfo('template_directory');?>/img/loading_spinner.gif"/>
                 </button> <!-- #load-more -->
             </div><!-- .posts-container --><?php
         } //if news event layout ?>

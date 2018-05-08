@@ -25374,11 +25374,6 @@ var newsEventQuery = function () {
     return newsEventQuery;
 }();
 
-var postGrid = document.getElementById('load-more');
-if (postGrid) {
-    var postLoader = new newsEventQuery();
-}
-
 exports.default = newsEventQuery;
 
 /***/ }),
