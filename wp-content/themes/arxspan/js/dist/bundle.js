@@ -25327,7 +25327,6 @@ var newsEventQuery = function () {
     }, {
         key: 'loadArticles',
         value: function loadArticles() {
-            console.log(this.currentPage);
             var data = {
                 'action': 'load_more_news_posts',
                 'currentPage': this.currentPage

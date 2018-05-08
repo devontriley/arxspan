@@ -550,7 +550,6 @@ require('inc/custom-editor-buttons/mce-buttons.php');
             'order' => 'DESC'
         );
 
-
         $ajax_query = new WP_Query( $args );
 
         if( $ajax_query->have_posts() ):
