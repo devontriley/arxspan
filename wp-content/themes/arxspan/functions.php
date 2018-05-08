@@ -530,3 +530,60 @@ require('inc/custom-editor-buttons/mce-buttons.php');
             return $template;
         }
     });
+
+
+
+    // LOAD MORE POSTS AJAX
+
+//    function load_more_news_posts(){
+//
+//        $currentPage = $_POST['wrapper'];
+//        $currentOffset = $_POST['offset'];
+//
+//        $args = array(
+//            'post_type' => array('event', 'news'),
+//            'posts_per_page' => 8,
+//            'offset' => $currentOffset,
+//            'post_status' => 'publish',
+//            'orderby' => 'date',
+//            'order' => 'DESC'
+//        );
+//
+//
+//        $ajax_query = new WP_Query( $args );
+//
+//        if( $ajax_query->have_posts() ):
+//            $output;
+//            while( $ajax_query->have_posts() ): $ajax_query->the_post();
+//
+//                $title = get_the_title();
+//                $date = get_the_date('d/m/y');
+//                $blurb = get_field('grid_description');
+//                $buttonUrl = get_permalink();
+//                $buttonLabel = 'View';
+//
+//                $output .= '<div class="post-container">';
+//
+//                $output .= '<a class="post-link" href="'. echo $buttonUrl .'"></a>';
+//                $output .= '<div class="inner">';
+//
+//                $output .= '<p class="title">'. echo $title .'</p>';
+//                $output .= '<p class="date">'. echo $date .'</p>';
+//                $output .= '<div class="blurb">'. echo $blurb .'</div>';
+//
+//                $output .= button($buttonLabel, $buttonUrl);
+//
+//                $output .= '</div> <!-- .inner -->';
+//                $output .= '</div> <!-- .post-container -->';
+//
+//            endwhile;
+//            wp_reset_postdata();
+//        endif;
+//
+//        echo json_encode(array('offset' => $ajax_query->post_count, 'html' => $output));
+//
+//        exit;
+//    }
+//
+//    add_action('wp_ajax_nopriv_load_more_news_posts', 'load_more_news_posts');
+//    add_action('wp_ajax_load_more_news_posts', 'load_more_news_posts');

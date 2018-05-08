@@ -1,9 +1,12 @@
-<?php // K N O W L E D G E   B A S E    P A G E
+<?php
+
+// N E W S    E V E N T S    P A G E
 if($newsEventsLayout) {
     if (is_page(78)) {
         // NEWS EVENTS PAGE
 
-        $offset = $_GET['offset'];
+        $currentPage = $_POST['wrapper'];
+        $currentOffset = $_POST['offset'];
 
         $args = array(
             'post_type' => array('event', 'news'),
@@ -21,19 +24,26 @@ if($newsEventsLayout) {
         if ($newsEventQuery->have_posts()) :
 
             echo '<div id="posts-container" data-total="' . $newsEventQuery->found_posts . '">';
-            echo '<div id="grid-inner">';
+            echo '<div class="grid-inner">';
 
             while ($newsEventQuery->have_posts()): $newsEventQuery->the_post();
 
                 $title = get_the_title();
+                $date = get_the_date('d/m/y');
+                $blurb = get_field('grid_description');
                 $buttonUrl = get_permalink();
                 $buttonLabel = 'View';
 
                 echo '<div class="post-container">';
 
                 echo '<a class="post-link" href="'. echo $buttonUrl .'"></a>';
-                echo '<div class="inner">';
-                echo '<p class="title">' . $title . '</p>';
+                echo '<div class="inner">'; ?>
+
+                <p class="title"><?php echo $title ?></p>
+
+                <p class="date"><?php echo $date ?></p>
+
+                <div class="blurb"><?php echo $blurb ?></div> <?php
 
                 button($buttonLabel, $buttonUrl);
 
@@ -43,7 +53,7 @@ if($newsEventsLayout) {
             endwhile; // newsEventQuery have posts
             wp_reset_postdata(); ?>
 
-            </div>
+            </div> <!-- .grid inner -->
 
             <div id="page-counter"> <!-- change to button wrapper -->
 
@@ -54,7 +64,7 @@ if($newsEventsLayout) {
                 </div><!-- .loader -->
 
                 <button id="load-more">
-                    <span>Load More Articles</span>
+                    <span id="load-text">Load More Articles</span>
                 </button> <!-- #load-more -->
             </div>
 
@@ -75,6 +85,7 @@ if($newsEventsLayout) {
                 $buttonLabel = 'View More';
                 $buttonUrl = get_permalink($newsEventsPost->ID);
                 ?>
+
                 <div class="post-container">
                     <a class="post-link" href="<?php echo $buttonUrl ?>"></a>
                     <div class="inner">

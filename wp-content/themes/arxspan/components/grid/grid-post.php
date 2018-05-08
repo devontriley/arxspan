@@ -100,6 +100,7 @@ if($postGrid){ ?>
                 foreach($whitepapers as $whitepaperPost){ ?>
                     <div class="post-container">
                         <div class="inner">
+                            <a class="post-link" href="<?php echo get_permalink($whitepaperPost->ID); ?>"></a>
                             <div class="top">
                                 <svg class="circle" viewBox="0 0 200 200">
                                       <circle cx="100" cy="100" r="100"/>
