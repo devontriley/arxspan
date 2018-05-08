@@ -1917,11 +1917,15 @@ var _ImageSlider = __webpack_require__(11);
 
 var _ImageSlider2 = _interopRequireDefault(_ImageSlider);
 
-var _animations = __webpack_require__(12);
+var _PostLoader = __webpack_require__(12);
+
+var _PostLoader2 = _interopRequireDefault(_PostLoader);
+
+var _animations = __webpack_require__(13);
 
 var _animations2 = _interopRequireDefault(_animations);
 
-var _Forms = __webpack_require__(13);
+var _Forms = __webpack_require__(14);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1941,6 +1945,14 @@ window.addEventListener('resize', function (e) {
     console.log(window.mobileDetected);
     window.mobileDetected ? document.body.classList.add('is-mobile') : document.body.classList.remove('is-mobile');
 });
+
+/*
+ * AJAX (news and events)
+ */
+var loadMoreBtn = document.getElementById('load-more');
+if (loadMoreBtn != null) {
+    var newsEventsAjax = new _PostLoader2.default();
+}
 
 /*
  * Image Sliders
@@ -24989,6 +25001,7 @@ var MainNav = exports.MainNav = function () {
 
         this.hamburger.addEventListener('click', function (e) {
             e.preventDefault();
+            this.hamburger.classList.toggle('transform');
             this.MobileNavToggle();
         }.bind(this));
     }
@@ -25250,6 +25263,127 @@ exports.default = imageSlider;
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+// NEWS AND EVENTS AJAX LOADER
+
+var newsEventQuery = function () {
+    function newsEventQuery() {
+        _classCallCheck(this, newsEventQuery);
+
+        this.wrapper = document.querySelector('#posts-container .grid-inner');
+        this.currentPage = 0;
+        // this.totalPosts = this.wrapper.dataset.total;
+        // this.pageOffset = this.wrapper.dataset.offset;
+        // this.totalPages = Math.ceil(this.total / 8);
+        this.loadBtn = document.getElementById('load-more');
+        this.ajaxData = '';
+
+        console.log('GOODBYE');
+
+        this.loadBtn.addEventListener('click', function () {
+            this.loadMore();
+        }.bind(this));
+    }
+
+    _createClass(newsEventQuery, [{
+        key: 'loadMore',
+        value: function loadMore() {
+            this.loadBtn.classList.add('off'); // have gif in button and have gif display on .off
+            this.loadArticles();
+            this.loadBtn.classList.remove('off'); // next time delay this until success
+        }
+    }, {
+        key: 'loadArticles',
+        value: function loadArticles() {
+            var data = {
+                'action': 'load_more_news_posts',
+                'currentPage': this.currentPage
+            };
+
+            var wrapper = this.wrapper;
+
+            //AJAX call
+            var createXhrRequest = function createXhrRequest(httpMethod, url, data, wrapper, callback) {
+
+                console.log(wrapper);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open(httpMethod, url);
+
+                xhr.setRequestHeader('Content-Type', 'application/json');
+
+                xhr.onload = function () {
+                    callback(null, xhr.response, wrapper);
+                };
+
+                xhr.onerror = function () {
+                    callback(xhr.response, wrapper);
+                };
+
+                xhr.send(JSON.stringify(data));
+            };
+
+            createXhrRequest("GET", ajaxurl + '?action=' + data.action, data, this.wrapper, function (err, response, wrapper) {
+
+                // Do your post processing here.
+                if (err) {
+                    console.log("Error!");
+                }
+
+                // console.log(response);
+
+                this.wrapper.innerHTML += response.html;
+            });
+
+            // var xhr = new XMLHttpRequest();
+            // xhr.open('GET', ajaxurl+'?action='+data.action, true);
+            // xhr.setRequestHeader('Content-Type', 'application/json');
+            // xhr.onreadystatechange = function() {
+            //
+            //     // check for success
+            //     if (xhr.status === 200 && xhr.readyState == 4) {
+            //         //alert('Something went wrong.  Name is now ' + xhr.responseText);
+            //         // console.log(xhr.responseText.html);
+            //         var html = xhr.responseText.html;
+            //
+            //         console.log(wrapper);
+            //
+            //         wrapper.innerHTML += html;
+            //         this.currentPage++;
+            //     }
+            //     else if (xhr.status !== 200) {
+            //         console.log('Request failed.  Returned status of ' + xhr.status);
+            //     }
+            // };
+            // //actually send it
+            // xhr.send(JSON.stringify(data));
+        }
+    }]);
+
+    return newsEventQuery;
+}();
+
+var postGrid = document.getElementById('load-more');
+if (postGrid) {
+    var postLoader = new newsEventQuery();
+}
+
+exports.default = newsEventQuery;
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); // A N I M A T I O N
 
 var _helpers = __webpack_require__(0);
@@ -25326,7 +25460,7 @@ var animations = function () {
 var animationInstance = new animations();
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

@@ -7,6 +7,7 @@ import MainHeader from './Main-Header.js';
 import MainNav from './Main-Nav.js';
 import tabModule from './Tab-Module.js';
 import imageSlider from './Image-Slider.js';
+import newsEventQuery from './Post-Loader.js';
 import animations from './animations.js';
 // import mceButtons from './Mce-Buttons.js'; // how input? include in functions file w hook
 import { styledSelect, defaultForm } from './Forms.js';
@@ -23,6 +24,15 @@ window.addEventListener('resize', function(e) {
     console.log(window.mobileDetected);
     (window.mobileDetected) ? document.body.classList.add('is-mobile') : document.body.classList.remove('is-mobile');
 });
+
+/*
+ * AJAX (news and events)
+ */
+var loadMoreBtn = document.getElementById('load-more');
+if(loadMoreBtn != null){
+    var newsEventsAjax = new newsEventQuery();
+}
+
 
 /*
  * Image Sliders

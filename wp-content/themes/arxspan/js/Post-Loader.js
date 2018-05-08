@@ -2,15 +2,15 @@
 
 class newsEventQuery {
     constructor() {
-        this.currentPage = parseInt(this.wrapper.dataset.page) + 1;
-        this.totalPosts = this.wrapper.dataset.total;
-        this.pageOffset = this.wrapper.dataset.offset;
-        this.totalPages = Math.ceil(this.total / 8);
-        this.loadBtn = document.getElementById('load-more');
-        this.btnText = document.getElementById('load-text');
-        this.loader = document.getElementById('loader');
         this.wrapper = document.querySelector('#posts-container .grid-inner');
+        this.currentPage = 0;
+        // this.totalPosts = this.wrapper.dataset.total;
+        // this.pageOffset = this.wrapper.dataset.offset;
+        // this.totalPages = Math.ceil(this.total / 8);
+        this.loadBtn = document.getElementById('load-more');
         this.ajaxData = '';
+
+        console.log('GOODBYE');
 
 
         this.loadBtn.addEventListener('click', function(){
@@ -19,36 +19,74 @@ class newsEventQuery {
     }
 
     loadMore() {
-        this.loader.classList.add('active');
-        this.btnText.classList.add('off');
+        this.loadBtn.classList.add('off'); // have gif in button and have gif display on .off
         this.loadArticles();
-        this.btnText.classList.remove('off');
-        this.loader.classList.remove('active');
+        this.loadBtn.classList.remove('off'); // next time delay this until success
     }
 
     loadArticles() {
-        $.ajax({
-            url: ajaxurl,
-            dataType : 'json',
-            data: {
-                'action': 'load_more_news_posts',
-                'wrapper' : this.currentPage,
-                'offset' : this.pageOffset
-            },
-            type: 'GET',
-            success: function (data) {
-                this.ajaxData = data.html;
-                this.pageOffset = parseInt(this.pageOffset) + parseInt(data.offset);
-                this.currentPage = this.currentPage + 1;
+        var data = {
+            'action' : 'load_more_news_posts',
+            'currentPage' : this.currentPage
+        }
 
-                if(this.pageOffset >= parseInt(this.totalPosts)){
-                    this.loadBtn.classList.add('disable');
-                }
+        var wrapper = this.wrapper;
 
-                this.wrapper.append(this.ajaxData);
+        //AJAX call
+        var createXhrRequest = function( httpMethod, url, data, wrapper, callback ) {
 
-            }.bind(this)
+            console.log(wrapper);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open( httpMethod, url );
+
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            xhr.onload = function() {
+                callback( null, xhr.response, wrapper );
+            };
+
+            xhr.onerror = function() {
+                callback( xhr.response, wrapper );
+            };
+
+            xhr.send(JSON.stringify(data));
+        }
+
+        createXhrRequest( "GET", ajaxurl+'?action='+data.action, data, this.wrapper, function( err, response, wrapper ) {
+
+            // Do your post processing here.
+            if( err ) { console.log( "Error!" ); }
+
+            // console.log(response);
+
+            this.wrapper.innerHTML += response.html;
+
         });
+
+        // var xhr = new XMLHttpRequest();
+        // xhr.open('GET', ajaxurl+'?action='+data.action, true);
+        // xhr.setRequestHeader('Content-Type', 'application/json');
+        // xhr.onreadystatechange = function() {
+        //
+        //     // check for success
+        //     if (xhr.status === 200 && xhr.readyState == 4) {
+        //         //alert('Something went wrong.  Name is now ' + xhr.responseText);
+        //         // console.log(xhr.responseText.html);
+        //         var html = xhr.responseText.html;
+        //
+        //         console.log(wrapper);
+        //
+        //         wrapper.innerHTML += html;
+        //         this.currentPage++;
+        //     }
+        //     else if (xhr.status !== 200) {
+        //         console.log('Request failed.  Returned status of ' + xhr.status);
+        //     }
+        // };
+        // //actually send it
+        // xhr.send(JSON.stringify(data));
+
     }
 }
 
@@ -56,3 +94,5 @@ var postGrid = document.getElementById('load-more');
 if(postGrid) {
     var postLoader = new newsEventQuery();
 }
+
+export default newsEventQuery;
