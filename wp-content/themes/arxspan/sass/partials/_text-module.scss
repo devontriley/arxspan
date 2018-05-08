@@ -169,16 +169,20 @@
       display: flex;
       flex-wrap: wrap;
       position: relative;
-      margin-left: -4rem;
+      margin-left: -2rem;
 
       @media screen and (min-width: 768px){
         flex-wrap: nowrap;
+        margin-left: -4rem;
       }
 
       .col {
         flex: 0 0 100%;
         max-width: 100%;
         box-sizing: border-box;
+        margin: 0 2rem;
+      }
+      @media screen and (min-width: 768px){
         margin: 0 4rem;
       }
 
