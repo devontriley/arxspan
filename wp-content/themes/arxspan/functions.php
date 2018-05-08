@@ -565,23 +565,26 @@ require('inc/custom-editor-buttons/mce-buttons.php');
                 $date = get_the_date('d/m/y');
                 $blurb = get_field('grid_description');
                 $buttonUrl = get_permalink();
-//                $buttonLabel = 'View';
+                $buttonLabel = 'Read More';
 
                 $output .= '<div class="post-container">';
-
                 $output .= '<a class="post-link" href="'. $buttonUrl .'"></a>';
                 $output .= '<div class="inner">';
-
                 $output .= '<p class="title">'. $title .'</p>';
                 $output .= '<p class="date">'. $date .'</p>';
                 $output .= '<div class="blurb">'. $blurb .'</div>';
 
-//                $output .= button($buttonLabel, $buttonUrl); // replace w html
+                $output .=     '<div class="btn-wrapper">';
+                $output .=    '<a class="btn" href="'. $buttonUrl .'"><span>'. $buttonLabel .'</span>';
+                $output .=    '<svg viewbox="0 0 10 16"><use xlink:href="#button-arrow"></use></svg>';
+                $output .=    '</a><!-- .btn -->';
+                $output .=    '</div><!-- .btn-wrapper -->';
 
                 $output .= '</div> <!-- .inner -->';
                 $output .= '</div> <!-- .post-container -->';
 
             endwhile;
+
             wp_reset_postdata();
         endif;
 
