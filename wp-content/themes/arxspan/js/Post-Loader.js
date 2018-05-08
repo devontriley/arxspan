@@ -2,121 +2,97 @@
 
 class newsEventQuery {
     constructor() {
+        this.wrapper = document.querySelector('#posts-container .grid-inner');
         this.currentPage = 0;
-        this.total = $('#article-grid').attr('data-total');
-        this.totalPages = Math.ceil(this.total / 6);
-        this.prevBtn = document.querySelector('#page-counter #prev');
-        this.nextBtn = document.querySelector('#page-counter #next');
-        this.pageBtns = document.querySelectorAll('#page-counter button.page-num');
-        this.loader = document.getElementById('loader');
-        this.gridInner = document.querySelector('#article-grid #grid-inner');
-        this.rows = this.gridInner.querySelectorAll('.row');
-        this.rowCounter = 0;
-        this.row1;
-        this.row2;
+        // this.totalPosts = this.wrapper.dataset.total;
+        // this.pageOffset = this.wrapper.dataset.offset;
+        // this.totalPages = Math.ceil(this.total / 8);
+        this.loadBtn = document.getElementById('load-more');
         this.ajaxData = '';
 
-        this.prevBtn.addEventListener('click', function(){
-            this.prev();
+        console.log('GOODBYE');
+
+
+        this.loadBtn.addEventListener('click', function(){
+            this.loadMore();
         }.bind(this));
+    }
 
-        this.nextBtn.addEventListener('click', function(){
-            this.next();
-        }.bind(this));
+    loadMore() {
+        this.loadBtn.classList.add('off'); // have gif in button and have gif display on .off
+        this.loadArticles();
+        this.loadBtn.classList.remove('off'); // next time delay this until success
+    }
 
-        for(var i = 0; i < this.pageBtns.length; i++) {
-            var btn = this.pageBtns[i];
-            var current = i;
-            btn.addEventListener('click', function(e){
-                this.goToPage(e.target);
-            }.bind(this));
+    loadArticles() {
+        var data = {
+            'action' : 'load_more_news_posts',
+            'currentPage' : this.currentPage
         }
 
-    }
+        var wrapper = this.wrapper;
 
-    prev() {
-        if(this.currentPage !== 0) { // don't go below 0
-            this.loader.classList.add('active');
-            this.currentPage = this.currentPage - 1;
-            this.loadPage();
-            if(this.currentPage == 0) {
-                this.prevBtn.classList.add('disable');
-            }
+        //AJAX call
+        var createXhrRequest = function( httpMethod, url, data, wrapper, callback ) {
+
+            console.log(wrapper);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open( httpMethod, url );
+
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            xhr.onload = function() {
+                callback( null, xhr.response, wrapper );
+            };
+
+            xhr.onerror = function() {
+                callback( xhr.response, wrapper );
+            };
+
+            xhr.send(JSON.stringify(data));
         }
-        this.nextBtn.classList.remove('disable');
-    }
 
-    next() {
-        if(this.currentPage < (this.totalPages - 1)) {
-            this.loader.classList.add('active');
-            this.prevBtn.classList.remove('disable');
-            this.currentPage = this.currentPage + 1;
-            this.loadPage();
-            if(this.currentPage == this.totalPages - 1) {
-                this.nextBtn.classList.add('disable');
-            }
-        }
-    }
+        createXhrRequest( "GET", ajaxurl+'?action='+data.action, data, this.wrapper, function( err, response, wrapper ) {
 
-    addRows() {
-        setVendor(this.row1, 'opacity', '0');
-        setVendor(this.row1, 'transform', 'translateX(50px)');
-        setVendor(this.row2, 'opacity', '0');
-        setVendor(this.row2, 'transform', 'translateX(50px)');
+            // Do your post processing here.
+            if( err ) { console.log( "Error!" ); }
 
-        this.gridInner.appendChild(this.row1);
-        this.gridInner.appendChild(this.row2);
-        this.rows = this.gridInner.querySelectorAll('.row');
+            // console.log(response);
 
-        setTimeout(function(){
-            setVendor(this.row1, 'opacity', '1');
-            setVendor(this.row1, 'transform', 'translateX(0)');
-        }.bind(this), 100);
+            this.wrapper.innerHTML += response.html;
 
-        setTimeout(function(){
-            setVendor(this.row2, 'opacity', '1');
-            setVendor(this.row2, 'transform', 'translateX(0)');
-
-            this.scrollUp();
-        }.bind(this), 300);
-    }
-
-    loadPage() {
-        $.ajax({
-            url: ajaxurl,
-            dataType : 'json',
-            data: {
-                'action': 'knowledge_base_query',
-                'currentPage': this.currentPage
-            },
-            type: 'GET',
-            cache: true,
-            beforeSend: function() {
-                // set minimum height on row container
-                var total = 0;
-                for(var i = 0; i < this.rows.length; i++) {
-                    total = total + this.rows[i].getBoundingClientRect().height;
-                }
-                this.gridInner.style.minHeight = total+'px';
-            }.bind(this),
-            success: function (data) {
-                this.ajaxData = data.html;
-                var tempDiv = document.createElement('div');
-                tempDiv.innerHTML = this.ajaxData;
-                this.row1 = tempDiv.children[0];
-                this.row2 = tempDiv.children[1];
-
-                this.loader.classList.remove('active');
-
-                // Slide/fade out rows
-                this.removeRows();
-
-            }.bind(this)
         });
+
+        // var xhr = new XMLHttpRequest();
+        // xhr.open('GET', ajaxurl+'?action='+data.action, true);
+        // xhr.setRequestHeader('Content-Type', 'application/json');
+        // xhr.onreadystatechange = function() {
+        //
+        //     // check for success
+        //     if (xhr.status === 200 && xhr.readyState == 4) {
+        //         //alert('Something went wrong.  Name is now ' + xhr.responseText);
+        //         // console.log(xhr.responseText.html);
+        //         var html = xhr.responseText.html;
+        //
+        //         console.log(wrapper);
+        //
+        //         wrapper.innerHTML += html;
+        //         this.currentPage++;
+        //     }
+        //     else if (xhr.status !== 200) {
+        //         console.log('Request failed.  Returned status of ' + xhr.status);
+        //     }
+        // };
+        // //actually send it
+        // xhr.send(JSON.stringify(data));
+
     }
 }
 
-var resourcesGrid = document.querySelector('body.page-template-page-resources #article-grid');
-if(resourcesGrid) {
+var postGrid = document.getElementById('load-more');
+if(postGrid) {
     var postLoader = new newsEventQuery();
 }
+
+export default newsEventQuery;

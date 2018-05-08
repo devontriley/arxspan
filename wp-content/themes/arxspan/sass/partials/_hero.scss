@@ -145,9 +145,11 @@
         }
 
         .subheader {
-          width: 50%;
           display: block;
           margin: 0 auto;
+          @media screen and (min-width: 768px){
+            width: 50%;
+          }
           &:after {
             margin: 1rem auto;
           }

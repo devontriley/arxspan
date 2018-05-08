@@ -100,6 +100,7 @@ if($postGrid){ ?>
                 foreach($whitepapers as $whitepaperPost){ ?>
                     <div class="post-container">
                         <div class="inner">
+                            <a class="post-link" href="<?php echo get_permalink($whitepaperPost->ID); ?>"></a>
                             <div class="top">
                                 <svg class="circle" viewBox="0 0 200 200">
                                       <circle cx="100" cy="100" r="100"/>
@@ -142,7 +143,9 @@ if($postGrid){ ?>
                 </p><?php
             } ?>
 
-            <div class="posts-container"><?php
+            <div class="posts-container">
+                <div class="grid-inner"><?php
+
                 foreach($newsEvents as $newsEventsPost){
                     $buttonLabel = 'View More';
                     $buttonUrl = get_permalink($newsEventsPost->ID);
@@ -166,6 +169,10 @@ if($postGrid){ ?>
                         </div>
                     </div><!--.post-container--><?php
                 } ?>
+                </div><!-- #grid-inner -->
+                <button id="load-more">
+                    <span id="load-text">Load More Articles</span>
+                </button> <!-- #load-more -->
             </div><!-- .posts-container --><?php
         } //if news event layout ?>
 

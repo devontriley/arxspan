@@ -42,13 +42,13 @@
 
             <div class="nav-container-container">
                 <button id="hamburger">
-                    <svg width="21" viewBox="0 0 30 21">
+                    <svg width="30" viewBox="0 0 30 30">
                         <use xlink:href="#hamburger-icon"></use>
                     </svg>
 
-                    <svg width="22" viewBox="0 0 30 21">
-                        <use xlink:href="#close"></use>
-                    </svg>
+<!--                    <svg width="22" viewBox="0 0 30 21">-->
+<!--                        <use xlink:href="#close"></use>-->
+<!--                    </svg>-->
                 </button>
 
                 <div class="nav-container">

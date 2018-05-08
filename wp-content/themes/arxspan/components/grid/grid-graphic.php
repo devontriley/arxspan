@@ -18,7 +18,7 @@ $industryIcons = get_sub_field('industry_icons');
 
 
 if($graphicGrid){ ?>
-    <div class="graphic-grid-wrapper <?php echo $graphicGridLayout ?>"> <?php
+    <div class="graphic-grid-wrapper <?php echo $graphicGridLayout; if(! $gridTitle){echo ' no-title';}?>"> <?php
 
         if($gridTitle || $gridSubtitle || $gridContent || $gridSecondaryContent){ ?>
             <div class="text-container"> <?php

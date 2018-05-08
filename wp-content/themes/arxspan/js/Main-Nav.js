@@ -28,6 +28,7 @@ export class MainNav {
 
         this.hamburger.addEventListener('click', function(e) {
             e.preventDefault();
+            this.hamburger.classList.toggle('transform');
             this.MobileNavToggle();
         }.bind(this));
     }
