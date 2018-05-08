@@ -5,17 +5,6 @@ class newsEventQuery {
         this.wrapper = document.querySelector('.posts-container .grid-inner');
         this.currentPage = 0;
         this.loadBtn = document.getElementById('load-more');
-        this.stopLoading = false;
-
-        this.createXhrRequest = function( httpMethod, url, data, callback ) {
-            var xhr = new XMLHttpRequest();
-            xhr.open( httpMethod, url );
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.onreadystatechange = function() {
-                callback( xhr );
-            };
-            xhr.send(JSON.stringify(data));
-        }
 
         this.loadBtn.addEventListener('click', function(){
             this.loadMore();
@@ -34,28 +23,32 @@ class newsEventQuery {
             'currentPage' : this.currentPage
         }
 
-        this.createXhrRequest( "GET", ajaxurl+'?action='+data.action, data, function( xhr ) {
+        console.log('load');
 
-            if (xhr.readyState == 4 && xhr.status == 200) {
+        var createXhrRequest = function( httpMethod, url, data, callback ) {
+            var xhr = new XMLHttpRequest();
+            xhr.open( httpMethod, url );
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function() {
+                callback(xhr);
+            };
+            xhr.send(JSON.stringify(data));
+        }
 
-                if (xhr.response && !this.stopLoading) {
+        createXhrRequest( "GET", ajaxurl+'?action='+data.action, data, function(xhr) {
 
-                    this.wrapper.innerHTML += response.html;
+            console.log(xhr);
 
-                    this.stopLoading = true;
+            if(xhr.readyState == 4 && xhr.status == 400) {
 
-                }
+                var response = JSON.parse(xhr.response);
 
+                this.wrapper.innerHTML += response.html;
             }
 
         }.bind(this));
 
     }
-}
-
-var postGrid = document.getElementById('load-more');
-if(postGrid) {
-    var postLoader = new newsEventQuery();
 }
 
 export default newsEventQuery;

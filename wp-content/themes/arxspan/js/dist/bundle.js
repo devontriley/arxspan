@@ -1949,9 +1949,9 @@ window.addEventListener('resize', function (e) {
  * AJAX (news and events)
  */
 var loadMoreBtn = document.getElementById('load-more');
-if (loadMoreBtn != null) {
-    var newsEventsAjax = new _PostLoader2.default();
-}
+if (loadMoreBtn != null) {}
+//var newsEventsAjax = new newsEventQuery();
+
 
 /*
  * Image Sliders
@@ -25330,54 +25330,36 @@ var newsEventQuery = function () {
             var data = {
                 'action': 'load_more_news_posts',
                 'currentPage': this.currentPage
+            };
 
-                //AJAX call
-            };var createXhrRequest = function createXhrRequest(httpMethod, url, data, callback) {
+            console.log('load');
 
+            var createXhrRequest = function createXhrRequest(httpMethod, url, data, callback) {
                 var xhr = new XMLHttpRequest();
                 xhr.open(httpMethod, url);
-
                 xhr.setRequestHeader('Content-Type', 'application/json');
-
-                xhr.onload = function () {
-                    callback(null, xhr.response, wrapper);
+                xhr.onreadystatechange = function () {
+                    callback(xhr);
                 };
-
-                xhr.onerror = function () {
-                    callback(xhr.response, null, wrapper);
-                };
-
                 xhr.send(JSON.stringify(data));
             };
 
-            // var wrapper = this.wrapper;
+            createXhrRequest("GET", ajaxurl + '?action=' + data.action, data, function (xhr) {
 
-            createXhrRequest("GET", ajaxurl + '?action=' + data.action, data, function (err, response) {
+                console.log(xhr);
 
-                console.log(this);
+                if (xhr.readyState == 4 && xhr.status == 400) {
 
-                if (err) {
-                    console.log("Error!");
+                    var response = JSON.parse(xhr.response);
 
-                    this.wrapper.innerHtml += 'Error';
+                    this.wrapper.innerHTML += response.html;
                 }
-
-                var response = JSON.parse(response);
-
-                this.wrapper.innerHTML += response.html;
-                this.currentPage++;
-                console.log(this.currentPage);
             }.bind(this));
         }
     }]);
 
     return newsEventQuery;
 }();
-
-var postGrid = document.getElementById('load-more');
-if (postGrid) {
-    var postLoader = new newsEventQuery();
-}
 
 exports.default = newsEventQuery;
 
