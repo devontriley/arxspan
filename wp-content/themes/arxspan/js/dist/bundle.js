@@ -25322,7 +25322,6 @@ var newsEventQuery = function () {
         value: function loadMore() {
             this.loadBtn.classList.add('off'); // have gif in button and have gif display on .off
             this.loadArticles();
-            this.loadBtn.classList.remove('off'); // next time delay this until success
         }
     }, {
         key: 'loadArticles',
@@ -25330,28 +25329,42 @@ var newsEventQuery = function () {
             var data = {
                 'action': 'load_more_news_posts',
                 'currentPage': this.currentPage
-            };
 
-            var createXhrRequest = function createXhrRequest(httpMethod, url, data, callback) {
+                //AJAX call
+            };var createXhrRequest = function createXhrRequest(httpMethod, url, data, callback) {
+
                 var xhr = new XMLHttpRequest();
                 xhr.open(httpMethod, url);
+
                 xhr.setRequestHeader('Content-Type', 'application/json');
-                xhr.onreadystatechange = function () {
-                    callback(xhr);
+
+                xhr.onload = function () {
+                    callback(null, xhr.response, wrapper);
                 };
+
+                xhr.onerror = function () {
+                    callback(xhr.response, null, wrapper);
+                };
+
                 xhr.send(JSON.stringify(data));
             };
 
-            createXhrRequest("GET", ajaxurl + '?action=' + data.action, data, function (xhr) {
+            // var wrapper = this.wrapper;
 
-                if (xhr.readyState == 4 && xhr.status == 200) {
+            createXhrRequest("GET", ajaxurl + '?action=' + data.action, data, function (err, response) {
 
-                    var response = JSON.parse(xhr.response);
+                if (err) {
+                    console.log("Error!");
 
-                    this.wrapper.innerHTML += response.html;
-
-                    this.currentPage++;
+                    this.wrapper.innerHtml += 'Error';
                 }
+
+                var response = JSON.parse(response);
+
+                this.wrapper.innerHTML += response.html;
+                this.loadBtn.classList.remove('off');
+                this.currentPage++;
+                console.log(this.currentPage);
             }.bind(this));
         }
     }]);
