@@ -5,15 +5,16 @@ if($newsEventsLayout) {
     if (is_page(78)) {
         // NEWS EVENTS PAGE
 
+        $perPage = 4;
         $currentPage = $_POST['wrapper'];
-        $currentOffset = $_POST['offset'];
+        $currentOffset = 8 + ($currentPage * $perPage);
 
         $args = array(
             'post_type' => array('event', 'news'),
             'orderby' => 'date',
             'order' => 'DESC',
-            'posts_per_page' => 8,
-            'offset' => $offset,
+            'posts_per_page' => $perPage,
+            'offset' => $currentOffset,
             'post_status' => 'publish'
         );
 
@@ -34,29 +35,23 @@ if($newsEventsLayout) {
                 $buttonUrl = get_permalink();
                 $buttonLabel = 'View';
 
-                echo '<div class="post-container">';
-
-                echo '<a class="post-link" href="'. echo $buttonUrl .'"></a>';
-                echo '<div class="inner">'; ?>
-
-                <p class="title"><?php echo $title ?></p>
-
-                <p class="date"><?php echo $date ?></p>
-
-                <div class="blurb"><?php echo $blurb ?></div> <?php
-
-                button($buttonLabel, $buttonUrl);
-
-                echo '</div> <!-- .inner -->';
-                echo '</div> <!-- .post-container -->';
+                $output = '<div class="post-container">';
+                $output .= '<a class="post-link" href="'. $buttonUrl .'"></a>';
+                $output .= '<div class="inner">';
+                $output .= '<p class="title">'. $title .'</p>';
+                $output .= '<p class="date">'. $date .'</p>';
+                $output .= '<div class="blurb">'. $blurb .'</div>';
+                //$output .= button($buttonLabel, $buttonUrl);
+                $output .= '</div> <!-- .inner -->';
+                $output .= '</div> <!-- .post-container -->';
 
             endwhile; // newsEventQuery have posts
+
             wp_reset_postdata(); ?>
 
             </div> <!-- .grid inner -->
 
             <div id="page-counter"> <!-- change to button wrapper -->
-
                 <div id="loader">
                     <img id="loader-gif" alt="loading"
                          src="<?php bloginfo('template_directory'); ?>/img/ajax-loader1.gif"/>
