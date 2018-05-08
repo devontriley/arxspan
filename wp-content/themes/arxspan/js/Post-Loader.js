@@ -42,21 +42,25 @@ class newsEventQuery {
             xhr.send(JSON.stringify(data));
         }
 
-        var wrapper = this.wrapper;
+        // var wrapper = this.wrapper;
 
-        createXhrRequest( "GET", ajaxurl+'?action='+data.action, data, function( err, response, wrapper ) {
+        createXhrRequest( "GET", ajaxurl+'?action='+data.action, data, function( err, response ) {
+
+            console.log(this);
 
             if( err ) {
                 console.log( "Error!" );
 
-                wrapper.innerHtml += 'Error';
+                this.wrapper.innerHtml += 'Error';
             }
 
             var response = JSON.parse(response);
 
-            wrapper.innerHTML += response.html;
+            this.wrapper.innerHTML += response.html;
+            this.currentPage++;
+            console.log(this.currentPage);
 
-        });
+        }.bind(this));
 
     }
 }
