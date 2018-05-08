@@ -183,12 +183,15 @@ if($postGrid){ ?>
                         </div><!--.post-container--><?php
                     } ?>
 
-                </div><!-- #grid-inner -->
+                </div><!-- #grid-inner --> <?php
 
-                <button class="btn" id="load-more">
+                if(is_page(78)){ ?>
+                    <button class="btn" id="load-more">
                     <span id="load-text">Load More Articles</span>
                     <img id="loader-gif" alt="loading" src="<?php bloginfo('template_directory');?>/img/loading_spinner.gif"/>
-                </button> <!-- #load-more -->
+                    </button> <!-- #load-more --> <?php
+                } ?>
+
             </div><!-- .posts-container --><?php
         } //if news event layout ?>
 
