@@ -2,9 +2,10 @@
 .open-opps {
 
   .inner {
-    padding: 4rem;
+    padding: 0 4rem;
+    margin: 4rem 0;
     @media screen and (min-width: 768px){
-      padding: 4rem 6rem;
+      padding: 0 6rem;
     }
 
     .header {
@@ -28,7 +29,10 @@
     .categories-wrapper {
       display: flex;
       flex-wrap: wrap;
-      margin: 4rem 0;
+      margin: 2rem 0;
+      @media screen and (min-width: 768px) {
+        margin: 4rem 0;
+      }
 
       .category-wrapper {
         flex: 0 0 100%;
