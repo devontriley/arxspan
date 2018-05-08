@@ -4,10 +4,13 @@ class newsEventQuery {
     constructor() {
         this.wrapper = document.querySelector('.posts-container .grid-inner');
         this.currentPage = 0;
+        this.foundPosts = this.wrapper.dataset.found;
         this.loadBtn = document.getElementById('load-more');
 
         this.loadBtn.addEventListener('click', function(){
-            this.loadMore();
+            if( this.foundPosts > ((this.currentPage * 4) + 8) ) {
+                this.loadMore();
+            }
         }.bind(this));
     }
 
@@ -26,38 +29,29 @@ class newsEventQuery {
         var createXhrRequest = function( httpMethod, url, data, callback ) {
 
             var xhr = new XMLHttpRequest();
-            xhr.open( httpMethod, url );
-
+            xhr.open(httpMethod, url);
             xhr.setRequestHeader('Content-Type', 'application/json');
-
-            xhr.onload = function() {
-                callback( null, xhr.response, wrapper );
+            xhr.onreadystatechange = function() {
+                callback(xhr);
             };
-
-            xhr.onerror = function() {
-                callback( xhr.response, null, wrapper );
-            };
-
             xhr.send(JSON.stringify(data));
+
         }
 
-        // var wrapper = this.wrapper;
+        createXhrRequest( "POST", ajaxurl+'?action='+data.action, data, function(xhr) {
 
-        createXhrRequest( "GET", ajaxurl+'?action='+data.action, data, function( err, response ) {
+            if(xhr.status == 200 && xhr.readyState == 4) {
+                var response = JSON.parse(xhr.response);
 
+                this.wrapper.innerHTML += response.html;
+                this.loadBtn.classList.remove('off');
 
-            if( err ) {
-                console.log( "Error!" );
+                this.currentPage++;
 
-                this.wrapper.innerHtml += 'Error';
+                if( this.foundPosts <= ((this.currentPage * 4) + 8) ) {
+                    this.loadBtn.style.display = 'none';
+                }
             }
-
-            var response = JSON.parse(response);
-
-            this.wrapper.innerHTML += response.html;
-            this.loadBtn.classList.remove('off');
-            this.currentPage++;
-            console.log(this.currentPage);
 
         }.bind(this));
 

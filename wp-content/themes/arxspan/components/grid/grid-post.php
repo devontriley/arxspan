@@ -30,6 +30,7 @@ if(is_page(78)) {
         'post_status' => 'publish'
     );
     $newsEvents = new WP_Query($args);
+    $newsEventsFound = $newsEvents->found_posts;
     $newsEvents = $newsEvents->posts;
 } else {
     $newsEvents = get_sub_field('news_events');
@@ -157,7 +158,7 @@ if($postGrid){ ?>
             } ?>
 
             <div class="posts-container">
-                <div class="grid-inner"><?php
+                <div class="grid-inner" data-found="<?php echo $newsEventsFound ?>"><?php
 
                     foreach($newsEvents as $newsEventsPost){
                         $buttonLabel = 'View More';

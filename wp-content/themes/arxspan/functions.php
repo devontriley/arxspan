@@ -537,8 +537,11 @@ require('inc/custom-editor-buttons/mce-buttons.php');
 
     function load_more_news_posts(){
 
+        // This is how we can retrieve POST variables from ajax
+        $data = json_decode(file_get_contents('php://input'));
+
         $perPage = 4;
-        $currentPage = $_POST['currentPage'];
+        $currentPage = $data->currentPage;
         $currentOffset = 8 + ($currentPage * $perPage);
 
         $args = array(
@@ -582,7 +585,12 @@ require('inc/custom-editor-buttons/mce-buttons.php');
             wp_reset_postdata();
         endif;
 
-        echo json_encode(array('offset' => $ajax_query->post_count, 'html' => $output));
+        $dataOutput = array(
+            'offset' => $ajax_query->post_count,
+            'html' => $output
+        );
+
+        echo json_encode($dataOutput);
 
         exit;
     }
