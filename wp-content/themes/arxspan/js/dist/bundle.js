@@ -1949,9 +1949,9 @@ window.addEventListener('resize', function (e) {
  * AJAX (news and events)
  */
 var loadMoreBtn = document.getElementById('load-more');
-if (loadMoreBtn != null) {}
-//var newsEventsAjax = new newsEventQuery();
-
+if (loadMoreBtn != null) {
+    var newsEventsAjax = new _PostLoader2.default();
+}
 
 /*
  * Image Sliders
@@ -25327,12 +25327,11 @@ var newsEventQuery = function () {
     }, {
         key: 'loadArticles',
         value: function loadArticles() {
+            console.log(this.currentPage);
             var data = {
                 'action': 'load_more_news_posts',
                 'currentPage': this.currentPage
             };
-
-            console.log('load');
 
             var createXhrRequest = function createXhrRequest(httpMethod, url, data, callback) {
                 var xhr = new XMLHttpRequest();
@@ -25346,13 +25345,13 @@ var newsEventQuery = function () {
 
             createXhrRequest("GET", ajaxurl + '?action=' + data.action, data, function (xhr) {
 
-                console.log(xhr);
-
-                if (xhr.readyState == 4 && xhr.status == 400) {
+                if (xhr.readyState == 4 && xhr.status == 200) {
 
                     var response = JSON.parse(xhr.response);
 
                     this.wrapper.innerHTML += response.html;
+
+                    this.currentPage++;
                 }
             }.bind(this));
         }

@@ -18,12 +18,11 @@ class newsEventQuery {
     }
 
     loadArticles() {
+        console.log(this.currentPage);
         var data = {
             'action' : 'load_more_news_posts',
             'currentPage' : this.currentPage
         }
-
-        console.log('load');
 
         var createXhrRequest = function( httpMethod, url, data, callback ) {
             var xhr = new XMLHttpRequest();
@@ -37,13 +36,14 @@ class newsEventQuery {
 
         createXhrRequest( "GET", ajaxurl+'?action='+data.action, data, function(xhr) {
 
-            console.log(xhr);
-
-            if(xhr.readyState == 4 && xhr.status == 400) {
+            if(xhr.readyState == 4 && xhr.status == 200) {
 
                 var response = JSON.parse(xhr.response);
 
                 this.wrapper.innerHTML += response.html;
+
+                this.currentPage++;
+
             }
 
         }.bind(this));

@@ -29,7 +29,7 @@ window.addEventListener('resize', function(e) {
  */
 var loadMoreBtn = document.getElementById('load-more');
 if(loadMoreBtn != null){
-    //var newsEventsAjax = new newsEventQuery();
+    var newsEventsAjax = new newsEventQuery();
 }
 
 
