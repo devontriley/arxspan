@@ -35,7 +35,6 @@ if(is_page(78)) {
     $newsEvents = get_sub_field('news_events');
 }
 
-print_r($newsEvents);
 
 if($postGrid){ ?>
     <div class="post-grid-wrapper <?php echo $postGridLayout?>"><?php

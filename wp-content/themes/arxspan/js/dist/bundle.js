@@ -25322,7 +25322,6 @@ var newsEventQuery = function () {
         value: function loadMore() {
             this.loadBtn.classList.add('off'); // have gif in button and have gif display on .off
             this.loadArticles();
-            this.loadBtn.classList.remove('off'); // next time delay this until success
         }
     }, {
         key: 'loadArticles',
@@ -25354,8 +25353,6 @@ var newsEventQuery = function () {
 
             createXhrRequest("GET", ajaxurl + '?action=' + data.action, data, function (err, response) {
 
-                console.log(this);
-
                 if (err) {
                     console.log("Error!");
 
@@ -25365,6 +25362,7 @@ var newsEventQuery = function () {
                 var response = JSON.parse(response);
 
                 this.wrapper.innerHTML += response.html;
+                this.loadBtn.classList.remove('off');
                 this.currentPage++;
                 console.log(this.currentPage);
             }.bind(this));

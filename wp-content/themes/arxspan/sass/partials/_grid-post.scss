@@ -254,6 +254,8 @@
         margin: 2rem auto;
         background-color: $blue;
         position: relative;
+        height: 60px;
+        width: 250px;
 
         &:hover {
           background-color: $pink;
@@ -275,7 +277,7 @@
 
         span {
           display: block;
-          padding: 2rem;
+          padding-right: 0;
         }
 
         #loader-gif {

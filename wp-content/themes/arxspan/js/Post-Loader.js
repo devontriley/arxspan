@@ -14,7 +14,6 @@ class newsEventQuery {
     loadMore() {
         this.loadBtn.classList.add('off'); // have gif in button and have gif display on .off
         this.loadArticles();
-        this.loadBtn.classList.remove('off'); // next time delay this until success
     }
 
     loadArticles() {
@@ -46,7 +45,6 @@ class newsEventQuery {
 
         createXhrRequest( "GET", ajaxurl+'?action='+data.action, data, function( err, response ) {
 
-            console.log(this);
 
             if( err ) {
                 console.log( "Error!" );
@@ -57,6 +55,7 @@ class newsEventQuery {
             var response = JSON.parse(response);
 
             this.wrapper.innerHTML += response.html;
+            this.loadBtn.classList.remove('off');
             this.currentPage++;
             console.log(this.currentPage);
 
