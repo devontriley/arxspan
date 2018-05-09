@@ -6,6 +6,7 @@ import Barba from 'barba.js';
 import MainHeader from './Main-Header.js';
 import MainNav from './Main-Nav.js';
 import tabModule from './Tab-Module.js';
+import postSlider from './Post-Slider.js';
 import imageSlider from './Image-Slider.js';
 import newsEventQuery from './Post-Loader.js';
 import animations from './animations.js';
@@ -40,6 +41,18 @@ if(imageSliders != null) {
     var imageSlidersArr = [];
     for(var i = 0; i < imageSliders.length; i++) {
         imageSlidersArr.push(new imageSlider(imageSliders[i]));
+    }
+}
+
+/*
+ * Post Sliders
+ */
+
+var postSliders = document.querySelectorAll('.posts-container.is-slider .grid-inner');
+if(postSliders != null) {
+    var postSlidersArr = [];
+    for(var i = 0; i < postSliders.length; i++) {
+        postSlidersArr.push(new postSlider(postSliders[i]));
     }
 }
 
