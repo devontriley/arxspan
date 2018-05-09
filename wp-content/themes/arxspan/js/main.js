@@ -18,7 +18,6 @@ var mainNav = new MainNav();
 /*
  * body .is-mobile on resize
  */
-
 window.addEventListener('resize', function(e) {
     window.mobileDetected = window.mobilecheck();
     (window.mobileDetected) ? document.body.classList.add('is-mobile') : document.body.classList.remove('is-mobile');
@@ -31,7 +30,6 @@ var loadMoreBtn = document.getElementById('load-more');
 if(loadMoreBtn != null){
     var newsEventsAjax = new newsEventQuery();
 }
-
 
 /*
  * Image Sliders
@@ -83,6 +81,11 @@ function setupTabModules() {
         }
     }
 }
+
+/*
+ * Loading SVG backgrounds
+ */
+
 
 domReady(function() {
 
@@ -166,6 +169,7 @@ domReady(function() {
         setupTabModules();
         setupForms();
         setupStyledSelects();
+        swapSVG();
     });
 
     Barba.Pjax.init();
