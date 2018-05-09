@@ -92,13 +92,6 @@ class postSlider {
         // Set ul position
         this.ul.style.left = position+'px';
 
-        // We only need to add active class on desktop to lis
-        if(!window.mobileDetected) {
-            // Remove active from current slide and current nav item
-            this.lis[this.currentSlide].classList.remove('active');
-            // Add active to new slide
-            this.lis[index].classList.add('active');
-        }
 
         // Active class on nav buttons
         this.navContainer.querySelectorAll('button')[this.currentSlide].classList.remove('active');

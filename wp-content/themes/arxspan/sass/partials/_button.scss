@@ -37,6 +37,7 @@
 
     svg {
       opacity: 1;
+      right: 1.5rem;
     }
   }
 
@@ -52,7 +53,7 @@
     top: 50%;
     transform: translateY(-50%);
     fill: #fff;
-    right: 1.5rem;
+    right: 2rem;
     @media screen and (min-width: 768px){
       opacity: 0;
     }
