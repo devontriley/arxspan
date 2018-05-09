@@ -182,7 +182,7 @@ domReady(function() {
         setupTabModules();
         setupForms();
         setupStyledSelects();
-        swapSVG();
+        //swapSVG();
     });
 
     Barba.Pjax.init();

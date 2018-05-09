@@ -1943,7 +1943,6 @@ var mainNav = new _MainNav2.default();
 /*
  * body .is-mobile on resize
  */
-
 window.addEventListener('resize', function (e) {
     window.mobileDetected = window.mobilecheck();
     window.mobileDetected ? document.body.classList.add('is-mobile') : document.body.classList.remove('is-mobile');
@@ -2019,6 +2018,10 @@ function setupTabModules() {
         }
     }
 }
+
+/*
+ * Loading SVG backgrounds
+ */
 
 (0, _domready2.default)(function () {
 
@@ -2100,6 +2103,7 @@ function setupTabModules() {
         setupTabModules();
         setupForms();
         setupStyledSelects();
+        //swapSVG();
     });
 
     _barba2.default.Pjax.init();

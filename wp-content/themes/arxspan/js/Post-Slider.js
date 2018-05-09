@@ -57,7 +57,7 @@ class postSlider {
             this.lis[i].style.height = this.height+'px';
 
             if(window.mobileDetected) {
-                for( var x = 0; x < this.lis[x].querySelectorAll('.post-container').length; x++){
+                for(var x = 0; x < this.lis[x].querySelectorAll('.post-container').length; x++){
                     this.navItems += '<button></button>';
                 }
             } else {
