@@ -309,12 +309,22 @@
 
           &:after {
             content: "";
-            clear: clear;
+            clear: both;
             display: block;
           }
+
           li {
             float: left;
             display: flex;
+
+            .post-container {
+              @media(max-width: 767px) {
+                padding: 0;
+                margin: 0;
+                border: none;
+                box-shadow: none;
+              }
+            }
           }
         }
 

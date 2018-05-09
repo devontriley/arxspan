@@ -25214,7 +25214,6 @@ var postSlider = function () {
         _classCallCheck(this, postSlider);
 
         this.sliderWrapper = ele;
-        console.log(this.sliderWrapper);
         this.ul = this.sliderWrapper.querySelector('ul.post-slider');
         this.lis = this.ul.querySelectorAll('li');
         this.height;
@@ -25228,8 +25227,6 @@ var postSlider = function () {
         this.navContainer.classList.add('post-slider-nav');
         this.sliderWrapper.appendChild(this.navContainer);
         this.navItems = '';
-
-        console.log((0, _helpers.getElementContentWidth)(this.sliderWrapper));
 
         if (this.lis.length) {
             this.positioning();
@@ -25260,19 +25257,24 @@ var postSlider = function () {
                 if (i == 0) {
                     // Set public height
                     this.height = this.lis[i].offsetHeight;
-                    // Set ul height
-                    this.ul.style.height = this.height + 'px';
                 }
 
-                // Set li height
-                this.lis[i].style.height = this.height + 'px';
-
                 if (window.mobileDetected) {
-                    for (var x = 0; x < this.lis[x].querySelectorAll('.post-container').length; x++) {
-                        this.navItems += '<button></button>';
+                    var posts = this.lis[i].querySelectorAll('.post-container');
+                    for (var x = 0; x < posts.length; x++) {
+                        posts[x].style.maxWidth = this.width / 2 + 'px';
+                        if (i == 0 && x == 0) {
+                            this.navItems += '<button class="active"></button>';
+                        } else {
+                            this.navItems += '<button></button>';
+                        }
                     }
                 } else {
-                    this.navItems += '<button></button>';
+                    if (i == 0) {
+                        this.navItems += '<button class="active"></button>';
+                    } else {
+                        this.navItems += '<button></button>';
+                    }
                 }
             }
 
@@ -25294,9 +25296,9 @@ var postSlider = function () {
     }, {
         key: 'getUlPosition',
         value: function getUlPosition(index) {
-            var slideCenterOffset = index * this.width + this.width / 2;
+            var slideCenterOffset = window.mobileDetected ? index * (this.width / 2) : index * this.width + this.width / 2;
 
-            return this.sliderWrapper.offsetWidth / 2 - slideCenterOffset;
+            return window.mobileDetected ? -slideCenterOffset : this.sliderWrapper.offsetWidth / 2 - slideCenterOffset;
         }
     }, {
         key: 'setUlPosition',
@@ -25306,12 +25308,16 @@ var postSlider = function () {
             // Set ul position
             this.ul.style.left = position + 'px';
 
-            // Remove active from current slide and current nav item
-            this.lis[this.currentSlide].classList.remove('active');
-            this.navContainer.querySelectorAll('button')[this.currentSlide].classList.remove('active');
+            // We only need to add active class on desktop to lis
+            if (!window.mobileDetected) {
+                // Remove active from current slide and current nav item
+                this.lis[this.currentSlide].classList.remove('active');
+                // Add active to new slide
+                this.lis[index].classList.add('active');
+            }
 
-            // Add active to new slide
-            this.lis[index].classList.add('active');
+            // Active class on nav buttons
+            this.navContainer.querySelectorAll('button')[this.currentSlide].classList.remove('active');
             this.navContainer.querySelectorAll('button')[index].classList.add('active');
 
             // Update current active slide
