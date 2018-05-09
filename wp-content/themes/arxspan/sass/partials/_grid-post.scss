@@ -294,6 +294,59 @@
       }
     }
 
+    .posts-container.is-slider {
+      display: block;
+
+      .grid-inner {
+        display: block;
+        overflow: hidden;
+
+        ul.post-slider {
+          position: relative;
+          display: block;
+          transition: left ease 500ms;
+          left: 0;
+
+          &:after {
+            content: "";
+            clear: clear;
+            display: block;
+          }
+          li {
+            float: left;
+            display: flex;
+          }
+        }
+
+        .post-slider-nav {
+          text-align: left;
+          margin-top: 5rem;
+
+          button {
+            display: inline-block;
+            margin: 0 .5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 1.5rem;
+            background: #8793a5;
+            border: none;
+            outline: none;
+            cursor: pointer;
+
+            &:hover,
+            &:focus {
+              background: #555;
+              outline: none;
+            }
+
+            &.active {
+              background: $pink;
+            }
+          }
+        }
+      }
+    }
+
 
   }
 

@@ -158,14 +158,31 @@ if($postGrid){ ?>
                 </p><?php
             } ?>
 
-            <div class="posts-container">
+            <div class="posts-container <?php if($is_slider){echo 'is-slider';} ?>">
                 <div class="grid-inner" data-found="<?php echo $newsEventsFound ?>"><?php
+
+                    if($is_slider){
+                        $postIteration = 0;
+                        $postCount = 1;
+                        $postsTotal = count($newsEvents);
+                        $navItems;
+
+                        echo '<ul class="post-slider">';
+                    }
 
                     foreach($newsEvents as $newsEventsPost){
                         $buttonLabel = 'View More';
                         $buttonUrl = get_permalink($newsEventsPost->ID);
                         ?>
-                        <div class="post-container">
+
+                        <?php if($is_slider){
+                            if($postIteration == 0){
+                                echo '<li>';
+                                $navItems .= ($postCount == 1 ) ? '<button class="active"></button>' : '<button></button>';
+                            }
+                        } ?>
+
+                        <div class="post-container <?php if($is_slider){ echo $postIteration; }?>">
                             <a class="post-link" href="<?php echo $buttonUrl ?>"></a>
                             <div class="inner">
                                 <p class="title">
@@ -183,7 +200,21 @@ if($postGrid){ ?>
                                 <?php button($buttonLabel, $buttonUrl); ?>
                             </div>
                         </div><!--.post-container--><?php
-                    } ?>
+
+                        if($is_slider){
+                            $postIteration++;
+                            $postCount++;
+
+                            if($postIteration == 2 || $postCount == $postsTotal) {
+                                echo '</li>';
+                                $postIteration = 0;
+                            }
+                        }
+                    }
+
+                    if($is_slider){
+                        echo '</ul>';
+                    }?>
 
                 </div><!-- #grid-inner --> <?php
 
