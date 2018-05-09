@@ -30,6 +30,10 @@
 
   &:hover {
     background: $blue;
+    @media screen and (min-width: 768px){
+      transform: translateY(-.5rem);
+    }
+
 
     svg {
       opacity: 1;

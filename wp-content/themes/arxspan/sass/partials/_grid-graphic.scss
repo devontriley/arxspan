@@ -80,8 +80,10 @@
       }
 
       &:hover {
-        .title {
-          color: $pink;
+        img {
+          //@media screen and (min-width: 768px){
+          //  transform: translateY(-.5rem);
+          //}
         }
       }
 
@@ -91,6 +93,7 @@
         img {
           display: block;
           margin: 0 auto;
+          transition: all ease 300ms;
 
           @media screen and (min-width: 768px){
             width: auto;
