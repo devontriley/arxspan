@@ -97,15 +97,15 @@
         .inner {
           position: relative;
           box-shadow: 5px 10px 20px 0 rgba(230,230,230,0.5);
-          border-bottom: .4rem solid $blue;
+          border-bottom: .3rem solid $blue;
           background-color: #fff;
           padding: 10rem 3rem 3rem 3rem;
           &:after {
             content: "";
             width: 0;
-            height: .4rem;
+            height: .3rem;
             position: absolute;
-            bottom: -.4rem;
+            bottom: -.3rem;
             left: 0;
             background-color: $pink;
             transition: width ease 500ms;
@@ -200,7 +200,7 @@
           padding: 3rem;
           box-sizing: border-box;
           display: flex;
-          border-bottom: .4rem solid $blue;
+          border-bottom: .3rem solid $blue;
           box-shadow: 5px 10px 20px 0 rgba(230,230,230,0.5);
 
           &:hover {
@@ -331,6 +331,9 @@
         .post-slider-nav {
           text-align: left;
           margin-top: 5rem;
+          @media screen and (min-width: 768px){
+            margin-left: 2rem;
+          }
 
           button {
             display: inline-block;
@@ -436,7 +439,8 @@
       margin: 2rem 0;
       display: block;
       box-shadow: 5px 10px 20px 0 rgba(230,230,230,0.5);
-      border-bottom: .4rem solid $blue;
+      border-bottom: .3rem solid $blue;
+      transition: all ease 300ms;
       @media screen and (min-width: 768px){
         margin: 4rem 0;
       }
@@ -444,15 +448,17 @@
       &:after {
         content: "";
         width: 0;
-        height: .4rem;
+        height: .3rem;
         position: absolute;
-        bottom: -.4rem;
+        bottom: -.3rem;
         left: 0;
         background-color: $pink;
         transition: width ease 500ms;
       }
 
       &:hover {
+        transform: translateY(-.5rem);
+
         &:after {
           width: 100%;
         }

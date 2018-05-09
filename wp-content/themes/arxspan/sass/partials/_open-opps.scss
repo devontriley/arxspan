@@ -67,6 +67,10 @@
               font-size: 2.2rem;
             }
 
+            svg {
+              width: 1rem;
+            }
+
             &:after {
               content: "";
               height: .1rem;
@@ -78,7 +82,7 @@
 
             &:hover {
               &:after {
-                width: 100%;
+                //width: 100%;
               }
             }
           }

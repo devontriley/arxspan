@@ -51,6 +51,7 @@ $taxonomies = get_object_taxonomies( array( 'post_type' => $post_type ) );
                         <div class="posting">
                         <a href="<?php echo get_the_permalink(); ?>">
                             <?php echo get_the_title(); ?>
+                            <svg viewbox="0 0 10 16"><use xlink:href="#button-arrow"></use></svg>
                         </a>
                         </div><!-- .posting --><?php
                     endwhile;
