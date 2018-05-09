@@ -33,6 +33,7 @@ if(is_page(78)) {
     $newsEventsFound = $newsEvents->found_posts;
     $newsEvents = $newsEvents->posts;
 } else {
+    $is_slider = true;
     $newsEvents = get_sub_field('news_events');
 }
 

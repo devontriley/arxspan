@@ -30,6 +30,7 @@
 <?php include('components/page-backgrounds.php') ?>
 
 <div id="wrapper">
+
     <header id="primary-header" role="banner">
         <div id="header-inner">
             <div class="logo">
