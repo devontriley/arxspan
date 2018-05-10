@@ -90,7 +90,7 @@ if($postGrid){ ?>
                         endif; ?>
 
                         <p class="learn-more">
-                            Learn More
+                            Learn More <svg viewBox="0 0 10 16"><use xlink:href="#button-arrow"></use></svg>
                         </p>
                     </div><!-- .post-container --><?php
                 } //endforeach ?>
@@ -136,7 +136,7 @@ if($postGrid){ ?>
                             </div>
 
                             <a class="learn-more" href="<?php echo get_permalink($whitepaperPost->ID); ?>">
-                                Learn More
+                                Learn More <svg viewBox="0 0 10 16"><use xlink:href="#button-arrow"></use></svg>
                             </a>
 
                             <?php
