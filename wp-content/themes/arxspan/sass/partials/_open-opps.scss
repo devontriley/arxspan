@@ -66,16 +66,16 @@
             position: relative;
             font-weight: lighter;
             @media screen and (min-width: 768px){
-              font-size: 2.2rem;
+              font-size: 1.8rem;
             }
 
             svg {
-              width: 1rem;
+              width: .8rem;
               fill: $pink;
               position: absolute;
               top: 50%;
               transform: translateY(-50%);
-              right: -1.5rem;
+              right: -1.2rem;
               opacity: 0;
               transition: all ease 200ms;
             }
@@ -92,7 +92,7 @@
             &:hover {
               svg {
                 opacity: 1;
-                right: -2rem;
+                right: -1.7rem;
               }
             }
           }
