@@ -63,12 +63,20 @@
             display: inline-block;
             font-size: 1.6rem;
             border-bottom: none;
+            position: relative;
             @media screen and (min-width: 768px){
               font-size: 2.2rem;
             }
 
             svg {
               width: 1rem;
+              fill: $pink;
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              right: -1.5rem;
+              opacity: 0;
+              transition: all ease 200ms;
             }
 
             &:after {
@@ -81,8 +89,9 @@
             }
 
             &:hover {
-              &:after {
-                //width: 100%;
+              svg {
+                opacity: 1;
+                right: -2rem;
               }
             }
           }
