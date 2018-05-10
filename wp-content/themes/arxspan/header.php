@@ -95,7 +95,7 @@
                         </ul>
                     </nav>
 
-                    <div class="demo-btn">
+                    <div class="demo-btn" id="nav-btn">
                         <div class="btn-wrapper center">
                             <a href="<?php bloginfo('url'); ?>/contact" class="btn">Request A Demo</a>
                         </div>
