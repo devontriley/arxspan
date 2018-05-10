@@ -1973,12 +1973,13 @@ if (imageSliders != null) {
 /*
  * Post Sliders
  */
-
-var postSliders = document.querySelectorAll('.posts-container.is-slider .grid-inner');
-if (postSliders != null) {
-    var postSlidersArr = [];
-    for (var i = 0; i < postSliders.length; i++) {
-        postSlidersArr.push(new _PostSlider2.default(postSliders[i]));
+function setupPostSliders() {
+    var postSliders = document.querySelectorAll('.posts-container.is-slider .grid-inner');
+    if (postSliders != null) {
+        var postSlidersArr = [];
+        for (var i = 0; i < postSliders.length; i++) {
+            postSlidersArr.push(new _PostSlider2.default(postSliders[i]));
+        }
     }
 }
 
@@ -2111,6 +2112,7 @@ var swapSVGBG = new _SwapSVG2.default();
         setupTabModules();
         setupForms();
         setupStyledSelects();
+        setupPostSliders();
     });
 
     _barba2.default.Pjax.init();
