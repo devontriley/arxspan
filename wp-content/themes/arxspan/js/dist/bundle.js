@@ -25039,6 +25039,7 @@ var MainNav = exports.MainNav = function () {
         this.nav = document.querySelector('#main-nav ul');
         this.toggleLinks = document.querySelectorAll('li.dropdown');
         this.hamburger = document.getElementById('hamburger');
+        this.contactButton = document.getElementById('nav-btn');
         this.activeDropdown;
 
         var clickEvent = function (event) {
@@ -25061,6 +25062,11 @@ var MainNav = exports.MainNav = function () {
             e.preventDefault();
             this.hamburger.classList.toggle('transform');
             this.MobileNavToggle();
+        }.bind(this));
+
+        this.contactButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            this.MobileNavToggle('close');
         }.bind(this));
     }
 

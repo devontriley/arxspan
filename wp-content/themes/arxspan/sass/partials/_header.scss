@@ -5,6 +5,7 @@
   top: 0;
   left: 0;
   background-color: rgba(0,0,0,0);
+  transition: all ease 500ms;
 
   body.header-active & {
     background: #fff;
@@ -136,7 +137,7 @@
           @media(min-width: 992px) {
             display: inline-block;
             padding: 0;
-            margin: 0 1rem;
+            margin: 0 .5rem;
             border: none;
           }
 
@@ -167,9 +168,12 @@
             text-decoration: none;
             cursor: pointer;
             @include text-fade-hover(color);
-            padding-right: 2.5rem;
             position: relative;
             z-index: 99;
+          }
+
+          span.dropdown-toggle {
+            padding-right: 2.5rem;
           }
 
           &.active ul.dropdown-menu {
@@ -246,12 +250,19 @@
 
     .demo-btn {
       display: block;
+      margin-left: 1rem;
       @media(min-width: 992px) {
         display: inline-block;
       }
 
       .btn {
         font-size: 1.6rem;
+        @media screen and (min-width: 992px){
+          font-size: 1.2rem;
+        }
+        @media screen and (min-width: 1050px){
+          font-size: 1.6rem;
+        }
       }
     }
   }

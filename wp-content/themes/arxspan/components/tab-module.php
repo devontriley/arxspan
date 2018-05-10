@@ -96,7 +96,7 @@ $activeTab = $_GET['activeTab'] ? $_GET['activeTab'] : 1;
                                 endwhile;
                             endif;
                             ?>
-                            <p class="learn-more">Learn More</p>
+                            <p class="learn-more">Learn More <svg viewBox="0 0 10 16"><use xlink:href="#button-arrow"></use></svg></p>
                         </div>
                     </div> <!-- .text-block -->
                 </div><!-- .tabcontent -->
@@ -106,7 +106,7 @@ $activeTab = $_GET['activeTab'] ? $_GET['activeTab'] : 1;
         </div>
 
         <?php if(is_front_page()){ ?>
-            <a class="overview" href="<?php echo get_permalink('7') ?>">See Overview</a> <?php
+            <a class="overview" href="<?php echo get_permalink('7') ?>">See Overview <svg viewBox="0 0 10 16"><use xlink:href="#button-arrow"></use></svg></a> <?php
         }?>
 
     </div> <!-- .inner -->

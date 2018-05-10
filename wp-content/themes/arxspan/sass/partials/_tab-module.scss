@@ -217,12 +217,10 @@
               font-size: 2rem;
             }
 
-            &:after {
-              content: ">";
-              display: inline-block;
-              color: $pink;
-              margin-left: .5rem;
-              transition: all ease 200ms;
+            svg {
+              width: .8rem;
+              fill: $pink;
+              margin-left: .3rem;
             }
           }
         }
@@ -234,15 +232,14 @@
       color: $blue;
       text-align: right;
       width: 100%;
-      display: inline-block;
+      display: block;
       font-size: 2.2rem;
       transition: all ease 200ms;
 
-      &:after {
-        content: ">";
-        display: inline-block;
-        color: $pink;
-        margin-left: .5rem;
+      svg {
+        width: .8rem;
+        fill: $pink;
+        margin-left: .3rem;
       }
 
       &:hover {

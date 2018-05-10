@@ -496,7 +496,11 @@
         margin: 2.5rem 0;
 
         p {
-          font-size: 2rem;
+          font-size: 1.6rem;
+          @media screen and (min-width: 768px){
+            font-size: 1.8rem;
+
+          }
         }
       }
 
@@ -507,11 +511,10 @@
         font-weight: bold;
         transition: all ease 200ms;
 
-        &:after {
-          content: ">";
-          color: $pink;
-          font-weight: bold;
-          margin: 0 .5rem;
+        svg {
+          width: .8rem;
+          fill: $pink;
+          margin-left: .3rem;
         }
       }
     }

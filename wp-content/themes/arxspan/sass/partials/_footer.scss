@@ -54,6 +54,25 @@
       }
     }
 
+    .privacy {
+      svg {
+        width: .8rem;
+        margin-left: .5rem;
+        fill: $lightBlue;
+        transition: all ease 200ms;
+      }
+
+      &:hover {
+        a {
+          color: $pink;
+        }
+
+        svg {
+          fill: $pink;
+        }
+      }
+    }
+
     ul {
       li, a {
         font-size: 1.8rem;

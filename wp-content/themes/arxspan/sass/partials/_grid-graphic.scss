@@ -104,7 +104,7 @@
           text-align: center;
           margin-top: 0;
           margin-bottom: 1.5rem;
-          font-size: 2.4rem;
+          font-size: 2rem;
           transition: all ease 300ms;
         }
       }
@@ -113,7 +113,10 @@
       .content {
         margin: 1.5rem;
         text-align: center;
-        font-size: 2rem;
+        font-size: 1.6rem;
+        @media screen and (min-width: 768px){
+          font-size: 1.8rem;
+        }
       }
     }
   }

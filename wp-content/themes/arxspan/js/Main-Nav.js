@@ -8,6 +8,7 @@ export class MainNav {
         this.nav = document.querySelector('#main-nav ul');
         this.toggleLinks = document.querySelectorAll('li.dropdown');
         this.hamburger = document.getElementById('hamburger');
+        this.contactButton = document.getElementById('nav-btn');
         this.activeDropdown;
 
         var clickEvent = function(event) {
@@ -30,6 +31,11 @@ export class MainNav {
             e.preventDefault();
             this.hamburger.classList.toggle('transform');
             this.MobileNavToggle();
+        }.bind(this));
+
+        this.contactButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            this.MobileNavToggle('close');
         }.bind(this));
     }
 
