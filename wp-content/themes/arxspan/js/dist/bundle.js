@@ -1929,15 +1929,17 @@ var _animations = __webpack_require__(14);
 
 var _animations2 = _interopRequireDefault(_animations);
 
-var _Forms = __webpack_require__(15);
+var _SwapSVG = __webpack_require__(15);
+
+var _SwapSVG2 = _interopRequireDefault(_SwapSVG);
+
+var _Forms = __webpack_require__(16);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 var mainHeader = new _MainHeader2.default();
-// import mceButtons from './Mce-Buttons.js'; // how input? include in functions file w hook
-
 var mainNav = new _MainNav2.default();
 
 /*
@@ -2020,6 +2022,11 @@ function setupTabModules() {
 }
 
 /*
+ * Swap SVG backgrounds
+ */
+var swapSVGBG = new _SwapSVG2.default();
+
+/*
  * Loading SVG backgrounds
  */
 
@@ -2096,6 +2103,7 @@ function setupTabModules() {
 
     _barba2.default.Dispatcher.on('initStateChange', function (currentStatus) {
         // We can remove anything from the old page here
+        swapSVGBG.check();
     });
 
     _barba2.default.Dispatcher.on('newPageReady', function () {
@@ -2103,7 +2111,6 @@ function setupTabModules() {
         setupTabModules();
         setupForms();
         setupStyledSelects();
-        //swapSVG();
     });
 
     _barba2.default.Pjax.init();
@@ -25347,13 +25354,11 @@ var imageSlider = function () {
         this.ul = this.sliderWrapper.querySelector('ul.slider');
         this.lis = this.ul.querySelectorAll('li');
         this.nav = this.sliderWrapper.querySelector('.slider-nav');
-        this.height;
+        this.height = 0;
         this.width = window.mobileDetected ? (0, _helpers.getElementContentWidth)(this.sliderWrapper) : (0, _helpers.getElementContentWidth)(this.sliderWrapper) / 3;
         this.ulWidth;
         this.horizontalCenter = (0, _helpers.getElementContentWidth)(this.sliderWrapper) / 2 - this.width / 2;
         this.currentSlide = 0;
-
-        console.log((0, _helpers.getElementContentWidth)(this.sliderWrapper));
 
         if (this.lis.length) {
             this.positioning();
@@ -25371,30 +25376,37 @@ var imageSlider = function () {
     _createClass(imageSlider, [{
         key: 'positioning',
         value: function positioning() {
+
+            // Set variable with ul width
             this.ulWidth = this.width * this.lis.length;
 
+            // Set ul width
             this.ul.style.width = this.ulWidth + 'px';
 
-            // Set li widths
             for (var i = 0; i < this.lis.length; i++) {
+
+                // We'll set the height based on the img
+                var img = this.lis[i].querySelector('img');
+
                 // Set li width
                 this.lis[i].style.width = this.width + 'px';
 
-                // We can set the ul height after setting the first li width and getting it's updated height
-                if (i == 0) {
-                    // Set public height
-                    this.height = this.lis[i].offsetHeight;
-                    // Set ul height
-                    this.ul.style.height = this.height + 'px';
-                }
-
-                // Set li height
-                this.lis[i].style.height = this.height + 'px';
+                // Get max height li based on natural image dimensions
+                if (img.offsetHeight > this.height) this.height = img.offsetHeight;
             }
 
             // Set ul width
             for (var i = 0; i < this.lis.length; i++) {
+                // Set ul width
                 this.lis[i].style.width = this.width + 'px';
+
+                // Set ul height
+                this.ul.style.height = this.height + 'px';
+
+                // Set li height
+                this.lis[i].style.height = this.height + 'px';
+
+                if (i != 0) this.lis[i].classList.add('inactive');
             }
         }
     }, {
@@ -25421,10 +25433,12 @@ var imageSlider = function () {
 
             // Remove active from current slide and current nav item
             this.lis[this.currentSlide].classList.remove('active');
+            this.lis[this.currentSlide].classList.add('inactive');
             this.nav.querySelectorAll('button')[this.currentSlide].classList.remove('active');
 
             // Add active to new slide
             this.lis[index].classList.add('active');
+            this.lis[index].classList.remove('inactive');
             this.nav.querySelectorAll('button')[index].classList.add('active');
 
             // Update current active slide
@@ -25602,6 +25616,79 @@ var animationInstance = new animations();
 
 /***/ }),
 /* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var swapSVG = function () {
+    function swapSVG() {
+        _classCallCheck(this, swapSVG);
+
+        this.svg = document.getElementById('main-background');
+        this.newFilename;
+    }
+
+    _createClass(swapSVG, [{
+        key: 'check',
+        value: function check() {
+            this.firstLoad = 'false';
+            this.svg.style.opacity = 0;
+            this.ajax();
+        }
+    }, {
+        key: 'ajax',
+        value: function ajax() {
+            var data = {
+                'action': 'set_main_bg'
+
+                //AJAX call
+            };var createXhrRequest = function createXhrRequest(httpMethod, url, data, callback) {
+
+                var xhr = new XMLHttpRequest();
+                xhr.open(httpMethod, url);
+                xhr.setRequestHeader('Content-Type', 'text/html');
+                xhr.onreadystatechange = function () {
+                    callback(xhr);
+                };
+                xhr.send(JSON.stringify(data));
+            };
+
+            createXhrRequest("GET", ajaxurl + '?action=' + data.action, data, function (xhr) {
+
+                if (xhr.status == 200 && xhr.readyState == 4) {
+
+                    this.newFilename = xhr.response;
+
+                    this.change(this.newFilename);
+                }
+            }.bind(this));
+        }
+    }, {
+        key: 'change',
+        value: function change(filename) {
+            this.svg.src = filename;
+            setTimeout(function () {
+                this.svg.style.opacity = 1;
+            }.bind(this), 10);
+        }
+    }]);
+
+    return swapSVG;
+}();
+
+exports.default = swapSVG;
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

@@ -59,7 +59,14 @@
         font-size: 1.8rem;
         line-height: 24px;
         color: $lightBlue;
-        text-decoration: none;
+      }
+
+      a {
+        text-decoration: underline;
+
+        &:hover {
+          color: $textGrey;
+        }
       }
     }
   }
