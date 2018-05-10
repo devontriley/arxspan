@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920px" height="1486px" viewBox="0 0 1920 1486" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Header-Backgrounds/industry-overview</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="27.9238872%" y1="37.9199745%" x2="16.3989619%" y2="81.312666%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#E9F6FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="34.0624014%" y1="52.7416236%" x2="23.9641823%" y2="91.4490421%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#E9F6FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Desktop-UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Industries-Overview">
+            <g id="Header-Backgrounds/industry-overview" transform="translate(-456.000000, -31.000000)">
+                <path d="M1063.64861,225.163728 C1393.08064,225.163728 2257.47352,-127.406711 2257.47352,669.106258 C2257.47352,1465.61923 1110.86322,1381.55415 818.948434,1436.42182 C326.254005,1529.0276 50.0859193,1693.67867 29.4318934,899.006322 C8.7780459,104.333508 734.216582,225.163728 1063.64861,225.163728 Z" id="Fill-1" fill="url(#linearGradient-1)" transform="translate(1143.236758, 832.018134) scale(-1, 1) rotate(-180.000000) translate(-1143.236758, -832.018134) "></path>
+                <path d="M884.764685,217.223805 C1398.76116,128.408295 2770.79906,-206.243544 2770.79906,590.269424 C2770.79906,1386.78239 1943.67109,1254.52973 1428.52736,1309.3974 C559.066601,1402.00318 71.7111564,1566.65425 35.2628754,771.981908 C-1.18509073,-22.6909059 370.768214,306.039782 884.764685,217.223805 Z" id="Fill-1" fill="url(#linearGradient-2)" style="mix-blend-mode: multiply;" transform="translate(1401.799065, 730.590540) rotate(-183.000000) translate(-1401.799065, -730.590540) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

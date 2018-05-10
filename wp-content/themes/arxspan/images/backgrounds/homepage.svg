@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920px" height="648px" viewBox="0 0 1920 648" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Header-Backgrounds/homepage</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="48.945767%" y1="2.91590167%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#E9F6FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Desktop-UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Homepage" fill="url(#linearGradient-1)">
+            <g id="Header-Backgrounds/homepage" transform="translate(1129.500000, -145.500000) scale(-1, 1) translate(-1129.500000, 145.500000) translate(-455.000000, -1056.000000)">
+                <path d="M846.436692,185.472551 C1360.37334,71.8566316 3009.11331,-21.8976024 3009.11331,997.029758 C3009.11331,2323.56672 1442.66289,1371.38159 895.400559,1384.70891 C378.036658,1397.30898 38.9406332,2031.29584 2.4965945,1014.72307 C-33.9474442,-1.84970134 332.500048,299.089068 846.436692,185.472551 Z" id="Fill-1"></path>
+                <path d="M1152.00779,182.629615 C1665.94443,69.0136965 3104.57109,-7.04722486 3104.57109,1011.88014 C3104.57109,2338.4171 1684.15543,1340.89634 1136.8931,1354.22366 C619.529195,1366.82373 344.511728,2028.45291 308.067689,1011.88014 C271.62365,-4.69263643 638.071142,296.246133 1152.00779,182.629615 Z" id="Fill-1-Copy" style="mix-blend-mode: multiply;" transform="translate(1705.071095, 910.320837) rotate(-5.000000) translate(-1705.071095, -910.320837) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

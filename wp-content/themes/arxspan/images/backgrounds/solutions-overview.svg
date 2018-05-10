@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920px" height="625px" viewBox="0 0 1920 625" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Header-Backgrounds/solutions-overview</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="48.945767%" y1="2.91590167%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#E9F6FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="48.945767%" y1="2.91590167%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FF385E" offset="0%"></stop>
+            <stop stop-color="#E9F6FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Desktop-UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Solution-Overview">
+            <g id="Header-Backgrounds/solutions-overview" transform="translate(-875.000000, -983.000000)">
+                <path d="M1531.98537,470.3281 C2505.06293,470.3281 3303.93732,1465.76832 2766.02166,1514.59053 C2561.05083,1533.19406 2068.32367,1250.52723 1531.98537,1332.58429 C787.293956,1446.51833 50.9001283,1714.82481 29.7144349,1262.33365 C8.89337666,817.630494 108.412117,610.768269 309.000285,518.614126 C565.184343,400.918138 986.227675,470.3281 1531.98537,470.3281 Z" id="Fill-1-Copy" fill="url(#linearGradient-1)" transform="translate(1483.174142, 982.935090) scale(-1, 1) translate(-1483.174142, -982.935090) "></path>
+                <path d="M1570.88834,241.7666 C2543.9659,241.7666 3342.84028,1237.20682 2804.92463,1286.02903 C2599.9538,1304.63256 2107.22663,1021.96573 1570.88834,1104.02279 C826.19692,1217.95683 89.8030925,1486.26331 68.617399,1033.77215 C47.7963408,589.068994 147.315082,382.206769 347.903249,290.052625 C604.087307,172.356638 1025.13064,241.7666 1570.88834,241.7666 Z" id="Fill-1-Copy-2" fill="url(#linearGradient-1)" style="mix-blend-mode: multiply;" transform="translate(1522.077106, 754.373590) scale(-1, 1) rotate(-9.000000) translate(-1522.077106, -754.373590) "></path>
+                <path d="M936.833908,1423.79021 C1116.27426,1415.10219 1373.72223,1479.27921 1373.72223,1388.4293 C1373.72223,1297.5794 1069.28078,1037.6643 906.324638,1036.14799 C743.368499,1034.63168 653.135165,1179.72131 653.135165,1270.57122 C653.135165,1361.42113 757.393559,1432.47822 936.833908,1423.79021 Z" id="Oval" fill="url(#linearGradient-1)" style="mix-blend-mode: multiply;" transform="translate(1013.428698, 1236.944465) rotate(-24.000000) translate(-1013.428698, -1236.944465) "></path>
+                <circle id="Oval-Copy-3" fill="url(#linearGradient-2)" style="mix-blend-mode: multiply;" transform="translate(2776.725911, 1451.328664) rotate(-24.000000) translate(-2776.725911, -1451.328664) " cx="2776.72591" cy="1451.32866" r="119.325483"></circle>
+                <circle id="Oval-Copy-4" fill="url(#linearGradient-2)" style="mix-blend-mode: multiply;" transform="translate(2578.138335, 1588.782461) rotate(-24.000000) translate(-2578.138335, -1588.782461) " cx="2578.13834" cy="1588.78246" r="18.8261349"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920px" height="812px" viewBox="0 0 1920 812" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Header-Backgrounds/product</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="48.945767%" y1="2.91590167%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#E9F6FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Desktop-UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Electronic-Lab-Notebook-(ELN)" fill="url(#linearGradient-1)">
+            <g id="Header-Backgrounds/product" style="mix-blend-mode: multiply;" transform="translate(1111.576323, 102.000000) rotate(6.000000) translate(-1111.576323, -102.000000) translate(-515.923677, -701.000000)">
+                <path d="M851.866468,248.800575 C1365.80312,147.330092 2804.4298,79.4000118 2804.4298,989.404987 C2804.4298,2174.13639 1384.01412,1283.24967 836.751777,1295.15231 C319.387869,1306.40544 38.9075632,1790.50607 2.46352401,882.603983 C-33.9802003,-25.2986416 337.929817,350.271592 851.866468,248.800575 Z" id="Fill-1" transform="translate(1402.214902, 898.702283) scale(-1, 1) translate(-1402.214902, -898.702283) "></path>
+                <path d="M1301.92107,56.8005747 C1815.85772,-44.6699085 3254.4844,-112.599988 3254.4844,797.404987 C3254.4844,1982.13639 1834.06872,1091.24967 1286.80638,1103.15231 C769.442468,1114.40544 488.962162,1598.50607 452.518123,690.603983 C416.074398,-217.298642 787.984415,158.271592 1301.92107,56.8005747 Z" id="Fill-1" style="mix-blend-mode: multiply;" transform="translate(1852.269500, 706.702283) scale(-1, 1) translate(-1852.269500, -706.702283) "></path>
+            </g>
+        </g>
+    </g>
+</svg>
