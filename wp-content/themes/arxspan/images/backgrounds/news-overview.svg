@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920px" height="623px" viewBox="0 0 1920 623" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Header-Backgrounds/news-overview</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="48.945767%" y1="2.91590167%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#E9F6FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="52.6059101%" y1="80.5634248%" x2="58.9332114%" y2="42.7194581%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#E9F6FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="19.7148758%" y1="103.16263%" x2="51.6048372%" y2="54.8486678%" id="linearGradient-3">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#E9F6FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Desktop-UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="News/Events">
+            <g id="Header-Backgrounds/news-overview" transform="translate(959.500000, -173.500000) scale(-1, 1) translate(-959.500000, 173.500000) translate(-719.000000, -1328.000000)">
+                <path d="M1725.80539,803.330576 C2698.76658,803.330576 3497.54543,1798.89204 2959.69411,1847.7202 C2754.74779,1866.32599 2262.07955,1583.62473 1725.80539,1665.69179 C981.203033,1779.63971 244.89727,2047.97887 223.71411,1595.43259 C202.895542,1150.67527 302.402381,943.78785 502.966561,851.622483 C759.119982,733.91216 1180.11296,803.330576 1725.80539,803.330576 Z" id="Fill-1-Copy-2" fill="url(#linearGradient-1)" style="mix-blend-mode: multiply;" transform="translate(1677.000000, 1316.000000) scale(-1, 1) rotate(-6.000000) translate(-1677.000000, -1316.000000) "></path>
+                <g id="Group-4" transform="translate(1678.459133, 1154.146675) rotate(-11.000000) translate(-1678.459133, -1154.146675) translate(138.959133, 277.646675)">
+                    <path d="M1587.42687,485.562608 C2560.50443,485.562608 3359.37881,1481.00283 2821.46316,1529.82504 C2616.49233,1548.42857 2123.76517,1265.76174 1587.42687,1347.8188 C842.735451,1461.75284 106.341624,1730.05932 85.1559305,1277.56816 C64.3348723,832.865002 163.853613,626.002777 364.441781,533.848633 C620.625839,416.152646 1041.66917,485.562608 1587.42687,485.562608 Z" id="Fill-1-Copy-3" fill="url(#linearGradient-2)" style="mix-blend-mode: multiply;" transform="translate(1538.615637, 998.169598) scale(-1, 1) rotate(-9.000000) translate(-1538.615637, -998.169598) "></path>
+                    <path d="M1588.49169,335.005641 C2561.56925,335.005641 3360.44363,1330.44587 2822.52798,1379.26807 C2617.55715,1397.8716 2124.82999,1115.20477 1588.49169,1197.26183 C843.800274,1311.19587 107.406446,1579.50236 86.2207528,1127.01119 C65.3996946,682.308035 164.918435,475.44581 365.506603,383.291667 C621.690661,265.595679 1042.73399,335.005641 1588.49169,335.005641 Z" id="Fill-1-Copy-4" fill="url(#linearGradient-3)" style="mix-blend-mode: multiply;" transform="translate(1539.680460, 847.612631) scale(-1, 1) rotate(347.000000) translate(-1539.680460, -847.612631) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

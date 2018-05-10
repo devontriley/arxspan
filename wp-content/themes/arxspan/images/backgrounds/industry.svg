@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920px" height="1740px" viewBox="0 0 1920 1740" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Header-Backgrounds/Industry</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="20.5286312%" y1="44.3311403%" x2="16.3989619%" y2="81.312666%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#E9F6FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="30.3708979%" y1="72.5303351%" x2="23.9641823%" y2="91.4490421%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#E9F6FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Desktop-UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Pharma" transform="translate(0.000000, -43.000000)">
+            <g id="Header-Backgrounds/Industry" transform="translate(-509.000000, 35.000000)">
+                <path d="M1115.64861,78.1602558 C1445.08064,78.1602558 2309.47352,-274.410183 2309.47352,522.102785 C2309.47352,1318.61575 1162.86322,1234.55067 870.948434,1289.41835 C378.254005,1382.02413 102.085919,1546.6752 81.4318934,752.00285 C60.7780459,-42.669964 786.216582,78.1602558 1115.64861,78.1602558 Z" id="Fill-1" fill="url(#linearGradient-1)" transform="translate(1195.236758, 685.014662) scale(-1, 1) rotate(-180.000000) translate(-1195.236758, -685.014662) "></path>
+                <path d="M851.96562,575.461592 C1365.96209,486.646083 2738,151.994243 2738,948.507211 C2738,1745.02018 1910.87203,1612.76752 1395.72829,1667.63519 C526.267537,1760.24097 38.9120918,1924.89204 2.46381075,1130.2197 C-33.9841554,335.546882 337.969149,664.27757 851.96562,575.461592 Z" id="Fill-1" fill="url(#linearGradient-2)" style="mix-blend-mode: multiply;" transform="translate(1369.000000, 1088.828327) rotate(-180.000000) translate(-1369.000000, -1088.828327) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

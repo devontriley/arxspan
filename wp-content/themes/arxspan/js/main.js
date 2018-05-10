@@ -10,7 +10,7 @@ import postSlider from './Post-Slider.js';
 import imageSlider from './Image-Slider.js';
 import newsEventQuery from './Post-Loader.js';
 import animations from './animations.js';
-// import mceButtons from './Mce-Buttons.js'; // how input? include in functions file w hook
+import swapSVG from './Swap-SVG.js';
 import { styledSelect, defaultForm } from './Forms.js';
 
 var mainHeader = new MainHeader();
@@ -96,6 +96,11 @@ function setupTabModules() {
 }
 
 /*
+ * Swap SVG backgrounds
+ */
+var swapSVGBG = new swapSVG();
+
+/*
  * Loading SVG backgrounds
  */
 
@@ -175,6 +180,7 @@ domReady(function() {
 
     Barba.Dispatcher.on('initStateChange', function(currentStatus) {
         // We can remove anything from the old page here
+        swapSVGBG.check();
     });
 
     Barba.Dispatcher.on('newPageReady', function() {
@@ -182,7 +188,6 @@ domReady(function() {
         setupTabModules();
         setupForms();
         setupStyledSelects();
-        //swapSVG();
     });
 
     Barba.Pjax.init();

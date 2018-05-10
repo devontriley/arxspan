@@ -70,16 +70,13 @@ strong {
   }
 }
 
-.svg-background {
-  width: 100%;
+#main-background {
   position: absolute;
-  top: 0;
   left: 0;
-
-  &.non-hero {
-    top: 0;
-    height: 100%;
-  }
+  top: 0;
+  width: 100%;
+  transition: opacity 500ms ease;
+  opacity: 0;
 }
 
 .boxed-content {

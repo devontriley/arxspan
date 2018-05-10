@@ -27,7 +27,8 @@
 </script>
 
 <?php include('inc/master-svg.svg'); ?>
-<?php include('components/page-backgrounds.php') ?>
+
+<img src="" id="main-background" />
 
 <div id="wrapper">
 

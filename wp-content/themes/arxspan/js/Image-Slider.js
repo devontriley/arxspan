@@ -6,13 +6,11 @@ class imageSlider {
         this.ul = this.sliderWrapper.querySelector('ul.slider');
         this.lis = this.ul.querySelectorAll('li');
         this.nav = this.sliderWrapper.querySelector('.slider-nav');
-        this.height;
+        this.height = 0;
         this.width = (window.mobileDetected) ? getElementContentWidth(this.sliderWrapper) : getElementContentWidth(this.sliderWrapper) / 3;
         this.ulWidth;
         this.horizontalCenter = (getElementContentWidth(this.sliderWrapper) / 2) - (this.width / 2);
         this.currentSlide = 0;
-
-        console.log(getElementContentWidth(this.sliderWrapper));
 
         if(this.lis.length) {
             this.positioning();
@@ -30,31 +28,39 @@ class imageSlider {
 
 
     positioning() {
+
+        // Set variable with ul width
         this.ulWidth = this.width * this.lis.length;
 
+        // Set ul width
         this.ul.style.width = this.ulWidth+'px';
 
-        // Set li widths
         for(var i = 0; i < this.lis.length; i++) {
+
+            // We'll set the height based on the img
+            var img = this.lis[i].querySelector('img');
+
             // Set li width
             this.lis[i].style.width = this.width+'px';
 
-            // We can set the ul height after setting the first li width and getting it's updated height
-            if(i == 0) {
-                // Set public height
-                this.height = this.lis[i].offsetHeight;
-                // Set ul height
-                this.ul.style.height = this.height+'px';
-            }
-
-            // Set li height
-            this.lis[i].style.height = this.height+'px';
+            // Get max height li based on natural image dimensions
+            if(img.offsetHeight > this.height) this.height = img.offsetHeight;
         }
 
         // Set ul width
         for(var i = 0; i < this.lis.length; i++) {
+            // Set ul width
             this.lis[i].style.width = this.width+'px';
+
+            // Set ul height
+            this.ul.style.height = this.height+'px';
+
+            // Set li height
+            this.lis[i].style.height = this.height+'px';
+
+            if(i != 0) this.lis[i].classList.add('inactive');
         }
+
     }
 
     navClickHandler(e) {
@@ -77,10 +83,12 @@ class imageSlider {
 
         // Remove active from current slide and current nav item
         this.lis[this.currentSlide].classList.remove('active');
+        this.lis[this.currentSlide].classList.add('inactive');
         this.nav.querySelectorAll('button')[this.currentSlide].classList.remove('active');
 
         // Add active to new slide
         this.lis[index].classList.add('active');
+        this.lis[index].classList.remove('inactive');
         this.nav.querySelectorAll('button')[index].classList.add('active');
 
         // Update current active slide

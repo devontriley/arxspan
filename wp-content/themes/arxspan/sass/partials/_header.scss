@@ -27,7 +27,9 @@
     }
 
     body.header-active & {
-      height: 7rem;
+      @media(min-width: 768px) {
+        height: 7rem;
+      }
     }
 
     .nav-container {

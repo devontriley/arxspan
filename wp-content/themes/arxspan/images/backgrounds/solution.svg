@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920px" height="533px" viewBox="0 0 1920 533" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Header-Backgrounds/solution</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="48.945767%" y1="2.91590167%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#E9F6FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="48.945767%" y1="2.91590167%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FF385E" offset="0%"></stop>
+            <stop stop-color="#E9F6FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Desktop-UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Chemistry-Discovery">
+            <g id="Header-Backgrounds/solution" transform="translate(971.500000, -128.500000) scale(-1, 1) translate(-971.500000, 128.500000) translate(-825.000000, -790.000000)">
+                <path d="M1504.98537,277.3281 C2478.06293,277.3281 3276.93732,1272.76832 2739.02166,1321.59053 C2534.05083,1340.19406 2041.32367,1057.52723 1504.98537,1139.58429 C760.293956,1253.51833 23.9001283,1521.82481 2.71443485,1069.33365 C-18.1066233,624.630494 81.4121174,417.768269 282.000285,325.614126 C538.184343,207.918138 959.227675,277.3281 1504.98537,277.3281 Z" id="Fill-1-Copy" fill="url(#linearGradient-1)" transform="translate(1456.174142, 789.935090) scale(-1, 1) translate(-1456.174142, -789.935090) "></path>
+                <path d="M2159.45903,96.5626076 C3132.53659,96.5626076 3931.41098,1092.00283 3393.49532,1140.82504 C3188.52449,1159.42857 2695.79733,876.76174 2159.45903,958.818801 C1414.76762,1072.75284 678.373789,1341.05932 657.188095,888.568161 C636.367037,443.865002 735.885778,237.002777 936.473946,144.848633 C1192.658,27.1526459 1613.70134,96.5626076 2159.45903,96.5626076 Z" id="Fill-1-Copy-2" fill="url(#linearGradient-1)" style="mix-blend-mode: multiply;" transform="translate(2110.647802, 609.169598) scale(-1, 1) rotate(3.000000) translate(-2110.647802, -609.169598) "></path>
+                <circle id="Oval-Copy-3" fill="url(#linearGradient-2)" style="mix-blend-mode: multiply;" transform="translate(882.231549, 1066.402349) rotate(-24.000000) translate(-882.231549, -1066.402349) " cx="882.231549" cy="1066.40235" r="17.1157745"></circle>
+                <circle id="Oval-Copy-4" fill="url(#linearGradient-2)" style="mix-blend-mode: multiply;" transform="translate(1101.782029, 1145.991316) rotate(-24.000000) translate(-1101.782029, -1145.991316) " cx="1101.78203" cy="1145.99132" r="36.4592849"></circle>
+                <circle id="Oval-Copy-5" fill="url(#linearGradient-2)" style="mix-blend-mode: multiply;" transform="translate(992.918969, 1225.779186) rotate(-24.000000) translate(-992.918969, -1225.779186) " cx="992.918969" cy="1225.77919" r="65.7494407"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

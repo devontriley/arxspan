@@ -59,11 +59,16 @@
       img {
         display: block;
         margin: 0 auto;
-        width: calc(100% - 4rem);
         max-width: 100%;
         transition: width 500ms ease;
-        @media(min-width: 768px) {
-          width: 90%;
+      }
+
+      &.inactive {
+        img {
+          width: calc(100% - 4rem);
+          @media(min-width: 768px) {
+            width: 90%;
+          }
         }
       }
 

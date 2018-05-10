@@ -1,12 +1,14 @@
-// cool
-
 .cta-banner {
   background-color: $pink;
   padding: 5rem 0;
   margin: 4rem 0;
   @media screen and (min-width: 768px){
-    padding: 6rem 0;
+    padding: 8rem 0;
     margin: 8rem 0;
+  }
+
+  .text-module.gradient + & {
+    margin-top: 0;
   }
 
   .inner {
@@ -21,16 +23,15 @@
     .banner-text {
       color: #fff;
       text-transform: uppercase;
-      font-size: 2rem;
-      letter-spacing: .3rem;
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: .4rem;
       padding: 0 5rem;
       text-align: center;
       margin-bottom: 2rem;
-      font-weight: bold;
       @media screen and (min-width: 768px){
         margin: 0;
-        font-size: 2.5rem;
-        font-weight: normal;
+        font-size: 3rem;
       }
     }
 
