@@ -39,12 +39,12 @@
 
         .header {
           max-width: unset;
-          font-size: 3.6rem;
+          font-size: 2.4rem;
           font-weight: bold;
           line-height: 1.2em;
 
           @media screen and (min-width: 768px){
-            font-size: 5.4rem;
+            font-size: 4.6rem;
           }
           &:after {
             display: none;
@@ -147,9 +147,8 @@
         .subheader {
           display: block;
           margin: 0 auto;
-          @media screen and (min-width: 768px){
-            width: 50%;
-          }
+          max-width: 70rem;
+
           &:after {
             margin: 1rem auto;
           }
