@@ -1,9 +1,9 @@
-//nice
 .open-opps {
 
   .inner {
     padding: 0 4rem;
-    margin: 4rem 0;
+    margin: 4rem auto;
+    max-width: 110rem;
     @media screen and (min-width: 768px){
       padding: 0 6rem;
     }
@@ -64,6 +64,7 @@
             font-size: 1.6rem;
             border-bottom: none;
             position: relative;
+            font-weight: lighter;
             @media screen and (min-width: 768px){
               font-size: 2.2rem;
             }

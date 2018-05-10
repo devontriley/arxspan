@@ -109,9 +109,6 @@
           display: block;
           margin: 3rem auto 0 auto;
           background-color: $lightBlue;
-          @media screen and (min-width: 768px) {
-
-          }
         }
       }
 
@@ -220,7 +217,7 @@
         color: $blue;
         font-style: italic;
         font-weight: 300;
-        line-height: 1.3em;
+        line-height: 1.5em;
         @media screen and (min-width: 768px){
           font-size: 2.4rem;
           margin: 1rem 0;
@@ -277,6 +274,26 @@
           display: block;
         }
       }
+    }
+  }
+}
+
+// Special text alignment on careers page
+.page-id-82 {
+  .hero .inner .text-wrapper {
+    .subheader {
+      //&:after {
+      //  content: "";
+      //  width: 3.5rem;
+      //  height: .4rem;
+      //  display: block;
+      //  margin: 3rem auto 0 auto;
+      //  background-color: $lightBlue;
+      //}
+    }
+
+    .copy-container {
+      text-align: left;
     }
   }
 }
