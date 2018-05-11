@@ -9,7 +9,7 @@
         </section>
 
         <aside>
-            <form id="contact-form" class="default-form" novalidate>
+            <form id="contact-form" data-form="contact" class="default-form" novalidate>
                 <div class="fields">
                     <div class="field">
                         <label>First Name:*</label>

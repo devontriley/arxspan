@@ -8,7 +8,7 @@
                 <?php include('components/components.php'); ?>
             </section>
             <aside>
-                <form id="contact-form" class="default-form" novalidate>
+                <form id="contact-form" data-form="whitepaper" data-download="<?php the_field('pdf_download'); ?>" class="default-form" novalidate>
                     <div class="fields">
                         <div class="field">
                             <label>First Name:*</label>
@@ -40,14 +40,14 @@
                             <input type="text" name="phone" />
                             <div class="inline-msg"></div>
                         </div>
-                        <div class="field">
-                            <!--                        <label>Type of Request:*</label>-->
-                            <select required name="request">
-                                <option>Please select one</option>
-                                <option>Request 1</option>
-                            </select>
-                            <div class="inline-msg"></div>
-                        </div>
+<!--                        <div class="field">-->
+<!--                            <label>Type of Request:*</label>-->
+<!--                            <select required name="request">-->
+<!--                                <option>Please select one</option>-->
+<!--                                <option>Request 1</option>-->
+<!--                            </select>-->
+<!--                            <div class="inline-msg"></div>-->
+<!--                        </div>-->
                         <div class="field">
                             <input type="submit" id="submit" value="Submit" class="btn" />
                         </div>
