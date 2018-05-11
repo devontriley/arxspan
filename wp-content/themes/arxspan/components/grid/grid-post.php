@@ -59,7 +59,7 @@ if($postGrid){ ?>
                         </div><?php
                     }
 
-                    button($buttonLabel, $buttonUrl); ?>
+//                    button($buttonLabel, $buttonUrl); ?>
                 </div><!-- .text-container --><?php
             }
 
