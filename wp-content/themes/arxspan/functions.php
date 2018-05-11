@@ -663,7 +663,7 @@ function set_main_bg() {
         $filename = 'gradient';
     }
 
-    echo get_bloginfo('template_directory') . '/images/backgrounds/' . $filename;
+    echo get_bloginfo('template_directory') . '/images/backgrounds/' . $filename . '.svg';
 
     exit;
 }

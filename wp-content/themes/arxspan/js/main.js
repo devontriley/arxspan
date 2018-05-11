@@ -47,12 +47,13 @@ if(imageSliders != null) {
 /*
  * Post Sliders
  */
-
-var postSliders = document.querySelectorAll('.posts-container.is-slider .grid-inner');
-if(postSliders != null) {
-    var postSlidersArr = [];
-    for(var i = 0; i < postSliders.length; i++) {
-        postSlidersArr.push(new postSlider(postSliders[i]));
+function setupPostSliders() {
+    var postSliders = document.querySelectorAll('.posts-container.is-slider .grid-inner');
+    if(postSliders != null) {
+        var postSlidersArr = [];
+        for(var i = 0; i < postSliders.length; i++) {
+            postSlidersArr.push(new postSlider(postSliders[i]));
+        }
     }
 }
 
@@ -188,6 +189,7 @@ domReady(function() {
         setupTabModules();
         setupForms();
         setupStyledSelects();
+        setupPostSliders();
     });
 
     Barba.Pjax.init();
