@@ -5,18 +5,7 @@
 <div class="boxed-content">
     <div class="inner">
         <section>
-            <h1 class="title">Get in Touch with Us!</h1>
-            <p>Please take a moment to complete the following fields to receive more informaton on the Arxlab system.</p>
-            <p>Do you need to:</p>
-            <ul>
-                <li>Move on from paper lab notebooks?</li>
-                <li>Replace an existing ELN system?</li>
-                <li>Connect with external research partners?</li>
-                <li>Integrate internal systems with a cloud ELN system?</li>
-                <li>Manage other scientific workflows, such as inventory management or compound/material registration?</li>
-                <li>Centralize your laboratory operations?</li>
-            </ul>
-            <p>We will show you how the Arxlab platform can help you effectively manage your scientific data and improve your research productivity.</p>
+            <?php include('components/components.php'); ?>
         </section>
 
         <aside>
