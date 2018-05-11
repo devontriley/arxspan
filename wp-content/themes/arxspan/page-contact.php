@@ -13,22 +13,22 @@
                 <div class="fields">
                     <div class="field">
                         <label>First Name:*</label>
-                        <input type="text" name="fname" required value="devon" />
+                        <input type="text" name="fname" required value="" />
                         <div class="inline-msg"></div>
                     </div>
                     <div class="field">
                         <label>Last Name:*</label>
-                        <input type="text" name="lname" required value="riley" />
+                        <input type="text" name="lname" required value="" />
                         <div class="inline-msg"></div>
                     </div>
                     <div class="field">
                         <label>Email:*</label>
-                        <input type="email" name="email" required value="dev@Knowncreative.co" />
+                        <input type="email" name="email" required value="" />
                         <div class="inline-msg"></div>
                     </div>
                     <div class="field">
                         <label>Company:*</label>
-                        <input type="text" name="company" required value="known" />
+                        <input type="text" name="company" required value="" />
                         <div class="inline-msg"></div>
                     </div>
                     <div class="field">
