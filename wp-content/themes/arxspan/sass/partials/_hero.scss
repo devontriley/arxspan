@@ -56,10 +56,13 @@
 
   // General inner
   .inner {
-    padding: 10rem 4rem 0;
+    padding: 4rem 4rem 0;
     margin: 0 auto;
     display: flex;
     margin: 0 auto;
+    @media(min-width: 768px) {
+      padding: 10rem 4rem 0 4rem;
+    }
 
     .boxed-content & {
       padding: 0;
@@ -104,20 +107,33 @@
 
         &:after {
           content: "";
-          width: 3.5rem;
+          width: 5rem;
           height: .4rem;
           display: block;
-          margin: 3rem auto 0 auto;
+          margin: 3rem auto;
           background-color: $lightBlue;
+          @media(min-width: 768px) {
+            margin: 3rem 0;
+          }
         }
       }
 
       // text orientation options
       &.left {
         text-align: center;
-
         @media screen and (min-width: 768px){
           text-align: left;
+        }
+
+        .header {
+          &:after {
+            margin-left: auto;
+            margin-right: auto;
+            @media(min-width: 768px) {
+              margin-left: 0;
+              margin-right: 0;
+            }
+          }
         }
 
         .subheader {
@@ -136,9 +152,6 @@
         .header {
           margin: 2rem auto;
           max-width: 75rem;
-          &:after {
-            margin: 1rem auto;
-          }
         }
 
         .subheader {
@@ -147,7 +160,12 @@
           max-width: 70rem;
 
           &:after {
-            margin: 1rem auto;
+            content: "";
+            width: 5rem;
+            height: .4rem;
+            display: block;
+            margin: 3rem auto;
+            background-color: $lightBlue;
           }
         }
 
@@ -178,11 +196,8 @@
           display: block;
           height: .4rem;
           width: 5rem;
-          margin: 2rem auto;
+          margin: 3rem auto;
           background-color: $lightBlue;
-          @media screen and (min-width: 768px){
-            margin: 2rem 0;
-          }
         }
 
         &.has-subheader {
@@ -194,6 +209,7 @@
 
       .copy-container {
         margin: 2rem 0;
+        text-align: left;
 
         p {
           font-size: 2rem;
@@ -273,26 +289,6 @@
           display: block;
         }
       }
-    }
-  }
-}
-
-// Special text alignment on careers page
-.page-id-82 {
-  .hero .inner .text-wrapper {
-    .subheader {
-      //&:after {
-      //  content: "";
-      //  width: 3.5rem;
-      //  height: .4rem;
-      //  display: block;
-      //  margin: 3rem auto 0 auto;
-      //  background-color: $lightBlue;
-      //}
-    }
-
-    .copy-container {
-      text-align: left;
     }
   }
 }

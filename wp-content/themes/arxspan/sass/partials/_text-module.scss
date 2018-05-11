@@ -12,8 +12,19 @@
     margin-top: 0;
   }
 
+  .hero + & {
+    @media(max-width: 676px) {
+      margin-top: 3rem;
+    }
+  }
+
   .boxed-content & {
     margin: 3rem 0;
+    padding: 0;
+  }
+
+  .boxed-content .hero + & {
+    margin-top: 0;
   }
 
   &.gradient {
@@ -90,6 +101,10 @@
       color: $blue;
       font-weight: bold;
       margin: 1.5rem 0;
+
+      & + ul {
+        margin-top: 1rem;
+      }
     }
 
     h4 {
@@ -104,13 +119,17 @@
       }
     }
 
-    h3 + ul {
-      margin-top: 1rem;
-    }
-
     ul {
       list-style: disc;
-      margin: 3rem 0;
+      margin: 1em 0;
+
+      .boxed-content & {
+        padding-left: 2rem;
+      }
+
+      & + h3 {
+        margin-top: 1.5em;
+      }
 
       li {
         margin: 1rem 0;
@@ -163,26 +182,41 @@
     }
 
     .row {
-      display: flex;
-      flex-wrap: wrap;
       position: relative;
-      margin-left: -2rem;
-      max-width: 100rem;
-
+      margin: 1.5em auto;
       @media screen and (min-width: 768px){
+        display: flex;
         flex-wrap: nowrap;
-        margin-left: -4rem;
+        margin: 1.5em -2rem;
       }
 
       .col {
         flex: 0 0 100%;
         max-width: 100%;
         box-sizing: border-box;
-        padding-left: 3rem;
-      }
-      @media screen and (min-width: 768px){
-        //margin: 0 4rem;
-        padding: 0;
+        @media(min-width: 768px) {
+          padding: 0 2rem;
+        }
+
+        & + .col {
+          h3:first-child {
+            @media(max-width: 676px) {
+              margin-top: 1.5em;
+            }
+          }
+        }
+
+        ul {
+          padding-left: 2rem;
+
+          &:first-child {
+            margin-top: 0;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
       }
 
       &.two {

@@ -41,14 +41,14 @@
                         <input type="text" name="phone" />
                         <div class="inline-msg"></div>
                     </div>
-                    <div class="field">
-<!--                        <label>Type of Request:*</label>-->
-                        <select required name="request">
-                            <option>Please select one</option>
-                            <option>Request 1</option>
-                        </select>
-                        <div class="inline-msg"></div>
-                    </div>
+<!--                    <div class="field">-->
+<!--                        <label>Type of Request:*</label>
+<!--                        <select required name="request">-->
+<!--                            <option>Please select one</option>-->
+<!--                            <option>Request 1</option>-->
+<!--                        </select>-->
+<!--                        <div class="inline-msg"></div>-->
+<!--                    </div>-->
                     <div class="field">
                         <input type="submit" id="submit" value="Contact Us" class="btn" />
                     </div>
