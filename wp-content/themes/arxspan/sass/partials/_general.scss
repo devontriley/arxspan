@@ -75,6 +75,13 @@ strong {
   opacity: 0;
 }
 
+.svg-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
 .boxed-content {
   margin: 0 auto;
   padding: 0 2rem;

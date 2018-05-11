@@ -6,14 +6,19 @@
     <div class="inner">
         <section>
             <h1 class="title">Get in Touch with Us!</h1>
-            <p>Please take a moment to complete the form below and we'll contact you promptly.</p>
+            <p>Please take a moment to complete the following fields to receive more informaton on the Arxlab system.</p>
+            <p>Do you need to:</p>
             <ul>
-                <li>Something will go here yadda yadda</li>
-                <li>Something will go here yadda yadda</li>
-                <li>Something will go here yadda yadda</li>
-                <li>Something will go here yadda yadda</li>
+                <li>Move on from paper lab notebooks?</li>
+                <li>Replace an existing ELN system?</li>
+                <li>Connect with external research partners?</li>
+                <li>Integrate internal systems with a cloud ELN system?</li>
+                <li>Manage other scientific workflows, such as inventory management or compound/material registration?</li>
+                <li>Centralize your laboratory operations?</li>
             </ul>
+            <p>We will show you how the Arxlab platform can help you effectively manage your scientific data and improve your research productivity.</p>
         </section>
+
         <aside>
             <form id="contact-form" class="default-form" novalidate>
                 <div class="fields">
@@ -56,7 +61,7 @@
                         <div class="inline-msg"></div>
                     </div>
                     <div class="field">
-                        <input type="submit" id="submit" value="Submit" class="btn" />
+                        <input type="submit" id="submit" value="Contact Us" class="btn" />
                     </div>
                 </div>
                 <div class="form-success">
