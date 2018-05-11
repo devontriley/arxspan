@@ -77,24 +77,27 @@ $activeTab = $_GET['activeTab'] ? $_GET['activeTab'] : 1;
                         <a class="text-block-link" href="<?php echo $link; ?>"></a>
                         <div class="inner">
                             <p class="title"><?php echo $title; ?></p>
-                            <?php
-                            if(have_rows('components', $tabPost->ID)):
 
-                                $found = false;
-
-                                while(have_rows('components', $tabPost->ID)) : the_row();
-
-                                    if( get_row_layout() == 'text_module' && !$found ):
-                                        $found = true;
-                                        $textModule = get_sub_field('wysiwyg');
-                                        $textExcerpt = advanced_custom_field_excerpt($textModule); ?>
-
-                                        <div class="blurb">
-                                            <?php echo $textExcerpt; ?>
-                                        </div> <?php
-                                    endif;
-                                endwhile;
-                            endif;
+                            <div class="blurb">
+                                <?php echo $tabBlurb; ?>
+                            </div><?php
+//                            if(have_rows('components', $tabPost->ID)):
+//
+//                                $found = false;
+//
+//                                while(have_rows('components', $tabPost->ID)) : the_row();
+//
+//                                    if( get_row_layout() == 'text_module' && !$found ):
+//                                        $found = true;
+//                                        $textModule = get_sub_field('wysiwyg');
+//                                        $textExcerpt = advanced_custom_field_excerpt($textModule); ?>
+<!---->
+<!--                                        <div class="blurb">-->
+<!--                                            --><?php //echo $textExcerpt; ?>
+<!--                                        </div> --><?php
+//                                    endif;
+//                                endwhile;
+//                            endif;
                             ?>
                             <p class="learn-more">Learn More <svg viewBox="0 0 10 16"><use xlink:href="#button-arrow"></use></svg></p>
                         </div>
