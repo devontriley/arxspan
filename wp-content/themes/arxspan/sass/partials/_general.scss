@@ -55,6 +55,15 @@ p, li {
   font-weight: lighter;
 }
 
+p > a {
+  color: $blue;
+  transition: all ease 200ms;
+
+  &:hover {
+    color: $pink;
+  }
+}
+
 strong {
   font-weight: bold;
 }
