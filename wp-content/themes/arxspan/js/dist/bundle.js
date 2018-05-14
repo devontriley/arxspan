@@ -25387,6 +25387,25 @@ var imageSlider = function () {
         this.horizontalCenter = (0, _helpers.getElementContentWidth)(this.sliderWrapper) / 2 - this.width / 2;
         this.currentSlide = 0;
 
+        // Touch events
+        this.touchstartX = 0;
+        this.touchstartY = 0;
+        this.touchendX = 0;
+        this.touchendY = 0;
+
+        this.gestureZone = this.ul;
+
+        this.gestureZone.addEventListener('touchstart', function (event) {
+            this.touchstartX = event.changedTouches[0].screenX;
+            this.touchstartY = event.changedTouches[0].screenY;
+        }.bind(this), false);
+
+        this.gestureZone.addEventListener('touchend', function (event) {
+            this.touchendX = event.changedTouches[0].screenX;
+            this.touchendY = event.changedTouches[0].screenY;
+            this.handleGesture();
+        }.bind(this), false);
+
         if (this.lis.length) {
             this.positioning();
             this.setUlPosition(this.currentSlide);
@@ -25401,6 +25420,33 @@ var imageSlider = function () {
     }
 
     _createClass(imageSlider, [{
+        key: 'handleGesture',
+        value: function handleGesture() {
+            var direction;
+
+            if (this.touchendX <= this.touchstartX) {
+                direction = 'left';
+            }
+
+            if (this.touchendX >= this.touchstartX) {
+                direction = 'right';
+            }
+
+            this.swipeSlide(direction);
+
+            // if (this.touchendY <= this.touchstartY) {
+            //     console.log('Swiped up');
+            // }
+            //
+            // if (this.touchendY >= this.touchstartY) {
+            //     console.log('Swiped down');
+            // }
+            //
+            // if (this.touchendY === this.touchstartY) {
+            //     console.log('Tap');
+            // }
+        }
+    }, {
         key: 'positioning',
         value: function positioning() {
 
@@ -25442,6 +25488,17 @@ var imageSlider = function () {
             var nextSlide = (0, _helpers.getElIndex)(e.target);
             // Set the ul position by passing the position of the next slide
             this.setUlPosition(nextSlide);
+        }
+    }, {
+        key: 'swipeSlide',
+        value: function swipeSlide(direction) {
+            if (direction == 'left' && this.currentSlide != this.lis.length - 1) {
+                this.setUlPosition(this.currentSlide + 1);
+            }
+
+            if (direction == 'right' && this.currentSlide != 0) {
+                this.setUlPosition(this.currentSlide - 1);
+            }
         }
     }, {
         key: 'getUlPosition',
