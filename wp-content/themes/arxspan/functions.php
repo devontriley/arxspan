@@ -226,6 +226,7 @@ function product_init() {
         'rewrite' => array('slug' => 'product'),
         'query_var' => true,
         'menu_icon' => 'dashicons-cart',
+        'hierarchical' => true,
         'supports' => array(
             'title'
         )
@@ -267,6 +268,7 @@ function industry_init() {
         'rewrite' => array('slug' => 'industry'),
         'query_var' => true,
         'menu_icon' => 'dashicons-building',
+        'hierarchical' => true,
         'supports' => array(
             'title'
         )
@@ -309,6 +311,7 @@ function solution_init() {
         'rewrite' => array('slug' => 'solution'),
         'query_var' => true,
         'menu_icon' => 'dashicons-admin-tools',
+        'hierarchical' => true,
         'supports' => array(
             'title'
         )
@@ -350,6 +353,7 @@ function event_init() {
         'rewrite' => array('slug' => 'event'),
         'query_var' => true,
         'menu_icon' => 'dashicons-calendar-alt',
+        'hierarchical' => true,
         'supports' => array(
             'title'
         )
@@ -391,6 +395,7 @@ function career_init() {
         'rewrite' => array('slug' => 'career'),
         'query_var' => true,
         'menu_icon' => 'dashicons-businessman',
+        'hierarchical' => true,
         'supports' => array(
             'title'
         )
@@ -433,6 +438,7 @@ function news_init() {
         'rewrite' => array('slug' => 'news'),
         'query_var' => true,
         'menu_icon' => 'dashicons-megaphone',
+        'hierarchical' => true,
         'supports' => array(
             'title'
         )
@@ -460,7 +466,7 @@ function whitepaper_init() {
         'not_found' =>  'No Whitepapers Found',
         'not_found_in_trash' => 'No Whitepapers found in Trash',
         'parent_item_colon' => '',
-        'menu_name' => 'Whitepapers',
+        'menu_name' => 'Whitepapers'
     );
 
     // register post type
@@ -474,6 +480,7 @@ function whitepaper_init() {
         'rewrite' => array('slug' => 'whitepaper'),
         'query_var' => true,
         'menu_icon' => 'dashicons-admin-page',
+        'hierarchical' => true,
         'supports' => array(
             'title'
         )
@@ -515,6 +522,7 @@ function mktflyer_init() {
         'rewrite' => array('slug' => 'mktflyer'),
         'query_var' => true,
         'menu_icon' => 'dashicons-admin-page',
+        'hierarchical' => true,
         'supports' => array(
             'title'
         )

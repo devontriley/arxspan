@@ -1953,20 +1953,24 @@ window.addEventListener('resize', function (e) {
 /*
  * AJAX (news and events)
  */
-var loadMoreBtn = document.getElementById('load-more');
-if (loadMoreBtn != null) {
-    var newsEventsAjax = new _PostLoader2.default();
+function setupAjaxPosts() {
+    var loadMoreBtn = document.getElementById('load-more');
+    if (loadMoreBtn != null) {
+        var newsEventsAjax = new _PostLoader2.default();
+    }
 }
 
 /*
  * Image Sliders
  */
 
-var imageSliders = document.querySelectorAll('.slider-wrapper');
-if (imageSliders != null) {
-    var imageSlidersArr = [];
-    for (var i = 0; i < imageSliders.length; i++) {
-        imageSlidersArr.push(new _ImageSlider2.default(imageSliders[i]));
+function setupImageSliders() {
+    var imageSliders = document.querySelectorAll('.slider-wrapper');
+    if (imageSliders != null) {
+        var imageSlidersArr = [];
+        for (var i = 0; i < imageSliders.length; i++) {
+            imageSlidersArr.push(new _ImageSlider2.default(imageSliders[i]));
+        }
     }
 }
 
@@ -2027,10 +2031,6 @@ function setupTabModules() {
  * Swap SVG backgrounds
  */
 var swapSVGBG = new _SwapSVG2.default();
-
-/*
- * Loading SVG backgrounds
- */
 
 (0, _domready2.default)(function () {
 
@@ -2111,9 +2111,11 @@ var swapSVGBG = new _SwapSVG2.default();
     _barba2.default.Dispatcher.on('newPageReady', function () {
         // We can add anything for the new page here
         setupTabModules();
+        setupImageSliders();
         setupForms();
         setupStyledSelects();
         setupPostSliders();
+        setupAjaxPosts();
     });
 
     _barba2.default.Pjax.init();
