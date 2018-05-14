@@ -114,7 +114,7 @@ if($postGrid){ ?>
                 foreach($whitepapers as $whitepaperPost){ ?>
                     <div class="post-container">
                         <div class="inner">
-                            <?php if($gridTitle == 'Marketing Flyers') { ?>
+                            <?php if(get_post_type($whitepaperPost) == 'mktflyer') { ?>
 
                                 <a class="post-link" href="<?php the_field('pdf_download', $whitepaperPost->ID); ?>" target="_blank"></a>
 
