@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <title><?php wp_title( ' | ', true, 'right' ); ?></title>
 
+    <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon.png" />
     <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>" />
     <link rel="stylesheet" href="https://use.typekit.net/rva7var.css">
 
