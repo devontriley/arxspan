@@ -2009,7 +2009,6 @@ function setupForms() {
         for (var i = 0; i < forms.length; i++) {
             formsArr[i] = new _Forms.contactForm(forms[i]);
         }
-        console.log(formsArr);
     }
 }
 
@@ -2108,14 +2107,16 @@ var swapSVGBG = new _SwapSVG2.default();
     });
 
     _barba2.default.Dispatcher.on('newPageReady', function () {
-        // We can add anything for the new page here
-        console.log('new page');
+        // console.log(document.querySelectorAll('ul.slider'));
         setupTabModules();
-        setupImageSliders();
         setupForms();
         setupStyledSelects();
         setupPostSliders();
         setupAjaxPosts();
+    });
+
+    _barba2.default.Dispatcher.on('transitionCompleted', function () {
+        setupImageSliders();
     });
 
     _barba2.default.Pjax.init();
@@ -25159,10 +25160,10 @@ var tabModule = function () {
 
         this.tabContent = ele.getElementsByClassName('tabcontent');
         this.tabLinks = ele.getElementsByClassName('tablinks');
+        this.mobileIcons = ele.querySelectorAll('.mobileIcons .icon');
         this.currentTab = (0, _helpers.getParameterByName)('activeTab') ? (0, _helpers.getParameterByName)('activeTab') : 1;
 
         for (var i = 0; i < this.tabLinks.length; i++) {
-
             this.tabLinks[i].addEventListener('click', function (e) {
                 var index = (0, _helpers.getElIndex)(e.target);
                 this.changeTab(index, this.currentTab);
@@ -25195,12 +25196,14 @@ var tabModule = function () {
         key: 'tabOut',
         value: function tabOut(currentTab) {
             this.tabLinks[currentTab - 1].classList.remove('active');
+            this.mobileIcons[currentTab - 1].classList.remove('active');
             this.tabContent[currentTab - 1].classList.remove('active');
         }
     }, {
         key: 'tabIn',
         value: function tabIn(index) {
             this.tabLinks[index].classList.add('active');
+            this.mobileIcons[index].classList.add('active');
             this.tabContent[index].classList.add('active');
         }
     }]);
@@ -25361,7 +25364,6 @@ var imageSlider = function () {
     function imageSlider(ele) {
         _classCallCheck(this, imageSlider);
 
-        console.log(ele);
         this.sliderWrapper = ele;
         this.ul = this.sliderWrapper.querySelector('ul.slider');
         this.lis = this.ul.querySelectorAll('li');

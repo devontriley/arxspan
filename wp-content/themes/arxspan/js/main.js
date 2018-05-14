@@ -29,7 +29,7 @@ window.addEventListener('resize', function(e) {
  */
 function setupAjaxPosts() {
     var loadMoreBtn = document.getElementById('load-more');
-    if(loadMoreBtn != null){
+    if(loadMoreBtn != null) {
         var newsEventsAjax = new newsEventQuery();
     }
 }
@@ -83,7 +83,6 @@ function setupForms() {
         for(var i = 0; i < forms.length; i++) {
             formsArr[i] = new contactForm(forms[i]);
         }
-        console.log(formsArr);
     }
 }
 
@@ -185,14 +184,16 @@ domReady(function() {
     });
 
     Barba.Dispatcher.on('newPageReady', function() {
-        // We can add anything for the new page here
-        console.log('new page');
+        // console.log(document.querySelectorAll('ul.slider'));
         setupTabModules();
-        setupImageSliders();
         setupForms();
         setupStyledSelects();
         setupPostSliders();
         setupAjaxPosts();
+    });
+
+    Barba.Dispatcher.on('transitionCompleted', function() {
+        setupImageSliders();
     });
 
     Barba.Pjax.init();

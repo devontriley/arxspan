@@ -4,10 +4,10 @@ class tabModule {
     constructor(ele) {
         this.tabContent = ele.getElementsByClassName('tabcontent');
         this.tabLinks = ele.getElementsByClassName('tablinks');
+        this.mobileIcons = ele.querySelectorAll('.mobileIcons .icon');
         this.currentTab = getParameterByName('activeTab') ? getParameterByName('activeTab') : 1;
 
         for(var i = 0; i < this.tabLinks.length; i++) {
-
             this.tabLinks[i].addEventListener('click', function(e) {
                 var index = getElIndex(e.target);
                 this.changeTab(index, this.currentTab);
@@ -37,11 +37,13 @@ class tabModule {
 
     tabOut(currentTab) {
         this.tabLinks[currentTab - 1].classList.remove('active');
+        this.mobileIcons[currentTab - 1].classList.remove('active');
         this.tabContent[currentTab - 1].classList.remove('active');
     }
 
     tabIn(index) {
         this.tabLinks[index].classList.add('active');
+        this.mobileIcons[index].classList.add('active');
         this.tabContent[index].classList.add('active');
     }
 }
