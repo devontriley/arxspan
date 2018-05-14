@@ -100,11 +100,10 @@ strong {
 
   & > .inner {
     max-width: 120rem;
-    margin: 0 auto 4rem auto;
+    margin: 0 auto;
     @media(min-width: 768px) {
       display: flex;
       flex-wrap: nowrap;
-      margin: 0 auto;
       border-radius: 1rem;
       box-shadow: 0 6px 24px 0 rgba(0,0,0,0.09);
       background: #fff;
@@ -138,6 +137,7 @@ strong {
     }
 
     & > aside {
+      margin-bottom: 4rem;
       @media(min-width: 768px) {
         flex: 0 0 45%;
         max-width: 45%;
