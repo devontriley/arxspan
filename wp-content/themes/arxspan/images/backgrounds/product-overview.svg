@@ -1,26 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="1920px" height="765px" viewBox="0 0 1920 765" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
-    <title>Header-Backgrounds/product-overview</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <linearGradient x1="48.945767%" y1="2.91590167%" x2="50%" y2="100%" id="linearGradient-1">
-            <stop stop-color="#FFFFFF" offset="0%"></stop>
-            <stop stop-color="#E9F6FF" offset="100%"></stop>
-        </linearGradient>
-        <linearGradient x1="48.945767%" y1="2.91590167%" x2="50%" y2="100%" id="linearGradient-2">
-            <stop stop-color="#FF385E" offset="0%"></stop>
-            <stop stop-color="#E9F6FF" offset="100%"></stop>
-        </linearGradient>
-    </defs>
-    <g id="Desktop-UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Product-Overview">
-            <g id="Header-Backgrounds/product-overview" transform="translate(-495.000000, -964.000000)">
-                <path d="M903.436692,313.784316 C1417.37334,212.342878 2856,144.432242 2856,1054.17674 C2856,2238.56903 1435.58434,1347.93731 888.322001,1359.83654 C370.958101,1371.08646 95.9406332,1961.81896 59.4965945,1054.17674 C23.0525558,146.534525 389.500048,415.226289 903.436692,313.784316 Z" id="Fill-1" fill="url(#linearGradient-1)"></path>
-                <path d="M903.436692,176.784316 C1417.37334,75.3428777 2856,7.4322419 2856,917.176741 C2856,2101.56903 1435.58434,1210.93731 888.322001,1222.83654 C370.958101,1234.08646 95.9406332,1824.81896 59.4965945,917.176741 C23.0525558,9.5345251 389.500048,278.226289 903.436692,176.784316 Z" id="Fill-1-Copy" fill="url(#linearGradient-1)" style="mix-blend-mode: multiply;" transform="translate(1456.500000, 826.500000) rotate(-5.000000) translate(-1456.500000, -826.500000) "></path>
-                <circle id="Oval-Copy-3" fill="url(#linearGradient-2)" style="mix-blend-mode: multiply;" transform="translate(2435.325786, 1426.000000) rotate(-24.000000) translate(-2435.325786, -1426.000000) " cx="2435.32579" cy="1426" r="160"></circle>
-                <circle id="Oval-Copy-4" fill="url(#linearGradient-2)" style="mix-blend-mode: multiply;" transform="translate(2320.325786, 1656.000000) rotate(-24.000000) translate(-2320.325786, -1656.000000) " cx="2320.32579" cy="1656" r="73"></circle>
-            </g>
-        </g>
-    </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1920 765" style="enable-background:new 0 0 1920 765;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#Fill-1_1_);}
+	.st1{fill:url(#Fill-1-Copy_1_);}
+</style>
+<title>Header-Backgrounds/product-overview</title>
+<desc>Created with Sketch.</desc>
+<g id="Desktop-UI">
+	<g id="Product-Overview">
+		<g id="Header-Backgrounds_x2F_product-overview" transform="translate(-495.000000, -964.000000)">
+			
+				<linearGradient id="Fill-1_1_" gradientUnits="userSpaceOnUse" x1="-343.2057" y1="1778.9363" x2="-343.1951" y2="1777.9653" gradientTransform="matrix(2799 0 0 -1412.9999 962074 2513934.75)">
+				<stop  offset="0" style="stop-color:#FFFFFF"/>
+				<stop  offset="1" style="stop-color:#E9F6FF"/>
+			</linearGradient>
+			<path id="Fill-1" class="st0" d="M903.4,313.8C1417.4,212.3,2856,144.4,2856,1054.2c0,1184.4-1420.4,293.8-1967.7,305.7
+				c-517.4,11.2-792.4,602-828.8-305.7S389.5,415.2,903.4,313.8z"/>
+			
+				<linearGradient id="Fill-1-Copy_1_" gradientUnits="userSpaceOnUse" x1="-343.2083" y1="1778.8846" x2="-343.1978" y2="1777.9138" gradientTransform="matrix(2788.3491 -243.9489 -123.1511 -1407.623 1177439.5 2420438.5)">
+				<stop  offset="0" style="stop-color:#FFFFFF"/>
+				<stop  offset="1" style="stop-color:#E9F6FF"/>
+			</linearGradient>
+			<path id="Fill-1-Copy" class="st1" d="M848.9,227.5c503.1-145.8,1930.4-338.9,2009.7,567.4c103.2,1179.9-1389.4,416.4-1933.6,476
+				c-514.4,56.3-736.9,668.8-852.3-232.3S345.8,373.3,848.9,227.5z"/>
+		</g>
+	</g>
+</g>
 </svg>
