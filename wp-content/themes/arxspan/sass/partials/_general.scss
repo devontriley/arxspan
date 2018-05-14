@@ -137,6 +137,7 @@ strong {
     }
 
     & > aside {
+      margin-bottom: 4rem;
       @media(min-width: 768px) {
         flex: 0 0 45%;
         max-width: 45%;
