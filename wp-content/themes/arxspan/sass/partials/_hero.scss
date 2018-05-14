@@ -20,7 +20,7 @@
     }
 
     .inner {
-      margin: 8rem 4rem;
+      margin: 1rem 4rem;
       padding: unset;
       flex-wrap: wrap;
       @media screen and (min-width: 768px){
@@ -30,7 +30,7 @@
 
       .text-wrapper {
         max-width: 70rem;
-        margin: -4rem auto;
+        //margin: -4rem auto;
         width: 100%;
         @media screen and (min-width: 768px){
           margin: 0;
@@ -259,8 +259,11 @@
   &.home {
 
     .inner {
-      padding: 10rem 4rem;
+      padding: 5rem 4rem;
       margin: unset;
+      @media screen and (min-width: 768px){
+        padding: 10rem 4rem;
+      }
 
       .text-wrapper {
         @media screen and (min-width: 768px){
