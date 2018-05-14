@@ -189,6 +189,10 @@
           @media screen and (min-width: 768px) {
             font-size: 4rem;
           }
+
+          &:after {
+            display: none;
+          }
         }
 
         &:after {
