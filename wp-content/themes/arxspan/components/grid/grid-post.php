@@ -230,7 +230,7 @@ if($postGrid){ ?>
                 if(is_page(78)){ ?>
                     <button class="btn" id="load-more">
                     <span id="load-text">Load More Articles</span>
-                    <img id="loader-gif" alt="loading" src="<?php bloginfo('template_directory');?>/img/loading_spinner.gif"/>
+                    <img id="loader-gif" alt="loading" src="<?php bloginfo('template_directory');?>/images/loading_spinner.gif"/>
                     </button> <!-- #load-more --> <?php
                 } ?>
 
