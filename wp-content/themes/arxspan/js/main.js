@@ -11,7 +11,7 @@ import imageSlider from './Image-Slider.js';
 import newsEventQuery from './Post-Loader.js';
 import animations from './animations.js';
 import swapSVG from './Swap-SVG.js';
-import { styledSelect, defaultForm } from './Forms.js';
+import { contactForm, styledSelect } from './Forms.js';
 
 var mainHeader = new MainHeader();
 var mainNav = new MainNav();
@@ -78,8 +78,9 @@ function setupForms() {
     if(forms.length) {
         var formsArr = [];
         for(var i = 0; i < forms.length; i++) {
-            formsArr[i] = new defaultForm(forms[i]);
+            formsArr[i] = new contactForm(forms[i]);
         }
+        console.log(formsArr);
     }
 }
 
