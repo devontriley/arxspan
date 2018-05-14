@@ -116,7 +116,7 @@ if($postGrid){ ?>
                         <div class="inner">
                             <?php if($gridTitle == 'Marketing Flyers') { ?>
 
-                                <a class="post-link" href="<?php get_field('pdf_download', $whitepaperPost->ID); ?>" target="_blank"></a>
+                                <a class="post-link" href="<?php the_field('pdf_download', $whitepaperPost->ID); ?>" target="_blank"></a>
 
                             <?php } else { ?>
 
