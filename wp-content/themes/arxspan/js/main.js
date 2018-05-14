@@ -27,9 +27,11 @@ window.addEventListener('resize', function(e) {
 /*
  * AJAX (news and events)
  */
-var loadMoreBtn = document.getElementById('load-more');
-if(loadMoreBtn != null){
-    var newsEventsAjax = new newsEventQuery();
+function setupAjaxPosts() {
+    var loadMoreBtn = document.getElementById('load-more');
+    if(loadMoreBtn != null){
+        var newsEventsAjax = new newsEventQuery();
+    }
 }
 
 /*
@@ -102,10 +104,6 @@ function setupTabModules() {
  * Swap SVG backgrounds
  */
 var swapSVGBG = new swapSVG();
-
-/*
- * Loading SVG backgrounds
- */
 
 
 domReady(function() {
@@ -193,6 +191,7 @@ domReady(function() {
         setupForms();
         setupStyledSelects();
         setupPostSliders();
+        setupAjaxPosts();
     });
 
     Barba.Pjax.init();

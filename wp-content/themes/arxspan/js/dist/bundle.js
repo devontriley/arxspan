@@ -1953,9 +1953,11 @@ window.addEventListener('resize', function (e) {
 /*
  * AJAX (news and events)
  */
-var loadMoreBtn = document.getElementById('load-more');
-if (loadMoreBtn != null) {
-    var newsEventsAjax = new _PostLoader2.default();
+function setupAjaxPosts() {
+    var loadMoreBtn = document.getElementById('load-more');
+    if (loadMoreBtn != null) {
+        var newsEventsAjax = new _PostLoader2.default();
+    }
 }
 
 /*
@@ -2028,10 +2030,6 @@ function setupTabModules() {
  * Swap SVG backgrounds
  */
 var swapSVGBG = new _SwapSVG2.default();
-
-/*
- * Loading SVG backgrounds
- */
 
 (0, _domready2.default)(function () {
 
@@ -2116,6 +2114,7 @@ var swapSVGBG = new _SwapSVG2.default();
         setupForms();
         setupStyledSelects();
         setupPostSliders();
+        setupAjaxPosts();
     });
 
     _barba2.default.Pjax.init();
