@@ -2009,7 +2009,6 @@ function setupForms() {
         for (var i = 0; i < forms.length; i++) {
             formsArr[i] = new _Forms.contactForm(forms[i]);
         }
-        console.log(formsArr);
     }
 }
 
@@ -2108,14 +2107,16 @@ var swapSVGBG = new _SwapSVG2.default();
     });
 
     _barba2.default.Dispatcher.on('newPageReady', function () {
-        // We can add anything for the new page here
-        console.log('new page');
+        // console.log(document.querySelectorAll('ul.slider'));
         setupTabModules();
-        setupImageSliders();
         setupForms();
         setupStyledSelects();
         setupPostSliders();
         setupAjaxPosts();
+    });
+
+    _barba2.default.Dispatcher.on('transitionCompleted', function () {
+        setupImageSliders();
     });
 
     _barba2.default.Pjax.init();
@@ -25361,7 +25362,6 @@ var imageSlider = function () {
     function imageSlider(ele) {
         _classCallCheck(this, imageSlider);
 
-        console.log(ele);
         this.sliderWrapper = ele;
         this.ul = this.sliderWrapper.querySelector('ul.slider');
         this.lis = this.ul.querySelectorAll('li');
