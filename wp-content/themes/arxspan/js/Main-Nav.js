@@ -1,8 +1,6 @@
 import Barba from 'barba.js';
 import { getSiblings, isChildOf } from "./helpers";
 
-// TODO: Display dropdown on focus?
-
 export class MainNav {
     constructor() {
         this.nav = document.querySelector('#main-nav ul');
@@ -16,12 +14,14 @@ export class MainNav {
         }.bind(this)
 
         this.nav.addEventListener('click', clickEvent, false);
+
+        // TODO: Display dropdown on focus?
         // this.nav.addEventListener('focus', clickEvent, false);
 
         document.body.addEventListener('click', function(e) {
             var target = e.target;
 
-            if(!target.classList.contains('dropdown-toggle') && !isChildOf(target, 'dropdown-menu') && this.activeDropdown ) {
+            if(!target.classList.contains('dropdown-toggle') && !isChildOf(target, 'dropdown-menu') && this.activeDropdown) {
                 this.closeDropdown();
                 this.activeDropdown = undefined;
             }
@@ -40,26 +40,37 @@ export class MainNav {
     }
 
     clickHandler(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
         var target = event.target;
+        var currentNode = target;
 
-        // Toggle dropdown
-        if(target.classList.contains('dropdown-toggle')) {
-            this.toggleDropdown(target);
+        while(currentNode.parentNode && currentNode.parentNode.id != 'main-nav') {
+
+            // Clicking inside dropdown
+            if(currentNode.tagName.toLowerCase() == 'a') {
+                // Close current active dropdown
+                this.closeDropdown();
+                this.MobileNavToggle('close');
+                Barba.Pjax.goTo(currentNode.href);
+                break;
+            }
+
+            // Clicking dropdown
+            if(currentNode.classList.contains('dropdown')) {
+                this.toggleDropdown(currentNode);
+                break;
+            }
+
+            currentNode = currentNode.parentNode;
         }
 
-        // Navigate to url
-        if(isChildOf(target, 'dropdown-menu') && target.tagName.toLowerCase() == 'a') {
-            event.preventDefault();
-            this.closeDropdown();
-            this.activeDropdown = undefined;
-            this.MobileNavToggle('close');
-            Barba.Pjax.goTo(target.href);
-        }
     }
 
     toggleDropdown(target) {
+        // Close current active dropdown
         if(this.activeDropdown) {
-            // Close current active dropdown
             this.closeDropdown();
         }
         // Open when we're not clicking on currently open dropdown
@@ -72,12 +83,15 @@ export class MainNav {
     }
 
     closeDropdown() {
-        this.activeDropdown.parentNode.classList.remove('active');
+        if(this.activeDropdown != undefined) {
+            this.activeDropdown.classList.remove('active');
+            this.activeDropdown = undefined;
+        }
     }
 
     openDropdown(target) {
         this.activeDropdown = target;
-        this.activeDropdown.parentNode.classList.add('active');
+        this.activeDropdown.classList.add('active');
     }
 
      MobileNavToggle(close) {

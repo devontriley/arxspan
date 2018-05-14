@@ -189,14 +189,17 @@
 
           .nav-arrow {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
+            top: 3rem;
             right: 0;
             width: 1.6rem;
             margin: 0 .25rem;
             fill: $blue;
             @include text-fade-hover(fill);
             cursor: pointer;
+            @media(min-width: 768px) {
+              top: 50%;
+              transform: translateY(-50%);
+            }
           }
 
           ul.dropdown-menu {
