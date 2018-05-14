@@ -2,6 +2,7 @@ import { getElIndex, getElementContentWidth } from './helpers.js';
 
 class imageSlider {
     constructor(ele) {
+        console.log(ele);
         this.sliderWrapper = ele;
         this.ul = this.sliderWrapper.querySelector('ul.slider');
         this.lis = this.ul.querySelectorAll('li');

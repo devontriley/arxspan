@@ -37,7 +37,6 @@ function setupAjaxPosts() {
 /*
  * Image Sliders
  */
-
 function setupImageSliders() {
     var imageSliders = document.querySelectorAll('.slider-wrapper');
     if(imageSliders != null) {
@@ -187,6 +186,7 @@ domReady(function() {
 
     Barba.Dispatcher.on('newPageReady', function() {
         // We can add anything for the new page here
+        console.log('new page');
         setupTabModules();
         setupImageSliders();
         setupForms();

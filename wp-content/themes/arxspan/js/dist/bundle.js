@@ -1963,7 +1963,6 @@ function setupAjaxPosts() {
 /*
  * Image Sliders
  */
-
 function setupImageSliders() {
     var imageSliders = document.querySelectorAll('.slider-wrapper');
     if (imageSliders != null) {
@@ -2110,6 +2109,7 @@ var swapSVGBG = new _SwapSVG2.default();
 
     _barba2.default.Dispatcher.on('newPageReady', function () {
         // We can add anything for the new page here
+        console.log('new page');
         setupTabModules();
         setupImageSliders();
         setupForms();
@@ -25361,6 +25361,7 @@ var imageSlider = function () {
     function imageSlider(ele) {
         _classCallCheck(this, imageSlider);
 
+        console.log(ele);
         this.sliderWrapper = ele;
         this.ul = this.sliderWrapper.querySelector('ul.slider');
         this.lis = this.ul.querySelectorAll('li');
