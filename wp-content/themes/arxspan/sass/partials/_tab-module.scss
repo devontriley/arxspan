@@ -43,6 +43,8 @@
       .icon {
         display: none;
         text-align: center;
+        height: 14rem;
+        line-height: 14rem;
 
         &.active {
           display: block;
@@ -51,6 +53,8 @@
         img {
           max-width: 75%;
           width: auto;
+          display: inline-block;
+          vertical-align: bottom;
         }
       }
     }
