@@ -25036,8 +25036,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-// TODO: Display dropdown on focus?
-
 var MainNav = exports.MainNav = function () {
     function MainNav() {
         _classCallCheck(this, MainNav);
@@ -25053,6 +25051,8 @@ var MainNav = exports.MainNav = function () {
         }.bind(this);
 
         this.nav.addEventListener('click', clickEvent, false);
+
+        // TODO: Display dropdown on focus?
         // this.nav.addEventListener('focus', clickEvent, false);
 
         document.body.addEventListener('click', function (e) {
@@ -25079,27 +25079,37 @@ var MainNav = exports.MainNav = function () {
     _createClass(MainNav, [{
         key: 'clickHandler',
         value: function clickHandler(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
             var target = event.target;
+            var currentNode = target;
 
-            // Toggle dropdown
-            if (target.classList.contains('dropdown-toggle')) {
-                this.toggleDropdown(target);
-            }
+            while (currentNode.parentNode && currentNode.parentNode.id != 'main-nav') {
 
-            // Navigate to url
-            if ((0, _helpers.isChildOf)(target, 'dropdown-menu') && target.tagName.toLowerCase() == 'a') {
-                event.preventDefault();
-                this.closeDropdown();
-                this.activeDropdown = undefined;
-                this.MobileNavToggle('close');
-                _barba2.default.Pjax.goTo(target.href);
+                // Clicking inside dropdown
+                if (currentNode.tagName.toLowerCase() == 'a') {
+                    // Close current active dropdown
+                    this.closeDropdown();
+                    this.MobileNavToggle('close');
+                    _barba2.default.Pjax.goTo(currentNode.href);
+                    break;
+                }
+
+                // Clicking dropdown
+                if (currentNode.classList.contains('dropdown')) {
+                    this.toggleDropdown(currentNode);
+                    break;
+                }
+
+                currentNode = currentNode.parentNode;
             }
         }
     }, {
         key: 'toggleDropdown',
         value: function toggleDropdown(target) {
+            // Close current active dropdown
             if (this.activeDropdown) {
-                // Close current active dropdown
                 this.closeDropdown();
             }
             // Open when we're not clicking on currently open dropdown
@@ -25113,13 +25123,16 @@ var MainNav = exports.MainNav = function () {
     }, {
         key: 'closeDropdown',
         value: function closeDropdown() {
-            this.activeDropdown.parentNode.classList.remove('active');
+            if (this.activeDropdown != undefined) {
+                this.activeDropdown.classList.remove('active');
+                this.activeDropdown = undefined;
+            }
         }
     }, {
         key: 'openDropdown',
         value: function openDropdown(target) {
             this.activeDropdown = target;
-            this.activeDropdown.parentNode.classList.add('active');
+            this.activeDropdown.classList.add('active');
         }
     }, {
         key: 'MobileNavToggle',
