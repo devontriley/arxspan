@@ -191,6 +191,7 @@
           }
 
           &:after {
+            // prevent double line
             display: none;
           }
         }
