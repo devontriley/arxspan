@@ -114,7 +114,16 @@ if($postGrid){ ?>
                 foreach($whitepapers as $whitepaperPost){ ?>
                     <div class="post-container">
                         <div class="inner">
-                            <a class="post-link" href="<?php echo get_permalink($whitepaperPost->ID); ?>"></a>
+                            <?php if($gridTitle == 'Marketing Flyers') { ?>
+
+                                <a class="post-link" href="<?php get_field('pdf_download'); ?>" target="_blank"></a>
+
+                            <?php } else { ?>
+
+                                <a class="post-link" href="<?php echo get_permalink($whitepaperPost->ID); ?>"></a>
+
+                            <?php } ?>
+
                             <div class="top">
                                 <svg class="circle" viewBox="0 0 200 200">
                                       <circle cx="100" cy="100" r="100"/>
