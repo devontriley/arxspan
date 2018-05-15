@@ -25801,6 +25801,7 @@ var contactForm = function () {
 
         this.form = form;
         this.fields = form.querySelectorAll('.field');
+        this.hiddenFields = form.querySelectorAll('input[type=hidden]');
         this.fieldsArr = [];
         this.errors = false;
         this.success = this.form.querySelector('.form-success');
@@ -25811,12 +25812,9 @@ var contactForm = function () {
             'email': 'Enter a valid email address',
             'invalid': 'invalid characters',
             'human': 'incorrect'
-        };
 
-        console.log(form.querySelectorAll('input'));
-
-        // Add active class to label on focus
-        this.form.addEventListener('focusin', function (e) {
+            // Add active class to label on focus
+        };this.form.addEventListener('focusin', function (e) {
             var label = e.target.previousElementSibling;
             if (label) label.classList.add('active');
         });
@@ -25856,7 +25854,6 @@ var contactForm = function () {
 
         form.addEventListener('submit', function (evt) {
             evt.preventDefault();
-            console.log('submit');
             this.clearErrors();
             this.validateForm();
         }.bind(this));
@@ -25877,7 +25874,6 @@ var contactForm = function () {
     }, {
         key: 'validateForm',
         value: function validateForm() {
-            console.log('validate');
             for (var i = 0; i < this.fieldsArr.length; i++) {
                 var input = this.fieldsArr[i].input,
                     value = input.value,
@@ -25958,7 +25954,12 @@ var contactForm = function () {
                 'action': 'contact_form_submit'
             };
 
-            console.log('submit');
+            for (var i = 0; i < this.hiddenFields.length; i++) {
+                var name = this.hiddenFields[i].name,
+                    value = this.hiddenFields[i].value;
+
+                if (name) data[name] = value;
+            }
 
             for (var i = 0; i < this.fieldsArr.length; i++) {
                 var name = this.fieldsArr[i].name,
