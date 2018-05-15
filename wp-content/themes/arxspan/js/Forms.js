@@ -16,11 +16,8 @@ class contactForm {
             'human': 'incorrect'
         }
 
-        if(this.fields.length) {
-            for(var i = 0; i < this.fields.length; i++) {
+        console.log(form.querySelectorAll('input'));
 
-            }
-        }
         // Add active class to label on focus
         this.form.addEventListener('focusin', function(e) {
             var label = e.target.previousElementSibling;
