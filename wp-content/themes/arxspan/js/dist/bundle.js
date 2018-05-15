@@ -25396,6 +25396,7 @@ var imageSlider = function () {
         this.gestureZone = this.ul;
 
         this.gestureZone.addEventListener('touchstart', function (event) {
+            event.preventDefault();
             this.touchstartX = event.changedTouches[0].screenX;
             this.touchstartY = event.changedTouches[0].screenY;
         }.bind(this), false);
@@ -25423,6 +25424,7 @@ var imageSlider = function () {
         key: 'handleGesture',
         value: function handleGesture() {
             var direction;
+            var distance = this.touchstartX - this.touchendX;
 
             if (this.touchendX <= this.touchstartX) {
                 direction = 'left';
@@ -25432,7 +25434,7 @@ var imageSlider = function () {
                 direction = 'right';
             }
 
-            this.swipeSlide(direction);
+            this.swipeSlide(direction, distance);
 
             // if (this.touchendY <= this.touchstartY) {
             //     console.log('Swiped up');
@@ -25491,13 +25493,17 @@ var imageSlider = function () {
         }
     }, {
         key: 'swipeSlide',
-        value: function swipeSlide(direction) {
-            if (direction == 'left' && this.currentSlide != this.lis.length - 1) {
-                this.setUlPosition(this.currentSlide + 1);
-            }
+        value: function swipeSlide(direction, distance) {
+            console.log(Math.abs(distance));
 
-            if (direction == 'right' && this.currentSlide != 0) {
-                this.setUlPosition(this.currentSlide - 1);
+            if (Math.abs(distance) >= 100) {
+                if (direction == 'left' && this.currentSlide != this.lis.length - 1) {
+                    this.setUlPosition(this.currentSlide + 1);
+                }
+
+                if (direction == 'right' && this.currentSlide != 0) {
+                    this.setUlPosition(this.currentSlide - 1);
+                }
             }
         }
     }, {
