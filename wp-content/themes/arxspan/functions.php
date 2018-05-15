@@ -55,6 +55,19 @@ function cc_mime_types($mimes) {
 }
 add_filter('upload_mimes', 'cc_mime_types');
 
+// add special class to products nav item
+function my_special_nav_class( $classes, $item ) {
+
+    if ( $item->title == 'Products' ) {
+        $classes[] = 'highlight';
+    }
+
+    return $classes;
+
+}
+
+add_filter( 'nav_menu_css_class', 'my_special_nav_class', 10, 2 );
+
 // allow excerpt pulling from advanced custom fields
 
 function advanced_custom_field_excerpt($text) {
@@ -73,6 +86,19 @@ function advanced_custom_field_excerpt($text) {
 
 //Add this line in your template
 //echo advanced_custom_field_excerpt();
+
+
+//OPTIMIZATION
+
+// remove wp-embed.min.js
+function my_deregister_scripts(){
+    wp_deregister_script( 'wp-embed' );
+}
+add_action( 'wp_footer', 'my_deregister_scripts' );
+
+// remove wp-emoji-release.min.js
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
 
 // BUTTON FUNCTION
 function button($buttonLabel, $buttonUrl){ // placeholders, can change name if want, sequence matters more
