@@ -165,6 +165,8 @@ class contactForm {
             if(name) data[name] = value;
         }
 
+        console.log(data);
+
         this.submit.innerText = 'Loading';
 
         var xhr = new XMLHttpRequest();
