@@ -260,5 +260,23 @@
       }
     }
   }
+
+  &.support {
+    h3 {
+      margin: 3rem 0;
+
+      &:after {
+        content: "";
+        display: block;
+        height: .1rem;
+        background-color: $textGrey;
+        margin: 2rem 0;
+      }
+    }
+
+    ul {
+      margin: 1em;
+    }
+  }
 }
 

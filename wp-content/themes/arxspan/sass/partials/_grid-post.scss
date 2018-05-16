@@ -208,9 +208,13 @@
           background-color: #fff;
           padding: 3rem;
           box-sizing: border-box;
-          display: flex;
+          display: block;
           border-bottom: .3rem solid $blue;
           box-shadow: 5px 10px 20px 0 rgba(230,230,230,0.5);
+          -webkit-text-size-adjust: 100%;
+          @media screen and (min-width: 768px){
+            display: flex;
+          }
 
           &:hover {
             transform: translateY(0);
@@ -223,6 +227,10 @@
               }
               .btn-wrapper .btn {
                 background-color: $pink;
+
+                svg {
+                  opacity: 1;
+                }
               }
             }
           }
@@ -253,12 +261,33 @@
             }
 
             .btn {
-              background-color: $blue;
-              padding-right: 0;
+              padding: 1rem 2rem;
+              border-radius: 5px;
+              font-size: 1.8rem;
+              color: #fff;
+              border: none;
+              text-decoration: none;
+              display: inline-block;
               transition: all ease 200ms;
+              position: relative;
+              background-color: $blue;
+              @media screen and (min-width: 768px){
+                padding: 1.5rem 2rem;
+                font-size: 2rem;
+              }
+
+              &:active, :focus {
+                outline: none;
+              }
 
               svg {
-                display: none;
+                display: block;
+                opacity: 0;
+                right: 1.5rem;
+              }
+
+              &:hover {
+                background: $pink;
               }
             }
           }
@@ -294,6 +323,7 @@
         span {
           display: block;
           padding-right: 0;
+          font-family: "effra", Helvetica, Arial, sans-serif;
         }
 
         #loader-gif {
