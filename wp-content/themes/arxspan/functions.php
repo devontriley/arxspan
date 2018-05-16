@@ -56,7 +56,6 @@ function cc_mime_types($mimes) {
 add_filter('upload_mimes', 'cc_mime_types');
 
 // allow excerpt pulling from advanced custom fields
-
 function advanced_custom_field_excerpt($text) {
     global $post;
 //	$text = get_field('your_field_name');
@@ -89,7 +88,14 @@ function button($buttonLabel, $buttonUrl){ // placeholders, can change name if w
     echo $html;
 }
 
-// SHORTCODE
+// Wrap registration mark in <sup>
+add_filter( 'acf/load_value', 'wrapRegistration', 10, 4 );
+function wrapRegistration($content) {
+    $patt = '/(®)/';
+    $content = preg_replace($patt, '<sup>®</sup>', $content);
+
+    return $content;
+}
 
 add_filter( 'acf/load_value/type=wysiwyg', 'remove_shortcode_p', 10, 3 );
 function remove_shortcode_p( $value, $post_id, $field ) {
@@ -100,8 +106,9 @@ function remove_shortcode_p( $value, $post_id, $field ) {
     return $content;
 }
 
-// wysiwyg cols shortcode
+// SHORTCODE
 
+// wysiwyg cols shortcode
 function row($params, $content = null) {
 
     extract(shortcode_atts(array(
