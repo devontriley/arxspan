@@ -9,6 +9,7 @@
             </section>
             <aside>
                 <form id="contact-form" data-form="whitepaper" data-download="<?php the_field('pdf_download'); ?>" class="default-form" novalidate>
+                    <input type="hidden" name="whitepaper" value="<?php the_title(); ?>" />
                     <div class="fields">
                         <div class="field">
                             <label>First Name:*</label>
