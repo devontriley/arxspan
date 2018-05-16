@@ -87,6 +87,20 @@ function advanced_custom_field_excerpt($text) {
 //Add this line in your template
 //echo advanced_custom_field_excerpt();
 
+// remove default wysiwyg
+function remove_editor() {
+    remove_post_type_support('page', 'editor');
+    remove_post_type_support('product', 'editor');
+    remove_post_type_support('industry', 'editor');
+    remove_post_type_support('solution', 'editor');
+    remove_post_type_support('event', 'editor');
+    remove_post_type_support('career', 'editor');
+    remove_post_type_support('news', 'editor');
+    remove_post_type_support('whitepaper', 'editor');
+    remove_post_type_support('mktflyer', 'editor');
+}
+add_action('admin_init', 'remove_editor');
+
 
 //OPTIMIZATION
 
