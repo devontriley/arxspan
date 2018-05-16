@@ -130,6 +130,7 @@ function button($buttonLabel, $buttonUrl){ // placeholders, can change name if w
 
 // Wrap registration mark in <sup>
 add_filter( 'acf/load_value', 'wrapRegistration', 10, 4 );
+add_filter( 'the_title', 'wrapRegistration', 10, 4 );
 function wrapRegistration($content) {
     $patt = '/(®)/';
     $content = preg_replace($patt, '<sup>®</sup>', $content);

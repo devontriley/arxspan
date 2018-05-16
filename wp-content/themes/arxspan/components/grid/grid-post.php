@@ -136,7 +136,7 @@ if($postGrid){ ?>
 
                             <?php if($whitepaperPost->post_title) { ?>
                                 <p class="title">
-                                    <?php echo $whitepaperPost->post_title; ?>
+                                    <?php echo wrapRegistration($whitepaperPost->post_title); ?>
                                 </p> <?php
                             } ?>
 
