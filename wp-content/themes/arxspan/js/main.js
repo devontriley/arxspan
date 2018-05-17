@@ -8,6 +8,7 @@ import MainNav from './Main-Nav.js';
 import tabModule from './Tab-Module.js';
 import postSlider from './Post-Slider.js';
 import imageSlider from './Image-Slider.js';
+import scrollToTop from './Scroll-To-Top.js';
 import newsEventQuery from './Post-Loader.js';
 import animations from './animations.js';
 import swapSVG from './Swap-SVG.js';
@@ -31,6 +32,17 @@ function setupAjaxPosts() {
     var loadMoreBtn = document.getElementById('load-more');
     if(loadMoreBtn != null) {
         var newsEventsAjax = new newsEventQuery();
+    }
+}
+
+/*
+ * Image Sliders
+ */
+
+function setupScrollToTop() {
+    var scrollToTopBtn = document.getElementById('scroll-to-top');
+    if(scrollToTopBtn != null) {
+        var btn = new scrollToTop(scrollToTopBtn);
     }
 }
 
@@ -190,6 +202,7 @@ domReady(function() {
         setupStyledSelects();
         setupPostSliders();
         setupAjaxPosts();
+        setupScrollToTop();
     });
 
     Barba.Dispatcher.on('transitionCompleted', function() {

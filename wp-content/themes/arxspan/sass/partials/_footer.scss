@@ -29,6 +29,39 @@
       }
     }
 
+    #scroll-to-top {
+      position: relative;
+      flex: 0 0 100%;
+      padding-bottom: 2rem;
+      height: auto;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: .3rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      color: $blue;
+      @media screen and (min-width: 768px){
+        bottom: 30rem;
+        right: 0;
+        position: fixed;
+        transform: rotate(-90deg);
+        padding-bottom: 0;
+      }
+
+      svg {
+        position: absolute;
+        width: .8rem;
+        transform: rotate(-90deg);
+        fill: $pink;
+        margin: 0 .5rem;
+        @media screen and (min-width: 768px){
+          top: 50%;
+          transform: translateY(-50%) rotate(0deg);
+        }
+      }
+    }
+
     .legal {
       margin: 2rem 0;
 

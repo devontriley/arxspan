@@ -10,6 +10,8 @@
             </svg>
         </div><!-- .logo -->
 
+        <div id="scroll-to-top">To Top<svg viewBox="0 0 10 16"><use xlink:href="#button-arrow"></use></svg></div>
+
         <div class="contact">
             <ul>
                 <li class="title">Contact & Address</li>

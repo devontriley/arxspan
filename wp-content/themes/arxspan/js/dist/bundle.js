@@ -83,6 +83,8 @@ exports.getScrollOffset = getScrollOffset;
 exports.getViewportHeight = getViewportHeight;
 exports.isChildOf = isChildOf;
 exports.wrapEle = wrapEle;
+exports.getScrollPosition = getScrollPosition;
+exports.scrollTo = scrollTo;
 // Get element index
 function getElIndex(el) {
     for (var i = 0; el = el.previousElementSibling; i++) {}
@@ -157,6 +159,65 @@ function wrapEle(ele, wrapper, className) {
     wrapper.classList.add(className);
 
     return wrapper;
+}
+
+// get scroll position
+function getScrollPosition() {
+    var doc = document.documentElement;
+    return (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+}
+
+// easing functions http://goo.gl/5HLl8
+Math.easeInOutQuad = function (t, b, c, d) {
+    t /= d / 2;
+    if (t < 1) {
+        return c / 2 * t * t + b;
+    }
+    t--;
+    return -c / 2 * (t * (t - 2) - 1) + b;
+};
+
+// requestAnimationFrame for Smart Animating http://goo.gl/sx5sts
+var requestAnimFrame = function () {
+    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {
+        window.setTimeout(callback, 1000 / 60);
+    };
+}();
+
+// scroll to a certain point
+function scrollTo(to, callback, duration) {
+
+    function move(amount) {
+        document.documentElement.scrollTop = amount;
+        document.body.parentNode.scrollTop = amount;
+        document.body.scrollTop = amount;
+    }
+    function position() {
+        return document.documentElement.scrollTop || document.body.parentNode.scrollTop || document.body.scrollTop;
+    }
+    var start = position(),
+        change = to - start,
+        currentTime = 0,
+        increment = 20;
+    duration = typeof duration === 'undefined' ? 500 : duration;
+    var animateScroll = function animateScroll() {
+        // increment the time
+        currentTime += increment;
+        // find the value with the quadratic in-out easing function
+        var val = Math.easeInOutQuad(currentTime, start, change, duration); // change to make duration based on distance
+        // move the document.body
+        move(val);
+        // do the animation unless its over
+        if (currentTime < duration) {
+            requestAnimFrame(animateScroll);
+        } else {
+            if (callback && typeof callback === 'function') {
+                // the animation is done so lets callback
+                callback();
+            }
+        }
+    };
+    animateScroll();
 }
 
 /***/ }),
@@ -1921,19 +1982,23 @@ var _ImageSlider = __webpack_require__(12);
 
 var _ImageSlider2 = _interopRequireDefault(_ImageSlider);
 
-var _PostLoader = __webpack_require__(13);
+var _ScrollToTop = __webpack_require__(13);
+
+var _ScrollToTop2 = _interopRequireDefault(_ScrollToTop);
+
+var _PostLoader = __webpack_require__(14);
 
 var _PostLoader2 = _interopRequireDefault(_PostLoader);
 
-var _animations = __webpack_require__(14);
+var _animations = __webpack_require__(15);
 
 var _animations2 = _interopRequireDefault(_animations);
 
-var _SwapSVG = __webpack_require__(15);
+var _SwapSVG = __webpack_require__(16);
 
 var _SwapSVG2 = _interopRequireDefault(_SwapSVG);
 
-var _Forms = __webpack_require__(16);
+var _Forms = __webpack_require__(17);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1957,6 +2022,17 @@ function setupAjaxPosts() {
     var loadMoreBtn = document.getElementById('load-more');
     if (loadMoreBtn != null) {
         var newsEventsAjax = new _PostLoader2.default();
+    }
+}
+
+/*
+ * Image Sliders
+ */
+
+function setupScrollToTop() {
+    var scrollToTopBtn = document.getElementById('scroll-to-top');
+    if (scrollToTopBtn != null) {
+        var btn = new _ScrollToTop2.default(scrollToTopBtn);
     }
 }
 
@@ -2113,6 +2189,7 @@ var swapSVGBG = new _SwapSVG2.default();
         setupStyledSelects();
         setupPostSliders();
         setupAjaxPosts();
+        setupScrollToTop();
     });
 
     _barba2.default.Dispatcher.on('transitionCompleted', function () {
@@ -25552,6 +25629,35 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _helpers = __webpack_require__(0);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var scrollToTop = function scrollToTop() {
+    _classCallCheck(this, scrollToTop);
+
+    this.scrollTopButton = document.getElementById('scroll-to-top');
+
+    if (this.scrollTopButton) {
+        this.scrollTopButton.addEventListener('click', function (e) {
+            (0, _helpers.scrollTo)(0, function () {}, 1500);
+        }.bind(this));
+    }
+};
+
+exports.default = scrollToTop;
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25623,7 +25729,7 @@ var newsEventQuery = function () {
 exports.default = newsEventQuery;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25705,7 +25811,7 @@ var animations = function () {
 var animationInstance = new animations();
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25778,7 +25884,7 @@ var swapSVG = function () {
 exports.default = swapSVG;
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
