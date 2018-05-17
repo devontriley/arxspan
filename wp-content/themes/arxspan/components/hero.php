@@ -36,7 +36,7 @@ $introCopy = get_sub_field('intro_copy');
             }
 
             if($heroSubheader){ ?>
-                <p class="subheader"><?php echo $heroSubheader ?></p> <?php
+                <p class="subheader <?php if(is_singular('industry')){ echo ' industry';}?>"><?php echo $heroSubheader ?></p> <?php
             }
 
             if($ctaOption){
