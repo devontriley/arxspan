@@ -202,11 +202,11 @@ domReady(function() {
         setupStyledSelects();
         setupPostSliders();
         setupAjaxPosts();
-        setupScrollToTop();
     });
 
     Barba.Dispatcher.on('transitionCompleted', function() {
         setupImageSliders();
+        setupScrollToTop();
     });
 
     Barba.Pjax.init();

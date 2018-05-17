@@ -2189,11 +2189,11 @@ var swapSVGBG = new _SwapSVG2.default();
         setupStyledSelects();
         setupPostSliders();
         setupAjaxPosts();
-        setupScrollToTop();
     });
 
     _barba2.default.Dispatcher.on('transitionCompleted', function () {
         setupImageSliders();
+        setupScrollToTop();
     });
 
     _barba2.default.Pjax.init();
