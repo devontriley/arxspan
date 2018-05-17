@@ -41,12 +41,21 @@
       font-weight: bold;
       cursor: pointer;
       color: $blue;
+      transition: all ease 400ms;
+      opacity: 0;
       @media screen and (min-width: 768px){
         bottom: 30rem;
         right: 0;
         position: fixed;
         transform: rotate(-90deg);
         padding-bottom: 0;
+      }
+
+      &.active {
+        opacity: 1;
+        @media screen and (min-width: 768px){
+          bottom: 32rem;
+        }
       }
 
       svg {
