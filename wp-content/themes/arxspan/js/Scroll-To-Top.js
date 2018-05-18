@@ -15,7 +15,7 @@ class scrollToTop {
         this.interval = setInterval(function(){
             this.currentScroll = getScrollPosition();
 
-            // show if 50% scroll or greater
+            // show if 33% scroll or greater
             if (this.currentScroll >= thirdHeight){
                 this.scrollTopButton.classList.add('active');
             }
