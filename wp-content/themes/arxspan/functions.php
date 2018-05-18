@@ -102,13 +102,13 @@ add_action('admin_init', 'remove_editor');
 
 
 // prevent wp from adding inline dimensions to images
-add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
-add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 );
-
-function remove_thumbnail_dimensions( $html ) {
-    $html = preg_replace( '\(max-width:\s\d*px\)', "", $html );
-    return $html;
-}
+//add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
+//add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 );
+//
+//function remove_thumbnail_dimensions( $html ) {
+//    $html = preg_replace( '\(max-width:\s\d*px\)', "", $html );
+//    return $html;
+//}
 
 
 //OPTIMIZATION
