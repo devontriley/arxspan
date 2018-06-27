@@ -25658,8 +25658,6 @@ var scrollToTop = function scrollToTop() {
         if (this.currentScroll < thirdHeight) {
             this.scrollTopButton.classList.remove('active');
         }
-
-        console.log(this.currentScroll);
     }.bind(this), 30);
 
     if (this.scrollTopButton) {
@@ -25942,9 +25940,11 @@ var contactForm = function () {
             'email': 'Enter a valid email address',
             'invalid': 'invalid characters',
             'human': 'incorrect'
+        };
+        this.userIP = {};
 
-            // Add active class to label on focus
-        };this.form.addEventListener('focusin', function (e) {
+        // Add active class to label on focus
+        this.form.addEventListener('focusin', function (e) {
             var label = e.target.previousElementSibling;
             if (label) label.classList.add('active');
         });
@@ -26051,7 +26051,7 @@ var contactForm = function () {
             }
 
             if (!this.errors) {
-                this.submitForm();
+                this.getUserIP();
             }
         }
     }, {
@@ -26078,10 +26078,32 @@ var contactForm = function () {
             return re.test(String(value).toLowerCase());
         }
     }, {
+        key: 'getUserIP',
+        value: function getUserIP() {
+            var request = new XMLHttpRequest();
+            request.open('GET', 'https://ipapi.co/json/', true);
+
+            request.onload = function () {
+                if (request.status >= 200 && request.status < 400) {
+                    // Success!
+                    var data = JSON.parse(request.responseText);
+                    this.userIP = data.ip;
+                } else {
+                    // We reached our target server, but it returned an error
+                }
+                this.submitForm();
+            }.bind(this);
+            request.onerror = function () {
+                // There was a connection error of some sort
+            }.bind(this);
+            request.send();
+        }
+    }, {
         key: 'submitForm',
         value: function submitForm() {
             var data = {
-                'action': 'contact_form_submit'
+                'action': 'contact_form_submit',
+                'userIP': this.userIP
             };
 
             for (var i = 0; i < this.hiddenFields.length; i++) {
@@ -26097,6 +26119,8 @@ var contactForm = function () {
 
                 if (name) data[name] = value;
             }
+
+            console.log(data);
 
             this.submit.innerText = 'Loading';
 

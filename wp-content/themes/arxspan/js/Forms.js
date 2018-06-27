@@ -16,6 +16,7 @@ class contactForm {
             'invalid': 'invalid characters',
             'human': 'incorrect'
         }
+        this.userIP = {};
 
         // Add active class to label on focus
         this.form.addEventListener('focusin', function(e) {
@@ -122,7 +123,7 @@ class contactForm {
         }
 
         if(!this.errors) {
-            this.submitForm();
+            this.getUserIP();
         }
     }
 
@@ -146,9 +147,30 @@ class contactForm {
         return re.test(String(value).toLowerCase());
     }
 
+    getUserIP() {
+        var request = new XMLHttpRequest();
+        request.open('GET', 'https://ipapi.co/json/', true);
+
+        request.onload = function() {
+            if (request.status >= 200 && request.status < 400) {
+                // Success!
+                var data = JSON.parse(request.responseText);
+                this.userIP = data.ip;
+            } else {
+                // We reached our target server, but it returned an error
+            }
+            this.submitForm();
+        }.bind(this);
+        request.onerror = function() {
+            // There was a connection error of some sort
+        }.bind(this);
+        request.send();
+    }
+
     submitForm() {
         var data = {
-            'action' : 'contact_form_submit'
+            'action' : 'contact_form_submit',
+            'userIP' : this.userIP
         }
 
         for(var i = 0; i < this.hiddenFields.length; i++) {
@@ -164,6 +186,8 @@ class contactForm {
 
             if(name) data[name] = value;
         }
+
+        console.log(data);
 
         this.submit.innerText = 'Loading';
 
