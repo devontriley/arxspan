@@ -24,8 +24,6 @@ class scrollToTop {
             if (this.currentScroll < thirdHeight) {
                     this.scrollTopButton.classList.remove('active');
                 }
-
-            console.log(this.currentScroll);
         }.bind(this), 30);
 
         if(this.scrollTopButton){

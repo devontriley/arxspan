@@ -74,6 +74,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.getElIndex = getElIndex;
+exports.extractHostname = extractHostname;
 exports.getElementContentWidth = getElementContentWidth;
 exports.getParameterByName = getParameterByName;
 exports.getChildren = getChildren;
@@ -89,6 +90,25 @@ exports.scrollTo = scrollTo;
 function getElIndex(el) {
     for (var i = 0; el = el.previousElementSibling; i++) {}
     return i;
+}
+
+// extract host name
+function extractHostname(url) {
+    var hostname;
+    //find & remove protocol (http, ftp, etc.) and get hostname
+
+    if (url.indexOf("://") > -1) {
+        hostname = url.split('/')[2];
+    } else {
+        hostname = url.split('/')[0];
+    }
+
+    //find & remove port number
+    hostname = hostname.split(':')[0];
+    //find & remove "?"
+    hostname = hostname.split('?')[0];
+
+    return hostname;
 }
 
 // Get element inner width without padding
@@ -25154,7 +25174,7 @@ var MainNav = exports.MainNav = function () {
     }
 
     _createClass(MainNav, [{
-        key: 'clickHandler',
+        key: "clickHandler",
         value: function clickHandler(event) {
             event.preventDefault();
             event.stopPropagation();
@@ -25169,8 +25189,19 @@ var MainNav = exports.MainNav = function () {
                     // Close current active dropdown
                     this.closeDropdown();
                     this.MobileNavToggle('close');
-                    _barba2.default.Pjax.goTo(currentNode.href);
-                    break;
+
+                    var $currentLink = currentNode.href;
+                    var $linkOrigin = window.location.origin;
+
+                    console.log((0, _helpers.extractHostname)($currentLink));
+                    console.log((0, _helpers.extractHostname)($linkOrigin));
+
+                    if ((0, _helpers.extractHostname)($currentLink) == (0, _helpers.extractHostname)($linkOrigin)) {
+                        _barba2.default.Pjax.goTo(currentNode.href);
+                        break;
+                    } else {
+                        window.location.href = currentNode.href;
+                    }
                 }
 
                 // Clicking dropdown
@@ -25183,7 +25214,7 @@ var MainNav = exports.MainNav = function () {
             }
         }
     }, {
-        key: 'toggleDropdown',
+        key: "toggleDropdown",
         value: function toggleDropdown(target) {
             // Close current active dropdown
             if (this.activeDropdown) {
@@ -25198,7 +25229,7 @@ var MainNav = exports.MainNav = function () {
             }
         }
     }, {
-        key: 'closeDropdown',
+        key: "closeDropdown",
         value: function closeDropdown() {
             if (this.activeDropdown != undefined) {
                 this.activeDropdown.classList.remove('active');
@@ -25206,13 +25237,13 @@ var MainNav = exports.MainNav = function () {
             }
         }
     }, {
-        key: 'openDropdown',
+        key: "openDropdown",
         value: function openDropdown(target) {
             this.activeDropdown = target;
             this.activeDropdown.classList.add('active');
         }
     }, {
-        key: 'MobileNavToggle',
+        key: "MobileNavToggle",
         value: function MobileNavToggle(close) {
             if (close == 'close') {
                 document.body.classList.remove('mobile-nav-active');
@@ -25658,8 +25689,6 @@ var scrollToTop = function scrollToTop() {
         if (this.currentScroll < thirdHeight) {
             this.scrollTopButton.classList.remove('active');
         }
-
-        console.log(this.currentScroll);
     }.bind(this), 30);
 
     if (this.scrollTopButton) {

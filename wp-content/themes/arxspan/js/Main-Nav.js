@@ -1,5 +1,6 @@
 import Barba from 'barba.js';
 import { getSiblings, isChildOf } from "./helpers";
+import { extractHostname } from "./helpers";
 
 export class MainNav {
     constructor() {
@@ -43,6 +44,7 @@ export class MainNav {
         event.preventDefault();
         event.stopPropagation();
 
+
         var target = event.target;
         var currentNode = target;
 
@@ -53,8 +55,20 @@ export class MainNav {
                 // Close current active dropdown
                 this.closeDropdown();
                 this.MobileNavToggle('close');
-                Barba.Pjax.goTo(currentNode.href);
-                break;
+
+
+                var $currentLink = currentNode.href;
+                var $linkOrigin = window.location.origin;
+
+                console.log(extractHostname($currentLink));
+                console.log(extractHostname($linkOrigin));
+
+                if(extractHostname($currentLink) == extractHostname($linkOrigin)){
+                    Barba.Pjax.goTo(currentNode.href);
+                    break;
+                } else {
+                    window.location.href = currentNode.href;
+                }
             }
 
             // Clicking dropdown
